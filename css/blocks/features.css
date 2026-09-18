@@ -31,8 +31,6 @@
   --features-sign-size: 44px;
   --features-title-ink: var(--ink);
   --features-text-ink: var(--ink-dim);
-  --features-text-size: 15px;
-  --features-text-lh: 23px;
 
   counter-reset: features;
 }
@@ -76,9 +74,7 @@
 }
 
 .features__text {
-  font: var(--text-body);
-  font-size: var(--features-text-size);
-  line-height: var(--features-text-lh);
+  font: var(--text-body); /* stessa misura in tutte le variazioni: su mobile le card sono identiche */
   color: var(--features-text-ink);
 }
 
@@ -119,8 +115,6 @@
 /* Inline: segno accanto al titolo, testo a piena larghezza sotto — per testi lunghi */
 .features--inline {
   --features-cols: 2;
-  --features-text-size: 16px;
-  --features-text-lh: 24px;
   --features-item-pad: var(--space-10) var(--space-10);
 }
 
