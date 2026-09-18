@@ -232,7 +232,7 @@ Visita il sito del provider per effettuare la pre-iscrizione e per garantirti un
 
 ## Organizzatori
 
-> Blocco: `people people--scroller` (griglia card con foto, nome, qualifica, descrizione; foto in `assets/img/people/`)
+> Blocco: `people people--scroller people--overlay` (le descrizioni complete restano in Relatori) (griglia card con foto, nome, qualifica, descrizione; foto in `assets/img/people/`)
 > Origine: sezione "Organizzatori" (foto 200×300: `nicolo-vitale2.jpg`, `congresso2023_marco_di_gesu`, `sce_luca_latini`, `Domenico-Romeo-nuovo-resized`, `congresso2023_valerio_amico`, `sce_claudio_secci`, `congresso2023_alberto-monello`, `congresso2023_andrea_reggiani`, `Vincenzo-Cosentino-nuovo-resized`)
 
 **Titolo sezione:** Organizzatori
