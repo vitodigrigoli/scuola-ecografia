@@ -1,0 +1,194 @@
+/* ==========================================================================
+   BLOCCO: faq
+   Domande frequenti ad accordion (riferimento: "Tutto quello che vuoi sapere prima di
+   iniziare" di Learnn — righe con bordo, chevron a destra, una aperta alla volta).
+
+   Struttura:
+     .faq (section)
+       .faq__inner
+         .section-head (colonna sinistra nella variante --split)
+         .faq__list
+           .faq__item (<details name="faq">)
+             .faq__question (<summary>) > .faq__question-text + .faq__chevron
+             .faq__answer > p, ul …
+
+   Variazioni:
+     .faq--split     intestazione a sinistra (sticky), lista a destra — desktop
+     .faq--cards     ogni voce in una card separata (default: lista con bordi)
+   Stati:
+     [open]          voce aperta (nativo)
+   Nota: <details name="faq"> rende l'apertura esclusiva nei browser moderni;
+   interpolate-size anima l'altezza dove supportato, altrove apre subito.
+   ========================================================================== */
+
+.faq {
+  --faq-gap: clamp(32px, 5vw, 80px);
+  --faq-item-bg: var(--surface-card);
+  --faq-item-border: var(--border);
+  --faq-item-radius: var(--radius-md);
+  --faq-item-pad-y: var(--space-6);
+  --faq-item-pad-x: var(--space-9);
+  --faq-question-ink: var(--ink);
+  --faq-answer-ink: var(--ink-dim);
+  --faq-chevron-ink: var(--ink-muted);
+
+  interpolate-size: allow-keywords;
+}
+
+.faq__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--faq-gap);
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* --- Voce --- */
+.faq__item {
+  border: 1px solid var(--faq-item-border);
+  border-radius: var(--faq-item-radius);
+  background: var(--faq-item-bg);
+  transition: border-color var(--duration) var(--ease);
+}
+
+.faq__item:hover,
+.faq__item[open] {
+  border-color: var(--border-strong);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--faq-item-pad-y) var(--faq-item-pad-x);
+  list-style: none;
+  cursor: pointer;
+  color: var(--faq-question-ink);
+  font: var(--text-card-title);
+  font-size: 17px;
+  text-wrap: balance;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: var(--faq-item-radius);
+}
+
+.faq__chevron {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  color: var(--faq-chevron-ink);
+  transition: transform var(--duration) var(--ease), color var(--duration) var(--ease), border-color var(--duration) var(--ease);
+}
+
+.faq__chevron .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.faq__item[open] .faq__chevron {
+  transform: rotate(180deg);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+/* --- Risposta --- */
+.faq__item::details-content {
+  height: 0;
+  overflow: clip;
+  transition: height var(--duration) var(--ease), content-visibility var(--duration) allow-discrete;
+}
+
+.faq__item[open]::details-content {
+  height: auto;
+}
+
+.faq__answer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0 var(--faq-item-pad-x) var(--faq-item-pad-y);
+  font: var(--text-body);
+  font-size: 15px;
+  color: var(--faq-answer-ink);
+}
+
+.faq__answer strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.faq__answer ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+  list-style: disc;
+}
+
+.faq__answer a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.faq__answer-note {
+  padding: var(--space-3) var(--space-4);
+  border-left: 2px solid var(--accent);
+  background: var(--accent-wash);
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.faq--cards {
+  --faq-item-radius: var(--radius-xl);
+}
+
+.faq--cards .faq__list {
+  gap: var(--space-4);
+}
+
+@media (min-width: 1000px) {
+  .faq--split .faq__inner {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+  }
+
+  .faq--split .section-head {
+    position: sticky;
+    top: calc(var(--space-12) + 64px);
+    margin-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .faq {
+    --faq-item-pad-y: var(--space-5);
+    --faq-item-pad-x: var(--space-5);
+  }
+
+  .faq__question {
+    font-size: 16px;
+  }
+}
