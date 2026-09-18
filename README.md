@@ -61,5 +61,6 @@ npx serve .
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
-| `objectives` `intro` `didattica` `percorso` `materiale` `booking-cta` `organizers` `people` `venues` `story` `testimonials` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
+| `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
+| `objectives` `intro` `didattica` `percorso` `materiale` `booking-cta` `organizers` `people` `venues` `story` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
 | `page-hero` `program` `speakers` `committee` | da fare | pagine interne |

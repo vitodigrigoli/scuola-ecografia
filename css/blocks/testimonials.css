@@ -1,0 +1,170 @@
+/* ==========================================================================
+   BLOCCO: testimonials
+   Recensioni dei partecipanti (riferimento: card recensione Learnn — fondo quasi
+   impercettibile, stelle, citazione, firma con avatar).
+
+   Struttura:
+     .testimonials (section)
+       .testimonials__grid
+         .testimonials__card …
+           .testimonials__rating > .icon × 5
+           .testimonials__quote
+           .testimonials__author
+             .testimonials__avatar (iniziali | <img>)
+             .testimonials__meta > .testimonials__name + .testimonials__role
+
+   Variazioni:
+     .testimonials--masonry   colonne a incastro, altezze libere (default)
+     .testimonials--grid      griglia regolare a righe
+     .testimonials--compact   citazioni più piccole
+   ========================================================================== */
+
+.testimonials {
+  --testimonials-cols: 3;
+  --testimonials-gap: var(--space-6);
+  --testimonials-card-bg: var(--surface-wash);
+  --testimonials-card-border: var(--border);
+  --testimonials-card-radius: var(--radius-lg);
+  --testimonials-card-pad: var(--space-8);
+  --testimonials-quote-size: 15px;
+  --testimonials-quote-lh: 24px;
+  --testimonials-star-ink: var(--rating-gold);
+  --testimonials-avatar-size: 40px;
+}
+
+.testimonials__grid {
+  columns: var(--testimonials-cols);
+  column-gap: var(--testimonials-gap);
+}
+
+/* --- Card --- */
+.testimonials__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0 0 var(--testimonials-gap); /* azzera il margine di default di <figure> */
+  padding: var(--testimonials-card-pad);
+  border: 1px solid var(--testimonials-card-border);
+  border-radius: var(--testimonials-card-radius);
+  background: var(--testimonials-card-bg);
+  break-inside: avoid;
+  transition: border-color var(--duration) var(--ease);
+}
+
+.testimonials__card:hover {
+  border-color: var(--border-strong);
+}
+
+.testimonials__rating {
+  display: flex;
+  gap: 2px;
+  color: var(--testimonials-star-ink);
+}
+
+.testimonials__rating .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.testimonials__quote {
+  margin: 0; /* azzera il rientro di default di <blockquote> */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font: var(--text-body);
+  font-size: var(--testimonials-quote-size);
+  line-height: var(--testimonials-quote-lh);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.testimonials__quote p {
+  margin: 0;
+}
+
+.testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.testimonials__avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--testimonials-avatar-size);
+  height: var(--testimonials-avatar-size);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--avatar-gradient-start), var(--avatar-gradient-end));
+  color: #fff;
+  font: var(--text-caption);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+}
+
+.testimonials__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonials__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.testimonials__name {
+  font: var(--text-caption);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.testimonials__role {
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.testimonials--grid .testimonials__grid {
+  columns: auto;
+  display: grid;
+  grid-template-columns: repeat(var(--testimonials-cols), minmax(0, 1fr));
+  gap: var(--testimonials-gap);
+}
+
+.testimonials--grid .testimonials__card {
+  margin: 0;
+}
+
+.testimonials--compact {
+  --testimonials-quote-size: 13px;
+  --testimonials-quote-lh: 18px;
+  --testimonials-card-pad: var(--space-4);
+  --testimonials-card-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .testimonials {
+    --testimonials-cols: 2;
+  }
+}
+
+@media (max-width: 639px) {
+  .testimonials {
+    --testimonials-cols: 1;
+    --testimonials-card-pad: var(--space-7);
+  }
+}
