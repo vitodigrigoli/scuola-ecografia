@@ -73,8 +73,7 @@
 }
 
 .features__text {
-  font: var(--text-body);
-  font-size: 15px;
+  font: var(--text-card-desc);
   color: var(--features-text-ink);
   text-wrap: pretty;
 }
