@@ -1,0 +1,143 @@
+/* ==========================================================================
+   BLOCCO: percorso
+   I tre livelli del percorso formativo (riferimento: step "01 · 02 · 03" di Learnn
+   "Le risposte arrivano dentro Claude e ChatGPT" — numero grande, titolo, elenco).
+
+   Struttura:
+     .percorso (section)
+       .percorso__steps
+         .percorso__step …
+           .percorso__number
+           .percorso__title
+           .percorso__list > .percorso__item …
+       .percorso__actions > .btn …
+
+   Variazioni:
+     .percorso--cards       ogni step in una card con bordo (default: colonne con linea sopra)
+     .percorso--connected   linea orizzontale che unisce i numeri (desktop)
+   ========================================================================== */
+
+.percorso {
+  --percorso-cols: 3;
+  --percorso-gap: clamp(24px, 4vw, 56px);
+  --percorso-number-ink: var(--accent);
+  --percorso-number-size: 48px;
+  --percorso-line: var(--border-strong);
+  --percorso-step-bg: transparent;
+  --percorso-step-border: transparent;
+  --percorso-step-pad: var(--space-8) 0 0;
+  --percorso-step-radius: 0;
+  --percorso-check-ink: var(--accent);
+}
+
+.percorso__steps {
+  display: grid;
+  grid-template-columns: repeat(var(--percorso-cols), minmax(0, 1fr));
+  gap: var(--percorso-gap);
+}
+
+/* --- Step --- */
+.percorso__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--percorso-step-pad);
+  border: 1px solid var(--percorso-step-border);
+  border-top: 1px solid var(--percorso-line);
+  border-radius: var(--percorso-step-radius);
+  background: var(--percorso-step-bg);
+}
+
+.percorso__number {
+  font: var(--text-h1);
+  font-size: var(--percorso-number-size);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--percorso-number-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.percorso__title {
+  font: var(--text-h3);
+  color: var(--ink);
+}
+
+.percorso__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.percorso__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font: var(--text-body);
+  font-size: 15px;
+  color: var(--ink-dim);
+}
+
+.percorso__item .icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  color: var(--percorso-check-ink);
+}
+
+.percorso__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: clamp(32px, 5vw, 56px);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.percorso--cards {
+  --percorso-gap: var(--space-4);
+  --percorso-step-bg: var(--surface-card);
+  --percorso-step-border: var(--border);
+  --percorso-step-pad: var(--space-10) var(--space-8);
+  --percorso-step-radius: var(--radius-xl);
+  --percorso-line: var(--border);
+}
+
+.percorso--cards .percorso__step:hover {
+  border-color: var(--border-strong);
+}
+
+@media (min-width: 900px) {
+  .percorso--connected .percorso__step + .percorso__step::before {
+    /* prolunga la linea superiore attraverso il gap tra gli step */
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: calc(var(--percorso-gap) * -1 - 1px);
+    width: calc(var(--percorso-gap) + 2px);
+    height: 1px;
+    background: var(--percorso-line);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 899px) {
+  .percorso {
+    --percorso-cols: 1;
+    --percorso-gap: var(--space-8);
+    --percorso-number-size: 40px;
+  }
+
+  .percorso--cards {
+    --percorso-gap: var(--space-4);
+  }
+
+  .percorso__actions .btn {
+    flex: 1 1 auto;
+  }
+}
