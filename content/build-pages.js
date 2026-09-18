@@ -1,4 +1,6 @@
 /* Genera le 4 pagine con lo stesso shell (header/footer). Uso: node content/build-pages.js
+   - shell (head, header, script) definito qui
+   - contenuto di ogni pagina in content/pages/<id>.html (i blocchi vengono aggiunti uno alla volta)
    Finché non c'è un build step vero, questo evita di tenere 4 copie dell'header a mano. */
 const fs = require('fs');
 const path = require('path');
@@ -56,6 +58,19 @@ ${nav}
   </header>`;
 }
 
+function body(p) {
+  const partial = path.join(__dirname, 'pages', p.id + '.html');
+  if (fs.existsSync(partial)) return fs.readFileSync(partial, 'utf8').trimEnd();
+  return `    <!-- I blocchi di pagina verranno aggiunti uno alla volta in content/pages/${p.id}.html -->
+    <section class="section">
+      <div class="container">
+        <p class="label" style="color: var(--accent)">In costruzione</p>
+        <h1 class="h1" style="margin-top: var(--space-3)">${p.h1}</h1>
+        <p class="body-lg" style="color: var(--ink-dim); margin-top: var(--space-4); max-width: 60ch">I contenuti di questa pagina sono raccolti in <code>content/contenuti.md</code> e verranno impaginati blocco per blocco.</p>
+      </div>
+    </section>`;
+}
+
 function page(p) {
   return `<!doctype html>
 <html lang="it">
@@ -85,15 +100,7 @@ function page(p) {
 ${header(p.id)}
 
   <main id="main">
-    <!-- I blocchi di pagina verranno aggiunti uno alla volta. -->
-    <section class="section">
-      <div class="container">
-        <p class="label" style="color: var(--accent)">In costruzione</p>
-        <h1 class="h1" style="margin-top: var(--space-3)">${p.h1}</h1>
-        <p class="body-lg" style="color: var(--ink-dim); margin-top: var(--space-4); max-width: 60ch">I contenuti di questa pagina sono raccolti in <code>content/contenuti.md</code> e verranno impaginati blocco per blocco.</p>
-      </div>
-    </section>
-    <div style="height: 120vh" aria-hidden="true"></div>
+${body(p)}
   </main>
 
   <script src="js/theme.js"></script>

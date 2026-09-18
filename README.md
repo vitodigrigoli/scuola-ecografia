@@ -39,7 +39,7 @@ Nessun build step: GitHub Pages serve la root del branch `main`. Il sito vive so
 
 1. Leggi i testi del blocco in `content/contenuti.md` (cerca `> Blocco: nome`).
 2. Crea `css/blocks/nome.css` con l'intestazione (struttura, variazioni, stati) e aggiungilo a `css/main.css`.
-3. Inserisci il markup nella pagina (o in `content/build-pages.js` se è condiviso da tutte le pagine, poi rigenera).
+3. Inserisci il markup in `content/pages/<pagina>.html` (o in `content/build-pages.js` se è condiviso da tutte le pagine) e rigenera con `node content/build-pages.js`.
 4. Verifica a 1440px e a 400px, in dark e in light.
 
 ## Sviluppo locale
@@ -52,6 +52,8 @@ npx serve .
 
 | Blocco | Stato | Pagine |
 |---|---|---|
+| `btn` | ✔ fatto (`--primary`, `--secondary`, `--ghost`, `--accent`, `--lg`, `--sm`, `--block`) | tutte |
 | `header` | ✔ fatto (`--floating`, `--static`, menu mobile, toggle tema) | tutte |
-| `hero` `stats` `editions` `objectives` `intro` `didattica` `percorso` `materiale` `pricing` `booking-cta` `organizers` `people` `venues` `story` `faq` `testimonials` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
+| `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
+| `stats` `editions` `objectives` `intro` `didattica` `percorso` `materiale` `pricing` `booking-cta` `organizers` `people` `venues` `story` `faq` `testimonials` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
 | `page-hero` `program` `speakers` `committee` | da fare | pagine interne |

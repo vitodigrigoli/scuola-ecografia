@@ -1,0 +1,117 @@
+/* ==========================================================================
+   BLOCCO: btn
+   Bottone/link azione riusabile da tutti i blocchi (mix: <a class="btn btn--primary hero__cta">).
+
+   Variazioni:
+     .btn--primary    pieno, superficie invertita (cta-primary-bg) — UNA per sezione
+     .btn--secondary  bordo, trasparente
+     .btn--ghost      solo testo
+     .btn--accent     viola pieno (riservato a stati di enfasi, es. "iscrizioni aperte")
+     .btn--lg         grande (hero)
+     .btn--sm         compatto (card)
+     .btn--block      larghezza piena (mobile / card)
+   Stati:
+     [disabled] / .is-disabled   non interattivo (es. SOLD OUT)
+   ========================================================================== */
+
+.btn {
+  --btn-bg: transparent;
+  --btn-ink: var(--ink);
+  --btn-border: transparent;
+  --btn-bg-hover: var(--surface-wash);
+  --btn-pad-y: 12px;
+  --btn-pad-x: var(--space-8);
+  --btn-size: 15px;
+  --btn-radius: var(--radius-btn);
+  --btn-gap: var(--space-2);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--btn-radius);
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  font-family: var(--font-sans);
+  font-size: var(--btn-size);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--duration) var(--ease), border-color var(--duration) var(--ease),
+    opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn .icon {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* --- Variazioni di stile --- */
+.btn--primary {
+  --btn-bg: var(--cta-primary-bg);
+  --btn-ink: var(--cta-primary-ink);
+  --btn-bg-hover: var(--cta-primary-bg);
+}
+
+.btn--primary:hover {
+  opacity: 0.9;
+}
+
+.btn--secondary {
+  --btn-border: var(--border-strong);
+  --btn-bg-hover: var(--surface-wash);
+}
+
+.btn--ghost {
+  --btn-pad-x: var(--space-3);
+  --btn-ink: var(--ink-soft);
+}
+
+.btn--accent {
+  --btn-bg: var(--accent);
+  --btn-ink: var(--on-accent);
+  --btn-bg-hover: var(--accent);
+}
+
+.btn--accent:hover {
+  opacity: 0.9;
+}
+
+/* --- Variazioni di dimensione --- */
+.btn--lg {
+  --btn-pad-y: 16px;
+  --btn-pad-x: var(--space-11);
+  --btn-size: 18px;
+}
+
+.btn--sm {
+  --btn-pad-y: 8px;
+  --btn-pad-x: var(--space-4);
+  --btn-size: 13.5px;
+  --btn-radius: var(--radius-xs);
+}
+
+.btn--block {
+  display: flex;
+  width: 100%;
+}
+
+/* --- Stati --- */
+.btn[disabled],
+.btn.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
