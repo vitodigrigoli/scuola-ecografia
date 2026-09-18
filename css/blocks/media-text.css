@@ -1,0 +1,107 @@
+/* ==========================================================================
+   BLOCCO: media-text
+   Sezione a due colonne testo + media (riferimento: sezioni Learnn "Dici cosa devi
+   ottenere…" / "Oppure parti da uno schema pronto" — testo da un lato, riquadro media dall'altro).
+   Usato per: Materiale didattico (Atlante). Riusabile per Sedi, Storia.
+
+   Struttura:
+     .media-text (section)
+       .media-text__inner
+         .media-text__content  → contiene un .text-block (--flush) con eyebrow/titolo/testo/azioni
+         .media-text__media
+           .media-text__figure > <img> | <video>
+           .media-text__caption (opzionale)
+
+   Variazioni:
+     .media-text--media-left    media a sinistra (default: a destra)
+     .media-text--contain       l'immagine non viene ritagliata (oggetti, mockup, loghi)
+     .media-text--framed        il media sta in un riquadro con bordo e fondo card (default: nudo)
+   ========================================================================== */
+
+.media-text {
+  --media-text-gap: clamp(32px, 6vw, 96px);
+  --media-text-ratio: 4 / 3;
+  --media-text-radius: var(--radius-xl);
+  --media-text-frame-bg: var(--surface-card);
+  --media-text-frame-border: var(--border);
+  --media-text-frame-pad: clamp(24px, 4vw, 48px);
+  --media-text-glow: var(--accent-glow-shadow);
+}
+
+.media-text__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: var(--media-text-gap);
+}
+
+.media-text__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.media-text__content .text-block {
+  --text-block-title-max: 18ch;
+}
+
+/* --- Media --- */
+.media-text__media {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.media-text__figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: var(--media-text-ratio);
+  border-radius: var(--media-text-radius);
+  overflow: hidden;
+}
+
+.media-text__figure > img,
+.media-text__figure > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-text__caption {
+  font: var(--text-caption);
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.media-text--contain .media-text__figure > img {
+  object-fit: contain;
+}
+
+.media-text--framed .media-text__figure {
+  padding: var(--media-text-frame-pad);
+  border: 1px solid var(--media-text-frame-border);
+  background:
+    radial-gradient(circle at 50% 100%, var(--accent-wash), transparent 70%),
+    var(--media-text-frame-bg);
+}
+
+.media-text--framed .media-text__figure > img {
+  object-fit: contain; /* dentro il riquadro il media non viene mai ritagliato */
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.35));
+}
+
+@media (min-width: 900px) {
+  .media-text__inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+
+  .media-text--media-left .media-text__content {
+    order: 2;
+  }
+
+  .media-text--media-left .media-text__media {
+    order: 1;
+  }
+}

@@ -176,7 +176,7 @@ Il numero massimo di partecipanti è limitato a 50 per poter garantire un rappor
 
 ## Materiale Didattico
 
-> Blocco: `materiale` (testo + immagine copertina)
+> Blocco: `media-text media-text--framed --contain` (testo + immagine copertina; file locale `assets/img/atlante-cover.png`)
 > Origine: sezione "Materiale Didattico" (immagine: `cover2_libro_ecografia-muscoloscheletrica-968x1024-1.png`)
 
 **Titolo sezione:** Materiale Didattico
