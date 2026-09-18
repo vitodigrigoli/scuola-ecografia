@@ -65,7 +65,7 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `percorso` | ✔ fatto (`--cards`, `--connected`) | home |
 | `media-text` | ✔ fatto (`--media-left`, `--contain`, `--framed`) = Materiale/Atlante | home |
 | `cta-banner` | ✔ fatto (`--glow`, `--card`, `--left`) = Prenotazioni / chiusura pagina | home |
-| `people` | ✔ fatto (`--cols-3/4/5`, `--compact`, `--overlay`; tag e lista relazioni opzionali) = Organizzatori, Docenti, Tutor | home, relatori |
+| `people` | ✔ fatto (`--scroller` continuo con `js/people.js`, `--cols-3/4/5`, `--compact`, `--overlay`; tag e lista relazioni opzionali) = Organizzatori, Docenti, Tutor | home, relatori |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |

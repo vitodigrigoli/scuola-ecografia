@@ -6,7 +6,7 @@
 
    Struttura:
      .people (section)
-       .people__grid
+       .people__grid | .people__scroller > .people__track   (variante --scroller)
          .people__card …
            .people__photo > img | .people__initials
            .people__body
@@ -20,6 +20,10 @@
      .people--cols-3 / --cols-4 (default) / --cols-5
      .people--compact   ritratto più piccolo, senza testo (tutor)
      .people--overlay   nome e ruolo sovrapposti al ritratto
+     .people--scroller  scorrimento orizzontale continuo (js/people.js duplica le card per il loop);
+                        con prefers-reduced-motion diventa scroll manuale con snap
+   Stati:
+     .is-cloned         (sulla traccia) le card sono state duplicate dal JS
    ========================================================================== */
 
 .people {
@@ -32,6 +36,8 @@
   --people-body-pad: var(--space-6) var(--space-6) var(--space-7);
   --people-role-ink: var(--accent);
   --people-text-ink: var(--ink-dim);
+  --people-card-w: 280px;              /* larghezza card nello scroller */
+  --people-scroller-duration: 40s;     /* ricalcolata dal JS in base al numero di card */
 }
 
 .people__grid {
@@ -176,6 +182,57 @@
   display: none;
 }
 
+/* Scroller continuo */
+.people--scroller .people__scroller {
+  overflow: hidden;
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.people--scroller .people__track {
+  display: flex;
+  gap: var(--people-gap);
+  width: max-content;
+  animation: people-scroll var(--people-scroller-duration) linear infinite;
+}
+
+.people--scroller .people__scroller:hover .people__track,
+.people--scroller .people__scroller:focus-within .people__track {
+  animation-play-state: paused;
+}
+
+.people--scroller .people__card {
+  flex: none;
+  width: var(--people-card-w);
+}
+
+@keyframes people-scroll {
+  to { transform: translateX(calc(-50% - var(--people-gap) / 2)); }
+}
+
+/* Senza animazione (o prima della duplicazione): scroll manuale con snap */
+.people--scroller .people__track:not(.is-cloned) {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .people--scroller .people__scroller {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    mask-image: none;
+    scrollbar-width: thin;
+  }
+
+  .people--scroller .people__track {
+    animation: none;
+  }
+
+  .people--scroller .people__card {
+    scroll-snap-align: start;
+  }
+}
+
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -191,6 +248,10 @@
 }
 
 @media (max-width: 767px) {
+  .people {
+    --people-card-w: 240px;
+  }
+
   .people,
   .people--cols-3,
   .people--cols-5 {
