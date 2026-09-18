@@ -401,7 +401,7 @@ Consigliato a chi è al primo approccio, ma anche a chi ha già qualche esperien
 
 ## Sponsor
 
-> Blocco: `sponsors` (griglia loghi, un gruppo per edizione; modificatore `sponsors--tiered` per Premium/Élite)
+> Blocco: `sponsors` — fascia chiara con i loghi della 3ª edizione (opzione A scelta dal cliente), accordion per 2ª e 1ª edizione; loghi locali in `assets/img/sponsors/`
 > Origine: sezioni "Sponsor 3° / 2° / 1° Edizione" (loghi PNG 300×100 su `wp-content/uploads/…`)
 
 **Sponsor 3° Edizione:** Easytech · Sonoscape · Mindray · GE · Abiogen · B2 pharma

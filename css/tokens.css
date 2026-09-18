@@ -48,6 +48,9 @@
   --rating-gold: #fac775;
   --trust-green: #00b67a;
 
+  /* --- Superficie "carta": bianco fisso in entrambi i temi, per loghi e stampe a colori --- */
+  --surface-paper: #ffffff;
+
   /* --- Logo: wordmark bianco su trasparente; sul tema light viene invertito --- */
   --logo-filter: none;
 

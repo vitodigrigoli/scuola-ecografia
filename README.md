@@ -16,6 +16,8 @@ css/
 js/
   theme.js          toggle giorno/notte (default dark, persistenza localStorage)
   header.js         menu mobile + stato scrolled
+  stats.js          contatori animati
+  marquee.js        scorrimento continuo per [data-marquee] (Organizzatori, Sponsor mobile)
 assets/
   logo/             wordmark
   icons/sprite.svg  set icone SVG (niente emoji, niente PNG)
@@ -49,7 +51,7 @@ Nessun build step: GitHub Pages serve la root del branch `main`. Il sito vive so
 npx serve .
 ```
 
-Per vedere una sola sezione a più larghezze/temi (file locale, non versionato — crealo da questo snippet se manca): `_preview.html?page=index.html&sec=prenotazioni&w=1300,400,860&theme=dark,dark,light`.
+Per vedere una sola sezione a più larghezze/temi (file locale, non versionato — crealo da questo snippet se manca): `_preview.html?page=index.html&sec=prenotazioni&w=1300,400,860&theme=dark,dark,light[&open=details]`.
 
 ## Blocchi
 
@@ -65,13 +67,14 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `percorso` | ✔ fatto (`--cards`, `--connected`) | home |
 | `media-text` | ✔ fatto (`--media-left`, `--contain`, `--framed`) = Materiale/Atlante | home |
 | `cta-banner` | ✔ fatto (`--glow`, `--card`, `--left`) = Prenotazioni / chiusura pagina | home |
-| `people` | ✔ fatto (`--scroller` continuo con `js/people.js`, `--cols-3/4/5`, `--compact`, `--overlay`, `--clamp`; tag e lista relazioni opzionali) = Organizzatori, Docenti, Tutor | home, relatori |
+| `people` | ✔ fatto (`--scroller` continuo con `js/marquee.js`, `--cols-3/4/5`, `--compact`, `--overlay`, `--clamp`; tag e lista relazioni opzionali) = Organizzatori, Docenti, Tutor | home, relatori |
 | `notice` | ✔ fatto (`--accent`, `--muted`, `--warning`) callout con icona | home |
 | `venues` | ✔ fatto (`--compact`) = Sedi | home |
+| `sponsors` | ✔ fatto — fascia chiara "Con il supporto di" (opzione A), marquee su mobile, accordion edizioni precedenti (`--no-past`) | home, relatori |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
 | story (Chi siamo) | ✔ fatto con `text-block --split --top` + `notice` | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
-| `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
+| `footer` | da fare | vedi `content/contenuti.md` |
 | `page-hero` `program` `speakers` `committee` | da fare | pagine interne |
