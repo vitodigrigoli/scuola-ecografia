@@ -1,6 +1,6 @@
 /* ==========================================================================
    BLOCCO: sponsors
-   Fascia chiara "Con il supporto di" con i loghi nei colori originali (pattern "trusted by"),
+   Fascia chiara "Sponsor della terza edizione" con i loghi nei colori originali (pattern "trusted by"),
    più un accordion con gli sponsor delle edizioni precedenti.
    I loghi ANFI sono PNG a colori su fondo bianco: per questo la fascia è sempre bianca
    (--surface-paper) in entrambi i temi.
@@ -26,8 +26,9 @@
   --sponsors-paper-muted: #55565b;
   --sponsors-logo-h: 44px;
   --sponsors-logo-gap: clamp(32px, 5vw, 72px);
-  --sponsors-band-pad: var(--space-11);
-  --sponsors-tile-h: 36px;
+  --sponsors-band-pad: clamp(40px, 5vw, 56px);
+  --sponsors-tile-h: 28px;
+  --sponsors-past-gap: var(--space-11);
 }
 
 /* --- Fascia chiara --- */
@@ -78,9 +79,12 @@
   object-fit: contain;
 }
 
-/* --- Edizioni precedenti --- */
+/* --- Edizioni precedenti: centrate come la fascia, con più aria --- */
 .sponsors__past {
-  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: clamp(40px, 5vw, 56px);
 }
 
 .sponsors__past-summary {
@@ -117,8 +121,9 @@
 .sponsors__group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  margin-top: var(--space-6);
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--sponsors-past-gap);
 }
 
 .sponsors__group-title {
@@ -130,20 +135,26 @@
 
 /* Tessere bianche per i loghi nella parte scura della pagina */
 .sponsors__logos--tiles {
-  justify-content: flex-start;
+  justify-content: center;
   gap: var(--space-3);
 }
 
 .sponsors__logos--tiles .sponsors__logo {
   height: auto;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-xs);
   background: var(--sponsors-paper);
+  opacity: 0.85;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.sponsors__logos--tiles .sponsors__logo:hover {
+  opacity: 1;
 }
 
 .sponsors__logos--tiles .sponsors__logo > img {
   height: var(--sponsors-tile-h);
-  max-width: 120px;
+  max-width: 100px;
 }
 
 /* ==========================================================================
