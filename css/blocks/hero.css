@@ -26,7 +26,7 @@
   --hero-gap: clamp(32px, 5vw, 72px);
   --hero-media-radius: var(--radius-xl);
   --hero-media-ratio: 4 / 5;
-  --hero-media-bg: linear-gradient(135deg, var(--avatar-gradient-start), var(--avatar-gradient-end));
+  --hero-media-bg: var(--surface-card); /* neutro: un fondo colorato trapela ai bordi arrotondati sotto il video */
   --hero-title-max: 14ch;
   --hero-subtitle-max: 52ch;
   --hero-accent: var(--accent);
