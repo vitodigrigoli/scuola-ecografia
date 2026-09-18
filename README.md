@@ -65,9 +65,10 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `percorso` | ✔ fatto (`--cards`, `--connected`) | home |
 | `media-text` | ✔ fatto (`--media-left`, `--contain`, `--framed`) = Materiale/Atlante | home |
 | `cta-banner` | ✔ fatto (`--glow`, `--card`, `--left`) = Prenotazioni / chiusura pagina | home |
+| `people` | ✔ fatto (`--cols-3/4/5`, `--compact`, `--overlay`; tag e lista relazioni opzionali) = Organizzatori, Docenti, Tutor | home, relatori |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
-| `organizers` `people` `venues` `story` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
+| `venues` `story` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
 | `page-hero` `program` `speakers` `committee` | da fare | pagine interne |

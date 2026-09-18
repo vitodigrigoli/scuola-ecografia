@@ -1,0 +1,211 @@
+/* ==========================================================================
+   BLOCCO: people
+   Griglia di persone (riferimento: "Non sono docenti. Sono esperti che fanno il mestiere
+   ogni giorno" di Learnn — ritratto, nome, ruolo, breve descrizione).
+   Usato per: Organizzatori (home), Docenti e Tutor (relatori).
+
+   Struttura:
+     .people (section)
+       .people__grid
+         .people__card …
+           .people__photo > img | .people__initials
+           .people__body
+             .people__name
+             .people__role
+             .people__tags > .badge …          (opzionale)
+             .people__text                       (opzionale)
+             .people__list > .people__item …     (opzionale: relazioni)
+
+   Variazioni:
+     .people--cols-3 / --cols-4 (default) / --cols-5
+     .people--compact   ritratto più piccolo, senza testo (tutor)
+     .people--overlay   nome e ruolo sovrapposti al ritratto
+   ========================================================================== */
+
+.people {
+  --people-cols: 4;
+  --people-gap: var(--space-4);
+  --people-photo-ratio: 4 / 5;
+  --people-card-bg: var(--surface-card);
+  --people-card-border: var(--border);
+  --people-card-radius: var(--radius-xl);
+  --people-body-pad: var(--space-6) var(--space-6) var(--space-7);
+  --people-role-ink: var(--accent);
+  --people-text-ink: var(--ink-dim);
+}
+
+.people__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--people-cols), minmax(0, 1fr));
+  gap: var(--people-gap);
+}
+
+/* --- Card --- */
+.people__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--people-card-border);
+  border-radius: var(--people-card-radius);
+  background: var(--people-card-bg);
+  overflow: hidden;
+  transition: border-color var(--duration) var(--ease);
+}
+
+.people__card:hover {
+  border-color: var(--border-strong);
+}
+
+.people__photo {
+  position: relative;
+  aspect-ratio: var(--people-photo-ratio);
+  margin: 0;
+  background: linear-gradient(135deg, var(--avatar-gradient-start), var(--avatar-gradient-end));
+  overflow: hidden;
+}
+
+.people__photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 400ms var(--ease);
+}
+
+.people__card:hover .people__photo > img {
+  transform: scale(1.03);
+}
+
+/* Segnaposto quando manca la foto: iniziali sul degradé avatar */
+.people__initials {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font: var(--text-h2);
+  letter-spacing: 0.02em;
+}
+
+.people__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--people-body-pad);
+}
+
+.people__name {
+  font: var(--text-card-title);
+  color: var(--ink);
+}
+
+.people__role {
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--people-role-ink);
+}
+
+.people__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.people__text {
+  margin-top: var(--space-2);
+  font: var(--text-body);
+  color: var(--people-text-ink);
+}
+
+.people__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.people__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font: var(--text-body);
+  color: var(--ink-soft);
+}
+
+.people__item .icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.people--cols-3 { --people-cols: 3; }
+.people--cols-5 { --people-cols: 5; }
+
+.people--compact {
+  --people-cols: 5;
+  --people-photo-ratio: 1 / 1;
+  --people-body-pad: var(--space-4) var(--space-4) var(--space-5);
+}
+
+.people--overlay .people__card {
+  background: transparent;
+}
+
+.people--overlay .people__body {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--space-11) var(--space-6) var(--space-6);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  color: #fff;
+}
+
+.people--overlay .people__name {
+  color: #fff;
+}
+
+.people--overlay .people__text {
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1099px) {
+  .people,
+  .people--cols-5 {
+    --people-cols: 3;
+  }
+
+  .people--compact {
+    --people-cols: 4;
+  }
+}
+
+@media (max-width: 767px) {
+  .people,
+  .people--cols-3,
+  .people--cols-5 {
+    --people-cols: 2;
+    --people-gap: var(--space-3);
+    --people-body-pad: var(--space-4) var(--space-4) var(--space-5);
+  }
+
+  .people--compact {
+    --people-cols: 3;
+  }
+}
+
+@media (max-width: 479px) {
+  .people--compact {
+    --people-cols: 2;
+  }
+}
