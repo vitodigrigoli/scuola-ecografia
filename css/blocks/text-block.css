@@ -174,10 +174,16 @@
     align-self: end;
   }
 
-  .text-block--split.text-block--top,
+  /* --top: riga 1 = solo eyebrow, riga 2 = il resto; tutto allineato in alto */
+  .text-block--split.text-block--top {
+    grid-template-rows: auto 1fr;
+    align-items: start;
+  }
+
+  .text-block--split.text-block--top .text-block__eyebrow,
+  .text-block--split.text-block--top .text-block__title,
   .text-block--split.text-block--top .text-block__title + .text-block__text,
   .text-block--split.text-block--top .text-block__title + .text-block__body {
-    align-items: start;
     align-self: start;
   }
 

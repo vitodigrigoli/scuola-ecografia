@@ -1,0 +1,70 @@
+/* ==========================================================================
+   BLOCCO: notice
+   Callout in linea (nota legale, avviso, testo da validare). Bordo a sinistra, icona, testo.
+
+   Struttura:
+     .notice
+       .notice__icon > .icon
+       .notice__body
+         .notice__title (opzionale)
+         .notice__text …
+
+   Variazioni:
+     .notice--accent   viola (default): informazione importante
+     .notice--muted    grigio: nota secondaria
+     .notice--warning  oro: avviso / da verificare
+   ========================================================================== */
+
+.notice {
+  --notice-ink: var(--accent);
+  --notice-bg: var(--accent-wash);
+  --notice-pad: var(--space-4) var(--space-5);
+
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--notice-pad);
+  border-left: 2px solid var(--notice-ink);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--notice-bg);
+}
+
+.notice__icon {
+  flex: none;
+  color: var(--notice-ink);
+}
+
+.notice__icon .icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.notice__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.notice__title {
+  font: var(--text-caption);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.notice__text {
+  font: var(--text-body);
+  color: var(--ink-dim);
+}
+
+/* --- Variazioni --- */
+.notice--muted {
+  --notice-ink: var(--ink-muted);
+  --notice-bg: var(--surface-wash);
+}
+
+.notice--warning {
+  --notice-ink: var(--rating-gold);
+  --notice-bg: color-mix(in srgb, var(--rating-gold) 12%, transparent);
+}

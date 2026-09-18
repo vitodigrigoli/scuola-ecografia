@@ -5,6 +5,7 @@
 /* Blocchi condivisi */
 @import url('blocks/button.css');
 @import url('blocks/badge.css');
+@import url('blocks/notice.css');
 @import url('blocks/text-block.css');
 @import url('blocks/header.css');
 
@@ -17,6 +18,7 @@
 @import url('blocks/media-text.css');
 @import url('blocks/cta-banner.css');
 @import url('blocks/people.css');
+@import url('blocks/venues.css');
 @import url('blocks/pricing.css');
 @import url('blocks/faq.css');
 @import url('blocks/testimonials.css');

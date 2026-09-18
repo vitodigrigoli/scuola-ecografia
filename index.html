@@ -97,6 +97,22 @@
     <path d="M10 14v2a4 4 0 0 0 8 0v-3"/>
     <circle cx="18" cy="10" r="2.5"/>
   </symbol>
+  <symbol id="icon-info" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 11v5M12 8h.01"/>
+  </symbol>
+  <symbol id="icon-plane" viewBox="0 0 24 24">
+    <path d="M10.5 13.5L3 11l1.5-1.5L11 11l5.5-5.5a1.5 1.5 0 0 1 2 2L13 13l1.5 6.5L13 21l-2.5-7.5z"/>
+  </symbol>
+  <symbol id="icon-car" viewBox="0 0 24 24">
+    <path d="M5 16l1.5-5.5A2 2 0 0 1 8.4 9h7.2a2 2 0 0 1 1.9 1.5L19 16"/>
+    <rect x="3" y="16" width="18" height="4" rx="1"/>
+    <path d="M6 20v1M18 20v1M7 18h.01M17 18h.01"/>
+  </symbol>
+  <symbol id="icon-train" viewBox="0 0 24 24">
+    <rect x="5" y="3" width="14" height="14" rx="3"/>
+    <path d="M5 10h14M9 21l1.5-3M15 21l-1.5-3M8.5 14h.01M15.5 14h.01"/>
+  </symbol>
   <symbol id="icon-lock" viewBox="0 0 24 24">
     <rect x="4" y="11" width="16" height="10" rx="2"/>
     <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
@@ -590,6 +606,70 @@
       </div>
     </section>
 
+    <!-- ============================== VENUES ============================== -->
+    <section class="section venues" id="sedi" aria-labelledby="venues-title">
+      <div class="container">
+        <div class="text-block text-block--split">
+          <p class="text-block__eyebrow">Sedi</p>
+          <h2 class="text-block__title" id="venues-title">Due sedi, Catania e Torino</h2>
+          <p class="text-block__text">Le edizioni meridionali si svolgono a Catania, quelle settentrionali a Torino. Entrambe le strutture sono convenzionate per il pernottamento.</p>
+        </div>
+
+        <div class="venues__grid">
+          <article class="venues__card">
+            <p class="venues__city"><svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg>Sede Catania · edizioni meridionali</p>
+            <h3 class="venues__name">Il Principe Hotel</h3>
+            <p class="venues__address">Via Alessi 24, 95124 Catania</p>
+            <ul class="venues__notes">
+              <li class="venues__note"><svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg><span>Nel centro storico barocco, a pochi passi da <strong>Piazza Duomo</strong> e <strong>Via Etnea</strong>.</span></li>
+              <li class="venues__note"><svg class="icon" aria-hidden="true"><use href="#icon-plane"/></svg><span>Dall'aeroporto di Catania Fontanarossa: <strong>10 minuti di taxi</strong>, oppure <strong>Alibus</strong> fino a Piazza San Placido e 500 m a piedi.</span></li>
+              <li class="venues__note"><svg class="icon" aria-hidden="true"><use href="#icon-car"/></svg><span>In auto seguire le indicazioni per <strong>Catania Centro</strong>; parcheggi nelle vicinanze e convenzionati.</span></li>
+            </ul>
+            <div class="venues__actions">
+              <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/search/?api=1&query=Il+Principe+Hotel+Via+Alessi+24+Catania" target="_blank" rel="noopener">Apri in Google Maps <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+            </div>
+          </article>
+
+          <article class="venues__card">
+            <p class="venues__city"><svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg>Sede Torino · edizioni settentrionali</p>
+            <h3 class="venues__name">J|Hotel</h3>
+            <p class="venues__address">Via Traves 40, 10151 Torino</p>
+            <ul class="venues__notes">
+              <li class="venues__note"><svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg><span>All'interno dell'area del <strong>J|Village</strong>.</span></li>
+              <li class="venues__note"><svg class="icon" aria-hidden="true"><use href="#icon-car"/></svg><span>Uscita <strong>Tangenziale Torino Nord – Venaria</strong>; parcheggio interno.</span></li>
+              <li class="venues__note"><svg class="icon" aria-hidden="true"><use href="#icon-train"/></svg><span>Dalla stazione <strong>Porta Susa</strong>: bus <strong>linea 72</strong> o taxi, 15–20 minuti.</span></li>
+            </ul>
+            <div class="venues__actions">
+              <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/search/?api=1&query=J+Hotel+Via+Traves+40+Torino" target="_blank" rel="noopener">Apri in Google Maps <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== STORY (text-block --split --top) ============================== -->
+    <section class="section" id="chi-siamo" aria-labelledby="story-title">
+      <div class="container">
+        <div class="text-block text-block--split text-block--top text-block--flush">
+          <p class="text-block__eyebrow">Chi siamo</p>
+          <h2 class="text-block__title" id="story-title">La storia della Scuola</h2>
+          <div class="text-block__body">
+            <p class="text-block__text">La Scuola di Ecografia Muscoloscheletrica è nata per rispondere alla crescente necessità di una formazione avanzata e specializzata nel campo muscoloscheletrico.</p>
+            <p class="text-block__text">Rivolta a professionisti del settore sanitario come Fisiatri, Ortopedici, Reumatologi, Radiologi, Medici di Medicina Generale e Medici dello Sport, la nostra scuola si pone l'obiettivo di colmare il divario formativo esistente, offrendo una prospettiva pratica e completa sull'uso dell'ecografia in ambito muscoloscheletrico.</p>
+            <p class="text-block__text">Il nostro programma didattico mira a migliorare la competenza diagnostica e terapeutica degli operatori sanitari, promuovendo standard elevati nella gestione delle patologie muscoloscheletriche.</p>
+            <p class="text-block__text">La scuola non solo fornisce una solida base teorica e pratica, ma sviluppa anche competenze avanzate attraverso sessioni interattive e l'utilizzo di tecnologie all'avanguardia.</p>
+            <div class="notice notice--muted">
+              <span class="notice__icon"><svg class="icon" aria-hidden="true"><use href="#icon-info"/></svg></span>
+              <div class="notice__body">
+                <p class="notice__title">Nota importante</p>
+                <p class="notice__text">La Scuola di Ecografia Muscoloscheletrica ANFI è un percorso di formazione privata. Non rilascia titoli di studio con valore legale ai sensi del MIUR né costituisce scuola di specializzazione universitaria. Gli attestati rilasciati hanno esclusivamente valore di certificazione di frequenza e partecipazione al corso. L'utilizzo del termine "scuola" si riferisce unicamente al carattere didattico e formativo dell'iniziativa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== FAQ ============================== -->
     <section class="section faq faq--split" id="faq" aria-labelledby="faq-title">
       <div class="faq__inner container">
@@ -605,7 +685,7 @@
         <div class="faq__list">
           <details class="faq__item" name="faq" open>
             <summary class="faq__question"><span class="faq__question-text">Come posso iscrivermi alla Scuola di Ecografia?</span><span class="faq__chevron" aria-hidden="true"><svg class="icon"><use href="#icon-chevron-down"/></svg></span></summary>
-            <div class="faq__answer"><p>L'iscrizione avviene sul sito del provider <a href="https://fisiaforma.it/categoria-prodotto/eventi/" target="_blank" rel="noopener">Fisiaforma</a>: scegli la tua categoria (Socio ANFI, Non socio, Specializzando) e completa la pre-iscrizione. La quota è suddivisa in due rate, la prima all'iscrizione.</p><p class="faq__answer-note">Testo proposto: sul sito ANFI questa risposta è vuota, da confermare con la segreteria.</p></div>
+            <div class="faq__answer"><p>L'iscrizione avviene sul sito del provider <a href="https://fisiaforma.it/categoria-prodotto/eventi/" target="_blank" rel="noopener">Fisiaforma</a>: scegli la tua categoria (Socio ANFI, Non socio, Specializzando) e completa la pre-iscrizione. La quota è suddivisa in due rate, la prima all'iscrizione.</p><div class="notice notice--warning"><span class="notice__icon"><svg class="icon" aria-hidden="true"><use href="#icon-info"/></svg></span><div class="notice__body"><p class="notice__text">Testo proposto: sul sito ANFI questa risposta è vuota, da confermare con la segreteria.</p></div></div></div>
           </details>
           <details class="faq__item" name="faq">
             <summary class="faq__question"><span class="faq__question-text">Come posso raggiungere la sede dell'evento?</span><span class="faq__chevron" aria-hidden="true"><svg class="icon"><use href="#icon-chevron-down"/></svg></span></summary>

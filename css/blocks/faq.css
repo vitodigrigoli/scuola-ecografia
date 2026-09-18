@@ -146,13 +146,6 @@
   text-underline-offset: 2px;
 }
 
-.faq__answer-note {
-  padding: var(--space-3) var(--space-4);
-  border-left: 2px solid var(--accent);
-  background: var(--accent-wash);
-  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
-  font-size: 14px;
-}
 
 /* ==========================================================================
    VARIAZIONI

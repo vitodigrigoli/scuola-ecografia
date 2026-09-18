@@ -1,0 +1,133 @@
+/* ==========================================================================
+   BLOCCO: venues
+   Le sedi del corso: card con città, struttura, indirizzo, indicazioni e link mappa.
+
+   Struttura:
+     .venues (section)
+       .venues__grid
+         .venues__card …
+           .venues__city   (label con icona pin)
+           .venues__name
+           .venues__address
+           .venues__notes > .venues__note …   (come arrivare, opzionale)
+           .venues__actions > .btn …
+
+   Variazioni:
+     .venues--compact   senza note: solo città, struttura, indirizzo (footer, prenota)
+   ========================================================================== */
+
+.venues {
+  --venues-cols: 2;
+  --venues-gap: var(--space-6);
+  --venues-card-bg: var(--surface-card);
+  --venues-card-border: var(--border);
+  --venues-card-radius: var(--radius-xl);
+  --venues-card-pad: var(--space-10) var(--space-8);
+  --venues-pin-ink: var(--accent);
+}
+
+.venues__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--venues-cols), minmax(0, 1fr));
+  gap: var(--venues-gap);
+}
+
+.venues__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--venues-card-pad);
+  border: 1px solid var(--venues-card-border);
+  border-radius: var(--venues-card-radius);
+  background: var(--venues-card-bg);
+  transition: border-color var(--duration) var(--ease);
+}
+
+.venues__card:hover {
+  border-color: var(--border-strong);
+}
+
+.venues__city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--venues-pin-ink);
+}
+
+.venues__city .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.venues__name {
+  font: var(--text-h3);
+  color: var(--ink);
+}
+
+.venues__address {
+  font: var(--text-body-lg);
+  color: var(--ink-dim);
+}
+
+.venues__notes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.venues__note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font: var(--text-body);
+  color: var(--ink-dim);
+}
+
+.venues__note .icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  color: var(--ink-muted);
+}
+
+.venues__note strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.venues__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-5);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.venues--compact {
+  --venues-card-pad: var(--space-7) var(--space-7);
+}
+
+.venues--compact .venues__notes {
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .venues {
+    --venues-cols: 1;
+    --venues-gap: var(--space-4);
+    --venues-card-pad: var(--space-8) var(--space-7);
+  }
+}

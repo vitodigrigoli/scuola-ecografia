@@ -275,7 +275,7 @@ Visita il sito del provider per effettuare la pre-iscrizione e per garantirti un
 
 ## Sedi
 
-> Blocco: `venues` (2 card sede)
+> Blocco: `venues` (2 card sede, con indicazioni prese dalla FAQ "Come raggiungere la sede")
 > Origine: sezione sedi sotto "I professionisti coinvolti"
 
 **Sede Catania:** Il Principe Hotel — Via Alessi, 24, 95124 Catania CT
@@ -285,7 +285,7 @@ Visita il sito del provider per effettuare la pre-iscrizione e per garantirti un
 
 ## Chi siamo — La storia della Scuola
 
-> Blocco: `story` (testo lungo + box nota legale `story__notice`)
+> Blocco: `text-block --split --top --flush` + `notice notice--muted` per la nota legale
 > Origine: sezione "Chi siamo" (logo ANFI a fianco)
 
 **Titolo sezione:** Chi siamo

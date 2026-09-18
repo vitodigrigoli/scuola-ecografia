@@ -66,9 +66,12 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `media-text` | ✔ fatto (`--media-left`, `--contain`, `--framed`) = Materiale/Atlante | home |
 | `cta-banner` | ✔ fatto (`--glow`, `--card`, `--left`) = Prenotazioni / chiusura pagina | home |
 | `people` | ✔ fatto (`--scroller` continuo con `js/people.js`, `--cols-3/4/5`, `--compact`, `--overlay`, `--clamp`; tag e lista relazioni opzionali) = Organizzatori, Docenti, Tutor | home, relatori |
+| `notice` | ✔ fatto (`--accent`, `--muted`, `--warning`) callout con icona | home |
+| `venues` | ✔ fatto (`--compact`) = Sedi | home |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
+| story (Chi siamo) | ✔ fatto con `text-block --split --top` + `notice` | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
-| `venues` `story` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
+| `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
 | `page-hero` `program` `speakers` `committee` | da fare | pagine interne |
