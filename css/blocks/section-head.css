@@ -1,0 +1,106 @@
+/* ==========================================================================
+   BLOCCO: section-head
+   Intestazione di sezione riusabile (etichetta viola, titolo, testo, azioni).
+
+   Struttura:
+     .section-head
+       .section-head__eyebrow
+       .section-head__title
+       .section-head__text
+       .section-head__actions (opzionale)
+
+   Variazioni:
+     .section-head--center   centrato (default: allineato a sinistra)
+     .section-head--split    titolo a sinistra, testo/azioni a destra (desktop)
+     .section-head--tight    margine inferiore ridotto
+   ========================================================================== */
+
+.section-head {
+  --section-head-mb: clamp(32px, 5vw, 56px);
+  --section-head-title-max: 22ch;
+  --section-head-text-max: 56ch;
+  --section-head-eyebrow-ink: var(--accent);
+  --section-head-text-ink: var(--ink-dim);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--section-head-mb);
+}
+
+.section-head__eyebrow {
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--section-head-eyebrow-ink);
+}
+
+.section-head__title {
+  max-width: var(--section-head-title-max);
+  font: var(--text-h2);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.section-head__text {
+  max-width: var(--section-head-text-max);
+  font: var(--text-body-lg);
+  color: var(--section-head-text-ink);
+  text-wrap: pretty;
+}
+
+.section-head__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.section-head--center {
+  align-items: center;
+  text-align: center;
+}
+
+.section-head--center .section-head__actions {
+  justify-content: center;
+}
+
+.section-head--tight {
+  --section-head-mb: var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .section-head__title {
+    font-size: 44px;
+    line-height: 48px;
+  }
+
+  .section-head--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: end;
+    column-gap: clamp(32px, 5vw, 80px);
+  }
+
+  .section-head--split .section-head__eyebrow {
+    grid-column: 1;
+  }
+
+  .section-head--split .section-head__title {
+    grid-column: 1;
+  }
+
+  .section-head--split .section-head__text,
+  .section-head--split .section-head__actions {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .section-head--split .section-head__actions {
+    margin-top: 0;
+  }
+}

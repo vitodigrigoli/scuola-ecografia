@@ -4,8 +4,11 @@
 
 /* Blocchi condivisi */
 @import url('blocks/button.css');
+@import url('blocks/badge.css');
+@import url('blocks/section-head.css');
 @import url('blocks/header.css');
 
 /* Blocchi di pagina */
 @import url('blocks/hero.css');
 @import url('blocks/stats.css');
+@import url('blocks/editions.css');

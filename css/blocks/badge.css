@@ -1,0 +1,77 @@
+/* ==========================================================================
+   BLOCCO: badge
+   Pillola di stato/categoria (riferimento: tag "Corso", "Aggiornato", "Novità" di Learnn).
+   Sempre a pillola, sempre con icona SVG se serve un simbolo (mai emoji).
+
+   Variazioni:
+     .badge--outline   bordo, fondo neutro (default: categoria)
+     .badge--accent    viola pieno, testo bianco (enfasi: "Iscrizioni aperte", "In evidenza")
+     .badge--soft      viola tenue (accent-wash) con testo viola
+     .badge--muted     grigio smorzato (stati inattivi: "Sold out", "Concluso")
+     .badge--success   verde di fiducia (certificazioni esterne)
+     .badge--sm        più piccolo
+   ========================================================================== */
+
+.badge {
+  --badge-bg: var(--surface-wash);
+  --badge-ink: var(--ink);
+  --badge-border: var(--border-strong);
+  --badge-pad: 5px var(--space-3);
+  --badge-size: 11px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--badge-pad);
+  border: 1px solid var(--badge-border);
+  border-radius: var(--radius-pill);
+  background: var(--badge-bg);
+  color: var(--badge-ink);
+  font: var(--text-label);
+  font-size: var(--badge-size);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge .icon {
+  width: 12px;
+  height: 12px;
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* --- Variazioni --- */
+.badge--accent {
+  --badge-bg: var(--accent);
+  --badge-ink: var(--on-accent);
+  --badge-border: transparent;
+}
+
+.badge--soft {
+  --badge-bg: var(--accent-wash);
+  --badge-ink: var(--accent);
+  --badge-border: transparent;
+}
+
+.badge--muted {
+  --badge-bg: transparent;
+  --badge-ink: var(--ink-muted);
+  --badge-border: var(--border);
+}
+
+.badge--success {
+  --badge-bg: transparent;
+  --badge-ink: var(--trust-green);
+  --badge-border: var(--trust-green);
+}
+
+.badge--sm {
+  --badge-pad: 3px var(--space-2);
+  --badge-size: 10.5px;
+}

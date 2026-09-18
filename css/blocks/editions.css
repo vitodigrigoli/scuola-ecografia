@@ -1,0 +1,163 @@
+/* ==========================================================================
+   BLOCCO: editions
+   Card delle edizioni della Scuola (riferimento: card piano/corso Learnn — bordi non ombre,
+   la card in evidenza ha bordo accent + bagliore).
+
+   Struttura:
+     .editions (section)
+       .editions__grid
+         .editions__card [--open | --soldout]
+           .editions__head > .editions__eyebrow + .badge
+           .editions__title
+           .editions__dates > .editions__date …
+           .editions__note
+           .editions__cta (btn)
+
+   Variazioni card:
+     .editions__card--open      edizione aperta: bordo accent + shadow-accent-glow (SEMPRE insieme)
+     .editions__card--soldout   esaurita: contenuto smorzato, CTA disabilitata
+   Variazioni blocco:
+     .editions--two             griglia a 2 colonne (pagina Prenota)
+   ========================================================================== */
+
+.editions {
+  --editions-cols: 3;
+  --editions-gap: var(--space-6);
+  --editions-card-pad: var(--space-10) var(--space-8);
+  --editions-card-bg: var(--surface-card);
+  --editions-card-border: var(--border);
+  --editions-card-radius: var(--radius-xl);
+  --editions-date-ink: var(--ink-soft);
+}
+
+.editions__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--editions-cols), minmax(0, 1fr));
+  gap: var(--editions-gap);
+  align-items: stretch;
+}
+
+/* --- Card --- */
+.editions__card {
+  --card-border: var(--editions-card-border);
+  --card-shadow: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--editions-card-pad);
+  border: 1px solid var(--card-border);
+  border-radius: var(--editions-card-radius);
+  background: var(--editions-card-bg);
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+.editions__card:hover {
+  border-color: var(--border-strong);
+}
+
+.editions__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.editions__eyebrow {
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.editions__title {
+  font: var(--text-h3);
+  color: var(--ink);
+}
+
+.editions__dates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  border-block: 1px solid var(--border);
+}
+
+.editions__date {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: 6px;
+  font: var(--text-body);
+  font-weight: 500;
+  color: var(--editions-date-ink);
+}
+
+.editions__date .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
+.editions__note {
+  font: var(--text-card-desc);
+  color: var(--ink-muted);
+}
+
+.editions__cta {
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   VARIAZIONI CARD
+   ========================================================================== */
+.editions__card--open {
+  --card-border: var(--accent-border);
+  --card-shadow: var(--shadow-accent-glow);
+}
+
+.editions__card--open:hover {
+  border-color: var(--accent);
+}
+
+.editions__card--soldout {
+  --editions-date-ink: var(--ink-muted);
+}
+
+.editions__card--soldout .editions__title {
+  color: var(--ink-dim);
+}
+
+.editions__card--soldout .editions__date .icon {
+  color: var(--ink-faint);
+}
+
+/* ==========================================================================
+   VARIAZIONI BLOCCO
+   ========================================================================== */
+.editions--two {
+  --editions-cols: 2;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1099px) {
+  .editions {
+    --editions-cols: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .editions,
+  .editions--two {
+    --editions-cols: 1;
+    --editions-card-pad: var(--space-8) var(--space-7);
+  }
+
+  /* l'edizione aperta va sempre per prima su mobile */
+  .editions__card--open {
+    order: -1;
+  }
+}
