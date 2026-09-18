@@ -49,6 +49,8 @@ Nessun build step: GitHub Pages serve la root del branch `main`. Il sito vive so
 npx serve .
 ```
 
+Per vedere una sola sezione a più larghezze/temi (file locale, non versionato — crealo da questo snippet se manca): `_preview.html?page=index.html&sec=prenotazioni&w=1300,400,860&theme=dark,dark,light`.
+
 ## Blocchi
 
 | Blocco | Stato | Pagine |
@@ -62,9 +64,10 @@ npx serve .
 | `features` | ✔ fatto (`--numbered` = Obiettivi, `--icons --inline` = Didattica, `--plain`, `--cols-2/3`) | home |
 | `percorso` | ✔ fatto (`--cards`, `--connected`) | home |
 | `media-text` | ✔ fatto (`--media-left`, `--contain`, `--framed`) = Materiale/Atlante | home |
+| `cta-banner` | ✔ fatto (`--glow`, `--card`, `--left`) = Prenotazioni / chiusura pagina | home |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
-| `booking-cta` `organizers` `people` `venues` `story` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
+| `organizers` `people` `venues` `story` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
 | `page-hero` `program` `speakers` `committee` | da fare | pagine interne |

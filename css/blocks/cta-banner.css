@@ -1,0 +1,135 @@
+/* ==========================================================================
+   BLOCCO: cta-banner
+   Fascia di invito all'azione (riferimento: "Inizia oggi. Cresci ogni giorno." di Learnn —
+   titolo grande centrato, bagliore viola, uno o due bottoni).
+   Usato per: Prenotazioni (home), chiusura pagine.
+
+   Struttura:
+     .cta-banner (section)
+       .cta-banner__inner
+         .cta-banner__eyebrow / .badge   (opzionale)
+         .cta-banner__title
+         .cta-banner__text
+         .cta-banner__actions > .btn …
+         .cta-banner__note                (opzionale, piccola)
+
+   Variazioni:
+     .cta-banner--glow     bagliore radiale viola dietro il titolo (default: nessuno)
+     .cta-banner--card     contenuto in una card con bordo (default: a tutta larghezza)
+     .cta-banner--left     allineato a sinistra
+   ========================================================================== */
+
+.cta-banner {
+  --cta-banner-pad-y: clamp(56px, 8vw, 112px);
+  --cta-banner-title-max: 20ch;
+  --cta-banner-text-max: 56ch;
+  --cta-banner-glow: var(--accent-glow-shadow);
+  --cta-banner-glow-size: 720px;
+  --cta-banner-card-bg: var(--surface-card);
+  --cta-banner-card-border: var(--border);
+  --cta-banner-card-radius: var(--radius-xl);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: var(--cta-banner-pad-y);
+}
+
+.cta-banner__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.cta-banner__eyebrow {
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.cta-banner__title {
+  max-width: var(--cta-banner-title-max);
+  font: var(--text-h2);
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.cta-banner__title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.cta-banner__text {
+  max-width: var(--cta-banner-text-max);
+  font: var(--text-body-lg);
+  color: var(--ink-dim);
+  text-wrap: pretty;
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.cta-banner__note {
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.cta-banner--glow::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: var(--cta-banner-glow-size);
+  height: var(--cta-banner-glow-size);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--cta-banner-glow) 0%, transparent 62%);
+  opacity: 0.55;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.cta-banner--card .cta-banner__inner {
+  padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 64px);
+  border: 1px solid var(--cta-banner-card-border);
+  border-radius: var(--cta-banner-card-radius);
+  background: var(--cta-banner-card-bg);
+}
+
+.cta-banner--left .cta-banner__inner {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cta-banner--left .cta-banner__actions {
+  justify-content: flex-start;
+}
+
+@media (min-width: 900px) {
+  .cta-banner__title {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+
+@media (max-width: 599px) {
+  .cta-banner__actions {
+    width: 100%;
+  }
+
+  .cta-banner__actions .btn {
+    flex: 1 1 100%;
+  }
+}

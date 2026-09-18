@@ -215,7 +215,7 @@ L'Atlante illustrato di Ecografia muscoloscheletrica fornisce una visione comple
 
 ## Prenotazioni
 
-> Blocco: `booking-cta` (banner con testo + CTA)
+> Blocco: `cta-banner cta-banner--glow` (banner con testo + CTA)
 > Origine: sezione "Prenotazioni"
 
 **Titolo sezione:** Prenotazioni
