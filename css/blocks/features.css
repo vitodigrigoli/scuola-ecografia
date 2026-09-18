@@ -15,6 +15,7 @@
    Variazioni:
      .features--numbered   segno = numero progressivo (counter CSS, viola)
      .features--icons      segno = icona SVG in un riquadro
+     .features--inline     segno a sinistra del titolo, 2 colonne, testo body (testi lunghi)
      .features--plain      senza card: solo testo con linea sopra
      .features--cols-2 / --cols-3 (default 4 → 2 → 1)
    ========================================================================== */
@@ -22,7 +23,7 @@
 .features {
   --features-cols: 4;
   --features-gap: var(--space-4);
-  --features-item-pad: var(--space-8) var(--space-7);
+  --features-item-pad: var(--space-10) var(--space-9);
   --features-item-bg: var(--surface-card);
   --features-item-border: var(--border);
   --features-item-radius: var(--radius-xl);
@@ -30,6 +31,8 @@
   --features-sign-size: 44px;
   --features-title-ink: var(--ink);
   --features-text-ink: var(--ink-dim);
+  --features-text-size: 15px;
+  --features-text-lh: 23px;
 
   counter-reset: features;
 }
@@ -73,9 +76,10 @@
 }
 
 .features__text {
-  font: var(--text-card-desc);
+  font: var(--text-body);
+  font-size: var(--features-text-size);
+  line-height: var(--features-text-lh);
   color: var(--features-text-ink);
-  text-wrap: pretty;
 }
 
 /* ==========================================================================
@@ -112,6 +116,32 @@
   height: 22px;
 }
 
+/* Inline: segno accanto al titolo, testo a piena larghezza sotto — per testi lunghi */
+.features--inline {
+  --features-cols: 2;
+  --features-text-size: 16px;
+  --features-text-lh: 24px;
+  --features-item-pad: var(--space-10) var(--space-10);
+}
+
+.features--inline .features__item {
+  display: grid;
+  grid-template-columns: var(--features-sign-size) minmax(0, 1fr);
+  column-gap: var(--space-5);
+  row-gap: var(--space-2);
+  align-items: center;
+  align-content: start; /* le card di una riga hanno la stessa altezza: lo spazio extra resta in fondo */
+}
+
+.features--inline .features__sign {
+  margin: 0;
+}
+
+.features--inline .features__title,
+.features--inline .features__text {
+  grid-column: 2;
+}
+
 /* Senza card */
 .features--plain {
   --features-item-bg: transparent;
@@ -140,6 +170,12 @@
   .features,
   .features--cols-3 {
     --features-cols: 2;
+  }
+}
+
+@media (max-width: 899px) {
+  .features--inline {
+    --features-cols: 1;
   }
 }
 

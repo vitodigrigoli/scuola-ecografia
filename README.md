@@ -58,7 +58,7 @@ npx serve .
 | `header` | ✔ fatto (`--floating`, `--static`, menu mobile, toggle tema) | tutte |
 | `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
 | `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`; contatore animato in `js/stats.js`) | home |
-| `features` | ✔ fatto (`--numbered` = Obiettivi, `--icons` = Didattica, `--plain`, `--cols-2/3`) | home |
+| `features` | ✔ fatto (`--numbered` = Obiettivi, `--icons --inline` = Didattica, `--plain`, `--cols-2/3`) | home |
 | `percorso` | ✔ fatto (`--cards`, `--connected`) | home |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
