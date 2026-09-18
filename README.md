@@ -34,7 +34,7 @@ Nessun build step: GitHub Pages serve la root del branch `main`. Il sito vive so
 - **Tema**: `html[data-theme="light"]` sovrascrive solo i token. I blocchi non conoscono il tema (es. il logo usa `--logo-filter`).
 - **Icone**: sempre dallo sprite (iniettato inline in ogni pagina dal generatore, così funziona anche da `file://`), `currentColor`: `<svg class="icon"><use href="#icon-check"/></svg>`.
 - Mai valori grezzi (colori, px di spaziatura) nei blocchi: solo variabili.
-- **Scala tipografica**: solo i token `--text-*` di `tokens.css` (`body` 14, `body-lg` 17, `card-desc` 13.5, `caption` 12…). Niente `font-size` intermedi ad hoc nei blocchi.
+- **Scala tipografica**: solo i token `--text-*` di `tokens.css` (`body` 14, `body-lg` 17, `caption` 12, `label` 11…). Niente `font-size` intermedi ad hoc nei blocchi.
 
 ## Sviluppare un blocco
 

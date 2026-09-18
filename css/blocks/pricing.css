@@ -90,7 +90,7 @@
 }
 
 .pricing__desc {
-  font: var(--text-card-desc);
+  font: var(--text-body);
   color: var(--ink-dim);
 }
 
@@ -127,7 +127,7 @@
 
 .pricing__footnote {
   margin-top: var(--space-8);
-  font: var(--text-card-desc);
+  font: var(--text-body);
   color: var(--ink-muted);
   text-align: center;
   text-wrap: balance;

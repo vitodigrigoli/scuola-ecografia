@@ -101,7 +101,7 @@
 }
 
 .editions__note {
-  font: var(--text-card-desc);
+  font: var(--text-body);
   color: var(--ink-muted);
 }
 
