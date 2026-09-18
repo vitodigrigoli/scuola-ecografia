@@ -179,7 +179,7 @@
   width: fit-content;
   max-width: calc(100% - var(--space-4) * 2);
   padding: 8px var(--space-3);
-  border: 1px solid var(--border-strong);
+  border: 1px solid rgba(255, 255, 255, 0.18); /* sempre su media scuro: non segue il tema */
   border-radius: var(--radius-pill);
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(8px);
