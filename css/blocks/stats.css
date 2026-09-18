@@ -1,0 +1,136 @@
+/* ==========================================================================
+   BLOCCO: stats
+   Riga di numeri chiave (riferimento: fascia "280K iscritti · 1.000+ lezioni…" di Learnn).
+
+   Struttura:
+     .stats
+       .stats__inner
+         .stats__item …
+           .stats__value > .stats__number [data-count] (+ .stats__suffix)
+           .stats__label
+
+   Variazioni:
+     .stats--bordered   linea sopra e sotto (default)
+     .stats--cards      ogni voce in una card con bordo
+     .stats--compact    numeri più piccoli (uso in sezioni interne)
+   Stati (JS, js/stats.js):
+     .is-counted        contatore animato completato
+   ========================================================================== */
+
+.stats {
+  --stats-cols: 4;
+  --stats-gap: var(--space-8);
+  --stats-pad-y: var(--space-10);
+  --stats-value-size: 44px;
+  --stats-value-ink: var(--ink);
+  --stats-suffix-ink: var(--accent);
+  --stats-label-ink: var(--ink-dim);
+  --stats-divider: var(--border);
+  --stats-item-pad-x: var(--space-6);
+
+  padding-block: var(--space-6) clamp(var(--section-pad-min), 8vw, 100px);
+}
+
+.stats__inner {
+  display: grid;
+  grid-template-columns: repeat(var(--stats-cols), minmax(0, 1fr));
+  gap: 0 var(--stats-gap);
+  padding-block: var(--stats-pad-y);
+  border-block: 1px solid var(--stats-divider);
+}
+
+.stats__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding-inline: var(--stats-item-pad-x);
+  text-align: center;
+}
+
+/* Divisore verticale tra le voci */
+.stats__item + .stats__item::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--stats-gap) / -2);
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: var(--stats-divider);
+}
+
+.stats__value {
+  display: inline-flex;
+  align-items: baseline;
+  font: var(--text-price);
+  font-size: var(--stats-value-size);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--stats-value-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.stats__suffix {
+  color: var(--stats-suffix-ink);
+  font-size: 0.7em;
+  margin-left: 2px;
+}
+
+.stats__label {
+  font: var(--text-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--stats-label-ink);
+  text-wrap: balance;
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.stats--cards {
+  --stats-gap: var(--space-4);
+}
+
+.stats--cards .stats__inner {
+  border-block: 0;
+  padding-block: 0;
+}
+
+.stats--cards .stats__item {
+  padding: var(--space-8) var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface-card);
+}
+
+.stats--cards .stats__item + .stats__item::before {
+  display: none;
+}
+
+.stats--compact {
+  --stats-value-size: 32px;
+  --stats-pad-y: var(--space-6);
+  padding-block: var(--space-6);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 899px) {
+  .stats {
+    --stats-cols: 2;
+    --stats-value-size: 36px;
+    --stats-gap: var(--space-6);
+    --stats-item-pad-x: var(--space-2);
+  }
+
+  .stats__inner {
+    row-gap: var(--space-8);
+  }
+
+  /* con due colonne il divisore va solo tra la 1ª e la 2ª di ogni riga */
+  .stats__item:nth-child(odd)::before {
+    display: none;
+  }
+}
