@@ -82,25 +82,35 @@
   .section-head--split {
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
     align-items: end;
     column-gap: clamp(32px, 5vw, 80px);
   }
 
+  /* colonna sinistra: eyebrow e titolo su due righe distinte, sempre attaccati */
   .section-head--split .section-head__eyebrow {
     grid-column: 1;
+    grid-row: 1;
+    align-self: end;
   }
 
   .section-head--split .section-head__title {
     grid-column: 1;
+    grid-row: 2;
   }
 
-  .section-head--split .section-head__text,
-  .section-head--split .section-head__actions {
+  /* colonna destra: il testo occupa entrambe le righe, allineato in basso al titolo */
+  .section-head--split .section-head__text {
     grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
     justify-self: start;
   }
 
   .section-head--split .section-head__actions {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: start;
     margin-top: 0;
   }
 }
