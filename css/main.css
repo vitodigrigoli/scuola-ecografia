@@ -8,6 +8,7 @@
 @import url('blocks/notice.css');
 @import url('blocks/text-block.css');
 @import url('blocks/header.css');
+@import url('blocks/footer.css');
 
 /* Blocchi di pagina */
 @import url('blocks/hero.css');

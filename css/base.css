@@ -85,6 +85,16 @@ p {
   .h2 { font-size: 44px; line-height: 48px; }
 }
 
+/* --- Pagina: colonna a tutta altezza, così il footer resta in fondo --- */
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.page > main {
+  flex: 1 0 auto;
+}
+
 /* --- Contenitori --- */
 .container {
   width: 100%;

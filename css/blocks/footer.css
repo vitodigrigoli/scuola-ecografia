@@ -1,0 +1,174 @@
+/* ==========================================================================
+   BLOCCO: footer
+   Piè di pagina (riferimento: footer Learnn — logo e claim a sinistra, colonne di link,
+   barra finale con legali). Condiviso da tutte le pagine (content/build-pages.js).
+
+   Struttura:
+     .footer
+       .footer__inner
+         .footer__brand > .footer__logo + .footer__claim + .footer__meta
+         .footer__col … > .footer__title + .footer__links > .footer__link
+       .footer__bottom > .footer__copy + .footer__legal > .footer__link
+
+   Variazioni:
+     .footer--minimal   solo barra finale (landing / pagine di servizio)
+   ========================================================================== */
+
+.footer {
+  --footer-bg: var(--surface-elev-1);
+  --footer-border: var(--border);
+  --footer-pad-y: clamp(48px, 6vw, 80px);
+  --footer-gap: clamp(32px, 4vw, 64px);
+  --footer-logo-h: 22px;
+  --footer-title-ink: var(--ink);
+  --footer-link-ink: var(--ink-dim);
+  --footer-link-hover: var(--ink);
+  --footer-muted: var(--ink-muted);
+
+  margin-top: auto;
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  font-family: var(--font-sans);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  gap: var(--footer-gap);
+  padding-block: var(--footer-pad-y);
+}
+
+/* --- Brand --- */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  max-width: 34ch;
+}
+
+.footer__logo {
+  height: var(--footer-logo-h);
+  width: auto;
+  filter: var(--logo-filter);
+}
+
+.footer__claim {
+  font: var(--text-body);
+  color: var(--footer-link-ink);
+}
+
+.footer__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: var(--space-2);
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--footer-muted);
+}
+
+.footer__meta a {
+  color: var(--footer-link-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* --- Colonne --- */
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.footer__title {
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--footer-title-ink);
+}
+
+.footer__title--spaced {
+  margin-top: var(--space-3);
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  font: var(--text-body);
+  color: var(--footer-link-ink);
+  transition: color var(--duration) var(--ease);
+}
+
+.footer__link:hover {
+  color: var(--footer-link-hover);
+}
+
+.footer__link .icon {
+  width: 12px;
+  height: 12px;
+  opacity: 0.6;
+}
+
+/* --- Barra finale --- */
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--footer-border);
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--footer-muted);
+}
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.footer__legal .footer__link {
+  font: inherit;
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.footer--minimal .footer__inner {
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 899px) {
+  .footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 479px) {
+  .footer__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

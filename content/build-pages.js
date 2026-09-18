@@ -61,6 +61,69 @@ ${nav}
   </header>`;
 }
 
+function footer() {
+  const ext = icon('external');
+  const link = (href, label, external) => `            <li><a class="footer__link" href="${href}"${external ? ' target="_blank" rel="noopener"' : ''}>${label}${external ? ' ' + ext : ''}</a></li>`;
+  return `  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="Scuola di Ecografia Muscoloscheletrica — Home"><img class="footer__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260"></a>
+          <p class="footer__claim">La Scuola di Ecografia Muscoloscheletrica fatta da medici per i medici. Un percorso di formazione privata di ANFI, Associazione Nazionale Fisiatria Interventistica.</p>
+          <p class="footer__meta">
+            <span>Associazione Nazionale Fisiatria Interventistica ETS</span>
+            <span>Via Benigno Crespi 57, 20159 Milano</span>
+            <span>C.F. 97896820152 · <a href="mailto:info@associazioneanfi.it">info@associazioneanfi.it</a></span>
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__title">Scuola</p>
+          <ul class="footer__links">
+${link('programma.html', 'Programma')}
+${link('relatori.html', 'Relatori')}
+${link('prenota.html', 'Prenota')}
+${link('index.html#edizioni', 'Edizioni')}
+${link('index.html#costi', 'Costi')}
+${link('index.html#faq', 'FAQ')}
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__title">ANFI</p>
+          <ul class="footer__links">
+${link('https://associazioneanfi.it/associazione/', 'Associazione', true)}
+${link('https://associazioneanfi.it/eventi/', 'Eventi', true)}
+${link('https://associazioneanfi.it/letteratura/', 'Letteratura', true)}
+${link('https://associazioneanfi.it/account-iscrizione/', 'Area membri', true)}
+${link('https://associazioneanfi.it/contatti/', 'Contatti', true)}
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__title">Sedi</p>
+          <ul class="footer__links">
+${link('index.html#sedi', 'Il Principe Hotel · Catania')}
+${link('index.html#sedi', 'J|Hotel · Torino')}
+          </ul>
+          <p class="footer__title footer__title--spaced">Iscrizioni</p>
+          <ul class="footer__links">
+${link('https://fisiaforma.it/categoria-prodotto/eventi/', 'Fisiaforma (provider)', true)}
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© ${new Date().getFullYear()} ANFI — Associazione Nazionale Fisiatria Interventistica ETS</p>
+        <ul class="footer__legal">
+${link('https://www.iubenda.com/privacy-policy/18516161', 'Privacy Policy', true)}
+${link('https://www.iubenda.com/privacy-policy/18516161/cookie-policy', 'Cookie Policy', true)}
+        </ul>
+      </div>
+    </div>
+  </footer>`;
+}
+
 function body(p) {
   const partial = path.join(__dirname, 'pages', p.id + '.html');
   if (fs.existsSync(partial)) return fs.readFileSync(partial, 'utf8').trimEnd();
@@ -99,7 +162,7 @@ function page(p) {
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body data-page="${p.id}">
+<body class="page" data-page="${p.id}">
 ${sprite}
 
 ${header(p.id)}
@@ -107,6 +170,8 @@ ${header(p.id)}
   <main id="main">
 ${body(p)}
   </main>
+
+${footer()}
 
   <script src="js/theme.js"></script>
   <script src="js/header.js"></script>
