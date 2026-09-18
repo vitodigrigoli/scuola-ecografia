@@ -223,6 +223,10 @@
 }
 
 /* Scroller continuo */
+.people--scroller {
+  overflow-x: clip; /* 100vw include la scrollbar verticale su Windows: evita la barra orizzontale */
+}
+
 .people--scroller .people__scroller {
   /* full-bleed: esce dal container fino ai bordi del viewport, con dissolvenza alle estremità */
   width: 100vw;

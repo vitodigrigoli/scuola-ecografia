@@ -17,6 +17,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: clip; /* rete di sicurezza per i blocchi full-bleed (100vw include la scrollbar) */
   background: var(--surface-page);
   color: var(--ink);
   font: var(--text-body);
