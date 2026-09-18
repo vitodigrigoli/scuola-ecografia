@@ -19,7 +19,10 @@ const links = [
   { id: 'faq',       href: 'index.html#faq', label: 'FAQ' },
 ];
 
-const icon = (name, extra = '') => `<svg class="icon${extra ? ' ' + extra : ''}" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-${name}"/></svg>`;
+const icon = (name, extra = '') => `<svg class="icon${extra ? ' ' + extra : ''}" aria-hidden="true"><use href="#icon-${name}"/></svg>`;
+
+// Sprite inline in ogni pagina: <use href="#icon-x"> funziona anche da file:// (lo sprite esterno no)
+const sprite = fs.readFileSync(path.join(__dirname, '..', 'assets', 'icons', 'sprite.svg'), 'utf8').trim();
 
 function header(active) {
   const nav = links.map(l => {
@@ -97,6 +100,8 @@ function page(p) {
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body data-page="${p.id}">
+${sprite}
+
 ${header(p.id)}
 
   <main id="main">

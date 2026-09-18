@@ -32,7 +32,7 @@ Nessun build step: GitHub Pages serve la root del branch `main`. Il sito vive so
 - **BEM**: `.blocco`, `.blocco__elemento`, `.blocco--variazione`. Stati gestiti da JS con `.is-*` (`.is-open`, `.is-scrolled`). Un solo livello di annidamento, niente selettori di tag dentro i blocchi.
 - **Variabili a due livelli**: i token globali stanno in `tokens.css`; ogni blocco dichiara in testa le proprie variabili locali con fallback ai token (`.header { --header-bg: var(--surface-elev-2); }`). Le **variazioni** (`--floating`, `--static`) ridefiniscono solo le variabili locali, non le regole.
 - **Tema**: `html[data-theme="light"]` sovrascrive solo i token. I blocchi non conoscono il tema (es. il logo usa `--logo-filter`).
-- **Icone**: sempre dallo sprite, `currentColor`: `<svg class="icon"><use href="assets/icons/sprite.svg#icon-check"/></svg>`.
+- **Icone**: sempre dallo sprite (iniettato inline in ogni pagina dal generatore, così funziona anche da `file://`), `currentColor`: `<svg class="icon"><use href="#icon-check"/></svg>`.
 - Mai valori grezzi (colori, px di spaziatura) nei blocchi: solo variabili.
 
 ## Sviluppare un blocco
