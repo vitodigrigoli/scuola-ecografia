@@ -1,0 +1,188 @@
+/* ==========================================================================
+   BLOCCO: pricing
+   Fasce di prezzo (riferimento: card piano Learnn — la card in evidenza ha bordo accent
+   + bagliore, spunte viola nella lista, prezzo grande con nota IVA).
+
+   Struttura:
+     .pricing (section)
+       .pricing__grid
+         .pricing__card [--featured]
+           .pricing__head > .pricing__name + .badge (opzionale)
+           .pricing__price > .pricing__amount + .pricing__vat
+           .pricing__desc
+           .pricing__features > .pricing__feature …
+           .pricing__actions > .btn …
+       .pricing__footnote
+
+   Variazioni:
+     .pricing__card--featured   in evidenza (bordo accent + shadow-accent-glow, SEMPRE insieme)
+     .pricing--two              2 colonne
+   ========================================================================== */
+
+.pricing {
+  --pricing-cols: 3;
+  --pricing-gap: var(--space-6);
+  --pricing-card-pad: var(--space-10) var(--space-8);
+  --pricing-card-bg: var(--surface-card-bordered);
+  --pricing-card-border: var(--border);
+  --pricing-card-radius: var(--radius-lg);
+  --pricing-check-ink: var(--accent);
+  --pricing-amount-ink: var(--ink-soft);
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--pricing-cols), minmax(0, 1fr));
+  gap: var(--pricing-gap);
+  align-items: stretch;
+}
+
+/* --- Card --- */
+.pricing__card {
+  --card-border: var(--pricing-card-border);
+  --card-shadow: none;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--pricing-card-pad);
+  border: 1px solid var(--card-border);
+  border-radius: var(--pricing-card-radius);
+  background: var(--pricing-card-bg);
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--duration) var(--ease);
+}
+
+.pricing__card:hover {
+  border-color: var(--border-strong);
+}
+
+.pricing__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.pricing__name {
+  font: var(--text-h3);
+  color: var(--ink-soft);
+}
+
+.pricing__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.pricing__amount {
+  font: var(--text-price);
+  letter-spacing: -0.03em;
+  color: var(--pricing-amount-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing__vat {
+  font: var(--text-caption);
+  color: var(--ink-muted);
+}
+
+.pricing__desc {
+  font: var(--text-card-desc);
+  color: var(--ink-dim);
+}
+
+.pricing__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+.pricing__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font: var(--text-body);
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.pricing__feature .icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  color: var(--pricing-check-ink);
+}
+
+.pricing__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.pricing__footnote {
+  margin-top: var(--space-8);
+  font: var(--text-card-desc);
+  color: var(--ink-muted);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.pricing__footnote a {
+  color: var(--ink-dim);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.pricing__card--featured {
+  --card-border: var(--accent-border);
+  --card-shadow: var(--shadow-accent-glow);
+  --pricing-amount-ink: var(--ink);
+}
+
+.pricing__card--featured:hover {
+  border-color: var(--accent);
+}
+
+.pricing__card--featured .pricing__name {
+  color: var(--ink);
+}
+
+.pricing--two {
+  --pricing-cols: 2;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .pricing {
+    --pricing-cols: 1;
+    --pricing-gap: var(--space-4);
+  }
+
+  .pricing__grid {
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
+  /* la fascia in evidenza per prima quando le card sono in colonna */
+  .pricing__card--featured {
+    order: -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .pricing {
+    --pricing-card-pad: var(--space-8) var(--space-7);
+  }
+}

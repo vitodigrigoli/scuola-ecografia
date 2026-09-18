@@ -59,5 +59,6 @@ npx serve .
 | `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
 | `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`; contatore animato in `js/stats.js`) | home |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
-| `objectives` `intro` `didattica` `percorso` `materiale` `pricing` `booking-cta` `organizers` `people` `venues` `story` `faq` `testimonials` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
+| `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
+| `objectives` `intro` `didattica` `percorso` `materiale` `booking-cta` `organizers` `people` `venues` `story` `faq` `testimonials` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
 | `page-hero` `program` `speakers` `committee` | da fare | pagine interne |
