@@ -123,7 +123,7 @@
   flex-direction: column;
   gap: var(--space-3);
   padding: 0 var(--faq-item-pad-x) var(--faq-item-pad-y);
-  font: var(--text-body-sm);
+  font: var(--text-body);
   color: var(--faq-answer-ink);
 }
 

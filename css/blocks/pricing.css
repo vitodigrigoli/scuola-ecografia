@@ -106,7 +106,7 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  font: var(--text-body-sm);
+  font: var(--text-body);
   color: var(--ink-soft);
 }
 
