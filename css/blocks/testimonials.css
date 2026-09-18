@@ -26,8 +26,6 @@
   --testimonials-card-border: var(--border);
   --testimonials-card-radius: var(--radius-lg);
   --testimonials-card-pad: var(--space-8);
-  --testimonials-quote-size: 15px;
-  --testimonials-quote-lh: 24px;
   --testimonials-star-ink: var(--rating-gold);
   --testimonials-avatar-size: 40px;
 }
@@ -71,9 +69,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  font: var(--text-body);
-  font-size: var(--testimonials-quote-size);
-  line-height: var(--testimonials-quote-lh);
+  font: var(--text-body-sm);
   color: var(--ink-soft);
   text-wrap: pretty;
 }
@@ -146,9 +142,11 @@
   margin: 0;
 }
 
+.testimonials--compact .testimonials__quote {
+  font: var(--text-quote);
+}
+
 .testimonials--compact {
-  --testimonials-quote-size: 13px;
-  --testimonials-quote-lh: 18px;
   --testimonials-card-pad: var(--space-4);
   --testimonials-card-radius: var(--radius-sm);
 }
