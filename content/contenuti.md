@@ -102,7 +102,7 @@ Il menu ANFI generale (Associazione, Eventi, Letteratura, Area membri, Contatti)
 
 ## Obiettivi della Scuola
 
-> Blocco: `objectives` (griglia 4 tile)
+> Blocco: `features features--numbered` (griglia 4 tile numerate)
 > Origine: sezione "Obiettivi della Scuola"
 
 **Titolo sezione:** Obiettivi della Scuola
@@ -129,7 +129,7 @@ Il numero massimo di partecipanti è limitato a 50 per poter garantire un rappor
 
 ## Didattica
 
-> Blocco: `didattica` (4 tile con icona)
+> Blocco: `features features--icons` (4 tile con icona)
 > Origine: sezione "Didattica" (icone PNG: education, ultrasonography, legal-document, exam → sostituire con icone SVG del set)
 
 **Titolo sezione:** Didattica

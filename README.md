@@ -58,9 +58,10 @@ npx serve .
 | `header` | ✔ fatto (`--floating`, `--static`, menu mobile, toggle tema) | tutte |
 | `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
 | `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`; contatore animato in `js/stats.js`) | home |
+| `features` | ✔ fatto (`--numbered` = Obiettivi, `--icons` = Didattica, `--plain`, `--cols-2/3`) | home |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
-| `objectives` `intro` `didattica` `percorso` `materiale` `booking-cta` `organizers` `people` `venues` `story` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
+| `intro` `percorso` `materiale` `booking-cta` `organizers` `people` `venues` `story` `sponsors` `footer` | da fare | vedi `content/contenuti.md` |
 | `page-hero` `program` `speakers` `committee` | da fare | pagine interne |

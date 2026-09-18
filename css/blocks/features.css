@@ -1,0 +1,154 @@
+/* ==========================================================================
+   BLOCCO: features
+   Griglia di tile informative (riferimento: tile "Learnn è il tuo partner…" e
+   "Cosa cambia dopo qualche mese" di Learnn — card con bordo, segno in alto, titolo, testo).
+   Usato per: Obiettivi della Scuola (--numbered), Didattica (--icons).
+
+   Struttura:
+     .features (section)
+       .features__grid
+         .features__item …
+           .features__sign  (numero "01" | icona SVG)
+           .features__title
+           .features__text
+
+   Variazioni:
+     .features--numbered   segno = numero progressivo (counter CSS, viola)
+     .features--icons      segno = icona SVG in un riquadro
+     .features--plain      senza card: solo testo con linea sopra
+     .features--cols-2 / --cols-3 (default 4 → 2 → 1)
+   ========================================================================== */
+
+.features {
+  --features-cols: 4;
+  --features-gap: var(--space-4);
+  --features-item-pad: var(--space-8) var(--space-7);
+  --features-item-bg: var(--surface-card);
+  --features-item-border: var(--border);
+  --features-item-radius: var(--radius-xl);
+  --features-sign-ink: var(--accent);
+  --features-sign-size: 44px;
+  --features-title-ink: var(--ink);
+  --features-text-ink: var(--ink-dim);
+
+  counter-reset: features;
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--features-cols), minmax(0, 1fr));
+  gap: var(--features-gap);
+}
+
+/* --- Tile --- */
+.features__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--features-item-pad);
+  border: 1px solid var(--features-item-border);
+  border-radius: var(--features-item-radius);
+  background: var(--features-item-bg);
+  counter-increment: features;
+  transition: border-color var(--duration) var(--ease);
+}
+
+.features__item:hover {
+  border-color: var(--border-strong);
+}
+
+.features__sign {
+  display: grid;
+  place-items: center;
+  width: var(--features-sign-size);
+  height: var(--features-sign-size);
+  color: var(--features-sign-ink);
+  margin-bottom: var(--space-2);
+}
+
+.features__title {
+  font: var(--text-card-title);
+  color: var(--features-title-ink);
+  text-wrap: balance;
+}
+
+.features__text {
+  font: var(--text-body);
+  font-size: 15px;
+  color: var(--features-text-ink);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+/* Numerata: il segno è il contatore, allineato a sinistra, senza riquadro */
+.features--numbered .features__sign {
+  width: auto;
+  height: auto;
+  justify-items: start;
+  font: var(--text-h2);
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.features--numbered .features__sign::before {
+  content: '0' counter(features);
+}
+
+.features--numbered .features__item:nth-child(n + 10) .features__sign::before {
+  content: counter(features);
+}
+
+/* Icone: riquadro con fondo accent-wash */
+.features--icons .features__sign {
+  border-radius: var(--radius-sm);
+  background: var(--accent-wash);
+}
+
+.features--icons .features__sign .icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Senza card */
+.features--plain {
+  --features-item-bg: transparent;
+  --features-item-border: transparent;
+  --features-item-pad: var(--space-6) 0 0;
+  --features-item-radius: 0;
+  --features-gap: var(--space-8);
+}
+
+.features--plain .features__item {
+  border-top: 1px solid var(--border);
+}
+
+.features--cols-2 {
+  --features-cols: 2;
+}
+
+.features--cols-3 {
+  --features-cols: 3;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .features,
+  .features--cols-3 {
+    --features-cols: 2;
+  }
+}
+
+@media (max-width: 599px) {
+  .features,
+  .features--cols-2,
+  .features--cols-3 {
+    --features-cols: 1;
+    --features-item-pad: var(--space-7) var(--space-6);
+  }
+}
