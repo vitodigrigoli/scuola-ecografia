@@ -6,7 +6,7 @@
    Struttura:
      .faq (section)
        .faq__inner
-         .section-head (colonna sinistra nella variante --split)
+         .text-block (colonna sinistra nella variante --split)
          .faq__list
            .faq__item (<details name="faq">)
              .faq__question (<summary>) > .faq__question-text + .faq__chevron
@@ -172,7 +172,7 @@
     align-items: start;
   }
 
-  .faq--split .section-head {
+  .faq--split .text-block {
     position: sticky;
     top: calc(var(--space-12) + 64px);
     margin-bottom: 0;

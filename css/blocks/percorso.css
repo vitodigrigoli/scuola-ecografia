@@ -25,7 +25,8 @@
   --percorso-line: var(--border-strong);
   --percorso-step-bg: transparent;
   --percorso-step-border: transparent;
-  --percorso-step-pad: var(--space-8) 0 0;
+  --percorso-step-pad: var(--space-10) 0 0;
+  --percorso-actions-mt: var(--space-10); /* = padding-top dello step: stessa distanza dalla linea e dai bottoni */
   --percorso-step-radius: 0;
   --percorso-check-ink: var(--accent);
 }
@@ -91,7 +92,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  margin-top: clamp(32px, 5vw, 56px);
+  margin-top: var(--percorso-actions-mt);
 }
 
 /* ==========================================================================

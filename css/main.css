@@ -5,7 +5,7 @@
 /* Blocchi condivisi */
 @import url('blocks/button.css');
 @import url('blocks/badge.css');
-@import url('blocks/section-head.css');
+@import url('blocks/text-block.css');
 @import url('blocks/header.css');
 
 /* Blocchi di pagina */
@@ -13,7 +13,6 @@
 @import url('blocks/stats.css');
 @import url('blocks/editions.css');
 @import url('blocks/features.css');
-@import url('blocks/intro.css');
 @import url('blocks/percorso.css');
 @import url('blocks/pricing.css');
 @import url('blocks/faq.css');

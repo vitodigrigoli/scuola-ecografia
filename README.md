@@ -54,12 +54,11 @@ npx serve .
 |---|---|---|
 | `btn` | ✔ fatto (`--primary`, `--secondary`, `--ghost`, `--accent`, `--lg`, `--sm`, `--block`) | tutte |
 | `badge` | ✔ fatto (`--outline`, `--accent`, `--soft`, `--muted`, `--success`, `--sm`) | tutte |
-| `section-head` | ✔ fatto (`--center`, `--split`, `--tight`) | tutte |
+| `text-block` | ✔ fatto — intestazione di sezione o testo a 2 colonne (`--split`, `--top`, `--center`, `--flush`, `--tight`; pill `__facts`) | tutte |
 | `header` | ✔ fatto (`--floating`, `--static`, menu mobile, toggle tema) | tutte |
 | `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
 | `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`; contatore animato in `js/stats.js`) | home |
 | `features` | ✔ fatto (`--numbered` = Obiettivi, `--icons` = Didattica, `--plain`, `--cols-2/3`) | home |
-| `intro` | ✔ fatto (`--center`, `--tinted`; pill dati con icona) | home, programma |
 | `percorso` | ✔ fatto (`--cards`, `--connected`) | home |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |

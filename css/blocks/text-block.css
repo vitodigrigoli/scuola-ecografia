@@ -1,0 +1,187 @@
+/* ==========================================================================
+   BLOCCO: text-block
+   Testo di sezione riusabile: intestazione (eyebrow + titolo + testo + azioni) oppure
+   sezione di solo testo a due colonne con dati in evidenza (riferimento: le intestazioni
+   Learnn e la sezione "Learnn è il tuo partner…").
+
+   Struttura:
+     .text-block
+       .text-block__eyebrow   (opzionale)
+       .text-block__title
+       .text-block__text …    (uno o più paragrafi)
+       .text-block__facts > .text-block__fact (> .icon + testo) …  (opzionale)
+       .text-block__actions > .btn …                               (opzionale)
+     Con più elementi nella colonna destra (--split) raggruppali in .text-block__body.
+
+   Variazioni:
+     .text-block--split    titolo a sinistra, testo/dati/azioni a destra (≥900px)
+     .text-block--top      con --split: colonna destra allineata in alto (default: al piede del titolo)
+     .text-block--center   centrato su una colonna
+     .text-block--flush    senza margine inferiore (quando è l'intera sezione)
+     .text-block--tight    margine inferiore ridotto
+   ========================================================================== */
+
+.text-block {
+  --text-block-mb: clamp(32px, 5vw, 56px);
+  --text-block-title-max: 22ch;
+  --text-block-text-max: 56ch;
+  --text-block-eyebrow-ink: var(--accent);
+  --text-block-text-ink: var(--ink-dim);
+  --text-block-fact-bg: var(--surface-card);
+  --text-block-fact-border: var(--border);
+  --text-block-fact-icon-ink: var(--accent);
+  --text-block-col-gap: clamp(32px, 5vw, 80px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--text-block-mb);
+}
+
+.text-block__eyebrow {
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-block-eyebrow-ink);
+}
+
+.text-block__title {
+  max-width: var(--text-block-title-max);
+  font: var(--text-h2);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.text-block__text {
+  max-width: var(--text-block-text-max);
+  font: var(--text-body-lg);
+  color: var(--text-block-text-ink);
+  text-wrap: pretty;
+}
+
+.text-block__text strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.text-block__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.text-block__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.text-block__fact {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px var(--space-4);
+  border: 1px solid var(--text-block-fact-border);
+  border-radius: var(--radius-pill);
+  background: var(--text-block-fact-bg);
+  font: var(--text-caption);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.text-block__fact .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-block-fact-icon-ink);
+}
+
+.text-block__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.text-block--center {
+  align-items: center;
+  text-align: center;
+}
+
+.text-block--center .text-block__facts,
+.text-block--center .text-block__actions {
+  justify-content: center;
+}
+
+.text-block--flush {
+  --text-block-mb: 0;
+}
+
+.text-block--tight {
+  --text-block-mb: var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .text-block__title {
+    font-size: 44px;
+    line-height: 48px;
+  }
+
+  /* Split: colonna sinistra eyebrow (riga 1) + titolo (riga 2);
+     colonna destra tutto il resto, allineato in basso al titolo. */
+  .text-block--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: end;
+    column-gap: var(--text-block-col-gap);
+  }
+
+  .text-block--split .text-block__eyebrow {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+  }
+
+  .text-block--split .text-block__title {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* senza eyebrow il titolo occupa entrambe le righe (altrimenti la riga 1 resta vuota e si allarga) */
+  .text-block--split .text-block__title:first-child {
+    grid-row: 1 / span 2;
+  }
+
+  .text-block--split .text-block__text,
+  .text-block--split .text-block__facts,
+  .text-block--split .text-block__actions,
+  .text-block--split .text-block__body {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  /* il primo elemento della colonna destra occupa le due righe, così parte dall'alto
+     del titolo (o dall'eyebrow) e resta allineato in basso */
+  .text-block--split .text-block__title + .text-block__text,
+  .text-block--split .text-block__title + .text-block__body {
+    grid-row: 1 / span 2;
+    align-self: end;
+  }
+
+  .text-block--split.text-block--top,
+  .text-block--split.text-block--top .text-block__title + .text-block__text,
+  .text-block--split.text-block--top .text-block__title + .text-block__body {
+    align-items: start;
+    align-self: start;
+  }
+
+  .text-block--split .text-block__actions {
+    margin-top: 0;
+  }
+}

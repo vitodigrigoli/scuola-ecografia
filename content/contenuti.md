@@ -116,7 +116,7 @@ Il menu ANFI generale (Associazione, Eventi, Letteratura, Area membri, Contatti)
 
 ## Formazione Avanzata in Ecografia Muscoloscheletrica
 
-> Blocco: `intro` (testo a due colonne, titolo + paragrafi)
+> Blocco: `text-block text-block--split --top --flush` (testo a due colonne, titolo + paragrafi + pill dati)
 > Origine: sezione "Formazione Avanzata in Ecografia Muscoloscheletrica" (presente anche in fondo a Programma)
 
 **Titolo:** Formazione Avanzata in Ecografia Muscoloscheletrica
