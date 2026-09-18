@@ -177,6 +177,11 @@
   .features--inline {
     --features-cols: 1;
   }
+
+  /* su mobile il testo torna a piena larghezza sotto icona e titolo */
+  .features--inline .features__text {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 599px) {
