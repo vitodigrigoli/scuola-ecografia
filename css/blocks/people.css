@@ -67,8 +67,9 @@
   position: relative;
   aspect-ratio: var(--people-photo-ratio);
   margin: 0;
-  background: linear-gradient(135deg, var(--avatar-gradient-start), var(--avatar-gradient-end));
+  border-radius: inherit;
   overflow: hidden;
+  /* nessun fondo colorato qui: trapelerebbe sotto la foto negli angoli arrotondati */
 }
 
 .people__photo > img {
@@ -89,6 +90,7 @@
   place-items: center;
   width: 100%;
   height: 100%;
+  background: linear-gradient(135deg, var(--avatar-gradient-start), var(--avatar-gradient-end));
   color: #fff;
   font: var(--text-h2);
   letter-spacing: 0.02em;
@@ -201,6 +203,12 @@
   font: var(--text-caption);
   letter-spacing: 0;
   text-transform: none;
+}
+
+.people--overlay .people__role .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
 }
 
 .people--overlay .people__text {
