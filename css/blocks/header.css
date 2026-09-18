@@ -1,0 +1,365 @@
+/* ==========================================================================
+   BLOCCO: header
+   Barra di navigazione a pillola flottante (riferimento: nav Learnn).
+
+   Struttura:
+     .header
+       .header__inner
+         .header__brand > .header__logo
+         .header__nav  (pannello su mobile)
+           .header__links > .header__link[--active]
+           .header__extras > .header__toggle + .header__login
+         .header__cta
+         .header__burger
+
+   Variazioni:
+     .header--floating   pillola sticky staccata dal bordo (default)
+     .header--static     barra piena a tutta larghezza, bordo inferiore
+   Stati (JS):
+     .is-open            menu mobile aperto
+     .is-scrolled        pagina scrollata (bordo più marcato)
+   ========================================================================== */
+
+.header {
+  /* --- Variabili locali: le variazioni ridefiniscono solo queste --- */
+  --header-h: 64px;
+  --header-top: 16px;
+  --header-max: 1180px;
+  --header-pad-x: var(--space-3);
+  --header-bg: var(--surface-elev-2);
+  --header-border: var(--border);
+  --header-radius: var(--radius-md);
+  --header-gap: var(--space-2);
+  --header-link-ink: var(--ink);
+  --header-link-bg-hover: var(--surface-wash);
+  --header-link-bg-active: var(--border);
+  --header-logo-h: 22px;
+  --header-cta-bg: var(--cta-primary-bg);
+  --header-cta-ink: var(--cta-primary-ink);
+  --header-z: 50;
+
+  position: sticky;
+  top: 0;
+  z-index: var(--header-z);
+  padding-inline: var(--gutter);
+  font-family: var(--font-sans);
+}
+
+.header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--header-gap);
+  height: var(--header-h);
+  max-width: var(--header-max);
+  margin-inline: auto;
+  padding-inline: var(--header-pad-x);
+  background: var(--header-bg);
+  border: 1px solid var(--header-border);
+  border-radius: var(--header-radius);
+  transition: border-color var(--duration) var(--ease), background-color var(--duration) var(--ease);
+}
+
+/* --- Brand --- */
+.header__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-xs);
+}
+
+.header__logo {
+  height: var(--header-logo-h);
+  width: auto;
+  filter: var(--logo-filter);
+}
+
+/* --- Nav (desktop: inline; mobile: pannello) --- */
+.header__nav {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--header-gap);
+  min-width: 0;
+}
+
+.header__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.header__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 9px var(--space-3);
+  border-radius: var(--radius-xs);
+  color: var(--header-link-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color var(--duration) var(--ease);
+}
+
+.header__link:hover {
+  background: var(--header-link-bg-hover);
+}
+
+.header__link--active {
+  background: var(--header-link-bg-active);
+}
+
+/* --- Extras: toggle tema + login --- */
+.header__extras {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.header__login {
+  padding: 9px 10px;
+  border-radius: var(--radius-xs);
+  color: var(--login-ink);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color var(--duration) var(--ease);
+}
+
+.header__login:hover {
+  background: var(--header-link-bg-hover);
+}
+
+/* Toggle giorno/notte: pillola con knob che scorre */
+.header__toggle {
+  --toggle-w: 46px;
+  --toggle-h: 26px;
+  --toggle-knob: 20px;
+
+  position: relative;
+  flex: none;
+  width: var(--toggle-w);
+  height: var(--toggle-h);
+  padding: 3px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface-wash);
+  transition: background-color var(--duration) var(--ease);
+}
+
+.header__toggle-knob {
+  display: grid;
+  place-items: center;
+  width: var(--toggle-knob);
+  height: var(--toggle-knob);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  transform: translateX(0);
+  transition: transform var(--duration) var(--ease);
+}
+
+.header__toggle-knob .icon {
+  width: 12px;
+  height: 12px;
+}
+
+/* Stato "light" attivo: knob a destra. Guidato dall'attributo aria-pressed. */
+.header__toggle[aria-pressed='true'] .header__toggle-knob {
+  transform: translateX(calc(var(--toggle-w) - var(--toggle-knob) - 8px));
+}
+
+.header__toggle-icon--sun,
+.header__toggle[aria-pressed='true'] .header__toggle-icon--moon {
+  display: none;
+}
+
+.header__toggle[aria-pressed='true'] .header__toggle-icon--sun {
+  display: block;
+}
+
+/* --- CTA primaria --- */
+.header__cta {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  padding: 10px var(--space-5);
+  border-radius: var(--radius-btn);
+  background: var(--header-cta-bg);
+  color: var(--header-cta-ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+.header__cta:hover {
+  opacity: 0.9;
+}
+
+.header__cta:active {
+  transform: scale(0.98);
+}
+
+.header__cta .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Burger (solo mobile) --- */
+.header__burger {
+  display: none;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: var(--radius-xs);
+  color: var(--ink);
+}
+
+.header__burger .icon {
+  width: 22px;
+  height: 22px;
+}
+
+.header__burger-icon--close,
+.header.is-open .header__burger-icon--open {
+  display: none;
+}
+
+.header.is-open .header__burger-icon--close {
+  display: block;
+}
+
+/* ==========================================================================
+   VARIAZIONE: --floating (default)
+   ========================================================================== */
+.header--floating {
+  top: var(--header-top);
+  margin-bottom: calc(var(--header-top) * -1);
+}
+
+.header--floating::before {
+  /* velo che copre il contenuto che scorre sopra alla pillola */
+  content: '';
+  position: absolute;
+  inset: calc(var(--header-top) * -1) 0 auto 0;
+  height: calc(var(--header-h) + var(--header-top) * 2);
+  background: linear-gradient(var(--surface-page) 55%, transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.header--floating.is-scrolled .header__inner {
+  border-color: var(--border-strong);
+}
+
+/* ==========================================================================
+   VARIAZIONE: --static (barra piena, per pagine interne)
+   ========================================================================== */
+.header--static {
+  --header-top: 0px;
+  --header-max: none;
+  --header-radius: 0;
+  --header-bg: var(--surface-page);
+
+  padding-inline: 0;
+}
+
+.header--static .header__inner {
+  max-width: none;
+  padding-inline: var(--gutter);
+  border-width: 0 0 1px;
+}
+
+/* ==========================================================================
+   MOBILE (< 900px): nav diventa pannello sotto la pillola
+   ========================================================================== */
+@media (max-width: 899px) {
+  .header {
+    --header-h: 56px;
+    --header-top: 10px;
+  }
+
+  .header__burger {
+    display: grid;
+  }
+
+  .header__cta {
+    padding: 9px var(--space-4);
+    font-size: 13px;
+  }
+
+  .header__cta .icon {
+    display: none;
+  }
+
+  .header__brand {
+    margin-right: auto;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--header-bg);
+    border: 1px solid var(--header-border);
+    border-radius: var(--header-radius);
+    opacity: 0;
+    transform: translateY(-6px);
+    visibility: hidden;
+    transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease), visibility 0s linear var(--duration);
+  }
+
+  .header.is-open .header__nav {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .header__links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .header__link {
+    padding: 14px var(--space-3);
+    font-size: 16px;
+    border-radius: var(--radius-sm);
+  }
+
+  .header__extras {
+    justify-content: space-between;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--header-border);
+  }
+
+  .header__login {
+    font-size: 15px;
+  }
+
+  .header--static .header__nav {
+    left: var(--gutter);
+    right: var(--gutter);
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    --header-logo-h: 18px;
+  }
+}

@@ -1,0 +1,25 @@
+<!-- @dsCard group="Contenuto" height=220 -->
+<style>
+  .wrap { padding: var(--space-8); background: var(--surface-page); font-family: var(--font-sans); }
+  .faq-list { max-width: 480px; display: flex; flex-direction: column; gap: var(--space-3); }
+  .faq-item { background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-md); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: var(--space-9) 26px; color: var(--ink); font-size: 17px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; color: var(--ink-dim); font-size: 20px; margin-left: var(--space-3); }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { margin: 0; padding: 0 26px var(--space-9); color: var(--ink-dim); font-size: 14px; line-height: 20px; }
+</style>
+<div id="root">
+  <div class="wrap">
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Chi può iscriversi ai corsi?</summary>
+        <p>Contenuto segnaposto: risposta in attesa dei testi reali da associazioneanfi.it/scuola/.</p>
+      </details>
+      <details class="faq-item">
+        <summary>È previsto un attestato?</summary>
+        <p>Contenuto segnaposto: risposta in attesa dei testi reali da associazioneanfi.it/scuola/prenota/.</p>
+      </details>
+    </div>
+  </div>
+</div>

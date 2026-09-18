@@ -1,0 +1,147 @@
+/* ==========================================================================
+   TOKENS — fonte: design-reference/tokens.json
+   Tema di default: dark (Learnn). Il tema light sovrascrive solo i colori.
+   I blocchi NON usano mai valori grezzi: solo queste variabili.
+   ========================================================================== */
+
+:root {
+  /* --- Colori: superfici --- */
+  --surface-page: #000000;
+  --surface-elev-1: #0a0a0a;
+  --surface-elev-2: #121212;
+  --surface-card: #131313;
+  --surface-card-bordered: #19191c;
+  --surface-wash: rgba(255, 255, 255, 0.04);
+
+  /* --- Colori: bordi --- */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  /* --- Colori: testo --- */
+  --ink: #ffffff;
+  --ink-soft: #e7e9ea;
+  --ink-dim: #b5b5b5;
+  --ink-muted: #8a8a8a;
+  --ink-faint: #696c73;
+  --ink-inactive: #aeb4bb;
+  --login-ink: rgba(255, 255, 255, 0.85);
+
+  /* --- Colori: CTA primaria (unica superficie invertita) --- */
+  --cta-primary-bg: #ffffff;
+  --cta-primary-ink: #000000;
+
+  /* --- Colori: accent (viola Learnn, identico nei due temi) --- */
+  --accent: #a855f7;
+  --accent-wash: rgba(168, 85, 247, 0.14);
+  --accent-border: rgba(168, 85, 247, 0.45);
+  --accent-glow-shadow: rgba(168, 85, 247, 0.55);
+  --on-accent: #ffffff;
+
+  /* --- Colori: accent secondario (periwinkle, contenuti "generati") --- */
+  --accent-secondary: #7f77dd;
+  --accent-secondary-wash: rgba(127, 119, 221, 0.18);
+  --accent-secondary-ink: #afa9ec;
+
+  /* --- Colori: speciali --- */
+  --avatar-gradient-start: #7f77dd;
+  --avatar-gradient-end: #5dcaa5;
+  --rating-gold: #fac775;
+  --trust-green: #00b67a;
+
+  /* --- Logo: wordmark bianco su trasparente; sul tema light viene invertito --- */
+  --logo-filter: none;
+
+  /* --- Tipografia --- */
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --text-price: 900 42px/46px var(--font-sans);
+  --text-h1: 900 40px/44px var(--font-sans);
+  --text-h2: 900 34px/38px var(--font-sans);
+  --text-h3: 800 21px/27px var(--font-sans);
+  --text-body-lg: 500 17px/26px var(--font-sans);
+  --text-body: 400 16px/24px var(--font-sans);
+  --text-card-title: 800 18px/24px var(--font-sans);
+  --text-card-desc: 400 13.5px/19px var(--font-sans);
+  --text-cta: 700 18px/24px var(--font-sans);
+  --text-label: 700 11px/14px var(--font-sans);
+  --text-label-sm: 700 10.5px/13px var(--font-sans);
+  --text-caption: 600 12px/16px var(--font-sans);
+  --text-quote: 500 13px/18px var(--font-sans);
+  --text-old-price: 400 18px/22px var(--font-sans);
+
+  /* --- Spaziatura --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 14px;
+  --space-5: 18px;
+  --space-6: 20px;
+  --space-7: 22px;
+  --space-8: 24px;
+  --space-9: 26px;
+  --space-10: 28px;
+  --space-11: 40px;
+  --space-12: 44px;
+  --section-pad-min: 70px;
+  --section-pad-max: 140px;
+  --container-max: 1280px;
+  --gutter: 20px;
+
+  /* --- Raggi --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-btn: 14px;
+  --radius-md: 16px;
+  --radius-lg: 18px;
+  --radius-xl: 20px;
+  --radius-pill: 9999px;
+
+  /* --- Ombre (solo bagliore accent: "bordi, non ombre") --- */
+  --shadow-accent-glow: 0 24px 60px -30px var(--accent-glow-shadow);
+
+  /* --- Motion --- */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration: 180ms;
+
+  color-scheme: dark;
+}
+
+/* --------------------------------------------------------------------------
+   Tema LIGHT — estensione per lo switch giorno/notte (assente su Learnn).
+   Stessa struttura di superfici, testo invertito, accent invariato.
+   -------------------------------------------------------------------------- */
+:root[data-theme='light'] {
+  --surface-page: #fafafa;
+  --surface-elev-1: #f2f2f3;
+  --surface-elev-2: #ececee;
+  --surface-card: #ffffff;
+  --surface-card-bordered: #ffffff;
+  --surface-wash: rgba(0, 0, 0, 0.03);
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+
+  --ink: #0a0a0a;
+  --ink-soft: #1a1a1e;
+  --ink-dim: #55565b;
+  --ink-muted: #7a7b80;
+  --ink-faint: #9a9ba0;
+  --ink-inactive: #8d9096;
+  --login-ink: rgba(10, 10, 10, 0.75);
+
+  --cta-primary-bg: #0a0a0a;
+  --cta-primary-ink: #ffffff;
+
+  --accent-wash: rgba(168, 85, 247, 0.1);
+  --accent-border: rgba(168, 85, 247, 0.4);
+  --accent-glow-shadow: rgba(168, 85, 247, 0.3);
+
+  --accent-secondary-wash: rgba(127, 119, 221, 0.14);
+  --accent-secondary-ink: #6259c7;
+
+  --rating-gold: #c98f2e;
+
+  --logo-filter: invert(1);
+
+  color-scheme: light;
+}

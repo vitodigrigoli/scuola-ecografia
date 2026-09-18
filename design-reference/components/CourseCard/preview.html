@@ -1,0 +1,20 @@
+<!-- @dsCard group="Card" height=300 width=300 -->
+<style>
+  .wrap { padding: var(--space-8); background: var(--surface-page); display: inline-flex; }
+  .course-card { width: 264px; background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: var(--space-7) var(--space-7); font-family: var(--font-sans); display: flex; flex-direction: column; gap: var(--space-3); }
+  .c-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); color: var(--ink); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: var(--space-2) var(--space-3); font-size: 11px; font-weight: 700; }
+  .c-badge svg { width: 12px; height: 12px; }
+  .c-title { color: var(--ink); font-size: 18px; line-height: 24px; font-weight: 800; margin: var(--space-2) 0 0; }
+  .c-desc { color: var(--ink-dim); font-size: 13.5px; line-height: 19px; margin: 0; }
+  .c-author { color: var(--ink); font-size: 12px; font-weight: 600; margin-top: var(--space-2); }
+</style>
+<div id="root">
+  <div class="wrap">
+    <div class="course-card">
+      <span class="c-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 12.6L12.6 20.4a2 2 0 01-2.8 0l-6.2-6.2a2 2 0 010-2.8L11.4 3.6a2 2 0 011.4-.6H19a2 2 0 012 2v6.6a2 2 0 01-.6 1.4z"/><circle cx="15.5" cy="8.5" r="1.5"/></svg>Spalla</span>
+      <p class="c-title">Titolo corso segnaposto</p>
+      <p class="c-desc">Descrizione breve del modulo, in attesa dei testi reali dal programma del corso.</p>
+      <div class="c-author">Nome Relatore segnaposto</div>
+    </div>
+  </div>
+</div>

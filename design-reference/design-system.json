@@ -1,0 +1,28 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": { "v": 1, "at": "2026-09-18T16:00:00Z" },
+  "title": "Scuola di Ecografia Muscoloscheletrica",
+  "namespace": "ScuolaDiEcografia",
+  "libraries": [],
+  "sections": {},
+  "groups": ["Logos"],
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "m",
+      "order": ["scuola-ecografia-wordmark.png"],
+      "files": {
+        "scuola-ecografia-wordmark.png": { "name": "scuola-ecografia-wordmark.png", "blob": "5ce1bec16cca750881071ff565c17457", "size": 39428, "type": "image/png" }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": { "readme": "project/README.md", "sections": [] },
+  "lastChange": {
+    "by": "Vito Di Grigoli",
+    "via": "Cowork",
+    "at": "2026-09-18T16:45:00Z",
+    "note": "Ricostruito su richiesta esplicita dell'utente per riusare colori e componenti reali di Learnn, non una palette/set inventati: tokens.json ora riporta i valori dark esatti letti dal sito learnn.com (accent #A855F7, superfici nere, degradé avatar, oro rating), con un tema light aggiunto come mia estensione coerente (stesso accent, superfici invertite) per il solo switch giorno/notte esplicitamente richiesto. Gli 8 componenti (Button, Badge, CourseCard, PricingCard, TestimonialCard, Header, FAQItem, Cover) replicano la struttura reale dei componenti Learnn; rimossi i componenti precedenti (SidebarNavItem, ClinicalCaseCard, QuizCard) che erano un'invenzione fuori da questo set. Restano le modifiche esplicite del cliente: font DM Sans, logo scuola caricato come asset, switch giorno/notte (ThemeToggle, notte default), nessuna emoji — ogni emoji/simbolo tipografico di Learnn (🎯, ⚡, ✓, ★) sostituito da un'icona SVG del set Icons. Contenuti di corso/relatore sono segnaposto espliciti in attesa dell'importazione testi da associazioneanfi.it/scuola/."
+  }
+}

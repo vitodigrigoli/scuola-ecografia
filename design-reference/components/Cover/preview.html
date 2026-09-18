@@ -1,0 +1,44 @@
+<!-- @dsCard height=320 -->
+<!--
+  blocks: accent slab 520×112 (bleeds top+right) · avatar-gradient disc r=64 (135deg avatar-gradient-start
+          to avatar-gradient-end) · rating-gold relief dot r=26 — the same three colours Learnn's own
+          screens show at full strength, unchanged for this system (colours/components stay Learnn's,
+          per instruction)
+  arrangement: top-band skeleton, not Learnn's side-zone layout — the system's real name ("Scuola di
+          Ecografia Muscoloscheletrica", 19-char longest line) does not fit the 440px side zone even
+          at the 64px floor, so cover.md's fallback band applies: same block trio, spanning the top
+  pattern: 4 concentric accent arcs (stroke-only, radii 40/70/100/130) centred on the slab's left edge —
+          Learnn's own ambient purple glow, reused as-is
+  scales: ground is surface-page (dark, the system's default theme); name at 56px, the largest size
+          whose longest line ("Muscoloscheletrica") clears 960px minus the 48px side insets
+-->
+<style>
+  .cover { position: relative; width: 960px; height: 320px; background: var(--surface-page); overflow: hidden; font-family: var(--font-sans); }
+  .cover svg { position: absolute; top: 0; left: 0; }
+  .cover .name { position: absolute; left: 48px; bottom: 70px; width: 760px; color: var(--ink); font-size: 56px; font-weight: 900; line-height: 0.95; letter-spacing: -0.01em; }
+  .cover .tagline { position: absolute; left: 48px; bottom: 40px; width: 640px; color: var(--ink-dim); font-size: 14px; line-height: 20px; }
+</style>
+<div id="root">
+  <div class="cover">
+    <svg width="960" height="320" viewBox="0 0 960 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <clipPath id="bandClip"><rect x="0" y="0" width="960" height="116"/></clipPath>
+      <g clip-path="url(#bandClip)">
+        <rect class="accent-slab" x="440" y="-4" width="520" height="120" fill="var(--accent)" />
+        <circle cx="460" cy="56" r="64" fill="url(#avatarGrad)" />
+        <circle cx="940" cy="88" r="26" fill="var(--rating-gold)" />
+        <circle cx="440" cy="112" r="40" fill="none" stroke="var(--accent)" stroke-width="2" stroke-opacity="0.9" />
+        <circle cx="440" cy="112" r="70" fill="none" stroke="var(--accent)" stroke-width="2" stroke-opacity="0.6" />
+        <circle cx="440" cy="112" r="100" fill="none" stroke="var(--accent)" stroke-width="2" stroke-opacity="0.35" />
+        <circle cx="440" cy="112" r="130" fill="none" stroke="var(--accent)" stroke-width="2" stroke-opacity="0.18" />
+      </g>
+      <defs>
+        <linearGradient id="avatarGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="var(--avatar-gradient-start)" />
+          <stop offset="1" stop-color="var(--avatar-gradient-end)" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="name">Scuola di Ecografia<br/>Muscoloscheletrica</div>
+    <div class="tagline">Formazione clinica continua per professionisti sanitari</div>
+  </div>
+</div>

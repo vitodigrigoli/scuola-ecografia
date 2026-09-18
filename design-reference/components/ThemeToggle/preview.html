@@ -1,0 +1,26 @@
+<!-- @dsCard group="Controlli" height=220 -->
+<style>
+  .wrap { padding: var(--space-8); background: var(--surface-page); font-family: var(--font-sans); display: flex; flex-direction: column; gap: var(--space-8); align-items: flex-start; }
+  .row { display: flex; align-items: center; gap: var(--space-6); }
+  .label { color: var(--ink-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .toggle { position: relative; width: 56px; height: 28px; border-radius: var(--radius-pill); background: var(--surface-card-bordered); border: 1px solid var(--border); display: flex; align-items: center; padding: 3px; cursor: pointer; }
+  .toggle .knob { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: var(--on-accent); transition: transform 300ms cubic-bezier(0.16,1,0.3,1); }
+  .toggle .knob svg { width: 12px; height: 12px; }
+  .toggle.is-light .knob { transform: translateX(28px); }
+</style>
+<div id="root">
+  <div class="wrap">
+    <div class="row">
+      <div class="toggle" aria-label="Passa a modalità giorno">
+        <span class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg></span>
+      </div>
+      <span class="label">Notte (default)</span>
+    </div>
+    <div class="row">
+      <div class="toggle is-light" aria-label="Passa a modalità notte">
+        <span class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+      </div>
+      <span class="label">Giorno</span>
+    </div>
+  </div>
+</div>
