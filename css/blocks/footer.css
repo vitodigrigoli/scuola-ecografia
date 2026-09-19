@@ -3,21 +3,25 @@
    Piè di pagina (riferimento: footer Learnn — logo e claim a sinistra, colonne di link,
    barra finale con legali). Condiviso da tutte le pagine (content/build-pages.js).
 
-   Struttura:
+   Struttura (default, minimal — una sola barra):
      .footer
-       .footer__inner
-         .footer__brand > .footer__logo + .footer__claim + .footer__meta
-         .footer__col … > .footer__title + .footer__links > .footer__link
-       .footer__bottom > .footer__copy + .footer__legal > .footer__link
+       .footer__bar
+         .footer__brand > .footer__logo
+         .footer__meta   (© ANFI ETS · C.F. · email)
+         .footer__legal > .footer__link …
 
-   Variazioni:
-     .footer--minimal   solo barra finale (landing / pagine di servizio)
+   Variazione --full: sopra la barra, .footer__inner con colonne di link
+     .footer__inner
+       .footer__brand > .footer__logo + .footer__claim + .footer__meta
+       .footer__col … > .footer__title + .footer__links > .footer__link
+     .footer__bottom > .footer__copy + .footer__legal
    ========================================================================== */
 
 .footer {
   --footer-bg: var(--surface-elev-1);
   --footer-border: var(--border);
   --footer-pad-y: clamp(48px, 6vw, 80px);
+  --footer-bar-pad-y: var(--space-8);
   --footer-gap: clamp(32px, 4vw, 64px);
   --footer-logo-h: 22px;
   --footer-title-ink: var(--ink);
@@ -32,10 +36,14 @@
 }
 
 .footer__inner {
-  display: grid;
+  display: none; /* solo nella variante --full */
   grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
   gap: var(--footer-gap);
   padding-block: var(--footer-pad-y);
+}
+
+.footer--full .footer__inner {
+  display: grid;
 }
 
 /* --- Brand --- */
@@ -118,7 +126,35 @@
   opacity: 0.6;
 }
 
-/* --- Barra finale --- */
+/* --- Barra minimal (default) --- */
+.footer__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-8);
+  padding-block: var(--footer-bar-pad-y);
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--footer-muted);
+}
+
+.footer__bar .footer__brand {
+  max-width: none;
+}
+
+.footer__bar .footer__meta {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  margin: 0;
+}
+
+.footer__bar .footer__legal .footer__link {
+  font: inherit;
+}
+
+/* --- Barra finale (variante --full) --- */
 .footer__bottom {
   display: flex;
   flex-wrap: wrap;
@@ -143,13 +179,6 @@
 }
 
 /* ==========================================================================
-   VARIAZIONI
-   ========================================================================== */
-.footer--minimal .footer__inner {
-  display: none;
-}
-
-/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 899px) {
@@ -165,6 +194,16 @@
 @media (max-width: 479px) {
   .footer__inner {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .footer__bar .footer__meta {
+    flex-direction: column;
   }
 
   .footer__bottom {

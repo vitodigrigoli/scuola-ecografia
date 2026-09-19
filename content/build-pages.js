@@ -66,55 +66,13 @@ function footer() {
   const link = (href, label, external) => `            <li><a class="footer__link" href="${href}"${external ? ' target="_blank" rel="noopener"' : ''}>${label}${external ? ' ' + ext : ''}</a></li>`;
   return `  <footer class="footer">
     <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <a href="index.html" aria-label="Scuola di Ecografia Muscoloscheletrica — Home"><img class="footer__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260"></a>
-          <p class="footer__claim">La Scuola di Ecografia Muscoloscheletrica fatta da medici per i medici. Un percorso di formazione privata di ANFI, Associazione Nazionale Fisiatria Interventistica.</p>
-          <p class="footer__meta">
-            <span>Associazione Nazionale Fisiatria Interventistica ETS</span>
-            <span>Via Benigno Crespi 57, 20159 Milano</span>
-            <span>C.F. 97896820152 · <a href="mailto:info@associazioneanfi.it">info@associazioneanfi.it</a></span>
-          </p>
-        </div>
-
-        <div class="footer__col">
-          <p class="footer__title">Scuola</p>
-          <ul class="footer__links">
-${link('programma.html', 'Programma')}
-${link('relatori.html', 'Relatori')}
-${link('prenota.html', 'Prenota')}
-${link('index.html#edizioni', 'Edizioni')}
-${link('index.html#costi', 'Costi')}
-${link('index.html#faq', 'FAQ')}
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <p class="footer__title">ANFI</p>
-          <ul class="footer__links">
-${link('https://associazioneanfi.it/associazione/', 'Associazione', true)}
-${link('https://associazioneanfi.it/eventi/', 'Eventi', true)}
-${link('https://associazioneanfi.it/letteratura/', 'Letteratura', true)}
-${link('https://associazioneanfi.it/account-iscrizione/', 'Area membri', true)}
-${link('https://associazioneanfi.it/contatti/', 'Contatti', true)}
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <p class="footer__title">Sedi</p>
-          <ul class="footer__links">
-${link('index.html#sedi', 'Il Principe Hotel · Catania')}
-${link('index.html#sedi', 'J|Hotel · Torino')}
-          </ul>
-          <p class="footer__title footer__title--spaced">Iscrizioni</p>
-          <ul class="footer__links">
-${link('https://fisiaforma.it/categoria-prodotto/eventi/', 'Fisiaforma (provider)', true)}
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <p class="footer__copy">© ${new Date().getFullYear()} ANFI — Associazione Nazionale Fisiatria Interventistica ETS</p>
+      <div class="footer__bar">
+        <a class="footer__brand" href="index.html" aria-label="Scuola di Ecografia Muscoloscheletrica — Home"><img class="footer__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260"></a>
+        <p class="footer__meta">
+          <span>© ${new Date().getFullYear()} ANFI — Associazione Nazionale Fisiatria Interventistica ETS</span>
+          <span>C.F. 97896820152</span>
+          <a href="mailto:info@associazioneanfi.it">info@associazioneanfi.it</a>
+        </p>
         <ul class="footer__legal">
 ${link('https://www.iubenda.com/privacy-policy/18516161', 'Privacy Policy', true)}
 ${link('https://www.iubenda.com/privacy-policy/18516161/cookie-policy', 'Cookie Policy', true)}

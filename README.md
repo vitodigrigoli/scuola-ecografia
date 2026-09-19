@@ -61,7 +61,7 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `badge` | ✔ fatto (`--outline`, `--accent`, `--soft`, `--muted`, `--success`, `--sm`) | tutte |
 | `text-block` | ✔ fatto — intestazione di sezione o testo a 2 colonne (`--split`, `--top`, `--center`, `--flush`, `--tight`; pill `__facts`) | tutte |
 | `header` | ✔ fatto (`--floating`, `--static`, menu mobile, toggle tema) | tutte |
-| `footer` | ✔ fatto (`--minimal`; brand, Scuola, ANFI, Sedi/Iscrizioni, barra legale) | tutte |
+| `footer` | ✔ fatto — barra minimal (logo, © ANFI, C.F., email, legali); `--full` aggiunge le colonne di link | tutte |
 | `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
 | `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`; contatore animato in `js/stats.js`) | home |
 | `features` | ✔ fatto (`--numbered` = Obiettivi, `--icons --inline` = Didattica, `--plain`, `--cols-2/3`) | home |
