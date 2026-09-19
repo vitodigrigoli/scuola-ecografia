@@ -14,6 +14,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ancore: le destinazioni si fermano sotto l'header flottante (top 16 + h 64) con un po' di respiro */
+:root {
+  --anchor-offset: calc(16px + 64px + 24px);
+}
+
+[id] {
+  scroll-margin-top: var(--anchor-offset);
+}
+
+@media (max-width: 899px) {
+  :root {
+    --anchor-offset: calc(10px + 56px + 16px);
+  }
+}
+
 body {
   margin: 0;
   min-height: 100vh;

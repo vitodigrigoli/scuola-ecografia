@@ -64,6 +64,12 @@
   border-color: var(--border-strong);
 }
 
+/* destinazione di un link (es. dal programma): evidenziata */
+.people__card:target {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-accent-glow);
+}
+
 .people__photo {
   position: relative;
   aspect-ratio: var(--people-photo-ratio);

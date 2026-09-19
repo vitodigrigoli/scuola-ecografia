@@ -86,7 +86,7 @@
 
 /* --- Incontro --- */
 .program__meeting {
-  scroll-margin-top: calc(var(--program-nav-top) + 64px);
+  scroll-margin-top: calc(var(--program-nav-top) + 64px); /* sotto header + nav sticky */
 }
 
 .program__meeting + .program__meeting {
