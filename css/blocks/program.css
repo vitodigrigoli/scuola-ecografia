@@ -17,7 +17,7 @@
              .program__session (<details> se ha descrizione, altrimenti <div>) [--lezione|--live|--pratica|--casi|--pausa|--organizzativo]
                .program__summary (<summary>)
                  .program__time
-                 .program__main > .program__title + .program__speaker (> .chip + .program__role)
+                 .program__main > .program__title + .program__speaker (> .chip …)
                  .program__type (badge) + .program__chevron
                .program__desc
 
@@ -246,11 +246,6 @@ details.program__session > .program__summary {
   margin-top: var(--space-2);
 }
 
-.program__role {
-  font: var(--text-caption);
-  font-weight: 500;
-  color: var(--ink-muted);
-}
 
 .program__aside {
   display: inline-flex;

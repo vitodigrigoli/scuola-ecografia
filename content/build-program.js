@@ -53,7 +53,7 @@ function session(s) {
   const has = !!s.desc;
   const tag = has ? 'details' : 'div';
   const speaker = s.speakers.length
-    ? `<p class="program__speaker">${s.speakers.map(p => `${chip(p)}${p.role ? `<span class="program__role">${esc(p.role)}</span>` : ''}`).join('')}</p>`
+    ? `<p class="program__speaker">${s.speakers.map(chip).join('')}</p>`
     : '';
   const aside = s.type === 'pausa' ? '' : `<span class="badge badge--sm program__type">${typeLabel[s.type] || s.type}</span>`;
   const chevron = has ? `<span class="program__chevron" aria-hidden="true">${ic('chevron-down')}</span>` : '';
