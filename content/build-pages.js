@@ -69,7 +69,7 @@ function footer() {
       <div class="footer__bar">
         <a class="footer__brand" href="index.html" aria-label="Scuola di Ecografia Muscoloscheletrica — Home"><img class="footer__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260"></a>
         <p class="footer__meta">
-          <span>© ${new Date().getFullYear()} ANFI — Associazione Nazionale Fisiatria Interventistica ETS</span>
+          <span>© ${new Date().getFullYear()} ANFI — Associazione Nazionale Fisiatria Interventistica&nbsp;ETS</span>
           <span>C.F. 97896820152</span>
           <a href="mailto:info@associazioneanfi.it">info@associazioneanfi.it</a>
         </p>

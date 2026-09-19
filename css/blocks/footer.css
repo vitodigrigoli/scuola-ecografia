@@ -198,12 +198,22 @@
 
   .footer__bar {
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-3);
+    align-items: center;
+    gap: var(--space-4);
+    text-align: center;
+  }
+
+  .footer__bar .footer__brand {
+    align-items: center;
   }
 
   .footer__bar .footer__meta {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__bar .footer__legal {
+    justify-content: center;
   }
 
   .footer__bottom {
