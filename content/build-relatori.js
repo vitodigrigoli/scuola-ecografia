@@ -112,7 +112,7 @@ ${docenti.map(p => card(p, { skipTag: 'Docente' })).join('\n')}
     </section>
 
     <!-- ============================== TUTOR (people --compact) ============================== -->
-    <section class="section people people--compact people--square people--masonry" id="tutor" aria-labelledby="tutor-title">
+    <section class="section people people--compact people--square" id="tutor" aria-labelledby="tutor-title">
       <div class="container">
         <div class="text-block text-block--split">
           <p class="text-block__eyebrow">Tutor</p>
@@ -120,7 +120,7 @@ ${docenti.map(p => card(p, { skipTag: 'Docente' })).join('\n')}
           <p class="text-block__text">I tutor seguono i gruppi durante le prove pratiche: un tutor ogni cinque partecipanti, per tutta la durata della Scuola.</p>
         </div>
         <div class="people__grid">
-${tutor.map(p => card({ ...p, rel: [] }, { compact: true, skipTag: 'Tutor' })).join('\n')}
+${tutor.map(p => card({ ...p, rel: [], aff: '' }, { compact: true, skipTag: 'Tutor' })).join('\n')}
         </div>
       </div>
     </section>
