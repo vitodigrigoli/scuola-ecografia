@@ -9,7 +9,7 @@
        .roster__row …
          .roster__label (+ .roster__count opzionale)
          .roster__list
-           .roster__chip (<a> se ha una scheda, altrimenti <span>)
+           .roster__chip (<span>; può essere <a> se serve un link)
              .roster__avatar (<img>) | .roster__initials
              testo
 
@@ -22,7 +22,6 @@
   --roster-row-pad: var(--space-8);
   --roster-chip-bg: var(--surface-wash);
   --roster-chip-border: var(--border-strong);
-  --roster-chip-hover: var(--accent);
   --roster-avatar: 32px;
 }
 
@@ -70,16 +69,6 @@
   color: var(--ink);
   font: var(--text-caption);
   font-size: 14px;
-  transition: border-color var(--duration) var(--ease), background-color var(--duration) var(--ease);
-}
-
-a.roster__chip:hover {
-  border-color: var(--roster-chip-hover);
-  background: var(--accent-wash);
-}
-
-span.roster__chip {
-  color: var(--ink-dim);
 }
 
 .roster__avatar,

@@ -63,16 +63,13 @@ function card(p, { compact = false, skipTag } = {}) {
           </article>`;
 }
 
-const known = new Set([...docenti, ...tutor].map(p => slug(p.name)));
-// chip con mini-ritratto; è un link solo se la persona ha una scheda nella pagina
+// chip con mini-ritratto (senza link: la scheda si trova sopra nella stessa pagina)
 const chip = (n) => {
   const src = photo(n);
   const av = src
     ? `<img class="roster__avatar" src="${src}" alt="" width="64" height="64" loading="lazy">`
     : `<span class="roster__initials" aria-hidden="true">${initials(n)}</span>`;
-  return known.has(slug(n))
-    ? `<a class="roster__chip" href="#${slug(n)}">${av}${esc(n)}</a>`
-    : `<span class="roster__chip">${av}${esc(n)}</span>`;
+  return `<span class="roster__chip">${av}${esc(n)}</span>`;
 };
 const row = (label, names) => `        <div class="roster__row">
           <p class="roster__label">${label}${names.length > 1 ? ` <span class="roster__count">${names.length}</span>` : ''}</p>
