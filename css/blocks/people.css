@@ -301,6 +301,10 @@
     --people-cols: 3;
   }
 
+  .people--masonry {
+    --people-cols: 2; /* tablet: 2 colonne a incastro */
+  }
+
   .people--compact {
     --people-cols: 4;
   }
@@ -321,6 +325,10 @@
 
   .people--compact {
     --people-cols: 3;
+  }
+
+  .people--masonry {
+    --people-cols: 1; /* mobile: una colonna */
   }
 }
 
