@@ -305,6 +305,10 @@
     --people-cols: 2; /* tablet: 2 colonne a incastro */
   }
 
+  .people--compact.people--masonry {
+    --people-cols: 3;
+  }
+
   .people--compact {
     --people-cols: 4;
   }
@@ -329,6 +333,10 @@
 
   .people--masonry {
     --people-cols: 1; /* mobile: una colonna */
+  }
+
+  .people--compact.people--masonry {
+    --people-cols: 2; /* le card compatte restano a 2: a 1 colonna le foto quadrate sarebbero enormi */
   }
 }
 
