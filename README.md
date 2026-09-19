@@ -75,10 +75,11 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `notice` | ✔ fatto (`--accent`, `--muted`, `--warning`) callout con icona | home |
 | `venues` | ✔ fatto (`--compact`) = Sedi | home |
 | `sponsors` | ✔ fatto — fascia chiara "Con il supporto di" (opzione A), marquee su mobile, accordion edizioni precedenti (`--no-past`) | home, relatori |
+| `roster` | ✔ fatto (`--stacked`) — elenchi di persone per ruolo con chip-avatar | relatori |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
 | story (Chi siamo) | ✔ fatto con `text-block --split --top` + `notice` | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
 | `program` | ✔ fatto (nav sticky, sessioni `--lezione/--live/--pratica/--casi/--pausa/--organizzativo`, descrizioni in `<details>`; generato da `content/build-program.js`) | programma |
-| Relatori | ✔ fatto con `people --cols-3 --square` (docenti: tag, affiliazione, relazioni; id = slug del nome), `people --compact --square` (tutor), `features --cols-3` + `features__list` (comitati); generato da `content/build-relatori.js` | relatori |
+| Relatori | ✔ fatto con `people --cols-3 --square` (docenti: tag, affiliazione, relazioni; id = slug del nome), `people --compact --square` (tutor), `roster` (comitati: righe con chip-avatar); generato da `content/build-relatori.js` | relatori |

@@ -781,7 +781,7 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 
 ## Comitato Organizzativo e Comitato Scientifico
 
-> Blocco: `committee` (3 colonne)
+> Blocco: `roster` (righe: etichetta + chip con mini-ritratto, link alla scheda quando esiste)
 > Origine: sezione "Comitato Organizzativo e Comitato Scientifico"
 
 **Direttore della Scuola:** Nicolò Vitale

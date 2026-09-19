@@ -1,0 +1,127 @@
+/* ==========================================================================
+   BLOCCO: roster
+   Elenchi di persone per ruolo, in righe: etichetta a sinistra, membri come pillole con
+   mini-ritratto (riferimento: le pillole "+9 esperti" delle card Learnn).
+   Usato per: Direzione e comitati (Relatori). Riusabile per "I professionisti coinvolti".
+
+   Struttura:
+     .roster
+       .roster__row …
+         .roster__label (+ .roster__count opzionale)
+         .roster__list
+           .roster__chip (<a> se ha una scheda, altrimenti <span>)
+             .roster__avatar (<img>) | .roster__initials
+             testo
+
+   Variazioni:
+     .roster--stacked   etichetta sopra la lista (default: a sinistra su desktop)
+   ========================================================================== */
+
+.roster {
+  --roster-label-w: 260px;
+  --roster-row-pad: var(--space-8);
+  --roster-chip-bg: var(--surface-wash);
+  --roster-chip-border: var(--border-strong);
+  --roster-chip-hover: var(--accent);
+  --roster-avatar: 32px;
+}
+
+.roster__row {
+  display: grid;
+  grid-template-columns: var(--roster-label-w) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-6);
+  padding-block: var(--roster-row-pad);
+  border-top: 1px solid var(--border);
+}
+
+.roster__row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.roster__label {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding-top: 6px;
+  font: var(--text-card-title);
+  color: var(--ink);
+}
+
+.roster__count {
+  font: var(--text-caption);
+  color: var(--ink-muted);
+}
+
+.roster__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.roster__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px var(--space-4) 5px 5px;
+  border: 1px solid var(--roster-chip-border);
+  border-radius: var(--radius-pill);
+  background: var(--roster-chip-bg);
+  color: var(--ink);
+  font: var(--text-caption);
+  font-size: 14px;
+  transition: border-color var(--duration) var(--ease), background-color var(--duration) var(--ease);
+}
+
+a.roster__chip:hover {
+  border-color: var(--roster-chip-hover);
+  background: var(--accent-wash);
+}
+
+span.roster__chip {
+  color: var(--ink-dim);
+}
+
+.roster__avatar,
+.roster__initials {
+  flex: none;
+  width: var(--roster-avatar);
+  height: var(--roster-avatar);
+  border-radius: 50%;
+}
+
+.roster__avatar {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.roster__initials {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--avatar-gradient-start), var(--avatar-gradient-end));
+  color: #fff;
+  font: var(--text-label-sm);
+}
+
+/* ==========================================================================
+   VARIAZIONI / RESPONSIVE
+   ========================================================================== */
+.roster--stacked .roster__row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 767px) {
+  .roster {
+    --roster-row-pad: var(--space-6);
+  }
+
+  .roster__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+
+  .roster__label {
+    padding-top: 0;
+  }
+}

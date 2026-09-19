@@ -64,7 +64,20 @@ function card(p, { compact = false, skipTag } = {}) {
 }
 
 const known = new Set([...docenti, ...tutor].map(p => slug(p.name)));
-const list = (names) => `<ul class="features__list">${names.map(n => known.has(slug(n)) ? `<li><a href="#${slug(n)}">${esc(n)}</a></li>` : `<li>${esc(n)}</li>`).join('')}</ul>`;
+// chip con mini-ritratto; è un link solo se la persona ha una scheda nella pagina
+const chip = (n) => {
+  const src = photo(n);
+  const av = src
+    ? `<img class="roster__avatar" src="${src}" alt="" width="64" height="64" loading="lazy">`
+    : `<span class="roster__initials" aria-hidden="true">${initials(n)}</span>`;
+  return known.has(slug(n))
+    ? `<a class="roster__chip" href="#${slug(n)}">${av}${esc(n)}</a>`
+    : `<span class="roster__chip">${av}${esc(n)}</span>`;
+};
+const row = (label, names) => `        <div class="roster__row">
+          <p class="roster__label">${label}${names.length > 1 ? ` <span class="roster__count">${names.length}</span>` : ''}</p>
+          <div class="roster__list">${names.map(chip).join('')}</div>
+        </div>`;
 
 const page = `    <!-- ============================== PAGE HERO ============================== -->
     <section class="hero hero--compact hero--centered" aria-labelledby="page-title">
@@ -115,27 +128,17 @@ ${tutor.map(p => card({ ...p, rel: [] }, { compact: true, skipTag: 'Tutor' })).j
       </div>
     </section>
 
-    <!-- ============================== COMITATI (features --cols-3) ============================== -->
-    <section class="section features features--cols-3" id="comitati" aria-labelledby="comitati-title">
+    <!-- ============================== COMITATI (roster) ============================== -->
+    <section class="section roster" id="comitati" aria-labelledby="comitati-title">
       <div class="container">
         <div class="text-block text-block--split">
           <p class="text-block__eyebrow">Organizzazione</p>
           <h2 class="text-block__title" id="comitati-title">Direzione e comitati</h2>
+          <p class="text-block__text">Chi dirige la Scuola, chi la organizza e chi ne garantisce il rigore scientifico.</p>
         </div>
-        <div class="features__grid">
-          <div class="features__item">
-            <h3 class="features__title">Direttore della Scuola</h3>
-            ${list(direttore)}
-          </div>
-          <div class="features__item">
-            <h3 class="features__title">Comitato organizzativo</h3>
-            ${list(organizzativo)}
-          </div>
-          <div class="features__item">
-            <h3 class="features__title">Comitato scientifico</h3>
-            ${list(scientifico)}
-          </div>
-        </div>
+${row('Direttore della Scuola', direttore)}
+${row('Comitato organizzativo', organizzativo)}
+${row('Comitato scientifico', scientifico)}
       </div>
     </section>
 `;
