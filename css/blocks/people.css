@@ -22,6 +22,7 @@
      .people--overlay   nome e ruolo sovrapposti al ritratto (senza testo)
      .people--clamp     testo limitato a 2 righe (uniforma le card nello scroller)
      .people--square    ritratti quadrati (foto 1:1, es. Relatori)
+     .people--masonry   colonne a incastro: card di altezze diverse senza vuoti (es. Docenti)
      .people--scroller  scorrimento orizzontale continuo (js/marquee.js duplica le card per il loop);
                         con prefers-reduced-motion diventa scroll manuale con snap
    Stati:
@@ -158,6 +159,18 @@
    ========================================================================== */
 .people--cols-3 { --people-cols: 3; }
 .people--square { --people-photo-ratio: 1 / 1; }
+
+/* Masonry: colonne CSS, le card scorrono a incastro */
+.people--masonry .people__grid {
+  display: block;
+  columns: var(--people-cols);
+  column-gap: var(--people-gap);
+}
+
+.people--masonry .people__card {
+  margin-bottom: var(--people-gap);
+  break-inside: avoid;
+}
 .people--cols-5 { --people-cols: 5; }
 
 .people--compact {

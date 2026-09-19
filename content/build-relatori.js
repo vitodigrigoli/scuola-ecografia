@@ -98,7 +98,7 @@ const page = `    <!-- ============================== PAGE HERO ================
     </section>
 
     <!-- ============================== DOCENTI (people) ============================== -->
-    <section class="section people people--cols-3 people--square" id="docenti" aria-labelledby="docenti-title">
+    <section class="section people people--cols-3 people--square people--masonry" id="docenti" aria-labelledby="docenti-title">
       <div class="container">
         <div class="text-block text-block--split">
           <p class="text-block__eyebrow">Docenti</p>
