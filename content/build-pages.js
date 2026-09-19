@@ -135,6 +135,7 @@ ${footer()}
   <script src="js/header.js"></script>
   <script src="js/stats.js"></script>
   <script src="js/marquee.js"></script>
+  <script src="js/program.js"></script>
 </body>
 </html>
 `;

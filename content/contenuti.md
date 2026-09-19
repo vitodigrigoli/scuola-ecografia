@@ -444,7 +444,7 @@ Codice fiscale: 97896820152
 
 ## Page hero
 
-> Blocco: `page-hero`
+> Blocco: `hero hero--compact hero--centered` (nessun blocco page-hero: riuso dell'hero)
 > Origine: intestazione pagina Programma
 
 **Etichetta:** PROGRAMMA

@@ -1,0 +1,354 @@
+/* ==========================================================================
+   BLOCCO: program
+   Programma dettagliato: incontri → giornate → sessioni (timeline con orario, tipo, relatore,
+   descrizione a scomparsa). Riferimento: le liste-lezione di Learnn (righe con bordo, badge tipo).
+
+   Struttura:
+     .program (section)
+       .program__nav (sticky) > .program__nav-link … [--active]
+       .program__meeting … (id="incontro-N")
+         .program__meeting-head
+           .program__meeting-number   ("01")
+           .program__meeting-title
+           .program__meeting-meta     (date · sede)
+         .program__day …
+           .program__day-title
+           .program__sessions
+             .program__session (<details> se ha descrizione, altrimenti <div>) [--lezione|--live|--pratica|--casi|--pausa|--organizzativo]
+               .program__summary (<summary>)
+                 .program__time
+                 .program__main > .program__title + .program__speaker
+                 .program__type (badge) + .program__chevron
+               .program__desc
+
+   Variazioni:
+     .program--compact   senza descrizioni (solo righe)
+   ========================================================================== */
+
+.program {
+  --program-time-w: 112px;
+  --program-row-pad: var(--space-4) var(--space-5);
+  --program-row-bg: var(--surface-card);
+  --program-row-border: var(--border);
+  --program-row-radius: var(--radius-sm);
+  --program-meeting-gap: clamp(56px, 8vw, 96px);
+  --program-nav-top: calc(64px + var(--space-6));
+
+  /* colori per tipo di sessione (solo il puntino/badge, non la riga) */
+  --program-type-lezione: var(--accent);
+  --program-type-live: var(--trust-green);
+  --program-type-pratica: var(--rating-gold);
+  --program-type-casi: var(--accent-secondary);
+  --program-type-pausa: var(--ink-faint);
+  --program-type-organizzativo: var(--ink-muted);
+}
+
+/* --- Nav incontri (sticky sotto l'header) --- */
+.program__nav {
+  position: sticky;
+  top: var(--program-nav-top);
+  z-index: 5;
+  display: flex;
+  gap: var(--space-1);
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: clamp(32px, 5vw, 56px);
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-elev-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.program__nav-link {
+  flex: none;
+  padding: 8px var(--space-4);
+  border-radius: var(--radius-pill);
+  font: var(--text-caption);
+  font-size: 13px;
+  color: var(--ink-inactive);
+  white-space: nowrap;
+  transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+
+.program__nav-link:hover {
+  color: var(--ink);
+}
+
+.program__nav-link--active,
+.program__nav-link.is-active {
+  background: var(--cta-primary-bg);
+  color: var(--cta-primary-ink);
+}
+
+/* --- Incontro --- */
+.program__meeting {
+  scroll-margin-top: calc(var(--program-nav-top) + 64px);
+}
+
+.program__meeting + .program__meeting {
+  margin-top: var(--program-meeting-gap);
+  padding-top: var(--program-meeting-gap);
+  border-top: 1px solid var(--border);
+}
+
+.program__meeting-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--space-6);
+  row-gap: var(--space-2);
+  align-items: baseline;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.program__meeting-number {
+  grid-row: 1 / span 2;
+  font: var(--text-h1);
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.program__meeting-title {
+  font: var(--text-h2);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.program__meeting-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  font: var(--text-body-lg);
+  color: var(--ink-dim);
+}
+
+.program__meeting-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.program__meeting-meta .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
+/* --- Giornata --- */
+.program__day + .program__day {
+  margin-top: var(--space-11);
+}
+
+.program__day-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  font: var(--text-h3);
+  color: var(--ink);
+}
+
+.program__day-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.program__sessions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* --- Sessione --- */
+.program__session {
+  --type-ink: var(--program-type-lezione);
+
+  border: 1px solid var(--program-row-border);
+  border-radius: var(--program-row-radius);
+  background: var(--program-row-bg);
+  transition: border-color var(--duration) var(--ease);
+}
+
+.program__session:hover,
+.program__session[open] {
+  border-color: var(--border-strong);
+}
+
+.program__summary {
+  display: grid;
+  grid-template-columns: var(--program-time-w) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--program-row-pad);
+  list-style: none;
+  cursor: default;
+}
+
+details.program__session > .program__summary {
+  cursor: pointer;
+}
+
+.program__summary::-webkit-details-marker {
+  display: none;
+}
+
+.program__summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: var(--program-row-radius);
+}
+
+.program__time {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font: var(--text-caption);
+  font-size: 13px;
+  color: var(--ink-dim);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.program__time::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--type-ink);
+}
+
+.program__main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.program__title {
+  font: var(--text-card-title);
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--ink);
+}
+
+.program__speaker {
+  font: var(--text-body);
+  color: var(--ink-dim);
+}
+
+.program__speaker a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--border-strong);
+}
+
+.program__speaker a:hover {
+  color: var(--ink);
+}
+
+.program__aside {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.program__type {
+  --badge-ink: var(--type-ink);
+  --badge-border: transparent;
+  --badge-bg: color-mix(in srgb, var(--type-ink) 14%, transparent);
+}
+
+.program__chevron {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  color: var(--ink-muted);
+  transition: transform var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+
+.program__chevron .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.program__session[open] .program__chevron {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.program__desc {
+  padding: 0 var(--space-5) var(--space-5) calc(var(--program-time-w) + var(--space-5) + var(--space-4));
+  font: var(--text-body);
+  color: var(--ink-dim);
+}
+
+/* Tipi */
+.program__session--live { --type-ink: var(--program-type-live); }
+.program__session--pratica { --type-ink: var(--program-type-pratica); }
+.program__session--casi { --type-ink: var(--program-type-casi); }
+.program__session--organizzativo { --type-ink: var(--program-type-organizzativo); }
+
+.program__session--pausa {
+  --type-ink: var(--program-type-pausa);
+  --program-row-bg: transparent;
+  --program-row-border: transparent;
+}
+
+.program__session--pausa .program__title {
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.program--compact .program__desc,
+.program--compact .program__chevron {
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .program {
+    --program-time-w: auto;
+    --program-row-pad: var(--space-4);
+  }
+
+  .program__nav {
+    width: calc(100% + var(--gutter) * 2);
+    max-width: none;
+    margin-inline: calc(var(--gutter) * -1);
+    border-radius: 0;
+    border-inline: 0;
+    padding-inline: var(--gutter);
+  }
+
+  .program__summary {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: var(--space-2);
+  }
+
+  .program__time {
+    grid-column: 1 / -1;
+  }
+
+  .program__desc {
+    padding-left: var(--space-4);
+  }
+
+  .program__meeting-number {
+    font-size: 36px;
+  }
+}

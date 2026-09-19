@@ -18,12 +18,14 @@ js/
   header.js         menu mobile + stato scrolled
   stats.js          contatori animati
   marquee.js        scorrimento continuo per [data-marquee] (Organizzatori, Sponsor mobile)
+  program.js        nav del programma: evidenzia l'incontro visibile
 assets/
   logo/             wordmark
   icons/sprite.svg  set icone SVG (niente emoji, niente PNG)
 content/
   contenuti.md      TUTTI i testi delle pagine ANFI, già organizzati per blocco
   build-pages.js    genera le 4 pagine dallo stesso shell (node content/build-pages.js)
+  build-program.js  genera pages/programma.html dalle tabelle di contenuti.md (poi build-pages)
 design-reference/   design system Cowork originale (token, README dei componenti): solo consultazione
 ```
 
@@ -77,4 +79,5 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
 | story (Chi siamo) | ✔ fatto con `text-block --split --top` + `notice` | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
-| `page-hero` `program` `speakers` `committee` | da fare | pagine interne |
+| `program` | ✔ fatto (nav sticky, sessioni `--lezione/--live/--pratica/--casi/--pausa/--organizzativo`, descrizioni in `<details>`; generato da `content/build-program.js`) | programma |
+| `speakers` `committee` | da fare | relatori |
