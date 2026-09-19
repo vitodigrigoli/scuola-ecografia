@@ -26,6 +26,7 @@ content/
   contenuti.md      TUTTI i testi delle pagine ANFI, già organizzati per blocco
   build-pages.js    genera le 4 pagine dallo stesso shell (node content/build-pages.js)
   build-program.js  genera pages/programma.html dalle tabelle di contenuti.md (poi build-pages)
+  build-relatori.js genera pages/relatori.html da docenti/tutor/comitati di contenuti.md (poi build-pages)
 design-reference/   design system Cowork originale (token, README dei componenti): solo consultazione
 ```
 
@@ -80,4 +81,4 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | story (Chi siamo) | ✔ fatto con `text-block --split --top` + `notice` | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
 | `program` | ✔ fatto (nav sticky, sessioni `--lezione/--live/--pratica/--casi/--pausa/--organizzativo`, descrizioni in `<details>`; generato da `content/build-program.js`) | programma |
-| `speakers` `committee` | da fare | relatori |
+| Relatori | ✔ fatto con `people --cols-3 --square` (docenti: tag, affiliazione, relazioni; id = slug del nome), `people --compact --square` (tutor), `features --cols-3` + `features__list` (comitati); generato da `content/build-relatori.js` | relatori |

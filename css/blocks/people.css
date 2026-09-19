@@ -21,6 +21,7 @@
      .people--compact   ritratto più piccolo, senza testo (tutor)
      .people--overlay   nome e ruolo sovrapposti al ritratto (senza testo)
      .people--clamp     testo limitato a 2 righe (uniforma le card nello scroller)
+     .people--square    ritratti quadrati (foto 1:1, es. Relatori)
      .people--scroller  scorrimento orizzontale continuo (js/marquee.js duplica le card per il loop);
                         con prefers-reduced-motion diventa scroll manuale con snap
    Stati:
@@ -156,6 +157,7 @@
    VARIAZIONI
    ========================================================================== */
 .people--cols-3 { --people-cols: 3; }
+.people--square { --people-photo-ratio: 1 / 1; }
 .people--cols-5 { --people-cols: 5; }
 
 .people--compact {

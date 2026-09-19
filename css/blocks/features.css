@@ -10,7 +10,7 @@
          .features__item …
            .features__sign  (numero "01" | icona SVG)
            .features__title
-           .features__text
+           .features__text | .features__list (elenco semplice, link opzionali)
 
    Variazioni:
      .features--numbered   segno = numero progressivo (counter CSS, viola)
@@ -76,6 +76,25 @@
 .features__text {
   font: var(--text-body); /* stessa misura in tutte le variazioni: su mobile le card sono identiche */
   color: var(--features-text-ink);
+}
+
+.features__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font: var(--text-body);
+  color: var(--features-text-ink);
+}
+
+.features__list a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--border-strong);
+}
+
+.features__list a:hover {
+  color: var(--ink);
 }
 
 /* ==========================================================================
