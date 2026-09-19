@@ -166,7 +166,7 @@
 
   .faq--split .text-block {
     position: sticky;
-    top: calc(var(--space-12) + 64px);
+    top: var(--text-block-sticky-top, calc(64px + var(--space-12)));
     margin-bottom: 0;
   }
 }

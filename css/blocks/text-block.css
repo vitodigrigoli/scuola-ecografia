@@ -12,10 +12,12 @@
        .text-block__facts > .text-block__fact (> .icon + testo) …  (opzionale)
        .text-block__actions > .btn …                               (opzionale)
      Con più elementi nella colonna destra (--split) raggruppali in .text-block__body.
+     Per rendere sticky eyebrow + titolo raggruppali in .text-block__head (richiesto da --sticky).
 
    Variazioni:
      .text-block--split    titolo a sinistra, testo/dati/azioni a destra (≥900px)
      .text-block--top      con --split: colonna destra allineata in alto (default: al piede del titolo)
+     .text-block--sticky   con --split --top: .text-block__head resta fisso durante lo scroll del corpo
      .text-block--center   centrato su una colonna
      .text-block--flush    senza margine inferiore (quando è l'intera sezione)
      .text-block--tight    margine inferiore ridotto
@@ -31,6 +33,7 @@
   --text-block-fact-border: var(--border);
   --text-block-fact-icon-ink: var(--accent);
   --text-block-col-gap: clamp(32px, 5vw, 80px);
+  --text-block-sticky-top: calc(64px + var(--space-12)); /* altezza header + respiro */
 
   display: flex;
   flex-direction: column;
@@ -63,6 +66,13 @@
 .text-block__text strong {
   color: var(--ink);
   font-weight: 700;
+}
+
+.text-block__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
 }
 
 .text-block__body {
@@ -158,6 +168,19 @@
     grid-row: 1 / span 2;
   }
 
+  /* eyebrow + titolo raggruppati: una sola cella a sinistra */
+  .text-block--split .text-block__head {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: end;
+  }
+
+  .text-block--split .text-block__head + .text-block__text,
+  .text-block--split .text-block__head + .text-block__body {
+    grid-row: 1 / span 2;
+    align-self: end;
+  }
+
   .text-block--split .text-block__text,
   .text-block--split .text-block__facts,
   .text-block--split .text-block__actions,
@@ -182,9 +205,18 @@
 
   .text-block--split.text-block--top .text-block__eyebrow,
   .text-block--split.text-block--top .text-block__title,
+  .text-block--split.text-block--top .text-block__head,
   .text-block--split.text-block--top .text-block__title + .text-block__text,
-  .text-block--split.text-block--top .text-block__title + .text-block__body {
+  .text-block--split.text-block--top .text-block__title + .text-block__body,
+  .text-block--split.text-block--top .text-block__head + .text-block__text,
+  .text-block--split.text-block--top .text-block__head + .text-block__body {
     align-self: start;
+  }
+
+  /* --sticky: la testata resta fissa mentre scorre il corpo */
+  .text-block--split.text-block--sticky .text-block__head {
+    position: sticky;
+    top: var(--text-block-sticky-top);
   }
 
   .text-block--split .text-block__actions {
