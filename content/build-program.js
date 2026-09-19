@@ -12,6 +12,14 @@ const lines = md.slice(start, end).split('\n');
 const ic = (n) => `<svg class="icon" aria-hidden="true"><use href="#icon-${n}"/></svg>`;
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const slug = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const photoDir = path.join(__dirname, '..', 'assets', 'img', 'people', 'relatori');
+const photo = (name) => { const s = slug(name); const f = fs.readdirSync(photoDir).find(x => x.replace(/\.\w+$/, '') === s); return f ? `assets/img/people/relatori/${f}` : null; };
+const initials = (name) => name.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+const chip = (p) => {
+  const src = photo(p.name);
+  const av = src ? `<img class="chip__avatar" src="${src}" alt="" width="48" height="48" loading="lazy">` : `<span class="chip__initials" aria-hidden="true">${initials(p.name)}</span>`;
+  return `<a class="chip chip--sm" href="relatori.html#${slug(p.name)}">${av}${esc(p.name)}</a>`;
+};
 const typeLabel = { lezione: 'Lezione', live: 'Live ecografica', pratica: 'Prove pratiche', casi: 'Casi clinici', pausa: 'Pausa', organizzativo: 'Organizzazione' };
 
 // --- parsing ---
@@ -45,7 +53,7 @@ function session(s) {
   const has = !!s.desc;
   const tag = has ? 'details' : 'div';
   const speaker = s.speakers.length
-    ? `<p class="program__speaker">${s.speakers.map(p => `<a href="relatori.html#${slug(p.name)}">${esc(p.name)}</a>${p.role ? ' · ' + esc(p.role) : ''}`).join(', ')}</p>`
+    ? `<p class="program__speaker">${s.speakers.map(p => `${chip(p)}${p.role ? `<span class="program__role">${esc(p.role)}</span>` : ''}`).join('')}</p>`
     : '';
   const aside = s.type === 'pausa' ? '' : `<span class="badge badge--sm program__type">${typeLabel[s.type] || s.type}</span>`;
   const chevron = has ? `<span class="program__chevron" aria-hidden="true">${ic('chevron-down')}</span>` : '';

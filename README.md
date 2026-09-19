@@ -62,6 +62,7 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | Blocco | Stato | Pagine |
 |---|---|---|
 | `btn` | ✔ fatto (`--primary`, `--secondary`, `--ghost`, `--accent`, `--lg`, `--sm`, `--block`) | tutte |
+| `chip` | ✔ fatto (`--sm`) — pillola persona con mini-ritratto; usata da roster e program | relatori, programma |
 | `badge` | ✔ fatto (`--outline`, `--accent`, `--soft`, `--muted`, `--success`, `--sm`) | tutte |
 | `text-block` | ✔ fatto — intestazione di sezione o testo a 2 colonne (`--split`, `--top`, `--center`, `--flush`, `--tight`; pill `__facts`) | tutte |
 | `header` | ✔ fatto (`--floating`, `--static`, menu mobile, toggle tema) | tutte |
@@ -76,7 +77,7 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `notice` | ✔ fatto (`--accent`, `--muted`, `--warning`) callout con icona | home |
 | `venues` | ✔ fatto (`--compact`) = Sedi | home |
 | `sponsors` | ✔ fatto — fascia chiara "Con il supporto di" (opzione A), marquee su mobile, accordion edizioni precedenti (`--no-past`) | home, relatori |
-| `roster` | ✔ fatto (`--stacked`) — elenchi di persone per ruolo con chip-avatar | relatori |
+| `roster` | ✔ fatto (`--stacked`) — elenchi di persone per ruolo, usa `chip` | relatori |
 | `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
 | `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |

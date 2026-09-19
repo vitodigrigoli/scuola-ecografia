@@ -17,7 +17,7 @@
              .program__session (<details> se ha descrizione, altrimenti <div>) [--lezione|--live|--pratica|--casi|--pausa|--organizzativo]
                .program__summary (<summary>)
                  .program__time
-                 .program__main > .program__title + .program__speaker
+                 .program__main > .program__title + .program__speaker (> .chip + .program__role)
                  .program__type (badge) + .program__chevron
                .program__desc
 
@@ -239,19 +239,17 @@ details.program__session > .program__summary {
 }
 
 .program__speaker {
-  font: var(--text-body);
-  color: var(--ink-dim);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
 }
 
-.program__speaker a {
-  color: var(--ink-soft);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-color: var(--border-strong);
-}
-
-.program__speaker a:hover {
-  color: var(--ink);
+.program__role {
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--ink-muted);
 }
 
 .program__aside {
