@@ -50,8 +50,7 @@
   z-index: 5;
   display: flex;
   gap: var(--space-1);
-  width: fit-content;
-  max-width: 100%;
+  width: 100%; /* larga quanto il contenitore */
   margin-bottom: clamp(32px, 5vw, 56px);
   padding: 4px;
   border: 1px solid var(--border);
@@ -62,7 +61,9 @@
 }
 
 .program__nav-link {
-  flex: none;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
   padding: 8px var(--space-4);
   border-radius: var(--radius-pill);
   font: var(--text-caption);
@@ -326,13 +327,8 @@ details.program__session > .program__summary {
     --program-row-pad: var(--space-4);
   }
 
-  .program__nav {
-    width: calc(100% + var(--gutter) * 2);
-    max-width: none;
-    margin-inline: calc(var(--gutter) * -1);
-    border-radius: 0;
-    border-inline: 0;
-    padding-inline: var(--gutter);
+  .program__nav-link {
+    flex: none; /* su mobile la lista scorre: le voci tengono la loro larghezza */
   }
 
   .program__summary {
