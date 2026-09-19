@@ -21,7 +21,7 @@
    ========================================================================== */
 
 .hero {
-  --hero-pad-top: clamp(40px, 6vw, 72px);
+  --hero-pad-top: clamp(72px, 9vw, 120px);   /* sotto l'header flottante serve più aria */
   --hero-pad-bottom: clamp(48px, 7vw, 96px);
   --hero-gap: clamp(32px, 5vw, 72px);
   --hero-media-radius: var(--radius-xl);
@@ -218,7 +218,7 @@
 }
 
 .hero--compact {
-  --hero-pad-top: clamp(24px, 4vw, 40px);
+  --hero-pad-top: clamp(64px, 8vw, 96px);
   --hero-pad-bottom: clamp(32px, 5vw, 56px);
 }
 
