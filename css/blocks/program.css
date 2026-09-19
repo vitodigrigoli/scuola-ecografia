@@ -32,7 +32,8 @@
   --program-row-border: var(--border);
   --program-row-radius: var(--radius-sm);
   --program-meeting-gap: clamp(56px, 8vw, 96px);
-  --program-nav-top: calc(64px + var(--space-6));
+  /* sotto l'header flottante (top 16px + altezza 64px) con lo stesso respiro di 16px */
+  --program-nav-top: calc(16px + 64px + 16px);
 
   /* colori per tipo di sessione (solo il puntino/badge, non la riga) */
   --program-type-lezione: var(--accent);
@@ -314,6 +315,12 @@ details.program__session > .program__summary {
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
+@media (max-width: 899px) {
+  .program {
+    --program-nav-top: calc(10px + 56px + 10px); /* header mobile: top 10px, alto 56px */
+  }
+}
+
 @media (max-width: 767px) {
   .program {
     --program-time-w: auto;
