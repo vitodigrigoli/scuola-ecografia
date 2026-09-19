@@ -241,7 +241,6 @@
 
 @media (max-width: 899px) {
   .hero {
-    --hero-media-ratio: 16 / 10;
     --hero-glow-size: 600px;
     --hero-glow-x: 30%;
     --hero-glow-y: 25%;
