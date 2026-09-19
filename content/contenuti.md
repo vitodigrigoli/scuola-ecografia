@@ -853,3 +853,4 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - [ ] PDF programma aggiornato
 - [ ] Conferma dei refusi da correggere (`[sic]` nel documento)
 - [ ] Conferma link Login → Area membri ANFI e destinazione CTA "Prenota il corso"
+- [ ] Footer: ragione sociale "Scuola di Ecografia SRL" e **P.IVA (oggi segnaposto 00000000000)**; email di contatto da confermare (oggi info@associazioneanfi.it)
