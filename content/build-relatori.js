@@ -63,13 +63,16 @@ function card(p, { compact = false, skipTag } = {}) {
           </article>`;
 }
 
-// chip con mini-ritratto (senza link: la scheda si trova sopra nella stessa pagina)
+// chip con mini-ritratto: link alla scheda se esiste (le ancore atterrano sotto l'header, vedi base.css)
+const known = new Set([...docenti, ...tutor].map(p => slug(p.name)));
 const chip = (n) => {
   const src = photo(n);
   const av = src
     ? `<img class="chip__avatar" src="${src}" alt="" width="64" height="64" loading="lazy">`
     : `<span class="chip__initials" aria-hidden="true">${initials(n)}</span>`;
-  return `<span class="chip">${av}${esc(n)}</span>`;
+  return known.has(slug(n))
+    ? `<a class="chip" href="#${slug(n)}">${av}${esc(n)}</a>`
+    : `<span class="chip">${av}${esc(n)}</span>`;
 };
 const row = (label, names) => `        <div class="roster__row">
           <p class="roster__label">${label}${names.length > 1 ? ` <span class="roster__count">${names.length}</span>` : ''}</p>
