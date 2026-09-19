@@ -345,7 +345,7 @@ details.program__session > .program__summary {
   }
 
   .program__desc {
-    padding-left: var(--space-4);
+    padding: 0 var(--space-4) var(--space-4); /* stessi margini della riga (--program-row-pad) */
   }
 
   .program__meeting-number {
