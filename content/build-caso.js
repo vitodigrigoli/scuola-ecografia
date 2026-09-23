@@ -20,7 +20,8 @@ const { casi, etichette, pubblicati, prose, cardCaso, ic, esc, attr, dataIt, ilG
 const DIR = __dirname;
 const SOGLIA_GRIGLIA = 6;      // oltre questa soglia le immagini si vedono solo nel lightbox
 const GIORNI_SOLUZIONE = 30;   // quando manca `soluzione_dal`: soluzione a 30 giorni dalla pubblicazione
-const ANCORA_REFERTO = '#scrivi'; // il modulo vive in pagina (anteprima, vedi js/discussion.js)
+const ANCORA_REFERTO = '#scrivi';   // il modulo per scrivere (anteprima, vedi js/discussion.js)
+const ANCORA_REFERTI = '#referti';  // la lista dei referti gia inviati, sotto il modulo
 
 /* Blocco markdown del frontmatter → uno o più paragrafi HTML (**grassetto** incluso).
    `etichetta` compare solo sul primo paragrafo (es. "Anamnesi."). */
@@ -158,7 +159,7 @@ ${fonti}
         </div>
 
         <div class="actions">
-          <a class="btn btn--secondary" href="#discussione">${ic('users')}Leggi i referti dei colleghi</a>
+          <a class="btn btn--secondary" href="${ANCORA_REFERTI}">${ic('users')}Leggi i referti dei colleghi</a>
         </div>`;
 
   return `    <!-- ============================== BREADCRUMB ============================== -->
@@ -306,7 +307,7 @@ ${soluzione}
           </div>
         </form>
 
-        <div class="discussion__head">
+        <div class="discussion__head" id="referti">
           <p class="discussion__count">${ic('message')}${kommenti.length} refert${kommenti.length === 1 ? 'o' : 'i'}${haSoluzione ? ' pubblicati' : ' · raccolta aperta'}</p>
         </div>
 
