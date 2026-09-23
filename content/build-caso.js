@@ -15,7 +15,7 @@
    nell'hero è disattivato. */
 const fs = require('fs');
 const path = require('path');
-const { casi, etichette, pubblicati, prose, cardCaso, ic, esc, attr, dataIt, ilGiorno } = require('./build-casi.js');
+const { casi, etichette, pubblicati, prose, cardCaso, ic, esc, attr, dataIt, ilGiorno, dalGiorno } = require('./build-casi.js');
 
 const DIR = __dirname;
 const SOGLIA_GRIGLIA = 6;      // oltre questa soglia le immagini si vedono solo nel lightbox
@@ -123,7 +123,7 @@ function paginaCaso(c) {
   // --- CTA dell'hero: sempre "lascia il referto", la soluzione solo se c'è ---
   const ctaSoluzione = haSoluzione
     ? `            <a class="btn btn--secondary btn--lg" href="#soluzione">${ic('eye')}Vedi la soluzione</a>`
-    : `            <span class="btn btn--secondary btn--lg is-disabled" aria-disabled="true" title="La soluzione viene pubblicata dopo la chiusura dei referti">${ic('clock')}Soluzione dal ${dataIt(dataSoluzione)}</span>`;
+    : `            <span class="btn btn--secondary btn--lg is-disabled" aria-disabled="true" title="La soluzione viene pubblicata dopo la chiusura dei referti">${ic('clock')}Soluzione ${dalGiorno(dataSoluzione, false)}</span>`;
 
   // --- Soluzione: referto + ragionamento in un unico spoiler ---
   const soluzione = haSoluzione
@@ -174,7 +174,7 @@ ${fonti}
     </nav>
 
     <!-- ============================== HERO ============================== -->
-    <section class="hero hero--compact" aria-labelledby="caso-title">
+    <section class="hero hero--compact hero--case" aria-labelledby="caso-title">
       <div class="hero__inner container">
         <div class="hero__content">
           <p class="hero__badge"><span class="hero__badge-dot" aria-hidden="true"></span>Caso ${meta.numero} · ${esc(cat)}${haSoluzione ? '' : ' · Aperto'}</p>
@@ -199,6 +199,13 @@ ${ctaSoluzione}
             <li class="hero__meta-item">${ic('calendar')}${dataIt(meta.data)}</li>
           </ul>
         </div>
+
+        <figure class="hero__media">
+          <button class="hero__media-zoom" type="button" data-lightbox-open="0" aria-label="Apri le ${imgs.length} immagini del caso">
+            <img class="hero__image" src="${dir}${attr(imgs[0].file)}" alt="${attr(imgs[0].didascalia)}" width="800" height="600">
+          </button>
+          <figcaption class="hero__media-caption">${ic('image')}${imgs.length} immagini · tocca per aprirle</figcaption>
+        </figure>
       </div>
     </section>
 

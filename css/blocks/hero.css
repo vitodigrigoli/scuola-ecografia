@@ -206,6 +206,10 @@
   font: var(--text-caption);
 }
 
+.hero__media-caption {
+  pointer-events: none;
+}
+
 .hero__media-caption .icon {
   width: 14px;
   height: 14px;
@@ -234,6 +238,33 @@
 .hero--centered .hero__actions,
 .hero--centered .hero__meta {
   justify-content: center;
+}
+
+/* pagina caso: l'anteprima e un'ecografia 4:3 e il titolo ha piu respiro,
+   cosi i due CTA restano sulla stessa riga */
+.hero--case {
+  --hero-media-ratio: 4 / 3;
+  --hero-title-max: 18ch;
+}
+
+.hero--case .hero__image {
+  object-position: center; /* un'ecografia non si taglia da un lato */
+}
+
+/* l'anteprima apre il lightbox: bottone senza aspetto da bottone */
+.hero__media-zoom {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.hero__media-zoom:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .hero--compact {
@@ -271,5 +302,11 @@
 
   .hero__actions .btn {
     flex: 1 1 auto;
+  }
+
+  /* a colonna singola l'anteprima finirebbe sotto i meta, a poche righe dalla
+     galleria che mostra le stesse immagini: uno schermo di scroll per nulla */
+  .hero--case .hero__media {
+    display: none;
   }
 }

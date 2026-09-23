@@ -11,9 +11,11 @@ const ic = (n, cls = 'icon') => `<svg class="${cls}" aria-hidden="true"><use hre
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s) => esc(s).replace(/"/g, '&quot;');
 const MESI = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
-const dataIt = (iso) => { const [y, m, d] = iso.split('-'); return `${+d} ${MESI[+m - 1]} ${y}`; };
+const dataIt = (iso, conAnno = true) => { const [y, m, d] = iso.split('-'); return `${+d} ${MESI[+m - 1]}${conAnno ? ' ' + y : ''}`; };
 // "l'8/l'11 ottobre" ma "il 5 ottobre": otto e undici iniziano per vocale
-const ilGiorno = (iso) => `${[8, 11].includes(+iso.split('-')[2]) ? "l'" : 'il '}${dataIt(iso)}`;
+const elide = (iso) => [8, 11].includes(+iso.split('-')[2]);
+const ilGiorno = (iso) => `${elide(iso) ? "l'" : 'il '}${dataIt(iso)}`;
+const dalGiorno = (iso, conAnno = true) => `${elide(iso) ? "dall'" : 'dal '}${dataIt(iso, conAnno)}`;
 
 /* ------------------------------------------------------------------ indice */
 const indice = fs.readFileSync(path.join(DIR, 'casi.md'), 'utf8');
@@ -231,4 +233,4 @@ fs.writeFileSync(path.join(DIR, 'pages', 'casi-clinici.html'), hub);
 console.log('casi-clinici.html:', casi.length, 'casi in', categorie.length, 'categorie;',
   Object.keys(pubblicati).length, 'pubblicat' + (Object.keys(pubblicati).length === 1 ? 'o' : 'i'));
 
-module.exports = { casi, etichette, perData, badgeCaso, titoliSezione, pubblicati, prose, cardCaso, ic, esc, attr, dataIt, ilGiorno };
+module.exports = { casi, etichette, perData, badgeCaso, titoliSezione, pubblicati, prose, cardCaso, ic, esc, attr, dataIt, ilGiorno, dalGiorno };
