@@ -12,7 +12,8 @@ dove stato = `pubblicato` (ha la pagina) oppure `segnaposto`.
 
 | Categoria | Slug | Titolo | Immagini | Data | Stato |
 |---|---|---|---|---|---|
-| spalla | spalla-rigidita-progressiva-58-anni | Spalla destra dolorosa con rigidità progressiva | 8 | 2026-09-11 | pubblicato |
+| spalla | spalla-calcificazione-sovraspinato-riassorbimento | Calcificazione del sovraspinato in fase di riassorbimento | 9 | 2026-07-10 | pubblicato |
+| spalla | spalla-rigidita-progressiva-58-anni | Spalla destra dolorosa con rigidità progressiva | 8 | 2026-09-11 | segnaposto |
 | spalla | spalla-lesione-sovraspinato-62-anni | Lesione parziale del sovraspinato in un uomo di 62 anni | 6 | 2026-07-14 | segnaposto |
 | spalla | spalla-calcificazione-sottospinato-47-anni | Calcificazione del sottospinato con dolore notturno | 5 | 2026-05-09 | segnaposto |
 | gomito | gomito-epicondilite-tennista-41-anni | Epicondilite laterale in una tennista amatoriale | 6 | 2026-08-22 | segnaposto |
@@ -60,17 +61,38 @@ dove stato = `pubblicato` (ha la pagina) oppure `segnaposto`.
 | caviglia-piede | Caviglia e piede | Caviglia e piede |
 | rachide-addome | Rachide e parete addominale | Rachide e parete addominale |
 
+
+## Materiale reale già in nostro possesso
+
+Dal Google Form del **caso 11** (settembre 2026):
+
+- **anamnesi ed esame obiettivo integrali**: donna di 58 anni, spalla destra dolorosa con rigidità
+  progressiva, ROM ridotto in tutti i piani, esordio non traumatico da 3-4 mesi. Il nome della
+  paziente presente nel form **non va pubblicato**.
+- le **etichette delle 8 scansioni**: acromion-claveare, capsula articolare inferiore e
+  controlaterale, CLB, recesso posteriore, sottoscapolare, sottospinato, sovraspinato.
+- Manca il **referto** del caso 11: per questo il caso 11 resta segnaposto.
+
+Dalla sezione "risoluzione del caso precedente" dello stesso form (quindi **caso 10**):
+
+- il **referto integrale reale**, usato nel caso pubblicato: calcificazione "molle" del sovraspinato
+  (27 × 16 mm) in fase di riassorbimento, borsite reattiva della SASD, tendinosi, resto della cuffia
+  integro.
+
 ## Da chiedere al cliente
 
-- [ ] **Le 8 immagini ecografiche originali del caso 11** (800×600): dal Google Form è estraibile solo
-      lo screenshot dell'intestazione, che contiene i dati della paziente e quindi non è pubblicabile.
-      In pagina ci sono segnaposto SVG generati (`assets/img/casi/spalla-11/`).
-- [ ] **Anonimizzazione**: il form riporta "Daniela M., 58aa". In pagina è diventato "Donna, 58 anni":
-      confermare che per il sito pubblico va bene (consigliato).
-- [ ] **Il referto ufficiale del caso 11**: quello in pagina è una proposta coerente col quadro
-      (capsulite adesiva) ma **non validata** — è marcato come tale con un avviso.
+- [ ] **Anamnesi ed esame obiettivo del caso 10**: in pagina sono una **proposta coerente col referto**
+      (dolore acuto da 2 settimane, abduzione limitata) ma **non reali** — segnalata con un avviso.
+      Con quelli veri il caso diventa interamente autentico.
+- [ ] **Le 9 immagini ecografiche del caso 10** (800×600): in pagina ci sono segnaposto SVG in
+      `assets/img/casi/spalla-10/`, con didascalie coerenti al referto.
+- [ ] **Il referto del caso 11**: appena disponibile il caso 11 diventa pubblicabile, perché anamnesi
+      ed esame obiettivo reali sono già raccolti qui sopra.
 - [ ] Autore del caso: in pagina è attribuito a Nicolò Vitale come esempio, da confermare.
-- [ ] Fonti e riferimenti: i tre titoli in pagina sono plausibili ma i link sono generici.
-- [ ] Motore della discussione (commenti): in preview è un mockup statico. Scelte possibili: Giscus
-      (richiede account GitHub), Supabase (login email, moderazione, GDPR), servizio a pagamento.
-- [ ] Destinazione della CTA "Proponi un caso": form nuovo o mail alla segreteria.
+- [ ] Fonti e riferimenti: i tre titoli sono attinenti (Uhthoff, De Witte, ESSR) ma i link sono
+      ricerche generiche: servono i riferimenti bibliografici esatti.
+- [ ] Anonimizzazione: confermare che il paziente resti indicato solo come "Donna, 54 anni",
+      senza iniziali del nome.
+- [ ] Motore della discussione (commenti): in preview è un mockup statico. Opzioni: Giscus (richiede
+      account GitHub), Supabase (login email, moderazione, GDPR), servizio a pagamento.
+- [ ] Destinazione della CTA "Proponi un caso": form dedicato o mail alla segreteria.

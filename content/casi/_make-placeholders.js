@@ -4,14 +4,15 @@ const fs = require('fs');
 const path = require('path');
 
 const SHOTS = [
-  ['acromion-claveare', 'Acromion-claveare'],
-  ['capsula-inferiore', 'Capsula articolare inferiore'],
-  ['capsula-inferiore-controlaterale', 'Capsula articolare inferiore controlaterale'],
-  ['clb', 'CLB'],
-  ['recesso-posteriore', 'Recesso posteriore'],
-  ['sottoscapolare', 'Sottoscapolare'],
+  ['sovraspinato-asse-corto', 'Sovraspinato, asse corto: calcificazione'],
+  ['sovraspinato-asse-lungo', "Sovraspinato, asse lungo: cono d'ombra incompleto"],
+  ['sovraspinato-controlaterale', 'Sovraspinato controlaterale'],
+  ['borsa-sasd', 'Borsa subacromion-subdeltoidea (SASD)'],
+  ['clb', 'Capo lungo del bicipite (CLB)'],
   ['sottospinato', 'Sottospinato'],
-  ['sovraspinato', 'Sovraspinato (asse corto e asse lungo)'],
+  ['sottoscapolare', 'Sottoscapolare'],
+  ['recesso-posteriore', 'Recesso posteriore'],
+  ['acromion-claveare', 'Acromion-claveare'],
 ];
 
 // Finto B-mode: fondo nero, settore con gradiente e rumore, righe di scala, etichetta.
@@ -44,7 +45,7 @@ const svg = (label, seed) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0
   </g>
 </svg>`;
 
-const dir = path.join(__dirname, '..', '..', 'assets', 'img', 'casi', 'spalla-11');
+const dir = path.join(__dirname, '..', '..', 'assets', 'img', 'casi', 'spalla-10');
 fs.mkdirSync(dir, { recursive: true });
 SHOTS.forEach(([slug, label], i) => fs.writeFileSync(path.join(dir, slug + '.svg'), svg(label, i + 3)));
 console.log('segnaposto scritti:', SHOTS.length);

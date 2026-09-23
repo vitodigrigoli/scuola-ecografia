@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Immagine ecografica segnaposto: Recesso posteriore">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Immagine ecografica segnaposto: Sovraspinato, asse corto: calcificazione">
   <defs>
     <linearGradient id="tissue" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#d8d8d8"/><stop offset=".22" stop-color="#8a8a8a"/>
       <stop offset=".55" stop-color="#4a4a4a"/><stop offset="1" stop-color="#141414"/>
     </linearGradient>
     <filter id="grain">
-      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="7"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="3"/>
       <feColorMatrix type="saturate" values="0"/>
       <feComponentTransfer><feFuncA type="linear" slope=".55"/></feComponentTransfer>
       <feBlend in2="SourceGraphic" mode="multiply"/>
@@ -19,7 +19,7 @@
     <path d="M60 380 Q400 340 740 400" fill="none" stroke="#cfcfcf" stroke-width="4" opacity=".35"/>
   </g>
   <g fill="#fff" font-family="DM Sans, Segoe UI, sans-serif">
-    <text x="28" y="44" font-size="22" font-weight="700">Recesso posteriore</text>
+    <text x="28" y="44" font-size="22" font-weight="700">Sovraspinato, asse corto: calcificazione</text>
     <text x="28" y="70" font-size="15" opacity=".65">Immagine segnaposto · in attesa dell'originale ANFI</text>
     <g opacity=".7">
       <line x1="772" y1="90" x2="748" y2="90" stroke="#fff" stroke-width="2"/><line x1="772" y1="130" x2="760" y2="130" stroke="#fff" stroke-width="2"/><line x1="772" y1="170" x2="760" y2="170" stroke="#fff" stroke-width="2"/><line x1="772" y1="210" x2="760" y2="210" stroke="#fff" stroke-width="2"/><line x1="772" y1="250" x2="760" y2="250" stroke="#fff" stroke-width="2"/><line x1="772" y1="290" x2="748" y2="290" stroke="#fff" stroke-width="2"/><line x1="772" y1="330" x2="760" y2="330" stroke="#fff" stroke-width="2"/><line x1="772" y1="370" x2="760" y2="370" stroke="#fff" stroke-width="2"/><line x1="772" y1="410" x2="760" y2="410" stroke="#fff" stroke-width="2"/><line x1="772" y1="450" x2="760" y2="450" stroke="#fff" stroke-width="2"/><line x1="772" y1="490" x2="748" y2="490" stroke="#fff" stroke-width="2"/>

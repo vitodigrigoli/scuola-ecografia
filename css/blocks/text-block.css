@@ -63,6 +63,11 @@
   text-wrap: pretty;
 }
 
+.text-block__label {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .text-block__text strong {
   color: var(--ink);
   font-weight: 700;

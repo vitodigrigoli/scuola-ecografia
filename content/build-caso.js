@@ -8,6 +8,17 @@ const { casi, etichette, pubblicati, prose, cardCaso, ic, esc, attr, dataIt } = 
 const DIR = __dirname;
 const SOGLIA_GRIGLIA = 6; // oltre questa soglia le immagini si vedono solo nel lightbox
 
+/* Blocco markdown del frontmatter → uno o più paragrafi HTML (**grassetto** incluso).
+   `etichetta` compare solo sul primo paragrafo (es. "Anamnesi."). */
+function paragrafi(txt, apri, chiudi, etichetta = '') {
+  if (!txt) return '';
+  return String(txt).trim().split(/\n{2,}/).map((p, i) => {
+    const testo = esc(p.replace(/\s*\n\s*/g, ' ')).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    const label = i === 0 && etichetta ? `<strong class="text-block__label">${etichetta}</strong> ` : '';
+    return apri + label + testo + chiudi;
+  }).join('\n');
+}
+
 /* Discussione: MOCKUP per la preview — testi d'esempio, nessun backend.
    Il motore reale (Giscus / Supabase / servizio) va scelto col cliente. */
 const COMMENTI = [
@@ -27,7 +38,7 @@ const COMMENTI = [
 
 function paginaCaso(c) {
   const { meta, corpo } = pubblicati[c.slug];
-  const dir = `assets/img/casi/spalla-${meta.numero}/`;
+  const dir = `assets/img/casi/${c.categoria === 'spalla' ? 'spalla' : c.categoria}-${meta.numero}/`;
   const imgs = meta.immagini;
   const autore = meta.autore || {};
   const paz = meta.paziente || {};
@@ -58,7 +69,14 @@ function paginaCaso(c) {
             <p class="discussion__text">${esc(k.testo)}</p>
           </article>`).join('\n');
 
-  const referto = esc((meta.referto || '').trim().replace(/\s*\n\s*/g, ' '));
+  const referto = (meta.referto || '').trim();
+
+  // anamnesi, esame obiettivo e pill vengono dal frontmatter: nessun dato clinico nel generatore
+  const pres = [
+    paragrafi(meta.anamnesi, '            <p class="text-block__text">', '</p>', 'Anamnesi.'),
+    paragrafi(meta.esame_obiettivo, '            <p class="text-block__text">', '</p>', 'Esame obiettivo.'),
+  ].filter(Boolean).join('\n');
+  const facts = (meta.facts || []).map(f => `              <li class="text-block__fact">${ic(f.icona)}${esc(f.testo)}</li>`).join('\n');
 
   return `    <!-- ============================== BREADCRUMB ============================== -->
     <nav class="breadcrumb" aria-label="Percorso">
@@ -98,13 +116,16 @@ function paginaCaso(c) {
             <h2 class="text-block__title" id="pres-title">Anamnesi ed esame obiettivo</h2>
           </div>
           <div class="text-block__body">
-            <p class="text-block__text">Donna di 58 anni, riferisce <strong>spalla destra dolorosa con limitazione funzionale in progressivo peggioramento</strong>, esordita gradualmente circa 3-4 mesi fa in assenza di traumi. Ha assunto terapia farmacologica con antinfiammatori riferendo beneficio parziale.</p>
-            <p class="text-block__text">All'esame obiettivo: motricità discreta con articolarità attiva e passiva ridotte per dolore severo e rigidità, con ROM possibile per 2/3 in elevazione ed extrarotazione, di 1/3 in abduzione; intrarotazione a livello del gluteo, possibile per circa 15° nelle rotazioni con braccio abdotto a 90°. Test di Yocum +/−, test di Jobe e lift off test non valutabili. Palpazione dell'articolazione acromion-claveare non dolente. Ipostenia degli stabilizzatori.</p>
+${pres}
             <ul class="text-block__facts">
-              <li class="text-block__fact">${ic('calendar')}Esordio non traumatico, 3-4 mesi</li>
-              <li class="text-block__fact">${ic('probe')}ROM ridotto in tutti i piani</li>
-              <li class="text-block__fact">${ic('check')}Studio bilaterale</li>
+${facts}
             </ul>
+            <div class="notice notice--warning">
+              <span class="notice__icon">${ic('info')}</span>
+              <div class="notice__body">
+                <p class="notice__text">Anamnesi ed esame obiettivo sono una <strong>proposta per la preview</strong>, coerente col referto ma non reale: quelli originali arrivano dalla redazione. Il referto, invece, è quello autentico del caso.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -145,13 +166,7 @@ ${galleryItems}
           </summary>
           <div class="reveal__body">
             <div class="prose prose--narrow">
-              <p class="prose__p">${referto}</p>
-            </div>
-            <div class="notice notice--warning reveal__notice">
-              <span class="notice__icon">${ic('info')}</span>
-              <div class="notice__body">
-                <p class="notice__text">Referto proposto per la preview, coerente con il quadro clinico ma <strong>non ancora validato</strong>: quello ufficiale arriva dalla redazione della Scuola.</p>
-              </div>
+${paragrafi(referto, '              <p class="prose__p">', '</p>')}
             </div>
           </div>
         </details>

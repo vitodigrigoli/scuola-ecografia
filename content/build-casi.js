@@ -39,6 +39,7 @@ function frontmatter(txt) {
   const data = {};
   const lines = m[1].split('\n');
   let key = null, mode = null, indent = 0;
+  const blocchi = new Set(); // chiavi scritte come blocco "|": vanno unite in una stringa
   const inline = (s) => {
     const o = {};
     s.replace(/^\{|\}$/g, '').split(/,\s*(?=[a-z_]+:)/).forEach(p => {
@@ -49,12 +50,16 @@ function frontmatter(txt) {
   };
   for (let i = 0; i < lines.length; i++) {
     const l = lines[i];
-    if (!l.trim()) continue;
+    // dentro un blocco "|" le righe vuote separano i paragrafi: non vanno scartate
+    if (!l.trim()) {
+      if (mode === 'block') data[key].push('');
+      continue;
+    }
     const top = l.match(/^([a-z_]+):\s*(.*)$/);
     if (top) {
       key = top[1];
       const v = top[2];
-      if (v === '|') { mode = 'block'; data[key] = []; indent = 0; continue; }
+      if (v === '|') { mode = 'block'; data[key] = []; indent = 0; blocchi.add(key); continue; }
       if (v === '') { mode = 'nested'; data[key] = undefined; continue; }
       mode = null; data[key] = v.replace(/^["']|["']$/g, '');
       continue;
@@ -76,7 +81,8 @@ function frontmatter(txt) {
       data[key][sub[1]] = sub[2].replace(/^["']|["']$/g, '');
     }
   }
-  if (Array.isArray(data.referto)) data.referto = data.referto.join('\n');
+  // i blocchi "|" sono arrivati come array di righe: diventano una stringa sola
+  blocchi.forEach(k => { data[k] = data[k].join('\n').trim(); });
   return { meta: data, corpo: m[2] };
 }
 
