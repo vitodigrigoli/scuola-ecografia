@@ -18,8 +18,8 @@
    ========================================================================== */
 
 .field {
-  --field-bg: var(--surface-elev-1);
-  --field-border: var(--border-strong);
+  --field-bg: var(--surface-input);
+  --field-border: var(--border-input);
   --field-border-focus: var(--accent);
   --field-ink: var(--ink);
   --field-placeholder: var(--ink-faint);

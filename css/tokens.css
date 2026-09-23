@@ -16,6 +16,11 @@
   /* --- Colori: bordi --- */
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.18);
+  /* superficie e bordo dei campi di modulo: su fondo scuro il campo emerge
+     schiarendo, su fondo chiaro deve restare bianco (un campo grigio con testo
+     grigio si legge come "disabilitato") */
+  --surface-input: var(--surface-elev-1);
+  --border-input: var(--border-strong);
 
   /* --- Colori: testo --- */
   --ink: #ffffff;
@@ -125,12 +130,14 @@
 
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.16);
+  --surface-input: #ffffff;
+  --border-input: rgba(0, 0, 0, 0.3); /* il campo si deve vedere anche senza fondo diverso */
 
   --ink: #0a0a0a;
   --ink-soft: #1a1a1e;
   --ink-dim: #55565b;
   --ink-muted: #7a7b80;
-  --ink-faint: #9a9ba0;
+  --ink-faint: #73757a; /* placeholder leggibile: era 2.48:1 sul campo bianco */
   --ink-inactive: #62656a; /* 4.8:1 sulla pillola chiara: #8d9096 sembrava disabilitato */
   --login-ink: rgba(10, 10, 10, 0.75);
 
