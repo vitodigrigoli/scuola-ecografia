@@ -1,0 +1,101 @@
+/* ==========================================================================
+   BLOCCO: prose
+   Corpo di un articolo (casi clinici): titoli, paragrafi, liste, citazioni.
+   Unico posto in cui il testo lungo ha una misura di riga controllata.
+
+   Struttura:
+     .prose > .prose__h2 | .prose__h3 | .prose__p | .prose__list | .prose__quote
+
+   Variazioni:
+     .prose--narrow   misura di riga più corta (60ch)
+     .prose--lead     primo paragrafo più grande (apertura dell'articolo)
+   ========================================================================== */
+
+.prose {
+  --prose-measure: 68ch;
+  --prose-gap: var(--space-6);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--prose-gap);
+}
+
+.prose__h2 {
+  max-width: var(--prose-measure);
+  margin-top: var(--space-6);
+  font: var(--text-h3);
+  font-size: 24px;
+  line-height: 30px;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.prose__h2:first-child {
+  margin-top: 0;
+}
+
+.prose__h3 {
+  max-width: var(--prose-measure);
+  margin-top: var(--space-3);
+  font: var(--text-card-title);
+  color: var(--ink);
+}
+
+.prose__p {
+  max-width: var(--prose-measure);
+  font: var(--text-body-lg);
+  color: var(--ink-dim);
+  text-wrap: pretty;
+}
+
+.prose__p strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.prose__p a,
+.prose__list a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--accent);
+}
+
+.prose__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: var(--prose-measure);
+  padding-left: var(--space-6);
+  list-style: disc;
+  font: var(--text-body-lg);
+  color: var(--ink-dim);
+}
+
+.prose__list::marker,
+.prose__list li::marker {
+  color: var(--accent);
+}
+
+.prose__quote {
+  max-width: var(--prose-measure);
+  margin: 0;
+  padding-left: var(--space-6);
+  border-left: 2px solid var(--accent);
+  font: var(--text-body-lg);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.prose--narrow {
+  --prose-measure: 60ch;
+}
+
+.prose--lead .prose__p:first-child {
+  font-size: 19px;
+  line-height: 29px;
+  color: var(--ink-soft);
+}

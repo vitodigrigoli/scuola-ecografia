@@ -1,0 +1,93 @@
+/* ==========================================================================
+   BLOCCO: discussion
+   Discussione di un caso clinico: i colleghi pubblicano il proprio referto e si
+   confrontano con quello dell'autore.
+
+   ATTENZIONE — in preview è un MOCKUP STATICO: i commenti sono d'esempio e non c'è
+   backend (sito statico su GitHub Pages). Il motore reale (Giscus, Supabase o servizio
+   a pagamento) va scelto col cliente insieme a moderazione e informativa privacy.
+
+   Struttura:
+     .discussion (section)
+       .discussion__head > .discussion__count + .btn (scrivi il tuo referto)
+       .discussion__list
+         .discussion__item
+           .chip (autore) + .discussion__date
+           .discussion__text
+           .discussion__actions (facoltative)
+       .notice (regole della discussione)
+   ========================================================================== */
+
+.discussion {
+  --discussion-item-bg: var(--surface-card);
+  --discussion-item-border: var(--border);
+}
+
+.discussion__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.discussion__count {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font: var(--text-card-title);
+  color: var(--ink);
+}
+
+.discussion__count .icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.discussion__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.discussion__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border: 1px solid var(--discussion-item-border);
+  border-radius: var(--radius-lg);
+  background: var(--discussion-item-bg);
+}
+
+.discussion__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.discussion__date {
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.discussion__text {
+  font: var(--text-body);
+  color: var(--ink-dim);
+  text-wrap: pretty;
+}
+
+/* risposta dell'autore: si distingue col bordo accent */
+.discussion__item--author {
+  --discussion-item-border: var(--accent-border);
+  --discussion-item-bg: var(--accent-wash);
+}
+
+.discussion__item--author .discussion__text {
+  color: var(--ink-soft);
+}

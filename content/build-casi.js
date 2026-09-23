@@ -206,4 +206,4 @@ fs.writeFileSync(path.join(DIR, 'pages', 'casi-clinici.html'), hub);
 console.log('casi-clinici.html:', casi.length, 'casi in', categorie.length, 'categorie;',
   Object.keys(pubblicati).length, 'pubblicat' + (Object.keys(pubblicati).length === 1 ? 'o' : 'i'));
 
-module.exports = { casi, etichette, titoliSezione, pubblicati, prose, ic, esc, attr, dataIt };
+module.exports = { casi, etichette, titoliSezione, pubblicati, prose, cardCaso, ic, esc, attr, dataIt };

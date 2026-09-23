@@ -1,0 +1,91 @@
+/* ==========================================================================
+   BLOCCO: reveal
+   Contenuto dietro spoiler: il referto ufficiale del caso resta coperto finché il
+   lettore non ha provato a refertare (<details> nativo, accessibile da tastiera).
+
+   Struttura:
+     .reveal (<details>)
+       .reveal__summary (<summary>)
+         .reveal__label (> .icon + testo) + .reveal__hint
+       .reveal__body > .prose | testo
+
+   Stati:
+     [open]   spoiler aperto: il bordo passa ad accent
+   ========================================================================== */
+
+.reveal {
+  --reveal-bg: var(--surface-card);
+  --reveal-border: var(--border-strong);
+
+  border: 1px solid var(--reveal-border);
+  border-radius: var(--radius-lg);
+  background: var(--reveal-bg);
+  overflow: hidden;
+  interpolate-size: allow-keywords;
+}
+
+.reveal[open] {
+  --reveal-border: var(--accent-border);
+}
+
+.reveal__summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-7);
+  list-style: none;
+  cursor: pointer;
+}
+
+.reveal__summary::-webkit-details-marker {
+  display: none;
+}
+
+.reveal__summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.reveal__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font: var(--text-card-title);
+  color: var(--ink);
+}
+
+.reveal__label .icon {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}
+
+.reveal__hint {
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.reveal[open] .reveal__hint {
+  display: none;
+}
+
+/* animazione dell'apertura dove supportata */
+.reveal::details-content {
+  height: 0;
+  overflow: clip;
+  transition: height var(--duration) var(--ease), content-visibility var(--duration) allow-discrete;
+}
+
+.reveal[open]::details-content {
+  height: auto;
+}
+
+.reveal__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: 0 var(--space-7) var(--space-7);
+}

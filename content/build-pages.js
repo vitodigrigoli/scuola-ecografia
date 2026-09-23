@@ -5,12 +5,17 @@
 const fs = require('fs');
 const path = require('path');
 
+const casiPagine = fs.existsSync(path.join(__dirname, 'casi-pagine.json'))
+  ? JSON.parse(fs.readFileSync(path.join(__dirname, 'casi-pagine.json'), 'utf8'))
+  : [];
+
 const pages = [
   { file: 'index.html',     id: 'home',      title: 'Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Home' },
   { file: 'programma.html', id: 'programma', title: 'Programma — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Programma' },
   { file: 'relatori.html',  id: 'relatori',  title: 'Relatori — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Relatori' },
   { file: 'prenota.html',   id: 'prenota',   title: 'Prenota — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Prenota' },
   { file: 'casi-clinici.html', id: 'casi-clinici', title: 'Casi clinici — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Casi clinici' },
+  ...casiPagine.map(p => ({ ...p, h1: 'Caso clinico', nav: 'casi-clinici' })),
 ];
 
 const links = [
@@ -125,7 +130,7 @@ function page(p) {
 <body class="page" data-page="${p.id}">
 ${sprite}
 
-${header(p.id)}
+${header(p.nav || p.id)}
 
   <main id="main">
 ${body(p)}
@@ -139,6 +144,7 @@ ${footer()}
   <script src="js/marquee.js"></script>
   <script src="js/program.js"></script>
   <script src="js/cases.js"></script>
+  <script src="js/lightbox.js"></script>
 </body>
 </html>
 `;

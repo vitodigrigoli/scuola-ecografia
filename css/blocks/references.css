@@ -1,0 +1,77 @@
+/* ==========================================================================
+   BLOCCO: references
+   Fonti e riferimenti di un caso clinico: lista numerata con link esterni.
+
+   Struttura:
+     .references
+       .references__title
+       .references__list (ol)
+         .references__item > a.references__link + .icon
+   ========================================================================== */
+
+.references {
+  margin-top: var(--space-4);
+
+  --references-bg: var(--surface-wash);
+  --references-border: var(--border);
+
+  padding: var(--space-7);
+  border: 1px solid var(--references-border);
+  border-radius: var(--radius-lg);
+  background: var(--references-bg);
+}
+
+.references__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.references__title .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
+.references__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding-left: var(--space-6);
+  list-style: decimal;
+  font: var(--text-body);
+  color: var(--ink-dim);
+}
+
+.references__list li::marker {
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.references__link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--border-strong);
+}
+
+.references__link:hover {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+}
+
+.references__link .icon {
+  width: 12px;
+  height: 12px;
+  align-self: center;
+  opacity: 0.7;
+}
