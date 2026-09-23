@@ -31,7 +31,18 @@ righe(indice.slice(indice.indexOf('## Etichette')), 3).forEach(([cat, label, tit
   etichette[cat] = label;
   titoliSezione[cat] = titolo;
 });
-const categorie = [...new Set(casi.map(c => c.categoria))];
+const categorie = [...new Set(casi.map(c => c.categoria))]; // ordine anatomico dell'indice, non per data
+
+/* In vetrina il caso più recente. I segnaposto restano in coda a prescindere
+   dalla data: non sono cliccabili, in cima occuperebbero il posto migliore
+   con una card che non porta da nessuna parte. */
+const NOVITA_GIORNI = 30;
+const oggi = new Date();
+const perData = (a, b) =>
+  (a.stato === 'pubblicato' ? 0 : 1) - (b.stato === 'pubblicato' ? 0 : 1) ||
+  b.data.localeCompare(a.data);
+const eNuovo = (c) => c.stato === 'pubblicato' &&
+  (oggi - new Date(c.data)) / 86400000 <= NOVITA_GIORNI;
 
 /* ------------------------------------------------- casi pubblicati (file) */
 function frontmatter(txt) {
@@ -122,6 +133,13 @@ casi.filter(c => c.stato === 'pubblicato').forEach(c => {
 });
 
 /* ---------------------------------------------------------------- markup */
+// il badge dice lo stato: dentro "Spalla" ripetere "Spalla" non informa
+function badgeCaso(c) {
+  if (eNuovo(c)) return '                <span class="badge badge--accent badge--sm case-card__badge">Nuovo</span>';
+  if (c.stato !== 'pubblicato') return '                <span class="badge badge--muted badge--sm case-card__badge">In preparazione</span>';
+  return '';
+}
+
 function cardCaso(c) {
   const pub = c.stato === 'pubblicato';
   const tag = pub ? 'a' : 'article';
@@ -131,21 +149,20 @@ function cardCaso(c) {
   return `            <${tag} class="case-card case-card--sm${soon}"${href}>
               <figure class="case-card__media">
                 <img src="${cover}" alt="" width="800" height="500" loading="lazy">
-                <span class="badge badge--soft badge--sm case-card__badge">${esc(etichette[c.categoria])}</span>
+${badgeCaso(c)}
               </figure>
               <div class="case-card__body">
                 <h3 class="case-card__title">${esc(c.titolo)}</h3>
                 <p class="case-card__meta">
                   <span class="case-card__meta-item">${ic('image')}${c.immagini} immagini</span>
                   <span class="case-card__meta-item">${ic('calendar')}${dataIt(c.data)}</span>
-                  ${pub ? '' : '<span class="case-card__meta-item">In preparazione</span>'}
                 </p>
               </div>
             </${tag}>`;
 }
 
 function sezioneCategoria(cat) {
-  const lista = casi.filter(c => c.categoria === cat);
+  const lista = casi.filter(c => c.categoria === cat).sort(perData);
   return `    <!-- ============================== CASI · ${cat.toUpperCase()} ============================== -->
     <section class="section cases" id="${cat}" aria-labelledby="cat-${cat}-title">
       <div class="container">
@@ -214,4 +231,4 @@ fs.writeFileSync(path.join(DIR, 'pages', 'casi-clinici.html'), hub);
 console.log('casi-clinici.html:', casi.length, 'casi in', categorie.length, 'categorie;',
   Object.keys(pubblicati).length, 'pubblicat' + (Object.keys(pubblicati).length === 1 ? 'o' : 'i'));
 
-module.exports = { casi, etichette, titoliSezione, pubblicati, prose, cardCaso, ic, esc, attr, dataIt, ilGiorno };
+module.exports = { casi, etichette, perData, badgeCaso, titoliSezione, pubblicati, prose, cardCaso, ic, esc, attr, dataIt, ilGiorno };
