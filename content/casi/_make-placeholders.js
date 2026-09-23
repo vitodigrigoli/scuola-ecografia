@@ -3,17 +3,30 @@
 const fs = require('fs');
 const path = require('path');
 
-const SHOTS = [
-  ['sovraspinato-asse-corto', 'Sovraspinato, asse corto: calcificazione'],
-  ['sovraspinato-asse-lungo', "Sovraspinato, asse lungo: cono d'ombra incompleto"],
-  ['sovraspinato-controlaterale', 'Sovraspinato controlaterale'],
-  ['borsa-sasd', 'Borsa subacromion-subdeltoidea (SASD)'],
-  ['clb', 'Capo lungo del bicipite (CLB)'],
-  ['sottospinato', 'Sottospinato'],
-  ['sottoscapolare', 'Sottoscapolare'],
-  ['recesso-posteriore', 'Recesso posteriore'],
-  ['acromion-claveare', 'Acromion-claveare'],
-];
+const SET = {
+  'spalla-10': [
+    ['sovraspinato-asse-corto', 'Sovraspinato, asse corto: calcificazione'],
+    ['sovraspinato-asse-lungo', "Sovraspinato, asse lungo: cono d'ombra incompleto"],
+    ['sovraspinato-controlaterale', 'Sovraspinato controlaterale'],
+    ['borsa-sasd', 'Borsa subacromion-subdeltoidea (SASD)'],
+    ['clb', 'Capo lungo del bicipite (CLB)'],
+    ['sottospinato', 'Sottospinato'],
+    ['sottoscapolare', 'Sottoscapolare'],
+    ['recesso-posteriore', 'Recesso posteriore'],
+    ['acromion-claveare', 'Acromion-claveare'],
+  ],
+  // caso 11: etichette esatte del Google Form
+  'spalla-11': [
+    ['acromion-claveare', 'Acromion-claveare'],
+    ['capsula-inferiore', 'Capsula articolare inferiore'],
+    ['capsula-inferiore-controlaterale', 'Capsula articolare inferiore controlaterale'],
+    ['clb', 'CLB'],
+    ['recesso-posteriore', 'Recesso posteriore'],
+    ['sottoscapolare', 'Sottoscapolare'],
+    ['sottospinato', 'Sottospinato'],
+    ['sovraspinato', 'Sovraspinato (asse corto e asse lungo)'],
+  ],
+};
 
 // Finto B-mode: fondo nero, settore con gradiente e rumore, righe di scala, etichetta.
 const svg = (label, seed) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Immagine ecografica segnaposto: ${label}">
@@ -45,7 +58,10 @@ const svg = (label, seed) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0
   </g>
 </svg>`;
 
-const dir = path.join(__dirname, '..', '..', 'assets', 'img', 'casi', 'spalla-10');
-fs.mkdirSync(dir, { recursive: true });
-SHOTS.forEach(([slug, label], i) => fs.writeFileSync(path.join(dir, slug + '.svg'), svg(label, i + 3)));
-console.log('segnaposto scritti:', SHOTS.length);
+let n = 0;
+Object.entries(SET).forEach(([caso, shots]) => {
+  const dir = path.join(__dirname, '..', '..', 'assets', 'img', 'casi', caso);
+  fs.mkdirSync(dir, { recursive: true });
+  shots.forEach(([slug, label], i) => { fs.writeFileSync(path.join(dir, slug + '.svg'), svg(label, i + 3)); n++; });
+});
+console.log('segnaposto scritti:', n, 'in', Object.keys(SET).join(', '));

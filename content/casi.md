@@ -13,7 +13,7 @@ dove stato = `pubblicato` (ha la pagina) oppure `segnaposto`.
 | Categoria | Slug | Titolo | Immagini | Data | Stato |
 |---|---|---|---|---|---|
 | spalla | spalla-calcificazione-sovraspinato-riassorbimento | Calcificazione del sovraspinato in fase di riassorbimento | 9 | 2026-07-10 | pubblicato |
-| spalla | spalla-rigidita-progressiva-58-anni | Spalla destra dolorosa con rigidità progressiva | 8 | 2026-09-11 | segnaposto |
+| spalla | spalla-rigidita-progressiva-58-anni | Spalla destra dolorosa con rigidità progressiva | 8 | 2026-09-11 | pubblicato |
 | spalla | spalla-lesione-sovraspinato-62-anni | Lesione parziale del sovraspinato in un uomo di 62 anni | 6 | 2026-07-14 | segnaposto |
 | spalla | spalla-calcificazione-sottospinato-47-anni | Calcificazione del sottospinato con dolore notturno | 5 | 2026-05-09 | segnaposto |
 | gomito | gomito-epicondilite-tennista-41-anni | Epicondilite laterale in una tennista amatoriale | 6 | 2026-08-22 | segnaposto |
@@ -71,7 +71,8 @@ Dal Google Form del **caso 11** (settembre 2026):
   paziente presente nel form **non va pubblicato**.
 - le **etichette delle 8 scansioni**: acromion-claveare, capsula articolare inferiore e
   controlaterale, CLB, recesso posteriore, sottoscapolare, sottospinato, sovraspinato.
-- Manca il **referto** del caso 11: per questo il caso 11 resta segnaposto.
+- Manca il **referto** del caso 11: la pagina è pubblicata come **caso aperto**, con la soluzione
+  annunciata per l'11 ottobre 2026 e il bottone "Vedi la soluzione" disattivato.
 
 Dalla sezione "risoluzione del caso precedente" dello stesso form (quindi **caso 10**):
 
@@ -86,8 +87,9 @@ Dalla sezione "risoluzione del caso precedente" dello stesso form (quindi **caso
       Con quelli veri il caso diventa interamente autentico.
 - [ ] **Le 9 immagini ecografiche del caso 10** (800×600): in pagina ci sono segnaposto SVG in
       `assets/img/casi/spalla-10/`, con didascalie coerenti al referto.
-- [ ] **Il referto del caso 11**: appena disponibile il caso 11 diventa pubblicabile, perché anamnesi
-      ed esame obiettivo reali sono già raccolti qui sopra.
+- [ ] **Il referto e il ragionamento del caso 11**: appena arrivano, basta aggiungerli al frontmatter
+      (`referto:`) e al corpo del markdown — la pagina passa da "caso aperto" a "soluzione disponibile"
+      da sola.
 - [ ] Autore del caso: in pagina è attribuito a Nicolò Vitale come esempio, da confermare.
 - [ ] Fonti e riferimenti: i tre titoli sono attinenti (Uhthoff, De Witte, ESSR) ma i link sono
       ricerche generiche: servono i riferimenti bibliografici esatti.

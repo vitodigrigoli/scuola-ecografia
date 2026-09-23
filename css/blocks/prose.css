@@ -4,7 +4,7 @@
    Unico posto in cui il testo lungo ha una misura di riga controllata.
 
    Struttura:
-     .prose > .prose__h2 | .prose__h3 | .prose__p | .prose__list | .prose__quote
+     .prose > .prose__eyebrow | .prose__h2 | .prose__h3 | .prose__p | .prose__list | .prose__quote
 
    Variazioni:
      .prose--narrow   misura di riga più corta (60ch)
@@ -18,6 +18,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--prose-gap);
+}
+
+.prose__eyebrow {
+  font: var(--text-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .prose__h2 {

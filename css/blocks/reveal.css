@@ -83,6 +83,12 @@
   height: auto;
 }
 
+/* referto e ragionamento sono due .prose consecutive: una linea le separa */
+.reveal__body > .prose + .prose {
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--border);
+}
+
 .reveal__body {
   display: flex;
   flex-direction: column;
