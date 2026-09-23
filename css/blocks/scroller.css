@@ -93,9 +93,14 @@
   padding-inline: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter)));
   scroll-padding-inline: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter)));
   mask-image: none;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-strong) transparent;
+  /* la barra di scorrimento resta nascosta: la card tagliata sul bordo dice gia
+     che si scorre, e la barra spezzava il bianco sotto la fila (come in cases-nav) */
+  scrollbar-width: none;
   overscroll-behavior-x: contain;
+}
+
+.scroller--manual .scroller__viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .scroller--manual .scroller__track {
