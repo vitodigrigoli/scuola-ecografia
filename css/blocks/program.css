@@ -54,9 +54,10 @@
   width: 100%; /* larga quanto il contenitore */
   margin-bottom: clamp(32px, 5vw, 56px);
   padding: 4px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-bar);
   border-radius: var(--radius-pill);
-  background: var(--surface-elev-2);
+  background: var(--surface-bar);
+  box-shadow: var(--shadow-bar);
   overflow-x: auto;
   scrollbar-width: none;
 }

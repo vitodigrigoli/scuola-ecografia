@@ -21,6 +21,12 @@
      grigio si legge come "disabilitato") */
   --surface-input: var(--surface-elev-1);
   --border-input: var(--border-strong);
+  /* barre flottanti (header, nav dei distretti, nav del programma): stesso
+     principio dei campi, su fondo chiaro restano bianche e si staccano con
+     bordo e ombra invece che con un grigio piu scuro della pagina */
+  --surface-bar: var(--surface-elev-2);
+  --border-bar: var(--border);
+  --shadow-bar: none;
 
   /* --- Colori: testo --- */
   --ink: #ffffff;
@@ -132,6 +138,9 @@
   --border-strong: rgba(0, 0, 0, 0.16);
   --surface-input: #ffffff;
   --border-input: rgba(0, 0, 0, 0.3); /* il campo si deve vedere anche senza fondo diverso */
+  --surface-bar: #ffffff;
+  --border-bar: rgba(0, 0, 0, 0.1);
+  --shadow-bar: 0 2px 14px rgba(0, 0, 0, 0.07); /* sul #fafafa della pagina il bianco da solo non si stacca */
 
   --ink: #0a0a0a;
   --ink-soft: #1a1a1e;
