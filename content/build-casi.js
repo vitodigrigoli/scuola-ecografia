@@ -153,7 +153,7 @@ function sezioneCategoria(cat) {
         </div>
       </div>
 
-      <div class="scroller scroller--manual">
+      <div class="scroller scroller--manual scroller--desktop-grid">
         <div class="scroller__viewport">
           <div class="scroller__track">
 ${lista.map(cardCaso).join('\n')}

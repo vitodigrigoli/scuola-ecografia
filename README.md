@@ -77,8 +77,8 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `field` | ✔ fatto (`--check`, `--half`, `.form__row`, `.form__actions`) — campi di modulo riusabili | pagina caso |
 | `discussion` | ✔ fatto — modulo "scrivi il tuo referto" **simulato** (`js/discussion.js`: il referto compare in pagina come "in moderazione", non viene salvato) | pagina caso |
 | `case-card` | ✔ fatto (`--sm`, `--wide`, `--soon`) — scheda caso clinico | casi clinici |
-| `cases` / `cases-nav` | ✔ fatto — sezione categoria con scroller manuale + barra distretti sticky (`js/cases.js`); le ancore si fermano sotto la barra | casi clinici |
-| `scroller` | ✔ fatto (`--contained`, `--manual`) — striscia a scorrimento continuo full-bleed; la **sezione ospitante** deve avere `overflow-x: clip` | home, casi clinici |
+| `cases` / `cases-nav` | ✔ fatto — sezione categoria: griglia a 4 colonne su desktop, scroller manuale su tablet/mobile + barra distretti sticky (`js/cases.js`); le ancore si fermano sotto la barra | casi clinici |
+| `scroller` | ✔ fatto (`--contained`, `--manual`, `--desktop-grid`: griglia da 1100px in su) — striscia a scorrimento continuo full-bleed; la **sezione ospitante** deve avere `overflow-x: clip` | home, casi clinici |
 | `chip` | ✔ fatto (`--sm`) — pillola persona con mini-ritratto; usata da roster e program | relatori, programma |
 | `badge` | ✔ fatto (`--outline`, `--accent`, `--soft`, `--muted`, `--success`, `--sm`) | tutte |
 | `text-block` | ✔ fatto — intestazione di sezione o testo a 2 colonne (`--split`, `--top`, `--center`, `--flush`, `--tight`; pill `__facts`) | tutte |
