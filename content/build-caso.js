@@ -15,7 +15,7 @@
    nell'hero è disattivato. */
 const fs = require('fs');
 const path = require('path');
-const { casi, etichette, pubblicati, prose, cardCaso, ic, esc, attr, dataIt } = require('./build-casi.js');
+const { casi, etichette, pubblicati, prose, cardCaso, ic, esc, attr, dataIt, ilGiorno } = require('./build-casi.js');
 
 const DIR = __dirname;
 const SOGLIA_GRIGLIA = 6;      // oltre questa soglia le immagini si vedono solo nel lightbox
@@ -41,20 +41,44 @@ function traGiorni(iso) {
 
 /* Discussione: MOCKUP per la preview — testi d'esempio, nessun backend.
    Il motore reale (Giscus / Supabase / servizio) va scelto col cliente. */
-const COMMENTI = [
-  {
-    nome: 'Dott. Riccardo Prezioso', foto: 'riccardo-prezioso.png', data: '12 luglio 2026',
-    testo: 'Formazione iperecogena del sovraspinoso con cono d’ombra sfumato e falda in borsa: nel mio referto l’ho descritta come calcificazione in riassorbimento. Il confronto con la controlaterale aiuta molto a pesare la borsite.',
-  },
-  {
-    nome: 'Dott.ssa Francesca Serpi', foto: 'francesca-serpi.png', data: '12 luglio 2026',
-    testo: 'Concordo. Segnalo solo che il cono d’ombra incompleto va cercato in almeno due piani prima di definirla “molle”: su un solo piano si rischia di sovrastimare il riassorbimento.',
-  },
-  {
-    nome: 'Dott. Nicolò Vitale', foto: 'nicolo-vitale.png', data: '13 luglio 2026', autore: true,
-    testo: 'Esatto, e infatti le prime due scansioni pubblicate sono lo stesso deposito in asse corto e in asse lungo. È la coppia che uso sempre per decidere se proporre il needling.',
-  },
-];
+/* Referti dei colleghi (mockup dell'anteprima, uno per slug): quando arriva il
+   motore vero — Giscus o Supabase — questa costante sparisce e la lista viene
+   dal servizio. Un caso ancora aperto mostra la discussione senza la risposta:
+   l'autore partecipa ma non conferma finché non pubblica la soluzione. */
+const COMMENTI = {
+  'spalla-calcificazione-sovraspinato-riassorbimento': [
+    {
+      nome: 'Dott. Riccardo Prezioso', foto: 'riccardo-prezioso.png', data: '12 luglio 2026',
+      testo: 'Formazione iperecogena del sovraspinoso con cono d’ombra sfumato e falda in borsa: nel mio referto l’ho descritta come calcificazione in riassorbimento. Il confronto con la controlaterale aiuta molto a pesare la borsite.',
+    },
+    {
+      nome: 'Dott.ssa Francesca Serpi', foto: 'francesca-serpi.png', data: '12 luglio 2026',
+      testo: 'Concordo. Segnalo solo che il cono d’ombra incompleto va cercato in almeno due piani prima di definirla “molle”: su un solo piano si rischia di sovrastimare il riassorbimento.',
+    },
+    {
+      nome: 'Dott. Nicolò Vitale', foto: 'nicolo-vitale.png', data: '13 luglio 2026', autore: true,
+      testo: 'Esatto, e infatti le prime due scansioni pubblicate sono lo stesso deposito in asse corto e in asse lungo. È la coppia che uso sempre per decidere se proporre il needling.',
+    },
+  ],
+  'spalla-rigidita-progressiva-58-anni': [
+    {
+      nome: 'Dott.ssa Francesca Lacelli', foto: 'francesca-lacelli.jpg', data: '14 settembre 2026',
+      testo: 'La coppia di scansioni sulla capsula inferiore è il punto di partenza: sul lato sintomatico il profilo mi sembra nettamente più spesso della controlaterale. Nel mio referto ho misurato entrambi i lati e riportato la differenza, perché il valore assoluto da solo dice poco.',
+    },
+    {
+      nome: 'Dott. Alberto Monello', foto: 'alberto-monello.png', data: '15 settembre 2026',
+      testo: 'Quello che mi colpisce è in negativo: sovraspinato, sottospinato e sottoscapolare appaiono continui e il CLB è in sede senza versamento significativo. Una cuffia così non giustifica un ROM ridotto in tutti i piani, tanto meno la limitazione passiva descritta nell’esame obiettivo.',
+    },
+    {
+      nome: 'Dott.ssa Ilaria Petrucci', foto: 'ilaria-petrucci.png', data: '17 settembre 2026',
+      testo: 'Prima di chiudere il referto chiederei l’intervallo dei rotatori con power Doppler e, sul piano clinico, glicemia e funzione tiroidea: sono le comorbidità che più spesso accompagnano questi quadri e cambiano la prognosi più dell’immagine.',
+    },
+    {
+      nome: 'Dott. Nicolò Vitale', foto: 'nicolo-vitale.png', data: '18 settembre 2026', autore: true,
+      testo: 'Non confermo né smentisco fino alla pubblicazione, ma le domande sono quelle giuste: studio comparativo obbligatorio e lettura del quadro clinico insieme alle immagini. Continuate a inviare i vostri referti, la soluzione esce l’11 ottobre.',
+    },
+  ],
+};
 
 function paginaCaso(c) {
   const { meta, corpo } = pubblicati[c.slug];
@@ -86,7 +110,8 @@ function paginaCaso(c) {
     .map(x => cardCaso(x).replace('case-card case-card--sm', 'case-card'))
     .join('\n');
 
-  const commenti = COMMENTI.map(k => `          <article class="discussion__item${k.autore ? ' discussion__item--author' : ''}">
+  const kommenti = COMMENTI[c.slug] || [];
+  const commenti = kommenti.map(k => `          <article class="discussion__item${k.autore ? ' discussion__item--author' : ''}">
             <div class="discussion__meta">
               <span class="chip chip--sm"><img class="chip__avatar" src="assets/img/people/relatori/${k.foto}" alt="" width="48" height="48" loading="lazy">${esc(k.nome)}</span>
               ${k.autore ? '<span class="badge badge--soft badge--sm">Autore del caso</span>' : ''}
@@ -127,7 +152,7 @@ ${fonti}
     : `        <div class="notice notice--accent">
           <span class="notice__icon">${ic('clock')}</span>
           <div class="notice__body">
-            <p class="notice__title">Soluzione in arrivo il ${dataIt(dataSoluzione)}</p>
+            <p class="notice__title">Soluzione in arrivo ${ilGiorno(dataSoluzione)}</p>
             <p class="notice__text">Il caso è aperto${giorniMancanti > 0 ? ` ancora per ${giorniMancanti} giorn${giorniMancanti === 1 ? 'o' : 'i'}` : ''}: scrivi il tuo referto e lo confronterai con quello dell'autore, pubblicato qui insieme al ragionamento diagnostico.</p>
           </div>
         </div>
@@ -275,11 +300,11 @@ ${soluzione}
         </form>
 
         <div class="discussion__head">
-          <p class="discussion__count">${ic('message')}${haSoluzione ? COMMENTI.length + ' referti pubblicati' : 'Referti in raccolta'}</p>
+          <p class="discussion__count">${ic('message')}${kommenti.length} refert${kommenti.length === 1 ? 'o' : 'i'}${haSoluzione ? ' pubblicati' : ' · raccolta aperta'}</p>
         </div>
 
         <div class="discussion__list">
-${haSoluzione ? commenti : ''}
+${commenti}
         </div>
 
         <div class="notice notice--muted">
@@ -288,7 +313,7 @@ ${haSoluzione ? commenti : ''}
             <p class="notice__title">Come funziona la discussione</p>
             <p class="notice__text">${haSoluzione
               ? 'I referti sono moderati dalla redazione prima della pubblicazione e non devono contenere dati identificativi dei pazienti. <strong>In questa anteprima i referti già presenti sono d\'esempio e quello che scrivi non viene salvato</strong>: il modulo serve a mostrare come appariranno.'
-              : 'I referti vengono pubblicati insieme alla soluzione, dopo la moderazione della redazione. <strong>In questa anteprima quello che scrivi non viene salvato</strong>: il modulo serve a mostrare come apparirà.'}</p>
+              : `I referti dei colleghi restano visibili durante la raccolta, moderati dalla redazione: il confronto è parte dell'esercizio. La soluzione dell'autore viene pubblicata ${ilGiorno(dataSoluzione)}. <strong>In questa anteprima i referti già presenti sono d'esempio e quello che scrivi non viene salvato</strong>: il modulo serve a mostrare come apparirà.`}</p>
           </div>
         </div>
       </div>
