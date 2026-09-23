@@ -28,7 +28,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  background: rgba(0, 0, 0, 0.96);
+  background: #000; /* opaco: al 96% traspariva la pagina sotto */
   color: #fff; /* sempre su fondo nero: non segue il tema */
   overflow: hidden;
 }
@@ -101,18 +101,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4);
+  justify-content: center; /* immagine e didascalia restano un gruppo unico */
+  gap: var(--space-3);
   margin: 0;
   width: 100%;
   height: 100%;
   min-height: 0;
 }
 
+/* l'immagine più grande possibile a parità di proporzioni: il box coincide con
+   l'immagine (niente aree vuote dentro l'elemento), così il bordo la delimita
+   davvero — le ecografie sono scure quanto il fondo */
 .lightbox__figure > img {
-  flex: 1;
-  width: 100%;
+  flex: 0 1 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   min-height: 0;
-  object-fit: contain; /* l'immagine più grande possibile, mai ritagliata */
+  object-fit: contain;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
 }
 
 .lightbox__caption {
@@ -213,17 +222,42 @@
 }
 
 @media (max-width: 639px) {
+  .lightbox {
+    --lightbox-bar-h: 44px;
+    --lightbox-pad: 10px;
+  }
+
   .lightbox__thumbs {
     justify-content: flex-start;
   }
 
+  .lightbox__thumb {
+    width: 64px;
+  }
+
+  /* fuori dall'immagine: a 375px occupa quasi tutta la larghezza, le frecce
+     la coprirebbero. Vanno in fondo allo stage, dove lo spazio è già vuoto */
   .lightbox__prev,
   .lightbox__next {
-    width: 40px;
-    height: 40px;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox__close {
+    width: 36px;
+    height: 36px;
   }
 
   .lightbox__title {
     display: none; /* su mobile la barra tiene solo contatore e chiusura */
   }
+}
+
+/* la pagina non deve scorrere dietro il lightbox aperto (js/lightbox.js) */
+html.has-lightbox,
+html.has-lightbox body {
+  overflow: hidden;
 }

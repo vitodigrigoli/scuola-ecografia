@@ -94,6 +94,7 @@
     lastTrigger = trigger || null;
     show(i);
     dialog.showModal();
+    document.documentElement.classList.add('has-lightbox');
   }
 
   dialog.querySelector('.lightbox__close').addEventListener('click', function () { dialog.close(); });
@@ -112,6 +113,7 @@
 
   // il focus torna a chi ha aperto il lightbox (dopo il ripristino che fa il browser)
   dialog.addEventListener('close', function () {
+    document.documentElement.classList.remove('has-lightbox');
     if (!lastTrigger) return;
     requestAnimationFrame(function () { lastTrigger.focus(); });
   });
