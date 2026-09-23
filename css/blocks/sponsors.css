@@ -1,17 +1,17 @@
 /* ==========================================================================
    BLOCCO: sponsors
-   Fascia chiara "Sponsor della terza edizione" con i loghi nei colori originali (pattern "trusted by"),
-   più un accordion con gli sponsor delle edizioni precedenti.
-   I loghi ANFI sono PNG a colori su fondo bianco: per questo la fascia è sempre bianca
-   (--surface-paper) in entrambi i temi.
+   "Sponsor della terza edizione" in scorrimento continuo, più un accordion con
+   gli sponsor delle edizioni precedenti.
+   I loghi ANFI sono PNG a colori su fondo bianco: ognuno sta su una tessera
+   bianca, uguale in entrambi i temi (una fascia bianca a tutta pagina spezzava
+   troppo il fondo scuro).
 
    Struttura:
      .sponsors (section)
-       .sponsors__band                       (full-bleed, fondo paper)
-         .sponsors__inner
-           .sponsors__label
-           .scroller--contained (attivo su mobile) > .scroller__viewport > .scroller__track = .sponsors__logos
-             .sponsors__logo > img …
+       .sponsors__inner
+         .sponsors__label
+         .scroller > .scroller__viewport > .scroller__track = .sponsors__logos--tiles--lead
+           .sponsors__logo > img …
        .sponsors__past (<details>)
          .sponsors__past-summary (<summary>)
          .sponsors__group … > .sponsors__group-title + .sponsors__logos--tiles
@@ -24,24 +24,11 @@
 .sponsors {
   overflow-x: clip; /* la fascia è full-bleed (100vw): senza clip compare la scrollbar orizzontale */
 
-  --sponsors-paper: var(--surface-paper);
-  --sponsors-paper-ink: #0a0a0a;          /* testo sulla fascia bianca: fisso, non segue il tema */
-  --sponsors-paper-muted: #55565b;
+  --sponsors-paper: var(--surface-paper); /* la tessera resta bianca: i loghi sono PNG a colori su bianco */
   --sponsors-logo-h: 44px;
   --sponsors-logo-gap: clamp(32px, 5vw, 72px);
-  --sponsors-band-pad: clamp(40px, 5vw, 56px);
   --sponsors-tile-h: 28px;
   --sponsors-past-gap: var(--space-11);
-}
-
-/* --- Fascia chiara --- */
-.sponsors__band {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
-  padding-block: var(--sponsors-band-pad);
-  background: var(--sponsors-paper);
-  border-block: 1px solid rgba(0, 0, 0, 0.08);
-  color: var(--sponsors-paper-ink);
 }
 
 .sponsors__inner {
@@ -58,7 +45,7 @@
   font: var(--text-label);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sponsors-paper-muted);
+  color: var(--ink-muted);
 }
 
 .sponsors__logos {
@@ -145,10 +132,31 @@
 .sponsors__logos--tiles .sponsors__logo {
   height: auto;
   padding: var(--space-2) var(--space-4);
+  border: 1px solid rgba(0, 0, 0, 0.08); /* la tessera e sempre bianca: bordo fisso */
   border-radius: var(--radius-xs);
   background: var(--sponsors-paper);
   opacity: 0.85;
   transition: opacity var(--duration) var(--ease);
+}
+
+/* Riga principale: stesse tessere, piu grandi (sono gli sponsor dell'edizione in corso) */
+.sponsors__logos--lead {
+  --sponsors-tile-h: 40px;
+
+  flex-wrap: nowrap; /* scorre: deve restare su una riga sola */
+  gap: var(--space-4);
+}
+
+.sponsors__logos--lead .sponsors__logo {
+  justify-content: center;
+  min-width: 170px; /* i loghi hanno forme diverse: la tessera le uniforma */
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-sm);
+  opacity: 1;
+}
+
+.sponsors__logos--lead .sponsors__logo > img {
+  max-width: 150px;
 }
 
 .sponsors__logos--tiles .sponsors__logo:hover {
@@ -173,32 +181,13 @@
 @media (max-width: 767px) {
   .sponsors {
     --sponsors-logo-h: 36px;
-    --sponsors-band-pad: var(--space-10);
   }
 
   .sponsors__inner {
     padding-inline: 0;
   }
 
-  .sponsors__band .sponsors__logos {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: var(--space-11);
-    padding-inline: var(--space-6);
-  }
-}
-
-/* sopra i 767px lo scroller non serve: la riga torna a wrap centrato */
-@media (min-width: 768px) {
-  .sponsors .scroller__viewport {
-    width: 100%;
-    margin-inline: 0;
-    overflow: visible;
-    mask-image: none;
-  }
-
-  .sponsors .scroller__track {
-    width: auto;
-    animation: none;
+  .sponsors__logos--lead {
+    --sponsors-tile-h: 32px;
   }
 }

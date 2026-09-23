@@ -69,7 +69,8 @@
 @keyframes scroller-slide {
   to {
     /* metà traccia + metà gap: il secondo gruppo si sovrappone esattamente al primo */
-    transform: translateX(calc(-50% - var(--scroller-gap) / 2));
+    /* una copia intera: 100%/N piu la sua parte di gap (N = --marquee-copies) */
+    transform: translateX(calc(-100% / var(--marquee-copies, 2) - var(--scroller-gap) / var(--marquee-copies, 2)));
   }
 }
 
