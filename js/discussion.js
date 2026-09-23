@@ -39,9 +39,13 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    // nome, referto e consenso sono required: se manca qualcosa parla la validazione del browser
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     var nome = (form.elements.nome.value || '').trim();
     var testo = (form.elements.referto.value || '').trim();
-    if (!nome || !testo) return; // required se ne occupa il browser
 
     var item = document.createElement('article');
     item.className = 'discussion__item discussion__item--pending';

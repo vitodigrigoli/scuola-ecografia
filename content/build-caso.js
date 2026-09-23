@@ -249,7 +249,7 @@ ${fonti}
           <p class="text-block__text">Ogni caso è aperto al confronto: pubblica il tuo referto e leggi quello degli altri partecipanti.</p>
         </div>
 
-        <form class="discussion__form" id="scrivi" novalidate>
+        <form class="discussion__form" id="scrivi">
           <p class="discussion__form-title">${ic('message')}Scrivi il tuo referto</p>
 
           <div class="form__row">
@@ -271,13 +271,13 @@ ${fonti}
 
           <div class="field field--check">
             <input class="field__box" type="checkbox" id="ref-consenso" name="consenso" required>
-            <label class="field__label" for="ref-consenso">Confermo di non aver inserito dati identificativi di pazienti e acconsento alla pubblicazione del referto con il mio nome.</label>
+            <label class="field__label" for="ref-consenso">Confermo di non aver inserito dati identificativi di pazienti e acconsento alla pubblicazione del referto con il mio nome. <span class="field__required" aria-hidden="true">*</span></label>
           </div>
 
           <div class="form__actions">
             <button class="btn btn--primary" type="submit">Pubblica il referto ${ic('arrow-right')}</button>
             <p class="discussion__feedback" role="status">${ic('check')}Referto aggiunto in anteprima: non viene salvato.</p>
-            <p class="form__note">Anteprima: il modulo non invia nulla.</p>
+            <p class="form__note"><span class="field__required" aria-hidden="true">*</span> campo obbligatorio · Anteprima: il modulo non invia nulla.</p>
           </div>
         </form>
 
