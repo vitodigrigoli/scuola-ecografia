@@ -13,9 +13,19 @@
      .is-active   distretto attualmente visibile
    ========================================================================== */
 
+/* Misure condivise con le sezioni .cases (servono per lo scroll-margin delle ancore) */
+:root {
+  --cases-nav-top: calc(16px + 64px + 16px); /* sotto l'header flottante (top 16 + h 64) */
+  --cases-nav-h: 46px;                       /* altezza della pillola */
+}
+
+@media (max-width: 899px) {
+  :root {
+    --cases-nav-top: calc(10px + 56px + 10px); /* header mobile: top 10, alto 56 */
+  }
+}
+
 .cases-nav {
-  /* sotto l'header flottante (top 16 + h 64) con lo stesso respiro di 16px */
-  --cases-nav-top: calc(16px + 64px + 16px);
 
   position: sticky;
   top: var(--cases-nav-top);
@@ -69,10 +79,6 @@
 }
 
 @media (max-width: 899px) {
-  .cases-nav {
-    --cases-nav-top: calc(10px + 56px + 10px); /* header mobile: top 10px, alto 56px */
-  }
-
   .cases-nav__link {
     flex: none; /* la barra scorre: le voci tengono la loro larghezza */
   }

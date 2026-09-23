@@ -12,7 +12,8 @@
 
    Variazioni:
      .scroller--contained   resta dentro il container invece di andare full-bleed
-     .scroller--manual      nessuna animazione: scorrimento manuale con snap
+     .scroller--manual      nessuna animazione: scorrimento manuale con snap; la prima card
+                            parte allineata al contenuto del container, non al bordo schermo
    Stati (js/marquee.js):
      .is-cloned             (sulla traccia) i figli sono stati duplicati: l'animazione parte
    Attenzione:
@@ -29,6 +30,7 @@
   --scroller-gap: var(--space-4);
   --scroller-fade: 4%;
   --scroller-duration: 40s;
+
 }
 
 .scroller__viewport {
@@ -78,13 +80,23 @@
 }
 
 .scroller--manual .scroller__viewport {
+  /* niente 100vw: il wrapper .scroller è già a piena larghezza e 100vw includerebbe la
+     scrollbar, sfasando l'allineamento di qualche pixel */
+  width: auto;
+  margin-inline: 0;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
+  /* rientro = bordo interno del .container: prima e ultima card allineate al testo della sezione */
+  padding-inline: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter)));
+  scroll-padding-inline: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter)));
   mask-image: none;
   scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+  overscroll-behavior-x: contain;
 }
 
 .scroller--manual .scroller__track {
+  width: max-content;
   animation: none;
 }
 

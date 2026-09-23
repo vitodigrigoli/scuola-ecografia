@@ -13,6 +13,9 @@
 
   /* ospita uno scroller full-bleed: senza clip comparirebbe la scrollbar orizzontale */
   overflow-x: clip;
+
+  /* al click su un distretto la sezione si ferma sotto la nav sticky, non dietro */
+  scroll-margin-top: calc(var(--cases-nav-top) + var(--cases-nav-h) + var(--space-6));
   padding-block: clamp(32px, 4vw, 56px);
 }
 
