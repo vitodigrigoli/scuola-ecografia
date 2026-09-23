@@ -28,6 +28,8 @@ content/
   build-program.js  genera pages/programma.html dalle tabelle di contenuti.md (poi build-pages)
   build-relatori.js genera pages/relatori.html da docenti/tutor/comitati di contenuti.md (poi build-pages)
   build-prenota.js  genera pages/prenota.html riusando Costi ed Edizioni di pages/home.html (poi build-pages)
+  build-casi.js     genera pages/casi-clinici.html (e le pagine caso) da casi.md + casi/*.md
+  casi/             un markdown per caso + script dei segnaposto immagine
 design-reference/   design system Cowork originale (token, README dei componenti): solo consultazione
 ```
 
@@ -62,6 +64,8 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | Blocco | Stato | Pagine |
 |---|---|---|
 | `btn` | ✔ fatto (`--primary`, `--secondary`, `--ghost`, `--accent`, `--lg`, `--sm`, `--block`) | tutte |
+| `case-card` | ✔ fatto (`--sm`, `--wide`, `--soon`) — scheda caso clinico | casi clinici |
+| `cases` / `cases-nav` | ✔ fatto — sezione categoria con scroller + barra distretti sticky (`js/cases.js`) | casi clinici |
 | `scroller` | ✔ fatto (`--contained`, `--manual`) — striscia a scorrimento continuo full-bleed; la **sezione ospitante** deve avere `overflow-x: clip` | home, casi clinici |
 | `chip` | ✔ fatto (`--sm`) — pillola persona con mini-ritratto; usata da roster e program | relatori, programma |
 | `badge` | ✔ fatto (`--outline`, `--accent`, `--soft`, `--muted`, `--success`, `--sm`) | tutte |

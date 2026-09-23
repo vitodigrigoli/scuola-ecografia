@@ -1,0 +1,144 @@
+/* ==========================================================================
+   BLOCCO: case-card
+   Scheda di un caso clinico: immagine rappresentativa, categoria, titolo, meta.
+   Usata negli scroller dell'hub e nella griglia dei casi correlati.
+
+   Struttura:
+     .case-card (<a> per l'intera scheda, o <article> se segnaposto senza pagina)
+       .case-card__media > img + .case-card__badge (badge categoria)
+       .case-card__body
+         .case-card__title
+         .case-card__meta > .case-card__meta-item (numero · immagini · data)
+
+   Variazioni:
+     .case-card--sm      larghezza fissa per lo scroller (default: si adatta alla griglia)
+     .case-card--wide    immagine 16:9 e titolo più grande (in evidenza)
+     .case-card--soon    segnaposto senza pagina: non cliccabile, leggermente smorzata
+   ========================================================================== */
+
+.case-card {
+  --case-card-w: 320px;
+  --case-card-ratio: 16 / 10;
+  --case-card-bg: var(--surface-card);
+  --case-card-border: var(--border);
+  --case-card-radius: var(--radius-xl);
+  --case-card-pad: var(--space-6);
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--case-card-border);
+  border-radius: var(--case-card-radius);
+  background: var(--case-card-bg);
+  overflow: hidden;
+  transition: border-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+a.case-card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+}
+
+a.case-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- Media --- */
+.case-card__media {
+  position: relative;
+  margin: 0;
+  aspect-ratio: var(--case-card-ratio);
+  border-radius: inherit;
+  overflow: hidden;
+  /* nessun fondo colorato: trapelerebbe sotto l'immagine negli angoli arrotondati */
+}
+
+.case-card__media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms var(--ease);
+}
+
+a.case-card:hover .case-card__media > img {
+  transform: scale(1.04);
+}
+
+.case-card__badge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+}
+
+/* --- Testo --- */
+.case-card__body {
+  display: flex;
+  flex: 1; /* così .case-card__meta con margin-top:auto resta in fondo */
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--case-card-pad);
+}
+
+.case-card__title {
+  font: var(--text-card-title);
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.case-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-4);
+  margin-top: auto;
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.case-card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.case-card__meta-item .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.case-card--sm {
+  flex: none;
+  width: var(--case-card-w);
+}
+
+.case-card--wide {
+  --case-card-ratio: 16 / 9;
+}
+
+.case-card--wide .case-card__title {
+  font: var(--text-h3);
+}
+
+.case-card--soon {
+  --case-card-bg: var(--surface-wash);
+}
+
+.case-card--soon .case-card__media > img {
+  opacity: 0.75;
+}
+
+.case-card--soon .case-card__title {
+  color: var(--ink-dim);
+}
+
+@media (max-width: 767px) {
+  .case-card {
+    --case-card-w: 260px;
+    --case-card-pad: var(--space-5);
+  }
+}

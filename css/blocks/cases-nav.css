@@ -1,0 +1,79 @@
+/* ==========================================================================
+   BLOCCO: cases-nav
+   Barra di salto ai distretti nell'hub dei casi clinici: pillola sticky sotto l'header,
+   una voce per categoria con il conteggio dei casi.
+   (Stesso disegno della nav del programma; qui è un blocco a sé perché vive fuori da .program)
+
+   Struttura:
+     .cases-nav
+       .container > .cases-nav__list (nav)
+         .cases-nav__link [.is-active] > testo + .cases-nav__count
+
+   Stati (js/cases.js):
+     .is-active   distretto attualmente visibile
+   ========================================================================== */
+
+.cases-nav {
+  /* sotto l'header flottante (top 16 + h 64) con lo stesso respiro di 16px */
+  --cases-nav-top: calc(16px + 64px + 16px);
+
+  position: sticky;
+  top: var(--cases-nav-top);
+  z-index: 5;
+  margin-bottom: clamp(8px, 2vw, 24px);
+}
+
+.cases-nav__list {
+  display: flex;
+  gap: var(--space-1);
+  width: 100%;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-elev-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cases-nav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.cases-nav__link {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px var(--space-4);
+  border-radius: var(--radius-pill);
+  font: var(--text-caption);
+  font-size: 13px;
+  color: var(--ink-inactive);
+  white-space: nowrap;
+  transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+
+.cases-nav__link:hover {
+  color: var(--ink);
+}
+
+.cases-nav__link.is-active {
+  background: var(--cta-primary-bg);
+  color: var(--cta-primary-ink);
+}
+
+.cases-nav__count {
+  font: var(--text-label-sm);
+  opacity: 0.6;
+}
+
+@media (max-width: 899px) {
+  .cases-nav {
+    --cases-nav-top: calc(10px + 56px + 10px); /* header mobile: top 10px, alto 56px */
+  }
+
+  .cases-nav__link {
+    flex: none; /* la barra scorre: le voci tengono la loro larghezza */
+  }
+}

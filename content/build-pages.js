@@ -10,11 +10,13 @@ const pages = [
   { file: 'programma.html', id: 'programma', title: 'Programma — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Programma' },
   { file: 'relatori.html',  id: 'relatori',  title: 'Relatori — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Relatori' },
   { file: 'prenota.html',   id: 'prenota',   title: 'Prenota — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Prenota' },
+  { file: 'casi-clinici.html', id: 'casi-clinici', title: 'Casi clinici — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Casi clinici' },
 ];
 
 const links = [
   { id: 'programma', href: 'programma.html', label: 'Programma' },
   { id: 'relatori',  href: 'relatori.html',  label: 'Relatori' },
+  { id: 'casi-clinici', href: 'casi-clinici.html', label: 'Casi clinici' },
   { id: 'prenota',   href: 'prenota.html',   label: 'Prenota' },
   { id: 'faq',       href: 'index.html#faq', label: 'FAQ' },
 ];
@@ -136,6 +138,7 @@ ${footer()}
   <script src="js/stats.js"></script>
   <script src="js/marquee.js"></script>
   <script src="js/program.js"></script>
+  <script src="js/cases.js"></script>
 </body>
 </html>
 `;

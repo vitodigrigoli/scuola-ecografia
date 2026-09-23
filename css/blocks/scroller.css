@@ -27,7 +27,7 @@
 
 .scroller {
   --scroller-gap: var(--space-4);
-  --scroller-fade: 8%;
+  --scroller-fade: 4%;
   --scroller-duration: 40s;
 }
 

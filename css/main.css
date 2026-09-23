@@ -12,6 +12,10 @@
 @import url('blocks/header.css');
 @import url('blocks/footer.css');
 
+@import url('blocks/case-card.css');
+@import url('blocks/cases.css');
+@import url('blocks/cases-nav.css');
+
 /* Blocchi di pagina */
 @import url('blocks/hero.css');
 @import url('blocks/stats.css');

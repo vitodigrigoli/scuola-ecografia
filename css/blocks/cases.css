@@ -1,0 +1,43 @@
+/* ==========================================================================
+   BLOCCO: cases
+   Sezione di una categoria nell'hub: intestazione nel container + scroller full-bleed
+   di .case-card (vedi blocks/scroller.css e blocks/case-card.css).
+
+   Variazioni:
+     .cases--grid   griglia 3-2-1 invece dello scroller (usata per i casi correlati)
+   ========================================================================== */
+
+.cases {
+  --cases-cols: 3;
+  --cases-gap: var(--space-4);
+
+  /* ospita uno scroller full-bleed: senza clip comparirebbe la scrollbar orizzontale */
+  overflow-x: clip;
+  padding-block: clamp(32px, 4vw, 56px);
+}
+
+.cases + .cases {
+  padding-top: 0;
+}
+
+.cases__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cases-cols), minmax(0, 1fr));
+  gap: var(--cases-gap);
+}
+
+.cases--grid .case-card {
+  width: auto;
+}
+
+@media (max-width: 1023px) {
+  .cases {
+    --cases-cols: 2;
+  }
+}
+
+@media (max-width: 639px) {
+  .cases {
+    --cases-cols: 1;
+  }
+}
