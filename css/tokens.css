@@ -128,7 +128,7 @@
   --ink-dim: #55565b;
   --ink-muted: #7a7b80;
   --ink-faint: #9a9ba0;
-  --ink-inactive: #8d9096;
+  --ink-inactive: #62656a; /* 4.8:1 sulla pillola chiara: #8d9096 sembrava disabilitato */
   --login-ink: rgba(10, 10, 10, 0.75);
 
   --cta-primary-bg: #0a0a0a;

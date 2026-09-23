@@ -64,8 +64,12 @@
   transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease);
 }
 
-.cases-nav__link:hover {
-  color: var(--ink);
+/* su touch l'hover resta appiccicato dopo il tap: la voce sembra selezionata
+   anche dopo aver cambiato sezione */
+@media (hover: hover) and (pointer: fine) {
+  .cases-nav__link:hover {
+    color: var(--ink);
+  }
 }
 
 .cases-nav__link.is-active {

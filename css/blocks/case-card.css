@@ -124,6 +124,15 @@ a.case-card:hover .case-card__media > img {
   font: var(--text-h3);
 }
 
+/* il badge sta sopra la copertina: i token di testo del tema qui non tengono,
+   serve un fondo proprio (stessa regola di .hero__media-caption) */
+.case-card__badge.badge--muted {
+  --badge-bg: rgba(0, 0, 0, 0.55);
+  --badge-ink: #fff;
+  --badge-border: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(6px);
+}
+
 .case-card--soon {
   --case-card-bg: var(--surface-wash);
 }
