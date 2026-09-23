@@ -9,7 +9,8 @@
 
    Struttura:
      .discussion (section)
-       .discussion__head > .discussion__count + .btn (scrivi il tuo referto)
+       .discussion__form (form id="scrivi") — campi .field + .form__actions
+       .discussion__head > .discussion__count
        .discussion__list
          .discussion__item
            .chip (autore) + .discussion__date
@@ -90,4 +91,62 @@
 
 .discussion__item--author .discussion__text {
   color: var(--ink-soft);
+}
+
+/* --- Modulo: scrivi il tuo referto ---------------------------------------
+   In preview il modulo non invia nulla: js/discussion.js aggiunge il referto
+   alla lista con lo stato .discussion__item--pending, e sparisce al ricaricamento. */
+.discussion__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+  padding: var(--space-7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface-card);
+  scroll-margin-top: var(--anchor-offset);
+}
+
+.discussion__form-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font: var(--text-card-title);
+  color: var(--ink);
+}
+
+.discussion__form-title .icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+/* messaggio dopo l'invio simulato */
+.discussion__feedback {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  font: var(--text-caption);
+  color: var(--trust-green);
+}
+
+.discussion__feedback.is-visible {
+  display: inline-flex;
+}
+
+.discussion__feedback .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* referto appena scritto: in attesa di moderazione */
+.discussion__item--pending {
+  --discussion-item-border: var(--accent-border);
+}
+
+@media (max-width: 639px) {
+  .discussion__form {
+    padding: var(--space-6);
+  }
 }

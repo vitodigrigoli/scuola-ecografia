@@ -19,7 +19,7 @@
           <p class="hero__subtitle">Donna di 58 anni, esordio non traumatico da 3-4 mesi, ROM ridotto in tutti i piani</p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="https://forms.gle/EwwnQbRFmznda1fW9" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-message"/></svg>Lascia il tuo referto</a>
+            <a class="btn btn--primary btn--lg" href="#scrivi"><svg class="icon" aria-hidden="true"><use href="#icon-message"/></svg>Lascia il tuo referto</a>
             <span class="btn btn--secondary btn--lg is-disabled" aria-disabled="true" title="La soluzione viene pubblicata dopo la chiusura dei referti"><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>Soluzione dal 11 ottobre 2026</span>
           </div>
 
@@ -138,7 +138,7 @@
         </div>
 
         <div class="gallery__actions">
-          <a class="btn btn--primary btn--lg" href="https://forms.gle/EwwnQbRFmznda1fW9" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-message"/></svg>Lascia il tuo referto</a>
+          <a class="btn btn--primary btn--lg" href="#scrivi"><svg class="icon" aria-hidden="true"><use href="#icon-message"/></svg>Lascia il tuo referto</a>
         </div>
       </div>
     </section>
@@ -169,16 +169,51 @@
           <p class="text-block__text">Ogni caso è aperto al confronto: pubblica il tuo referto e leggi quello degli altri partecipanti.</p>
         </div>
 
+        <form class="discussion__form" id="scrivi" novalidate>
+          <p class="discussion__form-title"><svg class="icon" aria-hidden="true"><use href="#icon-message"/></svg>Scrivi il tuo referto</p>
+
+          <div class="form__row">
+            <div class="field">
+              <label class="field__label" for="ref-nome">Nome e cognome</label>
+              <input class="field__control" type="text" id="ref-nome" name="nome" required autocomplete="name" placeholder="Es. Maria Rossi">
+            </div>
+            <div class="field">
+              <label class="field__label" for="ref-email">Email <span class="field__optional">(non pubblicata)</span></label>
+              <input class="field__control" type="email" id="ref-email" name="email" autocomplete="email" placeholder="nome@studio.it">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="ref-testo">Il tuo referto</label>
+            <textarea class="field__control" id="ref-testo" name="referto" required placeholder="Descrivi quello che vedi: struttura per struttura, come lo scriveresti in ambulatorio."></textarea>
+            <p class="field__hint">Scrivi il referto prima di aprire la soluzione: è così che questo caso è pensato.</p>
+          </div>
+
+          <div class="field field--check">
+            <input class="field__box" type="checkbox" id="ref-consenso" name="consenso" required>
+            <label class="field__label" for="ref-consenso">Confermo di non aver inserito dati identificativi di pazienti e acconsento alla pubblicazione del referto con il mio nome.</label>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Pubblica il referto <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button>
+            <p class="discussion__feedback" role="status"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Referto aggiunto in anteprima: non viene salvato.</p>
+            <p class="form__note">Anteprima: il modulo non invia nulla.</p>
+          </div>
+        </form>
+
         <div class="discussion__head">
           <p class="discussion__count"><svg class="icon" aria-hidden="true"><use href="#icon-message"/></svg>Referti in raccolta</p>
-          <a class="btn btn--primary" href="https://forms.gle/EwwnQbRFmznda1fW9" target="_blank" rel="noopener">Lascia il tuo referto <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        </div>
+
+        <div class="discussion__list">
+
         </div>
 
         <div class="notice notice--muted">
           <span class="notice__icon"><svg class="icon" aria-hidden="true"><use href="#icon-info"/></svg></span>
           <div class="notice__body">
             <p class="notice__title">Come funziona la discussione</p>
-            <p class="notice__text">I referti dei partecipanti vengono pubblicati insieme alla soluzione, dopo la moderazione della redazione. <strong>In questa preview il sistema di pubblicazione dei commenti è ancora da attivare.</strong></p>
+            <p class="notice__text">I referti vengono pubblicati insieme alla soluzione, dopo la moderazione della redazione. <strong>In questa anteprima quello che scrivi non viene salvato</strong>: il modulo serve a mostrare come apparirà.</p>
           </div>
         </div>
       </div>

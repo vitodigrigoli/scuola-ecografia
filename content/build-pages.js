@@ -145,6 +145,7 @@ ${footer()}
   <script src="js/program.js"></script>
   <script src="js/cases.js"></script>
   <script src="js/lightbox.js"></script>
+  <script src="js/discussion.js"></script>
 </body>
 </html>
 `;

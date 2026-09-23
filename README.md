@@ -19,6 +19,9 @@ js/
   stats.js          contatori animati
   marquee.js        scorrimento continuo per [data-marquee] (Organizzatori, Sponsor mobile)
   program.js        nav del programma: evidenzia l'incontro visibile
+  cases.js          hub casi: evidenzia il distretto visibile
+  lightbox.js       galleria a schermo pieno (dialog nativo)
+  discussion.js     modulo referto simulato (anteprima, nessun salvataggio)
 assets/
   logo/             wordmark
   icons/sprite.svg  set icone SVG (niente emoji, niente PNG)
@@ -71,7 +74,8 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `reveal` | ✔ fatto — referto dietro spoiler | pagina caso |
 | `author` | ✔ fatto (`--compact`) | pagina caso |
 | `references` | ✔ fatto | pagina caso |
-| `discussion` | ✔ fatto — **mockup statico**, motore commenti da scegliere | pagina caso |
+| `field` | ✔ fatto (`--check`, `--half`, `.form__row`, `.form__actions`) — campi di modulo riusabili | pagina caso |
+| `discussion` | ✔ fatto — modulo "scrivi il tuo referto" **simulato** (`js/discussion.js`: il referto compare in pagina come "in moderazione", non viene salvato) | pagina caso |
 | `case-card` | ✔ fatto (`--sm`, `--wide`, `--soon`) — scheda caso clinico | casi clinici |
 | `cases` / `cases-nav` | ✔ fatto — sezione categoria con scroller + barra distretti sticky (`js/cases.js`) | casi clinici |
 | `scroller` | ✔ fatto (`--contained`, `--manual`) — striscia a scorrimento continuo full-bleed; la **sezione ospitante** deve avere `overflow-x: clip` | home, casi clinici |

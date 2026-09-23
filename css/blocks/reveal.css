@@ -89,6 +89,32 @@
   border-top: 1px solid var(--border);
 }
 
+.reveal__more {
+  margin: 0;
+}
+
+.reveal__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font: var(--text-caption);
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--accent);
+}
+
+.reveal__link:hover {
+  color: var(--ink);
+}
+
+.reveal__link .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
 .reveal__body {
   display: flex;
   flex-direction: column;

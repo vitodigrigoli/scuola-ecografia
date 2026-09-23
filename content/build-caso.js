@@ -19,7 +19,7 @@ const { casi, etichette, pubblicati, prose, cardCaso, ic, esc, attr, dataIt } = 
 const DIR = __dirname;
 const SOGLIA_GRIGLIA = 6;      // oltre questa soglia le immagini si vedono solo nel lightbox
 const GIORNI_SOLUZIONE = 30;   // quando manca `soluzione_dal`: soluzione a 30 giorni dalla pubblicazione
-const FORM_REFERTO = 'https://forms.gle/EwwnQbRFmznda1fW9';
+const ANCORA_REFERTO = '#scrivi'; // il modulo vive in pagina (anteprima, vedi js/discussion.js)
 
 /* Blocco markdown del frontmatter → uno o più paragrafi HTML (**grassetto** incluso).
    `etichetta` compare solo sul primo paragrafo (es. "Anamnesi."). */
@@ -114,6 +114,7 @@ ${paragrafi(referto, '              <p class="prose__p">', '</p>')}
 ${corpo.trim() ? `            <div class="prose">
 ${prose(corpo)}
             </div>` : ''}
+            <p class="reveal__more"><a class="reveal__link" href="#discussione">${ic('message')}Confronta con i referti dei colleghi</a></p>
           </div>
         </details>`
     : `        <div class="notice notice--accent">
@@ -125,7 +126,7 @@ ${prose(corpo)}
         </div>
 
         <div class="gallery__actions">
-          <a class="btn btn--primary btn--lg" href="${FORM_REFERTO}" target="_blank" rel="noopener">${ic('message')}Lascia il tuo referto</a>
+          <a class="btn btn--primary btn--lg" href="${ANCORA_REFERTO}">${ic('message')}Lascia il tuo referto</a>
         </div>`;
 
   return `    <!-- ============================== BREADCRUMB ============================== -->
@@ -149,7 +150,7 @@ ${prose(corpo)}
           <p class="hero__subtitle">${esc(meta.sottotitolo)}</p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="${FORM_REFERTO}" target="_blank" rel="noopener">${ic('message')}Lascia il tuo referto</a>
+            <a class="btn btn--primary btn--lg" href="${ANCORA_REFERTO}">${ic('message')}Lascia il tuo referto</a>
 ${ctaSoluzione}
           </div>
 
@@ -248,22 +249,53 @@ ${fonti}
           <p class="text-block__text">Ogni caso è aperto al confronto: pubblica il tuo referto e leggi quello degli altri partecipanti.</p>
         </div>
 
+        <form class="discussion__form" id="scrivi" novalidate>
+          <p class="discussion__form-title">${ic('message')}Scrivi il tuo referto</p>
+
+          <div class="form__row">
+            <div class="field">
+              <label class="field__label" for="ref-nome">Nome e cognome</label>
+              <input class="field__control" type="text" id="ref-nome" name="nome" required autocomplete="name" placeholder="Es. Maria Rossi">
+            </div>
+            <div class="field">
+              <label class="field__label" for="ref-email">Email <span class="field__optional">(non pubblicata)</span></label>
+              <input class="field__control" type="email" id="ref-email" name="email" autocomplete="email" placeholder="nome@studio.it">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="ref-testo">Il tuo referto</label>
+            <textarea class="field__control" id="ref-testo" name="referto" required placeholder="Descrivi quello che vedi: struttura per struttura, come lo scriveresti in ambulatorio."></textarea>
+            <p class="field__hint">Scrivi il referto prima di aprire la soluzione: è così che questo caso è pensato.</p>
+          </div>
+
+          <div class="field field--check">
+            <input class="field__box" type="checkbox" id="ref-consenso" name="consenso" required>
+            <label class="field__label" for="ref-consenso">Confermo di non aver inserito dati identificativi di pazienti e acconsento alla pubblicazione del referto con il mio nome.</label>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Pubblica il referto ${ic('arrow-right')}</button>
+            <p class="discussion__feedback" role="status">${ic('check')}Referto aggiunto in anteprima: non viene salvato.</p>
+            <p class="form__note">Anteprima: il modulo non invia nulla.</p>
+          </div>
+        </form>
+
         <div class="discussion__head">
           <p class="discussion__count">${ic('message')}${haSoluzione ? COMMENTI.length + ' referti pubblicati' : 'Referti in raccolta'}</p>
-          <a class="btn btn--primary" href="${FORM_REFERTO}" target="_blank" rel="noopener">Lascia il tuo referto ${ic('external')}</a>
         </div>
-${haSoluzione ? `
+
         <div class="discussion__list">
-${commenti}
+${haSoluzione ? commenti : ''}
         </div>
-` : ''}
+
         <div class="notice notice--muted">
           <span class="notice__icon">${ic('info')}</span>
           <div class="notice__body">
             <p class="notice__title">Come funziona la discussione</p>
             <p class="notice__text">${haSoluzione
-              ? 'I referti sono moderati dalla redazione prima della pubblicazione e non devono contenere dati identificativi dei pazienti. <strong>In questa preview i tre interventi sono d\'esempio</strong>: il sistema di pubblicazione dei commenti è ancora da attivare.'
-              : 'I referti dei partecipanti vengono pubblicati insieme alla soluzione, dopo la moderazione della redazione. <strong>In questa preview il sistema di pubblicazione dei commenti è ancora da attivare.</strong>'}</p>
+              ? 'I referti sono moderati dalla redazione prima della pubblicazione e non devono contenere dati identificativi dei pazienti. <strong>In questa anteprima i referti già presenti sono d\'esempio e quello che scrivi non viene salvato</strong>: il modulo serve a mostrare come appariranno.'
+              : 'I referti vengono pubblicati insieme alla soluzione, dopo la moderazione della redazione. <strong>In questa anteprima quello che scrivi non viene salvato</strong>: il modulo serve a mostrare come apparirà.'}</p>
           </div>
         </div>
       </div>
