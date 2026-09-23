@@ -63,6 +63,9 @@
   --text-h3: 800 21px/27px var(--font-sans);
   --text-body-lg: 500 17px/26px var(--font-sans);
   --text-body: 400 14px/24px var(--font-sans);
+  --text-prose: 400 16px/28px var(--font-sans);      /* corpo di un articolo: referto, ragionamento */
+  --text-prose-lead: 400 18px/30px var(--font-sans); /* primo paragrafo di .prose--lead */
+  --text-prose-h2: 800 24px/30px var(--font-sans);   /* titolo di sezione dentro un articolo */
   --text-card-title: 800 18px/24px var(--font-sans);
   --text-cta: 700 18px/24px var(--font-sans);
   --text-label: 700 11px/14px var(--font-sans);

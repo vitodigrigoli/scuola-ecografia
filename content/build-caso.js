@@ -156,10 +156,6 @@ ${fonti}
             <p class="notice__title">Soluzione in arrivo ${ilGiorno(dataSoluzione)}</p>
             <p class="notice__text">Il caso è aperto${giorniMancanti > 0 ? ` ancora per ${giorniMancanti} giorn${giorniMancanti === 1 ? 'o' : 'i'}` : ''}: scrivi il tuo referto e lo confronterai con quello dell'autore, pubblicato qui insieme al ragionamento diagnostico.</p>
           </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn btn--secondary" href="${ANCORA_REFERTI}">${ic('users')}Leggi i referti dei colleghi</a>
         </div>`;
 
   return `    <!-- ============================== BREADCRUMB ============================== -->
@@ -259,6 +255,7 @@ ${galleryItems}
             : 'I referti dei partecipanti sono in raccolta. Alla chiusura pubblichiamo qui il referto dell\'autore e il ragionamento diagnostico.'}</p>
           <div class="text-block__actions">
             <a class="btn btn--primary" href="${ANCORA_REFERTO}">${ic('message')}Scrivi il tuo referto</a>
+            <a class="btn btn--secondary" href="${ANCORA_REFERTI}">${ic('users')}Leggi i referti dei colleghi</a>
           </div>
         </div>
 
