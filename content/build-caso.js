@@ -123,11 +123,7 @@ ${fonti}
             </div>` : ''}
           </div>
         </details>
-
-        <div class="actions">
-          <a class="btn btn--primary" href="${ANCORA_REFERTO}">${ic('message')}Scrivi il tuo referto</a>
-          <a class="btn btn--secondary" href="#discussione">${ic('users')}Leggi i referti dei colleghi</a>
-        </div>`
+`
     : `        <div class="notice notice--accent">
           <span class="notice__icon">${ic('clock')}</span>
           <div class="notice__body">
@@ -137,7 +133,6 @@ ${fonti}
         </div>
 
         <div class="actions">
-          <a class="btn btn--primary" href="${ANCORA_REFERTO}">${ic('message')}Scrivi il tuo referto</a>
           <a class="btn btn--secondary" href="#discussione">${ic('users')}Leggi i referti dei colleghi</a>
         </div>`;
 
@@ -229,6 +224,9 @@ ${galleryItems}
           <p class="text-block__text">${haSoluzione
             ? 'Scrivi il tuo referto prima di aprire quello dell\'autore: referto e ragionamento diagnostico sono qui sotto, coperti apposta.'
             : 'I referti dei partecipanti sono in raccolta. Alla chiusura pubblichiamo qui il referto dell\'autore e il ragionamento diagnostico.'}</p>
+          <div class="text-block__actions">
+            <a class="btn btn--primary" href="${ANCORA_REFERTO}">${ic('message')}Scrivi il tuo referto</a>
+          </div>
         </div>
 
 ${soluzione}
