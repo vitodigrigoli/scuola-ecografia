@@ -9,7 +9,7 @@
          .gallery__item (<button>: apre il lightbox su quell'indice) [hidden se oltre soglia]
            .gallery__media > img
            .gallery__caption > .gallery__index + testo
-       .gallery__actions > .btn (apre il lightbox dalla prima immagine)
+       .actions > .btn (apre il lightbox dalla prima immagine — vedi blocks/actions.css)
 
    Variazioni:
      .gallery--cols-2   due colonne su desktop (immagini più grandi)
@@ -97,12 +97,6 @@
   font: var(--text-label);
   color: var(--accent);
   font-variant-numeric: tabular-nums;
-}
-
-.gallery__actions {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--space-8);
 }
 
 /* ==========================================================================

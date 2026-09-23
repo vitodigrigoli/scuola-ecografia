@@ -1,0 +1,32 @@
+/* ==========================================================================
+   BLOCCO: actions
+   Riga di bottoni sotto un contenuto (galleria, soluzione, blocco caso aperto).
+   Esiste per non ripetere lo stesso flex in ogni blocco.
+
+   Variazioni:
+     .actions--start   allineata a sinistra (default: centrata)
+     .actions--tight   margine superiore ridotto
+   ========================================================================== */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.actions--start {
+  justify-content: flex-start;
+}
+
+.actions--tight {
+  margin-top: var(--space-5);
+}
+
+@media (max-width: 599px) {
+  .actions .btn {
+    flex: 1 1 100%;
+  }
+}

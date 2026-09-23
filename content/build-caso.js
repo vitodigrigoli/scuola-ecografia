@@ -7,7 +7,8 @@
      → il caso (anamnesi ed esame obiettivo) → le immagini
      → LA SOLUZIONE: un unico spoiler che contiene referto E ragionamento
        (se il ragionamento restasse fuori dallo spoiler svelerebbe la diagnosi)
-     → autore e fonti → discussione → casi correlati → CTA
+     → discussione → casi correlati → CTA
+     (autore: chip nell hero; fonti: dentro la soluzione, accanto al ragionamento)
 
    Un caso senza `referto` nel frontmatter è un caso ancora aperto: al posto dello
    spoiler compare l'avviso con la data di pubblicazione della soluzione e il bottone
@@ -114,9 +115,19 @@ ${paragrafi(referto, '              <p class="prose__p">', '</p>')}
 ${corpo.trim() ? `            <div class="prose">
 ${prose(corpo)}
             </div>` : ''}
-            <p class="reveal__more"><a class="reveal__link" href="#discussione">${ic('message')}Confronta con i referti dei colleghi</a></p>
+${fonti ? `            <div class="references">
+              <p class="references__title">${ic('quote')}Fonti e riferimenti</p>
+              <ol class="references__list">
+${fonti}
+              </ol>
+            </div>` : ''}
           </div>
-        </details>`
+        </details>
+
+        <div class="actions">
+          <a class="btn btn--primary" href="${ANCORA_REFERTO}">${ic('message')}Scrivi il tuo referto</a>
+          <a class="btn btn--secondary" href="#discussione">${ic('users')}Leggi i referti dei colleghi</a>
+        </div>`
     : `        <div class="notice notice--accent">
           <span class="notice__icon">${ic('clock')}</span>
           <div class="notice__body">
@@ -125,8 +136,9 @@ ${prose(corpo)}
           </div>
         </div>
 
-        <div class="gallery__actions">
-          <a class="btn btn--primary btn--lg" href="${ANCORA_REFERTO}">${ic('message')}Lascia il tuo referto</a>
+        <div class="actions">
+          <a class="btn btn--primary" href="${ANCORA_REFERTO}">${ic('message')}Scrivi il tuo referto</a>
+          <a class="btn btn--secondary" href="#discussione">${ic('users')}Leggi i referti dei colleghi</a>
         </div>`;
 
   return `    <!-- ============================== BREADCRUMB ============================== -->
@@ -148,6 +160,12 @@ ${prose(corpo)}
           <p class="hero__badge"><span class="hero__badge-dot" aria-hidden="true"></span>Caso ${meta.numero} · ${esc(cat)}${haSoluzione ? '' : ' · Aperto'}</p>
           <h1 class="hero__title" id="caso-title">${esc(meta.titolo)}</h1>
           <p class="hero__subtitle">${esc(meta.sottotitolo)}</p>
+
+          <p class="hero__byline">
+            <span class="hero__byline-label">Caso di</span>
+            <a class="chip chip--sm" href="${attr(autore.scheda)}"><img class="chip__avatar" src="assets/img/people/relatori/nicolo-vitale.png" alt="" width="48" height="48">${esc(autore.nome)}</a>
+            <span class="hero__byline-role">${esc(autore.ruolo)} · ${esc(autore.affiliazione)}</span>
+          </p>
 
           <div class="hero__actions">
             <a class="btn btn--primary btn--lg" href="${ANCORA_REFERTO}">${ic('message')}Lascia il tuo referto</a>
@@ -196,7 +214,7 @@ ${(meta.facts || []).map(f => `              <li class="text-block__fact">${ic(f
 ${galleryItems}
         </div>
 
-        <div class="gallery__actions">
+        <div class="actions">
           <button class="btn btn--secondary" type="button" data-lightbox-open="0">${ic('expand')}Vedi tutte le ${imgs.length} immagini</button>
         </div>
       </div>
@@ -214,29 +232,6 @@ ${galleryItems}
         </div>
 
 ${soluzione}
-      </div>
-    </section>
-
-    <!-- ============================== AUTORE + FONTI ============================== -->
-    <section class="section" id="autore" aria-label="Autore e riferimenti">
-      <div class="container">
-        <div class="author">
-          <figure class="author__photo"><img src="assets/img/people/relatori/nicolo-vitale.png" alt="${attr(autore.nome)}" width="500" height="500" loading="lazy"></figure>
-          <div class="author__body">
-            <p class="author__eyebrow">Il caso è firmato da</p>
-            <p class="author__name">${esc(autore.nome)}</p>
-            <p class="author__role">${esc(autore.ruolo)}</p>
-            <p class="author__affiliation">${esc(autore.affiliazione)}</p>
-            <a class="author__link" href="${attr(autore.scheda)}">Vedi la scheda e le sue relazioni ${ic('arrow-right')}</a>
-          </div>
-        </div>
-${fonti ? `
-        <div class="references">
-          <p class="references__title">${ic('quote')}Fonti e riferimenti</p>
-          <ol class="references__list">
-${fonti}
-          </ol>
-        </div>` : ''}
       </div>
     </section>
 

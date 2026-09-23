@@ -72,8 +72,8 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `gallery` + `lightbox` | ✔ fatto (griglia 3-2-1, oltre 6 immagini solo nel lightbox; `<dialog>` + `js/lightbox.js`: frecce, tastiera, swipe, miniature, focus di ritorno) | pagina caso |
 | `prose` | ✔ fatto (`--narrow`, `--lead`) — corpo articolo | pagina caso |
 | `reveal` | ✔ fatto — referto dietro spoiler | pagina caso |
-| `author` | ✔ fatto (`--compact`) | pagina caso |
-| `references` | ✔ fatto | pagina caso |
+| `references` | ✔ fatto — dentro la soluzione, accanto al ragionamento | pagina caso |
+| `actions` | ✔ fatto (`--start`, `--tight`) — riga di bottoni sotto un contenuto | pagina caso |
 | `field` | ✔ fatto (`--check`, `--half`, `.form__row`, `.form__actions`) — campi di modulo riusabili | pagina caso |
 | `discussion` | ✔ fatto — modulo "scrivi il tuo referto" **simulato** (`js/discussion.js`: il referto compare in pagina come "in moderazione", non viene salvato) | pagina caso |
 | `case-card` | ✔ fatto (`--sm`, `--wide`, `--soon`) — scheda caso clinico | casi clinici |

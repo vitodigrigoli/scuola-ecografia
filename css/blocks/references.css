@@ -10,8 +10,6 @@
    ========================================================================== */
 
 .references {
-  margin-top: var(--space-4);
-
   --references-bg: var(--surface-wash);
   --references-border: var(--border);
 
