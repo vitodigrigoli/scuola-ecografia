@@ -6,7 +6,7 @@
 
    Struttura:
      .people (section)
-       .people__grid | .people__scroller > .people__track   (variante --scroller)
+       .people__grid | .scroller > .scroller__viewport > .scroller__track (variante --scroller)
          .people__card …
            .people__photo > img | .people__initials
            .people__body
@@ -23,10 +23,7 @@
      .people--clamp     testo limitato a 2 righe (uniforma le card nello scroller)
      .people--square    ritratti quadrati (foto 1:1, es. Relatori)
      .people--masonry   colonne a incastro: card di altezze diverse senza vuoti (es. Docenti)
-     .people--scroller  scorrimento orizzontale continuo (js/marquee.js duplica le card per il loop);
-                        con prefers-reduced-motion diventa scroll manuale con snap
-   Stati:
-     .is-cloned         (sulla traccia) le card sono state duplicate dal JS
+     .people--scroller  card a larghezza fissa dentro il blocco scroller (vedi blocks/scroller.css)
    ========================================================================== */
 
 .people {
@@ -242,60 +239,14 @@
   overflow: hidden;
 }
 
-/* Scroller continuo */
+/* Scroller: la meccanica sta nel blocco scroller; qui il clip della sezione e la card fissa */
 .people--scroller {
-  overflow-x: clip; /* 100vw include la scrollbar verticale su Windows: evita la barra orizzontale */
-}
-
-.people--scroller .people__scroller {
-  /* full-bleed: esce dal container fino ai bordi del viewport, con dissolvenza alle estremità */
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
-  overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-
-.people--scroller .people__track {
-  display: flex;
-  gap: var(--people-gap);
-  width: max-content;
-  animation: people-scroll var(--marquee-duration, 40s) linear infinite;
-}
-
-.people--scroller .people__scroller:hover .people__track,
-.people--scroller .people__scroller:focus-within .people__track {
-  animation-play-state: paused;
+  overflow-x: clip;
 }
 
 .people--scroller .people__card {
   flex: none;
   width: var(--people-card-w);
-}
-
-@keyframes people-scroll {
-  to { transform: translateX(calc(-50% - var(--people-gap) / 2)); }
-}
-
-/* Senza animazione (o prima della duplicazione): scroll manuale con snap */
-.people--scroller .people__track:not(.is-cloned) {
-  animation: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .people--scroller .people__scroller {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    mask-image: none;
-    scrollbar-width: thin;
-  }
-
-  .people--scroller .people__track {
-    animation: none;
-  }
-
-  .people--scroller .people__card {
-    scroll-snap-align: start;
-  }
 }
 
 /* ==========================================================================

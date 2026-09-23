@@ -62,6 +62,7 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | Blocco | Stato | Pagine |
 |---|---|---|
 | `btn` | ✔ fatto (`--primary`, `--secondary`, `--ghost`, `--accent`, `--lg`, `--sm`, `--block`) | tutte |
+| `scroller` | ✔ fatto (`--contained`, `--manual`) — striscia a scorrimento continuo full-bleed; la **sezione ospitante** deve avere `overflow-x: clip` | home, casi clinici |
 | `chip` | ✔ fatto (`--sm`) — pillola persona con mini-ritratto; usata da roster e program | relatori, programma |
 | `badge` | ✔ fatto (`--outline`, `--accent`, `--soft`, `--muted`, `--success`, `--sm`) | tutte |
 | `text-block` | ✔ fatto — intestazione di sezione o testo a 2 colonne (`--split`, `--top`, `--center`, `--flush`, `--tight`; pill `__facts`) | tutte |

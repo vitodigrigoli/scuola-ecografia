@@ -1,0 +1,110 @@
+/* ==========================================================================
+   BLOCCO: scroller
+   Striscia orizzontale a scorrimento continuo, larga quanto il viewport
+   (riferimento: le fasce di esperti e loghi di Learnn).
+   Usato da: people--scroller (Organizzatori), sponsors (mobile), casi clinici.
+
+   Struttura:
+     .scroller                          wrapper: confina il full-bleed (overflow-x: clip)
+       .scroller__viewport              full-bleed 100vw + dissolvenza ai lati
+         .scroller__track [data-marquee]  traccia: flex, duplicata da js/marquee.js
+           … figli (card, loghi)
+
+   Variazioni:
+     .scroller--contained   resta dentro il container invece di andare full-bleed
+     .scroller--manual      nessuna animazione: scorrimento manuale con snap
+   Stati (js/marquee.js):
+     .is-cloned             (sulla traccia) i figli sono stati duplicati: l'animazione parte
+   Attenzione:
+     - la SEZIONE che ospita uno .scroller full-bleed deve avere `overflow-x: clip`
+       (100vw include la scrollbar verticale: senza clip compare la barra orizzontale).
+       Il clip non va su .scroller, che sta dentro il container e taglierebbe la dissolvenza.
+   Note:
+     - il loop è senza stacco perché la traccia contiene i figli due volte e trasla del 50%
+     - la pausa in hover/focus evita che una card sfugga mentre la si legge
+     - con prefers-reduced-motion il JS non duplica nulla e qui l'animazione è disattivata
+   ========================================================================== */
+
+.scroller {
+  --scroller-gap: var(--space-4);
+  --scroller-fade: 8%;
+  --scroller-duration: 40s;
+}
+
+.scroller__viewport {
+  overflow: hidden;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 var(--scroller-fade),
+    #000 calc(100% - var(--scroller-fade)),
+    transparent
+  );
+}
+
+.scroller__track {
+  display: flex;
+  align-items: stretch;
+  gap: var(--scroller-gap);
+  width: max-content;
+  animation: scroller-slide var(--marquee-duration, var(--scroller-duration)) linear infinite;
+}
+
+/* prima della duplicazione (o senza JS) la traccia sta ferma */
+.scroller__track:not(.is-cloned) {
+  animation: none;
+}
+
+.scroller__viewport:hover .scroller__track,
+.scroller__viewport:focus-within .scroller__track {
+  animation-play-state: paused;
+}
+
+@keyframes scroller-slide {
+  to {
+    /* metà traccia + metà gap: il secondo gruppo si sovrappone esattamente al primo */
+    transform: translateX(calc(-50% - var(--scroller-gap) / 2));
+  }
+}
+
+/* ==========================================================================
+   VARIAZIONI
+   ========================================================================== */
+.scroller--contained .scroller__viewport {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.scroller--manual .scroller__viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  mask-image: none;
+  scrollbar-width: thin;
+}
+
+.scroller--manual .scroller__track {
+  animation: none;
+}
+
+.scroller--manual .scroller__track > * {
+  scroll-snap-align: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroller__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    mask-image: none;
+    scrollbar-width: thin;
+  }
+
+  .scroller__track {
+    animation: none;
+  }
+
+  .scroller__track > * {
+    scroll-snap-align: start;
+  }
+}
