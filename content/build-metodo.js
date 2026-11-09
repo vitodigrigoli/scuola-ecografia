@@ -21,7 +21,8 @@ const scelta = (icon, title, text) => `          <div class="features__item">
             <p class="features__text">${text}</p>
           </div>`;
 
-const passo = (icon, title, items) => `          <div class="percorso__step">
+const passo = (icon, title, items, foto) => `          <div class="percorso__step">
+            <figure class="percorso__media"><img src="assets/img/scuola/${foto.src}.webp" alt="${foto.alt}" width="900" height="600" loading="lazy"></figure>
             <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-${icon}"/></svg></span>
             <h3 class="percorso__title">${title}</h3>
             <ul class="percorso__list">
@@ -78,9 +79,9 @@ const page = `    <!-- ============================== PAGE HERO ================
         </div>
 
         <div class="percorso__steps">
-${passo('book', 'La lezione', ['Anatomia e riferimenti ecografici del distretto', 'Quello che serve per orientarsi alla postazione'])}
-${passo('eye', 'La live ecografica', ['Il docente esegue la scansione proiettata a schermo', "Si vedono insieme l'immagine, il docente e il paziente in posizione"])}
-${passo('probe', 'Le prove pratiche', ['Si riproduce subito quello che si è appena visto', 'Alla postazione, con il tutor accanto'])}
+${passo('book', 'La lezione', ['Anatomia e riferimenti ecografici del distretto', 'Quello che serve per orientarsi alla postazione'], { src: 'lezione', alt: "L'aula durante una lezione teorica, con le immagini ecografiche proiettate" })}
+${passo('eye', 'La live ecografica', ['Il docente esegue la scansione proiettata a schermo', "Si vedono insieme l'immagine, il docente e il paziente in posizione"], { src: 'live', alt: 'Un docente commenta le immagini ecografiche sul monitor davanti ai discenti' })}
+${passo('probe', 'Le prove pratiche', ['Si riproduce subito quello che si è appena visto', 'Alla postazione, con il tutor accanto'], { src: 'prove-pratiche', alt: 'Un tutor alla postazione ecografica con un gruppo di discenti' })}
         </div>
       </div>
     </section>
@@ -111,6 +112,10 @@ ${scelta('eye', 'Perché il libro e perché le live', "Il libro è il riferiment
           <h2 class="text-block__title" id="pratica-title">L'ecografia si impara con la sonda in mano</h2>
           <p class="text-block__text">La parte pratica non è un complemento della teoria: è il punto in cui la teoria diventa competenza. Per questo il tempo alla postazione è organizzato quanto quello in aula.</p>
         </div>
+
+        <figure class="photo">
+          <img src="assets/img/scuola/postazione-1600.webp" srcset="assets/img/scuola/postazione-900.webp 900w, assets/img/scuola/postazione-1600.webp 1600w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Un tutor mostra l'immagine ecografica sull'ecografo a un gruppo di discenti" width="1600" height="700" loading="lazy">
+        </figure>
 
         <div class="features__grid">
 ${cifra('15', 'min', 'Di scansione per ogni discente', "Ognuno esegue la scansione con il supporto diretto del tutor. Quando non è il proprio turno osserva il collega: le correzioni del tutor servono a tutto il gruppo.")}

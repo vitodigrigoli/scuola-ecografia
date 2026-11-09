@@ -70,6 +70,8 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 |---|---|---|
 | `btn` | ✔ fatto (`--primary`, `--secondary`, `--ghost`, `--accent`, `--lg`, `--sm`, `--block`) | tutte |
 | `breadcrumb` | ✔ fatto | pagina caso |
+| `photo` | ✔ fatto — foto larga 16:7 con didascalia (srcset 900/1600) | home (gruppo), metodo (postazione) |
+| `photos` | ✔ fatto — striscia di foto delle edizioni nello scroller | home |
 | `gallery` + `lightbox` | ✔ fatto (griglia 3-2-1, oltre 6 immagini solo nel lightbox; `<dialog>` + `js/lightbox.js`: frecce, tastiera, swipe, miniature, focus di ritorno) | pagina caso |
 | `prose` | ✔ fatto (`--narrow`, `--lead`) — corpo articolo | pagina caso |
 | `reveal` | ✔ fatto — referto dietro spoiler | pagina caso |
@@ -88,7 +90,7 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
 | `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`, `--three`, `--five`, `--scroller` = fascia continua in home; contatore animato in `js/stats.js`) | home |
 | `features` | ✔ fatto (`--icons` = Obiettivi, `--icons --inline` = Didattica, `--numbered`, `--figures` = pratica del Metodo, `--cols-2/3`) | home, metodo |
-| `percorso` | ✔ fatto (`--cards`, `--connected`; `__media` = immagine ecografica opzionale) | home, prenota, metodo |
+| `percorso` | ✔ fatto (`--cards`, `--connected`; `__media` = immagine opzionale: ecografia in home, foto dell'aula nel Metodo) | home, prenota, metodo |
 | `media-text` | ✔ fatto (`--media-left`, `--contain`, `--framed`) = Materiale/Atlante (con `--contain`, senza riquadro) | home, metodo |
 | `cta-banner` | ✔ fatto (`--glow`, `--card`, `--left`) = Prenotazioni / chiusura pagina | home |
 | `people` | ✔ fatto (`--scroller` continuo con `js/marquee.js`, `--cols-3/4/5`, `--compact`, `--overlay`, `--clamp`; tag e lista relazioni opzionali) = Organizzatori, Docenti, Tutor | home, relatori |

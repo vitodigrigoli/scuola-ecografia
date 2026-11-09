@@ -1,0 +1,53 @@
+/* ==========================================================================
+   BLOCCO: photos
+   Striscia di foto delle edizioni a scorrimento continuo (usa il blocco scroller).
+   Usato in home, prima delle recensioni.
+
+   Struttura:
+     .photos (section)
+       .container > .text-block
+       .scroller > .scroller__viewport > .scroller__track [data-marquee]
+         .photos__item (<figure>) > img   (720×480, 3:2) …
+       .container > .photos__note       (edizione e luogo degli scatti)
+
+   Note:
+     - la sezione ha overflow-x: clip perché lo scroller è full-bleed (vedi blocks/scroller.css)
+     - le foto hanno altezza fissa: la striscia non cambia altezza mentre scorre
+   ========================================================================== */
+
+.photos {
+  --photos-h: 260px;
+  --photos-radius: var(--radius-lg);
+  --photos-note-ink: var(--ink-muted);
+
+  overflow-x: clip;
+}
+
+.photos__item {
+  flex: none;
+  margin: 0;
+}
+
+.photos__item > img {
+  display: block;
+  width: auto;
+  height: var(--photos-h);
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: var(--photos-radius);
+  background: var(--surface-elev-1); /* mentre carica */
+}
+
+.photos__note {
+  margin-top: var(--space-5);
+  font: var(--text-caption);
+  color: var(--photos-note-ink);
+}
+
+@media (max-width: 767px) {
+  .photos {
+    --photos-h: 180px;
+    --photos-radius: var(--radius-md);
+  }
+}

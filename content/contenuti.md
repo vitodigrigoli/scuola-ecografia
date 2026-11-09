@@ -847,6 +847,7 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - [ ] **Bergamo 2027:** struttura e indicazioni per arrivare (card Sedi e FAQ "Come raggiungere la sede"); sulla scheda Fisiaforma la sede risulta ancora "da confermare"
 - [ ] **Pagamento:** Fisiaforma indica acconto di €200+IVA non rimborsabile, poi 50% del saldo entro 45 giorni e 50% entro 90 (o saldo unico entro 45); FAQ e Prenota dicono "prima rata all'iscrizione, seconda dopo 2 mesi". Anche i rimborsi sono diversi. Quale versione vale?
 - [ ] **Il metodo:** validazione di tutti i testi (scritti a partire dagli appunti), in particolare: come si ripetono i 3 passaggi, percorso di affiancamento dei tutor, newsletter, community; testo nuovo sulle 12 postazioni (un tutor e 5 discenti ciascuna, quindi 60 posti, gruppi in parallelo): confermare che le postazioni funzionano così
+- [ ] **Foto delle edizioni:** confermare che la liberatoria fotografica firmata dai partecipanti copre anche l'uso sul sito (in home e nel Metodo ci sono volti riconoscibili della seconda edizione, Torino, febbraio 2026). Per ora esclusi gli scatti con modello a torso nudo e il primo piano dei diplomi con il nome leggibile
 - [ ] **Nota legale** ("non rilascia titoli con valore legale"): spostata nella sezione Formazione quando è stata tolta "La storia della Scuola". Confermare se resta lì
 - [ ] Date esatte della **Quinta edizione**; link corretto della CTA "Prenota ora" (oggi punta alla 4ª)
 - [ ] Risposta alla FAQ "Come posso iscrivermi alla Scuola di Ecografia?" (vuota sul sito)

@@ -1,0 +1,50 @@
+/* ==========================================================================
+   BLOCCO: photo
+   Una foto larga dentro il container, con didascalia opzionale
+   (foto di gruppo della home, postazione nella parte pratica del Metodo).
+
+   Struttura:
+     .photo (<figure>)
+       img            (srcset 900/1600, ritaglio 16:7 già fatto sul file)
+       .photo__caption
+
+   Note:
+     - il margine inferiore separa la foto da ciò che segue nella sezione (griglia di card);
+       se è l'ultimo elemento della sezione si azzera
+   ========================================================================== */
+
+.photo {
+  --photo-ratio: 16 / 7;
+  --photo-radius: var(--radius-xl);
+  --photo-mb: var(--space-4);
+  --photo-caption-ink: var(--ink-muted);
+
+  margin: 0 0 var(--photo-mb);
+}
+
+.photo:last-child {
+  margin-bottom: 0;
+}
+
+.photo > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--photo-ratio);
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: var(--photo-radius);
+  background: var(--surface-elev-1); /* mentre carica */
+}
+
+.photo__caption {
+  margin-top: var(--space-3);
+  font: var(--text-caption);
+  color: var(--photo-caption-ink);
+}
+
+@media (max-width: 599px) {
+  .photo {
+    --photo-radius: var(--radius-md);
+  }
+}
