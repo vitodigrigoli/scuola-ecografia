@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Copertina segnaposto: Polso e mano">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0d0d10"/><stop offset="1" stop-color="#a855f7" stop-opacity=".45"/>
+      <stop offset="0" stop-color="#0d0d10"/><stop offset="1" stop-color="#3b82f6" stop-opacity=".45"/>
     </linearGradient>
     <linearGradient id="fanfill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>

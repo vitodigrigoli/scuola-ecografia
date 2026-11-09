@@ -1,193 +1,71 @@
 /* ==========================================================================
    BLOCCO: sponsors
-   "Sponsor della terza edizione" in scorrimento continuo, più un accordion con
-   gli sponsor delle edizioni precedenti.
-   I loghi ANFI sono PNG a colori su fondo bianco: ognuno sta su una tessera
-   bianca, uguale in entrambi i temi (una fascia bianca a tutta pagina spezzava
-   troppo il fondo scuro).
+   Tutti gli sponsor della Scuola insieme: stessa tessera per ogni logo, due righe
+   da 8 su desktop. I loghi ANFI sono PNG a colori su fondo bianco: ognuno sta su
+   una tessera bianca, uguale in entrambi i temi.
 
    Struttura:
      .sponsors (section)
-       .sponsors__inner
-         .sponsors__label
-         .scroller > .scroller__viewport > .scroller__track = .sponsors__logos--tiles--lead
-           .sponsors__logo > img …
-       .sponsors__past (<details>)
-         .sponsors__past-summary (<summary>)
-         .sponsors__group … > .sponsors__group-title + .sponsors__logos--tiles
+       .sponsors__label
+       .sponsors__logos
+         .sponsors__logo > img …
 
-   Variazioni:
-     .sponsors__logos--tiles   loghi su tessere bianche (per la parte scura della pagina)
-     .sponsors--no-past        senza accordion (pagine interne)
+   Per un altro numero di loghi basta cambiare --sponsors-cols (16 loghi = 2 righe da 8).
    ========================================================================== */
 
 .sponsors {
-  overflow-x: clip; /* la fascia è full-bleed (100vw): senza clip compare la scrollbar orizzontale */
-
+  --sponsors-cols: 8;
+  --sponsors-gap: var(--space-3);
+  --sponsors-tile-pad: var(--space-2) var(--space-3);
+  --sponsors-tile-ratio: 2 / 1;
   --sponsors-paper: var(--surface-paper); /* la tessera resta bianca: i loghi sono PNG a colori su bianco */
-  --sponsors-logo-h: 44px;
-  --sponsors-logo-gap: clamp(32px, 5vw, 72px);
-  --sponsors-tile-h: 28px;
-  --sponsors-past-gap: var(--space-11);
-}
-
-.sponsors__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-8);
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
 }
 
 .sponsors__label {
+  margin-bottom: var(--space-8);
   font: var(--text-label);
   letter-spacing: 0.1em;
+  text-align: center;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
 
 .sponsors__logos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-5) var(--sponsors-logo-gap);
+  display: grid;
+  grid-template-columns: repeat(var(--sponsors-cols), minmax(0, 1fr));
+  gap: var(--sponsors-gap);
 }
 
 .sponsors__logo {
-  display: flex;
-  align-items: center;
-  height: var(--sponsors-logo-h);
+  display: grid;
+  place-items: center;
+  aspect-ratio: var(--sponsors-tile-ratio);
+  min-width: 0;
+  padding: var(--sponsors-tile-pad);
+  border: 1px solid rgba(0, 0, 0, 0.08); /* la tessera è sempre bianca: bordo fisso */
+  border-radius: var(--radius-xs);
+  background: var(--sponsors-paper);
 }
 
 .sponsors__logo > img {
+  width: 100%;
   height: 100%;
-  width: auto;
-  max-width: 160px;
+  min-height: 0;
   object-fit: contain;
 }
 
-/* --- Edizioni precedenti: centrate come la fascia, con più aria --- */
-.sponsors__past {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: clamp(40px, 5vw, 56px);
-}
-
-.sponsors__past-summary {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) 0;
-  list-style: none;
-  cursor: pointer;
-  font: var(--text-caption);
-  font-size: 13px;
-  color: var(--ink-muted);
-  transition: color var(--duration) var(--ease);
-}
-
-.sponsors__past-summary::-webkit-details-marker {
-  display: none;
-}
-
-.sponsors__past-summary:hover {
-  color: var(--ink);
-}
-
-.sponsors__past-summary .icon {
-  width: 14px;
-  height: 14px;
-  transition: transform var(--duration) var(--ease);
-}
-
-.sponsors__past[open] .sponsors__past-summary .icon {
-  transform: rotate(180deg);
-}
-
-.sponsors__group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-  margin-top: var(--sponsors-past-gap);
-}
-
-.sponsors__group-title {
-  font: var(--text-label);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-
-/* Tessere bianche per i loghi nella parte scura della pagina */
-.sponsors__logos--tiles {
-  justify-content: center;
-  gap: var(--space-3);
-}
-
-.sponsors__logos--tiles .sponsors__logo {
-  height: auto;
-  padding: var(--space-2) var(--space-4);
-  border: 1px solid rgba(0, 0, 0, 0.08); /* la tessera e sempre bianca: bordo fisso */
-  border-radius: var(--radius-xs);
-  background: var(--sponsors-paper);
-  opacity: 0.85;
-  transition: opacity var(--duration) var(--ease);
-}
-
-/* Riga principale: stesse tessere, piu grandi (sono gli sponsor dell'edizione in corso) */
-.sponsors__logos--lead {
-  --sponsors-tile-h: 40px;
-
-  flex-wrap: nowrap; /* scorre: deve restare su una riga sola */
-  gap: var(--space-4);
-}
-
-.sponsors__logos--lead .sponsors__logo {
-  justify-content: center;
-  min-width: 170px; /* i loghi hanno forme diverse: la tessera le uniforma */
-  padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-sm);
-  opacity: 1;
-}
-
-.sponsors__logos--lead .sponsors__logo > img {
-  max-width: 150px;
-}
-
-.sponsors__logos--tiles .sponsors__logo:hover {
-  opacity: 1;
-}
-
-.sponsors__logos--tiles .sponsors__logo > img {
-  height: var(--sponsors-tile-h);
-  max-width: 100px;
-}
-
 /* ==========================================================================
-   VARIAZIONI
+   RESPONSIVE: sempre griglia piena, 16 loghi = 4 righe da 4
    ========================================================================== */
-.sponsors--no-past .sponsors__past {
-  display: none;
-}
-
-/* ==========================================================================
-   RESPONSIVE: su mobile la riga di loghi scorre (meccanica nel blocco scroller)
-   ========================================================================== */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .sponsors {
-    --sponsors-logo-h: 36px;
+    --sponsors-cols: 4;
   }
+}
 
-  .sponsors__inner {
-    padding-inline: 0;
-  }
-
-  .sponsors__logos--lead {
-    --sponsors-tile-h: 32px;
+@media (max-width: 479px) {
+  .sponsors {
+    --sponsors-gap: var(--space-2);
+    --sponsors-tile-pad: var(--space-1) 6px;
   }
 }

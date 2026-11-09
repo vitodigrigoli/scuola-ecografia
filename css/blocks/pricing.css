@@ -1,80 +1,133 @@
 /* ==========================================================================
    BLOCCO: pricing
-   Fasce di prezzo (riferimento: card piano Learnn — la card in evidenza ha bordo accent
-   + bagliore, spunte viola nella lista, prezzo grande con nota IVA).
+   Quote di iscrizione: una riga per quota (chi, quanto, iscriviti) e, accanto,
+   quello che tutte le quote comprendono. Le tre quote includono le stesse voci:
+   l'elenco sta una volta sola, così il confronto si riduce al prezzo.
+   Con --selector le stesse quote si scelgono da una pillola e se ne vede una alla volta.
 
    Struttura:
      .pricing (section)
-       .pricing__grid
-         .pricing__card [--featured]
-           .pricing__head > .pricing__name + .badge (opzionale)
-           .pricing__price > .pricing__amount + .pricing__vat
-           .pricing__desc
+       .pricing__inner
+       .pricing__layout
+         .pricing__selector > .pricing__option …     (solo --selector)
+           .pricing__radio + .icon + .pricing__option-text
+         .pricing__plans
+           .pricing__plan [--featured] …
+             .pricing__info > .pricing__name (+ .badge) + .pricing__desc + .pricing__link
+             .pricing__price > .pricing__price-label + .pricing__amount + .pricing__vat + .pricing__total
+             .pricing__cta (btn)
+         .pricing__included
+           .pricing__included-title
            .pricing__features > .pricing__feature …
-           .pricing__actions > .btn …
        .pricing__footnote
 
    Variazioni:
-     .pricing__card--featured   in evidenza (bordo accent + shadow-accent-glow, SEMPRE insieme)
-     .pricing--two              2 colonne
+     .pricing__plan--featured   in evidenza (bordo accent + shadow-accent-glow, SEMPRE insieme)
+     .pricing--selector         pillola a tre categorie + una quota alla volta + fascia "incluso":
+                                radio nativi e :has(), nessun JS (frecce e screen reader inclusi).
+                                La pillola blu scorre e le quote sono sovrapposte (altezza fissa).
+                                Per tornare alle righe basta togliere il modificatore (e usare
+                                text-block--center al posto di --flush).
    ========================================================================== */
 
 .pricing {
-  --pricing-cols: 3;
-  --pricing-gap: var(--space-6);
-  --pricing-card-pad: var(--space-10) var(--space-8);
-  --pricing-card-bg: var(--surface-card-bordered);
-  --pricing-card-border: var(--border);
-  --pricing-card-radius: var(--radius-lg);
+  --pricing-gap: var(--space-4);
+  --pricing-plan-pad: var(--space-8) var(--space-9);
+  --pricing-plan-bg: var(--surface-card);
+  --pricing-plan-border: var(--border);
+  --pricing-radius: var(--radius-lg);
   --pricing-check-ink: var(--accent);
   --pricing-amount-ink: var(--ink-soft);
+  --pricing-included-w: 320px;
+  --pricing-price-w: 150px;
+  --pricing-cta-w: 140px;
+  --pricing-tab-pad: var(--space-3) var(--space-6);
+  --pricing-tab-bg: var(--surface-card-bordered);
+  --pricing-tab-selected-bg: var(--accent);
+  --pricing-tab-selected-ink: var(--on-accent);
 }
 
-.pricing__grid {
+.pricing__layout {
   display: grid;
-  grid-template-columns: repeat(var(--pricing-cols), minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) var(--pricing-included-w);
   gap: var(--pricing-gap);
   align-items: stretch;
 }
 
-/* --- Card --- */
-.pricing__card {
-  --card-border: var(--pricing-card-border);
-  --card-shadow: none;
-
-  position: relative;
+.pricing__plans {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
-  padding: var(--pricing-card-pad);
-  border: 1px solid var(--card-border);
-  border-radius: var(--pricing-card-radius);
-  background: var(--pricing-card-bg);
-  box-shadow: var(--card-shadow);
+  gap: var(--pricing-gap);
+}
+
+/* --- Riga quota --- */
+.pricing__plan {
+  --plan-border: var(--pricing-plan-border);
+  --plan-shadow: none;
+
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--pricing-price-w) var(--pricing-cta-w);
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--pricing-plan-pad);
+  border: 1px solid var(--plan-border);
+  border-radius: var(--pricing-radius);
+  background: var(--pricing-plan-bg);
+  box-shadow: var(--plan-shadow);
   transition: border-color var(--duration) var(--ease);
 }
 
-.pricing__card:hover {
+.pricing__plan:hover {
   border-color: var(--border-strong);
 }
 
-.pricing__head {
+.pricing__info {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-width: 0;
 }
 
 .pricing__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
   font: var(--text-h3);
   color: var(--ink-soft);
 }
 
+.pricing__desc {
+  font: var(--text-body);
+  color: var(--ink-dim);
+}
+
+.pricing__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: var(--text-caption);
+  color: var(--ink-dim);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--duration) var(--ease);
+}
+
+.pricing__link:hover {
+  color: var(--ink);
+}
+
+.pricing__link .icon {
+  width: 12px;
+  height: 12px;
+}
+
 .pricing__price {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2);
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .pricing__amount {
@@ -84,22 +137,41 @@
   font-variant-numeric: tabular-nums;
 }
 
-.pricing__vat {
+.pricing__vat,
+.pricing__total {
   font: var(--text-caption);
   color: var(--ink-muted);
 }
 
-.pricing__desc {
-  font: var(--text-body);
+.pricing__vat {
+  margin-top: var(--space-1);
   color: var(--ink-dim);
+}
+
+.pricing__cta {
+  width: 100%;
+}
+
+/* --- Incluso in ogni quota --- */
+.pricing__included {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--pricing-plan-pad);
+  border: 1px solid var(--pricing-plan-border);
+  border-radius: var(--pricing-radius);
+  background: var(--surface-soft);
+}
+
+.pricing__included-title {
+  font: var(--text-card-title);
+  color: var(--ink);
 }
 
 .pricing__features {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border);
+  gap: var(--space-4);
 }
 
 .pricing__feature {
@@ -111,18 +183,11 @@
 }
 
 .pricing__feature .icon {
+  flex: none;
   width: 18px;
   height: 18px;
   margin-top: 3px;
   color: var(--pricing-check-ink);
-}
-
-.pricing__actions {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  margin-top: auto;
-  padding-top: var(--space-2);
 }
 
 .pricing__footnote {
@@ -139,49 +204,404 @@
   text-underline-offset: 2px;
 }
 
+/* Selettore ed etichetta esistono solo nella variazione --selector */
+.pricing__selector,
+.pricing__price-label {
+  display: none;
+}
+
 /* ==========================================================================
    VARIAZIONI
    ========================================================================== */
-.pricing__card--featured {
-  --card-border: var(--accent-border);
-  --card-shadow: var(--shadow-accent-glow);
+.pricing__plan--featured {
+  --plan-border: var(--accent-border);
+  --plan-shadow: var(--shadow-accent-glow);
   --pricing-amount-ink: var(--ink);
 }
 
-.pricing__card--featured:hover {
+.pricing__plan--featured:hover {
   border-color: var(--accent);
 }
 
-.pricing__card--featured .pricing__name {
+.pricing__plan--featured .pricing__name {
   color: var(--ink);
 }
 
-.pricing--two {
-  --pricing-cols: 2;
+/* --- Selector: testo a sinistra, pillola + quota a destra, fascia "incluso" sotto --- */
+.pricing--selector {
+  --pricing-amount-ink: var(--ink);
+}
+
+.pricing--selector .pricing__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.3fr);
+  gap: var(--space-4) clamp(32px, 4vw, 56px);
+}
+
+.pricing--selector .text-block {
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.pricing--selector .pricing__layout {
+  display: contents; /* pillola, quota e fascia diventano celle di .pricing__inner */
+}
+
+.pricing--selector .pricing__selector {
+  /* posizione della pillola scelta: la imposta :has() qui sotto, la usano indicatore e punta */
+  --pricing-index: 0;
+  --pricing-tab-w: calc((100% - 4 * var(--space-1)) / 3); /* larghezza di una colonna */
+  --pricing-slide: calc(var(--duration) * 2) var(--ease);
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--pricing-tab-bg);
+}
+
+.pricing__selector:has(.pricing__option:nth-child(2) .pricing__radio:checked) {
+  --pricing-index: 1;
+}
+
+.pricing__selector:has(.pricing__option:nth-child(3) .pricing__radio:checked) {
+  --pricing-index: 2;
+}
+
+/* indicatore: scorre sotto la categoria scelta */
+.pricing--selector .pricing__selector::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: var(--space-1);
+  bottom: var(--space-1);
+  left: calc(var(--space-1) + var(--pricing-index) * (var(--pricing-tab-w) + var(--space-1)));
+  width: var(--pricing-tab-w);
+  border-radius: var(--radius-pill);
+  background: var(--pricing-tab-selected-bg);
+  transition: left var(--pricing-slide);
+}
+
+/* punta che lega la pillola scelta alla quota sotto: segue l'indicatore */
+.pricing--selector .pricing__selector::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: calc(100% - var(--space-1) - 8px);
+  left: calc(var(--space-1) + var(--pricing-index) * (var(--pricing-tab-w) + var(--space-1)) + var(--pricing-tab-w) / 2 - 7px);
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--pricing-tab-selected-bg);
+  transform: rotate(45deg);
+  transition: left var(--pricing-slide);
+}
+
+.pricing__option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--pricing-tab-pad);
+  border-radius: var(--radius-pill);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+
+.pricing__option:hover {
+  background: var(--surface-wash);
+}
+
+.pricing__option .icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+/* il radio copre tutta la pillola: invisibile ma resta il vero controllo */
+.pricing__radio {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.pricing__option-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pricing__option-name {
+  font: var(--text-body);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pricing__option-price {
+  font: var(--text-caption);
+  color: var(--ink-dim);
+}
+
+.pricing__option:has(.pricing__radio:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.pricing__option:has(.pricing__radio:checked),
+.pricing__option:has(.pricing__radio:checked):hover {
+  background: transparent; /* il fondo è l'indicatore che scorre */
+  color: var(--pricing-tab-selected-ink);
+}
+
+.pricing__option:has(.pricing__radio:checked) .icon,
+.pricing__option:has(.pricing__radio:checked) .pricing__option-name,
+.pricing__option:has(.pricing__radio:checked) .pricing__option-price {
+  color: inherit;
+}
+
+/* Si vede solo la quota della categoria scelta (l'ordine delle quote è quello delle pillole).
+   Le tre quote stanno nella stessa cella: il riquadro ha sempre l'altezza della più alta,
+   così cambiando categoria non salta. Quella scelta entra in dissolvenza dal basso. */
+.pricing--selector .pricing__plans {
+  display: grid;
+}
+
+.pricing--selector .pricing__plan {
+  --plan-border: var(--accent-border);
+  --plan-shadow: var(--shadow-accent-glow);
+
+  grid-area: 1 / 1;
+  grid-template-columns: auto minmax(0, 1fr) var(--pricing-cta-w);
+  opacity: 0;
+  visibility: hidden; /* le quote nascoste non ricevono il focus */
+  transform: translateY(var(--space-2));
+  transition:
+    opacity calc(var(--duration) * 2) var(--ease),
+    transform calc(var(--duration) * 2) var(--ease),
+    visibility 0s linear calc(var(--duration) * 2),
+    border-color var(--duration) var(--ease);
+}
+
+.pricing--selector:has(.pricing__option:nth-child(1) .pricing__radio:checked) .pricing__plan:nth-child(1),
+.pricing--selector:has(.pricing__option:nth-child(2) .pricing__radio:checked) .pricing__plan:nth-child(2),
+.pricing--selector:has(.pricing__option:nth-child(3) .pricing__radio:checked) .pricing__plan:nth-child(3) {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.pricing--selector .pricing__name {
+  color: var(--ink);
+}
+
+.pricing--selector .pricing__info {
+  padding-left: var(--space-8);
+  border-left: 1px solid var(--border);
+}
+
+.pricing--selector .pricing__price {
+  order: -1;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  align-items: baseline;
+  column-gap: var(--space-2);
+}
+
+.pricing--selector .pricing__price-label,
+.pricing--selector .pricing__total {
+  grid-column: 1 / -1;
+}
+
+.pricing--selector .pricing__price-label {
+  display: block;
+  font: var(--text-caption);
+  color: var(--ink-dim);
+}
+
+.pricing--selector .pricing__vat {
+  margin-top: 0;
+}
+
+/* una sola CTA alla volta: è sempre quella primaria, qualunque sia la quota */
+.pricing--selector .pricing__cta {
+  --btn-bg: var(--cta-primary-bg);
+  --btn-ink: var(--cta-primary-ink);
+  --btn-border: transparent;
+  --btn-bg-hover: var(--cta-primary-bg);
+}
+
+/* Fascia "incluso": a tutta larghezza, su una riga */
+.pricing--selector .pricing__included {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-4);
+}
+
+.pricing--selector .pricing__included-title {
+  flex: 0 0 100px;
+}
+
+.pricing--selector .pricing__features {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-3) 0;
+}
+
+.pricing--selector .pricing__feature {
+  align-items: center;
+  padding-inline: var(--space-4);
+  border-left: 1px solid var(--border);
+  line-height: 18px;
+}
+
+.pricing--selector .pricing__feature .icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+}
+
+.pricing--selector .pricing__footnote {
+  grid-column: 1 / -1;
+  margin-top: var(--space-2);
 }
 
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 1023px) {
-  .pricing {
-    --pricing-cols: 1;
-    --pricing-gap: var(--space-4);
+@media (max-width: 1099px) {
+  .pricing__layout {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .pricing__grid {
-    max-width: 560px;
-    margin-inline: auto;
-  }
-
-  /* la fascia in evidenza per prima quando le card sono in colonna */
-  .pricing__card--featured {
-    order: -1;
+  /* qui c'è tutta la larghezza: le voci incluse stanno su due colonne */
+  .pricing__features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3) var(--space-8);
   }
 }
 
 @media (max-width: 767px) {
   .pricing {
-    --pricing-card-pad: var(--space-8) var(--space-7);
+    --pricing-plan-pad: var(--space-8) var(--space-7);
+  }
+
+  /* su due righe: chi sei sopra, prezzo e bottone sotto */
+  .pricing__plan {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-5) var(--space-6);
+  }
+
+  .pricing__info {
+    grid-column: 1 / -1;
+  }
+
+  .pricing__cta {
+    width: auto;
+  }
+}
+
+@media (max-width: 479px) {
+  .pricing__plan {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pricing__cta {
+    width: 100%;
+  }
+
+  .pricing__features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --- Responsive di --selector --- */
+@media (max-width: 1099px) {
+  .pricing--selector .pricing__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pricing--selector .text-block {
+    grid-row: auto;
+    margin-bottom: var(--space-4);
+  }
+
+  .pricing--selector .pricing__included {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-5);
+  }
+
+  .pricing--selector .pricing__included-title {
+    flex: none;
+  }
+
+  .pricing--selector .pricing__features {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pricing--selector .pricing__feature {
+    padding-inline: 0 var(--space-3);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  /* quota in colonna: prezzo, a chi è riservata, bottone */
+  .pricing--selector .pricing__plan {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pricing--selector .pricing__info {
+    padding: var(--space-5) 0 0;
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+
+  .pricing--selector .pricing__cta {
+    width: 100%;
+  }
+
+  .pricing--selector .pricing__features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* tre pillole in 360px: via icona e "+ IVA", che resta scritto nella quota sotto */
+  .pricing--selector {
+    --pricing-tab-pad: var(--space-2) var(--space-1);
+  }
+
+  .pricing__option {
+    text-align: center;
+  }
+
+  .pricing__option .icon,
+  .pricing__option-vat {
+    display: none;
+  }
+
+  .pricing__option-name {
+    font: var(--text-caption);
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 479px) {
+  .pricing--selector .pricing__features {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

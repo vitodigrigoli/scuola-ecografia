@@ -6,7 +6,7 @@
      .venues (section)
        .venues__grid
          .venues__card …
-           .venues__city   (label con icona pin)
+           .venues__head > .venues__city + .badge   (città e pillola dell'edizione)
            .venues__name
            .venues__address
            .venues__notes > .venues__note …   (come arrivare, opzionale)
@@ -17,7 +17,7 @@
    ========================================================================== */
 
 .venues {
-  --venues-cols: 2;
+  --venues-cols: 3;
   --venues-gap: var(--space-6);
   --venues-card-bg: var(--surface-card);
   --venues-card-border: var(--border);
@@ -45,6 +45,15 @@
 
 .venues__card:hover {
   border-color: var(--border-strong);
+}
+
+.venues__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .venues__city {
@@ -124,6 +133,17 @@
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
+@media (max-width: 1099px) {
+  .venues {
+    --venues-cols: 2;
+  }
+
+  /* terza card su tutta la riga: da sola lascerebbe un buco accanto */
+  .venues__card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 767px) {
   .venues {
     --venues-cols: 1;

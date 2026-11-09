@@ -1,7 +1,7 @@
 /* ==========================================================================
    BLOCCO: cta-banner
    Fascia di invito all'azione (riferimento: "Inizia oggi. Cresci ogni giorno." di Learnn —
-   titolo grande centrato, bagliore viola, uno o due bottoni).
+   titolo grande centrato, bagliore blu, uno o due bottoni).
    Usato per: Prenotazioni (home), chiusura pagine.
 
    Struttura:
@@ -14,7 +14,7 @@
          .cta-banner__note                (opzionale, piccola)
 
    Variazioni:
-     .cta-banner--glow     bagliore radiale viola dietro il titolo (default: nessuno)
+     .cta-banner--glow     bagliore radiale blu dietro il titolo (default: nessuno)
      .cta-banner--card     contenuto in una card con bordo (default: a tutta larghezza)
      .cta-banner--left     allineato a sinistra
    ========================================================================== */
@@ -23,7 +23,7 @@
   --cta-banner-pad-y: clamp(56px, 8vw, 112px);
   --cta-banner-title-max: 20ch;
   --cta-banner-text-max: 56ch;
-  --cta-banner-glow: var(--accent-glow-shadow);
+  --cta-banner-glow: var(--accent-halo);
   --cta-banner-glow-size: 720px;
   --cta-banner-card-bg: var(--surface-card);
   --cta-banner-card-border: var(--border);

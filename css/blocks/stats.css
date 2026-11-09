@@ -13,6 +13,12 @@
      .stats--bordered   linea sopra e sotto (default)
      .stats--cards      ogni voce in una card con bordo
      .stats--compact    numeri più piccoli (uso in sezioni interne)
+     .stats--three / --five   3 o 5 voci invece di 4
+     .stats--scroller   fascia a scorrimento continuo, numeri più piccoli accanto all'etichetta,
+                        sfumata ai lati. Senza padding proprio: sta dentro un altro blocco (hero).
+                        Markup: .scroller(--contained) > .scroller__viewport.stats__inner >
+                        .scroller__track[data-marquee] > .stats__item … (contatore disattivato:
+                        le copie del marquee non si animerebbero)
    Stati (JS, js/stats.js):
      .is-counted        contatore animato completato
    ========================================================================== */
@@ -108,6 +114,46 @@
   display: none;
 }
 
+.stats--three {
+  --stats-cols: 3;
+}
+
+.stats--five {
+  --stats-cols: 5;
+  --stats-gap: var(--space-4);
+  --stats-item-pad-x: var(--space-2);
+}
+
+.stats--scroller {
+  --stats-value-size: 28px;
+  --stats-pad-y: var(--space-6);
+  --stats-gap: var(--space-11);
+
+  overflow-x: clip; /* se lo scroller è full-bleed (100vw), senza clip compare la barra orizzontale */
+  padding-block: 0;
+}
+
+.stats--scroller .stats__inner {
+  display: block;
+}
+
+.stats--scroller .scroller {
+  --scroller-gap: var(--stats-gap);
+  --scroller-fade: 18%; /* dissolvenza larga: i numeri compaiono e spariscono ai lati */
+}
+
+.stats--scroller .stats__item {
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
+  padding-inline: 0;
+}
+
+.stats--scroller .stats__label {
+  white-space: nowrap;
+}
+
 .stats--compact {
   --stats-value-size: 32px;
   --stats-pad-y: var(--space-6);
@@ -132,5 +178,24 @@
   /* con due colonne il divisore va solo tra la 1ª e la 2ª di ogni riga */
   .stats__item:nth-child(odd)::before {
     display: none;
+  }
+
+  /* numero dispari di voci: l'ultima prende tutta la riga, centrata */
+  .stats__item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  /* nella fascia che scorre non ci sono colonne: il divisore va tra tutte le voci */
+  .stats--scroller {
+    --stats-value-size: 24px;
+    --stats-gap: var(--space-8);
+  }
+
+  .stats--scroller .stats__inner {
+    padding-block: var(--space-5);
+  }
+
+  .stats--scroller .stats__item + .stats__item::before {
+    display: block;
   }
 }

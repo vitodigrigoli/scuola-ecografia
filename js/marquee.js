@@ -1,4 +1,4 @@
-/* Marquee continua (Organizzatori, Sponsor su mobile).
+/* Marquee continua (Docenti e tutor, numeri della Scuola).
    Uso: <div data-marquee [data-marquee-speed="40"] [data-marquee-media="(max-width: 767px)"]> …figli… </div>
    - duplica i figli (aria-hidden) finché la traccia copre il viewport, per il loop senza stacco
    - imposta --marquee-copies e --marquee-duration in base alla larghezza reale (px/s costanti)

@@ -1,13 +1,13 @@
 # Scuola di Ecografia Muscoloscheletrica — sito
 
-Rifacimento delle pagine della Scuola di Ecografia ANFI (`associazioneanfi.it/scuola/…`) come sito statico, con look & feel di riferimento **Learnn** (dark, accent viola, card con bordi).
+Rifacimento delle pagine della Scuola di Ecografia ANFI (`associazioneanfi.it/scuola/…`) come sito statico, con look & feel di riferimento **Learnn** (dark, accent blu, card con bordi).
 
 **Preview:** https://vitodigrigoli.github.io/scuola-ecografia/
 
 ## Struttura
 
 ```
-index.html · programma.html · relatori.html · prenota.html
+index.html · metodo.html · programma.html · relatori.html · prenota.html · casi-clinici.html
 css/
   tokens.css        variabili globali (colori per tema, tipografia, spazi, raggi) — fonte: design-reference/tokens.json
   base.css          reset, scala tipografica, .container / .section, .icon
@@ -27,10 +27,11 @@ assets/
   icons/sprite.svg  set icone SVG (niente emoji, niente PNG)
 content/
   contenuti.md      TUTTI i testi delle pagine ANFI, già organizzati per blocco
-  build-pages.js    genera le 4 pagine dallo stesso shell (node content/build-pages.js)
+  build-pages.js    genera tutte le pagine dallo stesso shell (node content/build-pages.js)
   build-program.js  genera pages/programma.html dalle tabelle di contenuti.md (poi build-pages)
   build-relatori.js genera pages/relatori.html da docenti/tutor/comitati di contenuti.md (poi build-pages)
   build-prenota.js  genera pages/prenota.html riusando Costi ed Edizioni di pages/home.html (poi build-pages)
+  build-metodo.js   genera pages/metodo.html riusando le recensioni di pages/home.html (poi build-pages)
   build-casi.js     genera pages/casi-clinici.html da casi.md + casi/*.md
   build-caso.js     genera pages/caso-<slug>.html (poi build-pages legge casi-pagine.json)
   casi/             un markdown per caso + script dei segnaposto immagine
@@ -85,21 +86,21 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `header` | ✔ fatto (`--floating`, `--static`, menu mobile, toggle tema) | tutte |
 | `footer` | ✔ fatto — barra minimal (logo, © ANFI, C.F., email, legali); `--full` aggiunge le colonne di link | tutte |
 | `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
-| `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`; contatore animato in `js/stats.js`) | home |
-| `features` | ✔ fatto (`--numbered` = Obiettivi, `--icons --inline` = Didattica, `--plain`, `--cols-2/3`) | home |
-| `percorso` | ✔ fatto (`--cards`, `--connected`) | home |
-| `media-text` | ✔ fatto (`--media-left`, `--contain`, `--framed`) = Materiale/Atlante | home |
+| `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`, `--three`, `--five`, `--scroller` = fascia continua in home; contatore animato in `js/stats.js`) | home |
+| `features` | ✔ fatto (`--icons` = Obiettivi, `--icons --inline` = Didattica, `--numbered`, `--figures` = pratica del Metodo, `--cols-2/3`) | home, metodo |
+| `percorso` | ✔ fatto (`--cards`, `--connected`; `__media` = immagine ecografica opzionale) | home, prenota, metodo |
+| `media-text` | ✔ fatto (`--media-left`, `--contain`, `--framed`) = Materiale/Atlante (con `--contain`, senza riquadro) | home, metodo |
 | `cta-banner` | ✔ fatto (`--glow`, `--card`, `--left`) = Prenotazioni / chiusura pagina | home |
 | `people` | ✔ fatto (`--scroller` continuo con `js/marquee.js`, `--cols-3/4/5`, `--compact`, `--overlay`, `--clamp`; tag e lista relazioni opzionali) = Organizzatori, Docenti, Tutor | home, relatori |
 | `notice` | ✔ fatto (`--accent`, `--muted`, `--warning`) callout con icona | home |
-| `venues` | ✔ fatto (`--compact`) = Sedi | home |
-| `sponsors` | ✔ fatto — fascia chiara "Con il supporto di" (opzione A), marquee su mobile, accordion edizioni precedenti (`--no-past`) | home, relatori |
+| `venues` | ✔ fatto (`--compact`; `__head` = città + pillola edizione) = Sedi | home |
+| `sponsors` | ✔ fatto — griglia unica di tessere bianche uguali: 16 loghi su due righe da 8 (4×4 sotto i 1024px); colonne in `--sponsors-cols` | home |
 | `roster` | ✔ fatto (`--stacked`) — elenchi di persone per ruolo, usa `chip` | relatori |
-| `editions` | ✔ fatto (card `--open`/`--soldout`, blocco `--two`) | home, prenota |
-| `pricing` | ✔ fatto (card `--featured`, blocco `--two`) | home, prenota |
+| `editions` | ✔ fatto (card `--open`/`--soldout`, senza modificatore = in corso; blocco `--two`; sotto i 1100px la card `--open` sale in cima a tutta riga) | home, prenota |
+| `pricing` | ✔ fatto — una riga per quota (`__plan`, `--featured`) + pannello `__included` con le voci comuni; `--selector` = pillola a tre categorie con una quota alla volta (radio e `:has()`, niente JS) | home (`--selector`), prenota |
 | `faq` | ✔ fatto (`<details name>` esclusivo, `--split`, `--cards`) | home |
-| story (Chi siamo) | ✔ fatto con `text-block --split --top` + `notice` | home |
 | `testimonials` | ✔ fatto (`--masonry`, `--grid`, `--compact`; avatar iniziali su gradiente) | home |
 | `program` | ✔ fatto (nav sticky, sessioni `--lezione/--live/--pratica/--casi/--pausa/--organizzativo`, descrizioni in `<details>`; generato da `content/build-program.js`) | programma |
-| Prenota | ✔ fatto con blocchi esistenti: hero, pricing (riuso home), percorso --cards + notice, editions --two (riuso home), cta-banner; generata da `content/build-prenota.js` | prenota |
+| Prenota | ✔ fatto con blocchi esistenti: hero, pricing (riuso home), percorso --cards + notice, editions (riuso home), cta-banner; generata da `content/build-prenota.js` | prenota |
+| Il metodo | ✔ fatto con blocchi esistenti: hero, percorso --connected, features (--figures per la pratica), media-text, testimonials (riuso home), cta-banner; generata da `content/build-metodo.js` | metodo |
 | Relatori | ✔ fatto con `people --cols-3 --square` (docenti in `--masonry`: tag, affiliazione, relazioni; id = slug del nome), `people --compact --square` (tutor, senza affiliazione), `roster` (comitati: righe con chip-avatar); generato da `content/build-relatori.js` | relatori |

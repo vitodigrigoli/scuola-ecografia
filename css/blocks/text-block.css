@@ -197,7 +197,8 @@
   /* il primo elemento della colonna destra occupa le due righe, così parte dall'alto
      del titolo (o dall'eyebrow) e resta allineato in basso */
   .text-block--split .text-block__title + .text-block__text,
-  .text-block--split .text-block__title + .text-block__body {
+  .text-block--split .text-block__title + .text-block__body,
+  .text-block--split .text-block__title + .text-block__actions {
     grid-row: 1 / span 2;
     align-self: end;
   }

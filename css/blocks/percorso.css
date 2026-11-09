@@ -7,9 +7,10 @@
      .percorso (section)
        .percorso__steps
          .percorso__step …
-           .percorso__number
+           .percorso__media > img   (immagine ecografica, opzionale)
+           .percorso__number | .percorso__sign > .icon
            .percorso__title
-           .percorso__list > .percorso__item …
+           .percorso__list > .percorso__item … (> .percorso__detail, opzionale)
        .percorso__actions > .btn …
 
    Variazioni:
@@ -22,6 +23,7 @@
   --percorso-gap: clamp(24px, 4vw, 56px);
   --percorso-number-ink: var(--accent);
   --percorso-number-size: 48px;
+  --percorso-sign-size: 44px;
   --percorso-line: var(--border-strong);
   --percorso-step-bg: transparent;
   --percorso-step-border: transparent;
@@ -48,6 +50,37 @@
   border-top: 1px solid var(--percorso-line);
   border-radius: var(--percorso-step-radius);
   background: var(--percorso-step-bg);
+}
+
+/* Immagine ecografica: nera in partenza, sta bene in entrambi i temi */
+.percorso__media {
+  overflow: hidden;
+  margin: 0 0 var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #000; /* come la scansione: non segue il tema */
+}
+
+.percorso__media > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Icona al posto del numero (stesso riquadro di features--icons ed editions) */
+.percorso__sign {
+  display: grid;
+  place-items: center;
+  width: var(--percorso-sign-size);
+  height: var(--percorso-sign-size);
+  border-radius: var(--radius-sm);
+  background: var(--accent-wash);
+  color: var(--percorso-number-ink);
+}
+
+.percorso__sign .icon {
+  width: 22px;
+  height: 22px;
 }
 
 .percorso__number {
@@ -77,6 +110,11 @@
   gap: var(--space-3);
   font: var(--text-body);
   color: var(--ink-dim);
+}
+
+/* dettaglio tra parentesi (es. i distretti): sempre su una riga propria */
+.percorso__detail {
+  display: block;
 }
 
 .percorso__item .icon {

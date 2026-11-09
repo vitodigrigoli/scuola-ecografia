@@ -22,7 +22,7 @@
 .testimonials {
   --testimonials-cols: 3;
   --testimonials-gap: var(--space-6);
-  --testimonials-card-bg: var(--surface-wash);
+  --testimonials-card-bg: var(--surface-soft);
   --testimonials-card-border: var(--border);
   --testimonials-card-radius: var(--radius-lg);
   --testimonials-card-pad: var(--space-8);

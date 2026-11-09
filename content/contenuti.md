@@ -7,6 +7,8 @@ Testi raccolti dalle pagine live di `associazioneanfi.it/scuola/` (18 settembre 
 
 I testi sono riportati **così come sono sul sito** (refusi inclusi, segnalati con `[sic]`), per poterli rivedere con il cliente.
 
+> **Revisione cliente del 30/10/2026:** la home è stata riscritta su indicazione del cliente e il sito ha una pagina nuova, `metodo.html`. Da quella data i testi aggiornati di home e metodo sono in `content/pages/home.html` e `content/build-metodo.js`: qui sotto la sezione HOME resta il riferimento al sito ANFI originale. Programma e Relatori continuano a essere generati da questo file.
+
 ---
 
 ## Mappa pagine ANFI → blocchi nuovo design
@@ -840,8 +842,13 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 
 # Dati da chiedere al cliente
 
-- [ ] Numeri `stats` confermati (4 / 10 / 50 / 28+) e se vanno aggiornati per la 5ª edizione
-- [ ] Date esatte e sede della **Quinta edizione**; link corretto della CTA "Prenota ora" (oggi punta alla 4ª)
+- [ ] **Terza edizione = Torino 2026** (confermato il 06/11/2026: in corso, ultimo incontro a dicembre). Il cliente aveva scritto "Torino 2027": confermare che sul sito debba comparire 2026. Sede J|Hotel dedotta dalla FAQ: da confermare. Sul sito ANFI la terza edizione non indica una città
+- [ ] **Programma:** la pagina riporta il programma della 3ª edizione (Torino 2026). Vale anche per le prossime edizioni o ne esiste uno aggiornato?
+- [ ] **Bergamo 2027:** struttura e indicazioni per arrivare (card Sedi e FAQ "Come raggiungere la sede"); sulla scheda Fisiaforma la sede risulta ancora "da confermare"
+- [ ] **Pagamento:** Fisiaforma indica acconto di €200+IVA non rimborsabile, poi 50% del saldo entro 45 giorni e 50% entro 90 (o saldo unico entro 45); FAQ e Prenota dicono "prima rata all'iscrizione, seconda dopo 2 mesi". Anche i rimborsi sono diversi. Quale versione vale?
+- [ ] **Il metodo:** validazione di tutti i testi (scritti a partire dagli appunti), in particolare: come si ripetono i 3 passaggi, percorso di affiancamento dei tutor, newsletter, community; testo nuovo sulle 12 postazioni (un tutor e 5 discenti ciascuna, quindi 60 posti, gruppi in parallelo): confermare che le postazioni funzionano così
+- [ ] **Nota legale** ("non rilascia titoli con valore legale"): spostata nella sezione Formazione quando è stata tolta "La storia della Scuola". Confermare se resta lì
+- [ ] Date esatte della **Quinta edizione**; link corretto della CTA "Prenota ora" (oggi punta alla 4ª)
 - [ ] Risposta alla FAQ "Come posso iscrivermi alla Scuola di Ecografia?" (vuota sul sito)
 - [ ] Titolo pagina Relatori ("SECONDA EDIZIONE" vs contenuti 3ª edizione) ed elenco definitivo docenti/tutor (discrepanze Home ↔ Relatori)
 - [ ] Comitato Scientifico definitivo (con o senza Lacelli e Tognini)

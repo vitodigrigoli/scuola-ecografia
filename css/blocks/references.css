@@ -10,7 +10,7 @@
    ========================================================================== */
 
 .references {
-  --references-bg: var(--surface-wash);
+  --references-bg: var(--surface-soft);
   --references-border: var(--border);
 
   padding: var(--space-7);

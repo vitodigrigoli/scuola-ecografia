@@ -12,6 +12,7 @@
            .hero__byline > .chip (opzionale: firma del caso)
            .hero__actions > .btn …
            .hero__meta > .hero__meta-item …
+           .hero__stats = .stats--scroller (opzionale: fascia dei numeri sotto le icone)
          .hero__media
            .hero__video | .hero__image
            .hero__media-caption (opzionale)
@@ -31,7 +32,7 @@
   --hero-title-max: 14ch;
   --hero-subtitle-max: 52ch;
   --hero-accent: var(--accent);
-  --hero-glow: var(--accent-glow-shadow);
+  --hero-glow: var(--accent-halo);
   --hero-glow-size: 900px;
   --hero-glow-x: 18%;
   --hero-glow-y: 40%;
@@ -42,7 +43,7 @@
   overflow: hidden;
 }
 
-/* Bagliore viola dietro il testo (riferimento: hero Learnn) */
+/* Bagliore blu dietro il testo (riferimento: hero Learnn) */
 .hero::before {
   content: '';
   position: absolute;
@@ -81,7 +82,7 @@
   padding: 6px var(--space-3) 6px 10px;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-pill);
-  background: var(--surface-wash);
+  background: var(--surface-soft);
   color: var(--ink);
   font: var(--text-label);
   letter-spacing: 0.06em;
@@ -145,6 +146,12 @@
   align-items: center;
   gap: var(--space-3);
   margin-top: var(--space-2);
+}
+
+/* fascia dei numeri: occupa tutta la colonna del testo (il contenuto è allineato a sinistra) */
+.hero__stats {
+  align-self: stretch;
+  margin-top: var(--space-4);
 }
 
 .hero__meta {

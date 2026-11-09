@@ -13,7 +13,7 @@
    ========================================================================== */
 
 .chip {
-  --chip-bg: var(--surface-wash);
+  --chip-bg: var(--surface-soft);
   --chip-border: var(--border-strong);
   --chip-avatar: 32px;
   --chip-size: 14px;

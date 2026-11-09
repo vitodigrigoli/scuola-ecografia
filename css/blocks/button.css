@@ -3,10 +3,10 @@
    Bottone/link azione riusabile da tutti i blocchi (mix: <a class="btn btn--primary hero__cta">).
 
    Variazioni:
-     .btn--primary    pieno, superficie invertita (cta-primary-bg) — UNA per sezione
+     .btn--primary    pieno (cta-primary-bg: bianco nel tema scuro, blu nel chiaro) — UNA per sezione
      .btn--secondary  bordo, trasparente
      .btn--ghost      solo testo
-     .btn--accent     viola pieno (riservato a stati di enfasi, es. "iscrizioni aperte")
+     .btn--accent     blu pieno (riservato a stati di enfasi, es. "iscrizioni aperte")
      .btn--lg         grande (hero)
      .btn--sm         compatto (card)
      .btn--block      larghezza piena (mobile / card)
@@ -41,8 +41,8 @@
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  transition: background-color var(--duration) var(--ease), border-color var(--duration) var(--ease),
-    opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
+  transition: background-color var(--duration) var(--ease), background-position 400ms var(--ease),
+    border-color var(--duration) var(--ease), opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
 }
 
 .btn:hover {
@@ -59,14 +59,22 @@
 }
 
 /* --- Variazioni di stile --- */
+/* cta-primary-bg può essere un gradiente (tema chiaro): è largo il triplo e all'hover scorre fino alla parte scura.
+   Con un colore pieno (tema scuro) size e position non hanno effetto. */
 .btn--primary {
   --btn-bg: var(--cta-primary-bg);
   --btn-ink: var(--cta-primary-ink);
   --btn-bg-hover: var(--cta-primary-bg);
+
+  background-size: 300% 100%;
+  background-position: 0% 0;
 }
 
+/* ripetuti: lo shorthand `background` di .btn:hover li azzererebbe */
 .btn--primary:hover {
-  opacity: 0.9;
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  opacity: var(--cta-primary-hover-opacity, 0.9);
 }
 
 .btn--secondary {

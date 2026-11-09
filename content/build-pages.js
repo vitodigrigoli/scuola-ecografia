@@ -1,4 +1,4 @@
-/* Genera le 4 pagine con lo stesso shell (header/footer). Uso: node content/build-pages.js
+/* Genera le pagine con lo stesso shell (header/footer). Uso: node content/build-pages.js
    - shell (head, header, script) definito qui
    - contenuto di ogni pagina in content/pages/<id>.html (i blocchi vengono aggiunti uno alla volta)
    Finché non c'è un build step vero, questo evita di tenere 4 copie dell'header a mano. */
@@ -11,6 +11,7 @@ const casiPagine = fs.existsSync(path.join(__dirname, 'casi-pagine.json'))
 
 const pages = [
   { file: 'index.html',     id: 'home',      title: 'Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Home' },
+  { file: 'metodo.html',    id: 'metodo',    title: 'Il metodo — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Il metodo' },
   { file: 'programma.html', id: 'programma', title: 'Programma — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Programma' },
   { file: 'relatori.html',  id: 'relatori',  title: 'Relatori — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Relatori' },
   { file: 'prenota.html',   id: 'prenota',   title: 'Prenota — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Prenota' },
@@ -19,6 +20,7 @@ const pages = [
 ];
 
 const links = [
+  { id: 'metodo',    href: 'metodo.html',    label: 'Il metodo' },
   { id: 'programma', href: 'programma.html', label: 'Programma' },
   { id: 'relatori',  href: 'relatori.html',  label: 'Relatori' },
   { id: 'casi-clinici', href: 'casi-clinici.html', label: 'Casi clinici' },
@@ -109,7 +111,7 @@ function page(p) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>${p.title}</title>
-  <meta name="description" content="La Scuola di Ecografia Muscoloscheletrica fatta da medici per i medici. Formazione avanzata ANFI: 4 weekend, rapporto tutor-discente 1:5, esame finale.">
+  <meta name="description" content="La Scuola di Ecografia Muscoloscheletrica fatta da medici per medici. Formazione avanzata ANFI: 4 weekend, rapporto tutor-discente 1:5, esame finale.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="data:,">
 

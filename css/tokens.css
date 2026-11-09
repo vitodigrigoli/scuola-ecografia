@@ -9,9 +9,10 @@
   --surface-page: #000000;
   --surface-elev-1: #0a0a0a;
   --surface-elev-2: #121212;
-  --surface-card: #131313;
-  --surface-card-bordered: #19191c;
-  --surface-wash: rgba(255, 255, 255, 0.04);
+  --surface-card: #090909; /* card quasi nere: si staccano dal fondo pagina soprattutto col bordo */
+  --surface-card-bordered: #090909;
+  --surface-wash: rgba(255, 255, 255, 0.04); /* velo: hover e stati smorzati (sold out, in arrivo) */
+  --surface-soft: rgba(255, 255, 255, 0.04); /* fondo fisso di pillole, chip, fasce e note: velo nel tema scuro, bianco nel chiaro */
 
   /* --- Colori: bordi --- */
   --border: rgba(255, 255, 255, 0.08);
@@ -40,12 +41,14 @@
   /* --- Colori: CTA primaria (unica superficie invertita) --- */
   --cta-primary-bg: #ffffff;
   --cta-primary-ink: #000000;
+  --cta-primary-hover-opacity: 0.9; /* CTA bianca: all'hover si attenua appena */
 
-  /* --- Colori: accent (viola Learnn, identico nei due temi) --- */
-  --accent: #a855f7;
-  --accent-wash: rgba(168, 85, 247, 0.14);
-  --accent-border: rgba(168, 85, 247, 0.45);
-  --accent-glow-shadow: rgba(168, 85, 247, 0.55);
+  /* --- Colori: accent (blu; nel tema chiaro una tonalità più scura, vedi sotto) --- */
+  --accent: #3b82f6;
+  --accent-wash: rgba(59, 130, 246, 0.14);
+  --accent-border: rgba(59, 130, 246, 0.45);
+  --accent-glow-shadow: rgba(59, 130, 246, 0.55);
+  --accent-halo: var(--accent-glow-shadow); /* bagliore radiale dietro i titoli (hero, cta-banner) */
   --on-accent: #ffffff;
 
   /* --- Colori: accent secondario (periwinkle, contenuti "generati") --- */
@@ -54,7 +57,7 @@
   --accent-secondary-ink: #afa9ec;
 
   /* --- Colori: speciali --- */
-  --avatar-gradient-start: #7f77dd;
+  --avatar-gradient-start: #3b82f6;
   --avatar-gradient-end: #5dcaa5;
   --rating-gold: #fac775;
   --trust-green: #00b67a;
@@ -124,7 +127,7 @@
 
 /* --------------------------------------------------------------------------
    Tema LIGHT — estensione per lo switch giorno/notte (assente su Learnn).
-   Stessa struttura di superfici, testo invertito, accent invariato.
+   Stessa struttura di superfici, testo invertito, accent più scuro (#1e40af) per il contrasto.
    -------------------------------------------------------------------------- */
 :root[data-theme='light'] {
   --surface-page: #fafafa;
@@ -133,6 +136,7 @@
   --surface-card: #ffffff;
   --surface-card-bordered: #ffffff;
   --surface-wash: rgba(0, 0, 0, 0.03);
+  --surface-soft: #ffffff; /* il velo grigio sul fondo chiaro risultava spento: bianco pieno + bordo, come le card */
 
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.16);
@@ -150,12 +154,18 @@
   --ink-inactive: #62656a; /* 4.8:1 sulla pillola chiara: #8d9096 sembrava disabilitato */
   --login-ink: rgba(10, 10, 10, 0.75);
 
-  --cta-primary-bg: #0a0a0a;
-  --cta-primary-ink: #ffffff;
+  /* CTA primarie: gradiente blu nel tema chiaro (nel tema scuro restano bianche). Disegnato largo il triplo:
+     a riposo si vede il primo terzo (dal più scuro #1e40af al più chiaro #2563eb), all'hover scorre
+     sull'ultimo terzo, tutto #1e40af. Testo bianco: 5,2:1 sul blu più chiaro, 8,7:1 sul più scuro */
+  --cta-primary-bg: linear-gradient(90deg, #1e40af 0%, #2563eb 33.33%, #1e40af 66.67%); /* orizzontale: i terzi combaciano col bordo */
+  --cta-primary-hover-opacity: 1; /* l'hover è già il passaggio al blu scuro */
+  --cta-primary-ink: var(--on-accent);
 
-  --accent-wash: rgba(168, 85, 247, 0.1);
-  --accent-border: rgba(168, 85, 247, 0.4);
-  --accent-glow-shadow: rgba(168, 85, 247, 0.3);
+  --accent: #1e40af; /* blu scuro sul fondo chiaro: 8,4:1 sul fondo pagina, 8,7:1 col testo bianco sopra */
+  --accent-wash: rgba(30, 64, 175, 0.1);
+  --accent-border: rgba(30, 64, 175, 0.4);
+  --accent-glow-shadow: rgba(30, 64, 175, 0.3);
+  --accent-halo: transparent; /* nessun bagliore sul fondo chiaro: funziona solo sul nero */
 
   --accent-secondary-wash: rgba(127, 119, 221, 0.14);
   --accent-secondary-ink: #6259c7;

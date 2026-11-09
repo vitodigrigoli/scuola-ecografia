@@ -8,7 +8,7 @@
        .editions__grid
          .editions__card [--open | --soldout]
            .editions__head > .editions__eyebrow + .badge
-           .editions__title
+           .editions__title > .editions__sign (icona dello stato)
            .editions__dates > .editions__date …
            .editions__note
            .editions__cta (btn)
@@ -16,6 +16,7 @@
    Variazioni card:
      .editions__card--open      edizione aperta: bordo accent + shadow-accent-glow (SEMPRE insieme)
      .editions__card--soldout   esaurita: contenuto smorzato, CTA disabilitata
+     (senza modificatore)       edizione in corso: non iscrivibile, CTA disabilitata
    Variazioni blocco:
      .editions--two             griglia a 2 colonne (pagina Prenota)
    ========================================================================== */
@@ -28,6 +29,9 @@
   --editions-card-border: var(--border);
   --editions-card-radius: var(--radius-xl);
   --editions-date-ink: var(--ink-soft);
+  --editions-sign-size: 44px;
+  --editions-sign-bg: var(--accent-wash);
+  --editions-sign-ink: var(--accent);
 }
 
 .editions__grid {
@@ -72,8 +76,27 @@
 }
 
 .editions__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
   font: var(--text-h3);
   color: var(--ink);
+}
+
+.editions__sign {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--editions-sign-size);
+  height: var(--editions-sign-size);
+  border-radius: var(--radius-sm);
+  background: var(--editions-sign-bg);
+  color: var(--editions-sign-ink);
+}
+
+.editions__sign .icon {
+  width: 22px;
+  height: 22px;
 }
 
 .editions__dates {
@@ -105,6 +128,12 @@
   color: var(--ink-muted);
 }
 
+.editions__note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .editions__cta {
   margin-top: auto;
 }
@@ -123,6 +152,8 @@
 
 .editions__card--soldout {
   --editions-date-ink: var(--ink-muted);
+  --editions-sign-bg: var(--surface-wash);
+  --editions-sign-ink: var(--ink-muted);
 }
 
 .editions__card--soldout .editions__title {
@@ -147,6 +178,13 @@
   .editions {
     --editions-cols: 2;
   }
+
+  /* appena le card non stanno più su una riga, quella in risalto sale in cima
+     e occupa tutta la riga: con tre card, altrimenti, resterebbe da sola in fondo */
+  .editions__card--open {
+    grid-column: 1 / -1;
+    order: -1;
+  }
 }
 
 @media (max-width: 767px) {
@@ -156,8 +194,4 @@
     --editions-card-pad: var(--space-8) var(--space-7);
   }
 
-  /* l'edizione aperta va sempre per prima su mobile */
-  .editions__card--open {
-    order: -1;
-  }
 }

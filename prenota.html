@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Prenota — Scuola di Ecografia Muscoloscheletrica ANFI</title>
-  <meta name="description" content="La Scuola di Ecografia Muscoloscheletrica fatta da medici per i medici. Formazione avanzata ANFI: 4 weekend, rapporto tutor-discente 1:5, esame finale.">
+  <meta name="description" content="La Scuola di Ecografia Muscoloscheletrica fatta da medici per medici. Formazione avanzata ANFI: 4 weekend, rapporto tutor-discente 1:5, esame finale.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="data:,">
 
@@ -141,6 +141,36 @@
     <rect x="4" y="11" width="16" height="10" rx="2"/>
     <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
   </symbol>
+  <symbol id="icon-layers" viewBox="0 0 24 24">
+    <path d="M12 3 2.5 8 12 13l9.5-5L12 3Z"/>
+    <path d="m2.5 12 9.5 5 9.5-5"/>
+    <path d="m2.5 16 9.5 5 9.5-5"/>
+  </symbol>
+  <symbol id="icon-joint" viewBox="0 0 24 24">
+    <path d="M8.5 2v6.5a3.5 3.5 0 0 0 7 0V2"/>
+    <path d="M8 22v-5.2c0-.8.7-1.3 1.4-1 .9.4 1.7.6 2.6.6s1.700-.2 2.600-.6c.7-.3 1.400.2 1.400 1V22"/>
+  </symbol>
+  <symbol id="icon-muscle" viewBox="0 0 24 24">
+    <path d="M6.5 21c-1.500-3.500-2-7-1-10 .7-2.200 2-4 3-6.300.4-.9 1.400-1.300 2.300-.9l2.400 1c.9.4 1.100 1.500.5 2.200L11.500 9l.6 2.800c1.800-1.700 4.400-2.100 6.300-.8 2 1.400 2.600 4.300 1.300 6.600-1.200 2.100-3.300 3.400-6.200 3.400H6.500Z"/>
+    <path d="M12.100 11.800c-.8.9-1.300 2-1.500 3.200"/>
+  </symbol>
+  <symbol id="icon-nerve" viewBox="0 0 24 24">
+    <circle cx="12" cy="13" r="2.500"/>
+    <path d="M12 15.500V22M10.200 11.200 6 7M13.800 11.200 18 7M6 7V3M6 7 2.500 5.500M18 7V3M18 7l3.500-1.500"/>
+  </symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="4"/>
+    <path d="M4.5 21a7.5 7.5 0 0 1 15 0"/>
+  </symbol>
+  <symbol id="icon-graduation" viewBox="0 0 24 24">
+    <path d="M12 5 2 10l10 5 10-5-10-5Z"/>
+    <path d="M6 12.5V17c0 1.2 2.7 3 6 3s6-1.8 6-3v-4.5"/>
+    <path d="M22 10v6"/>
+  </symbol>
+  <symbol id="icon-card" viewBox="0 0 24 24">
+    <rect x="2.5" y="5" width="19" height="14" rx="2"/>
+    <path d="M2.5 10h19M6.5 15h4"/>
+  </symbol>
 </svg>
 
   <header class="header header--floating" data-header>
@@ -151,6 +181,7 @@
 
       <nav class="header__nav" id="header-nav" aria-label="Navigazione principale">
         <ul class="header__links">
+          <li><a class="header__link" href="metodo.html">Il metodo</a></li>
           <li><a class="header__link" href="programma.html">Programma</a></li>
           <li><a class="header__link" href="relatori.html">Relatori</a></li>
           <li><a class="header__link" href="casi-clinici.html">Casi clinici</a></li>
@@ -184,9 +215,9 @@
         <div class="hero__content">
           <p class="hero__badge"><span class="hero__badge-dot" aria-hidden="true"></span>Quinta edizione · Pre-iscrizioni aperte</p>
           <h1 class="hero__title" id="page-title">Prenota il tuo posto</h1>
-          <p class="hero__subtitle">Cinquanta posti per edizione, riservati ai medici. L'iscrizione si completa sul sito del provider Fisiaforma, con pagamento in due rate.</p>
+          <p class="hero__subtitle">Sessanta posti per edizione, riservati ai medici. L'iscrizione si completa sul sito del provider Fisiaforma, con pagamento in due rate.</p>
           <ul class="hero__meta">
-            <li class="hero__meta-item"><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg>Massimo 50 partecipanti</li>
+            <li class="hero__meta-item"><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg>Massimo 60 partecipanti</li>
             <li class="hero__meta-item"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>4 weekend</li>
             <li class="hero__meta-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Due rate 50% + 50%</li>
           </ul>
@@ -200,73 +231,58 @@
 
     <!-- ============================== PRICING ============================== -->
     <section class="section pricing" id="quote" aria-labelledby="pricing-title">
-      <div class="container">
+      <div class="pricing__inner container">
         <div class="text-block text-block--center">
           <p class="text-block__eyebrow">Costi</p>
           <h2 class="text-block__title" id="pricing-title">Dettaglio dei costi</h2>
           <p class="text-block__text">La quota comprende l'intero percorso: quattro weekend, tutoraggio, materiale didattico e diploma finale. Il pagamento è in due rate.</p>
         </div>
 
-        <div class="pricing__grid">
-          <article class="pricing__card">
-            <div class="pricing__head">
-              <h3 class="pricing__name">Non socio ANFI</h3>
-            </div>
-            <p class="pricing__price"><span class="pricing__amount">€2.300</span><span class="pricing__vat">+ IVA 22%</span></p>
-            <p class="pricing__desc">Per i medici non iscritti all'Associazione Nazionale Fisiatria Interventistica.</p>
+        <div class="pricing__layout">
+
+
+          <div class="pricing__plans" aria-live="polite">
+            <article class="pricing__plan">
+              <div class="pricing__info">
+                <h3 class="pricing__name">Non socio ANFI</h3>
+                <p class="pricing__desc">Per i medici non iscritti all'Associazione Nazionale Fisiatria Interventistica.</p>
+              </div>
+              <p class="pricing__price"><span class="pricing__price-label">La tua quota</span><span class="pricing__amount">€2.300</span><span class="pricing__vat">+ IVA 22%</span><span class="pricing__total">€2.806 IVA inclusa</span></p>
+              <a class="btn btn--secondary pricing__cta" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Iscriviti <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+            </article>
+            <article class="pricing__plan pricing__plan--featured">
+              <div class="pricing__info">
+                <h3 class="pricing__name">Socio ANFI <span class="badge badge--accent badge--sm">Consigliato</span></h3>
+                <p class="pricing__desc">Quota riservata ai soci ANFI in regola con l'iscrizione annuale.</p>
+                <a class="pricing__link" href="https://associazioneanfi.it/account-iscrizione/livelli" target="_blank" rel="noopener">Diventa socio <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+              </div>
+              <p class="pricing__price"><span class="pricing__price-label">La tua quota</span><span class="pricing__amount">€2.200</span><span class="pricing__vat">+ IVA 22%</span><span class="pricing__total">€2.684 IVA inclusa</span></p>
+              <a class="btn btn--primary pricing__cta" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Iscriviti <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+            </article>
+            <article class="pricing__plan">
+              <div class="pricing__info">
+                <h3 class="pricing__name">Specializzando</h3>
+                <p class="pricing__desc">Per i medici in formazione specialistica, soci ANFI.</p>
+              </div>
+              <p class="pricing__price"><span class="pricing__price-label">La tua quota</span><span class="pricing__amount">€2.000</span><span class="pricing__vat">+ IVA 22%</span><span class="pricing__total">€2.440 IVA inclusa</span></p>
+              <a class="btn btn--secondary pricing__cta" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Iscriviti <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+            </article>
+          </div>
+
+          <aside class="pricing__included" aria-labelledby="pricing-included-title">
+            <h3 class="pricing__included-title" id="pricing-included-title">Incluso in ogni quota</h3>
             <ul class="pricing__features">
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4 weekend formativi</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Tutoraggio con rapporto 5:1</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Materiale didattico</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Schemi di refertazione</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Valutazione e rilascio diplomi</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Pagamento in due rate (50%+50%)</li>
+              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>4 weekend formativi</li>
+              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg>1 tutor per 5 discenti</li>
+              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg>Atlante e materiale didattico</li>
+              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-document"/></svg>Schemi di refertazione</li>
+              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-award"/></svg>Valutazione e rilascio diplomi</li>
+              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-card"/></svg>Pagamento in due rate</li>
             </ul>
-            <div class="pricing__actions">
-              <a class="btn btn--secondary btn--block" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Pre-iscriviti <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
-            </div>
-          </article>
-          <article class="pricing__card pricing__card--featured">
-            <div class="pricing__head">
-              <h3 class="pricing__name">Socio ANFI</h3>
-              <span class="badge badge--accent">Consigliato</span>
-            </div>
-            <p class="pricing__price"><span class="pricing__amount">€2.200</span><span class="pricing__vat">+ IVA 22%</span></p>
-            <p class="pricing__desc">Quota riservata ai soci ANFI in regola con l'iscrizione annuale.</p>
-            <ul class="pricing__features">
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4 weekend formativi</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Tutoraggio con rapporto 5:1</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Materiale didattico</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Schemi di refertazione</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Valutazione e rilascio diplomi</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Pagamento in due rate (50%+50%)</li>
-            </ul>
-            <div class="pricing__actions">
-              <a class="btn btn--primary btn--block" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Pre-iscriviti <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
-              <a class="btn btn--ghost btn--block" href="https://associazioneanfi.it/account-iscrizione/livelli" target="_blank" rel="noopener">Diventa socio <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
-            </div>
-          </article>
-          <article class="pricing__card">
-            <div class="pricing__head">
-              <h3 class="pricing__name">Specializzando</h3>
-            </div>
-            <p class="pricing__price"><span class="pricing__amount">€2.000</span><span class="pricing__vat">+ IVA 22%</span></p>
-            <p class="pricing__desc">Per i medici in formazione specialistica, soci ANFI.</p>
-            <ul class="pricing__features">
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4 weekend formativi</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Tutoraggio con rapporto 5:1</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Materiale didattico</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Schemi di refertazione</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Valutazione e rilascio diplomi</li>
-              <li class="pricing__feature"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Pagamento in due rate (50%+50%)</li>
-            </ul>
-            <div class="pricing__actions">
-              <a class="btn btn--secondary btn--block" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Pre-iscriviti <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
-            </div>
-          </article>
+          </aside>
         </div>
 
-        <p class="pricing__footnote">Prima rata all'iscrizione, seconda a distanza di due mesi. Politica di recesso e dettagli nelle <a href="#faq">domande frequenti</a>.</p>
+        <p class="pricing__footnote">Scadenze delle rate nella scheda d'iscrizione su Fisiaforma. Politica di recesso e dettagli nelle <a href="index.html#faq">domande frequenti</a>.</p>
       </div>
     </section>
 
@@ -281,7 +297,7 @@
 
         <div class="percorso__steps">
           <div class="percorso__step">
-            <p class="percorso__number" aria-hidden="true">01</p>
+            <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-user"/></svg></span>
             <h3 class="percorso__title">Scegli la tua quota</h3>
             <ul class="percorso__list">
               <li class="percorso__item"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Non socio ANFI, Socio ANFI o Specializzando socio</li>
@@ -289,7 +305,7 @@
             </ul>
           </div>
           <div class="percorso__step">
-            <p class="percorso__number" aria-hidden="true">02</p>
+            <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-document"/></svg></span>
             <h3 class="percorso__title">Pre-iscriviti su Fisiaforma</h3>
             <ul class="percorso__list">
               <li class="percorso__item"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Il provider gestisce iscrizioni e pagamenti</li>
@@ -297,7 +313,7 @@
             </ul>
           </div>
           <div class="percorso__step">
-            <p class="percorso__number" aria-hidden="true">03</p>
+            <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-card"/></svg></span>
             <h3 class="percorso__title">Paga in due rate</h3>
             <ul class="percorso__list">
               <li class="percorso__item"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prima rata (50%) all'iscrizione</li>
@@ -307,7 +323,7 @@
         </div>
 
         <div class="percorso__actions">
-          <div class="notice notice--muted">
+          <div class="notice notice--accent">
             <span class="notice__icon"><svg class="icon" aria-hidden="true"><use href="#icon-info"/></svg></span>
             <div class="notice__body">
               <p class="notice__title">Politica di recesso</p>
@@ -319,29 +335,29 @@
     </section>
 
     <!-- ============================== EDITIONS ============================== -->
-    <section class="section editions editions--two" id="edizioni" aria-labelledby="editions-title">
+    <section class="section editions" id="edizioni" aria-labelledby="editions-title">
       <div class="container">
         <div class="text-block text-block--split">
           <p class="text-block__eyebrow">Edizioni</p>
-          <h2 class="text-block__title" id="editions-title">Edizioni in corso</h2>
-          <p class="text-block__text">La quarta edizione (Catania 2027) è sold out. La pre-iscrizione alla quinta, in una sede del nord Italia, è già disponibile sul sito del provider.</p>
+          <h2 class="text-block__title" id="editions-title">Le prossime edizioni</h2>
+          <p class="text-block__text">La quarta edizione (Catania 2027) è sold out. La pre-iscrizione alla quinta, a Bergamo, è già disponibile sul sito del provider.</p>
         </div>
 
         <div class="editions__grid">
-          <article class="editions__card editions__card--open">
+          <article class="editions__card">
             <div class="editions__head">
-              <p class="editions__eyebrow">Quinta edizione</p>
-              <span class="badge badge--accent"><span class="badge__dot" aria-hidden="true"></span>Evento aperto</span>
+              <p class="editions__eyebrow">Terza edizione</p>
+              <span class="badge badge--success">In corso</span>
             </div>
-            <h3 class="editions__title">Edizione settentrionale</h3>
+            <h3 class="editions__title"><span class="editions__sign" aria-hidden="true"><svg class="icon"><use href="#icon-clock"/></svg></span>Torino 2026</h3>
             <ul class="editions__dates">
-              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>Ottobre 2027</li>
-              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>Dicembre 2027</li>
-              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>Gennaio 2028</li>
-              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>Febbraio 2028</li>
+              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>11–12 aprile 2026</li>
+              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>6–7 giugno 2026</li>
+              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>10–11 ottobre 2026</li>
+              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>12–13 dicembre 2026</li>
             </ul>
-            <p class="editions__note">Le date esatte e la sede sono in via di definizione.</p>
-            <a class="btn btn--primary btn--block editions__cta" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Acquista il biglietto <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+            <p class="editions__note">J|Hotel, Via Traves 40, Torino. <a href="programma.html">Consulta il programma</a>.</p>
+            <span class="btn btn--secondary btn--block is-disabled editions__cta" aria-disabled="true">Edizione in corso</span>
           </article>
 
           <article class="editions__card editions__card--soldout">
@@ -349,7 +365,7 @@
               <p class="editions__eyebrow">Quarta edizione</p>
               <span class="badge badge--muted">Sold out</span>
             </div>
-            <h3 class="editions__title">Catania 2027</h3>
+            <h3 class="editions__title"><span class="editions__sign" aria-hidden="true"><svg class="icon"><use href="#icon-lock"/></svg></span>Catania 2027</h3>
             <ul class="editions__dates">
               <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>16–17 gennaio 2027</li>
               <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>6–7 marzo 2027</li>
@@ -359,6 +375,22 @@
             <p class="editions__note">Il Principe Hotel, Via Alessi 24, Catania.</p>
             <span class="btn btn--secondary btn--block is-disabled editions__cta" aria-disabled="true">Posti esauriti</span>
           </article>
+
+          <article class="editions__card editions__card--open">
+            <div class="editions__head">
+              <p class="editions__eyebrow">Quinta edizione</p>
+              <span class="badge badge--accent"><span class="badge__dot" aria-hidden="true"></span>Prenotazioni aperte</span>
+            </div>
+            <h3 class="editions__title"><span class="editions__sign" aria-hidden="true"><svg class="icon"><use href="#icon-check"/></svg></span>Bergamo 2027</h3>
+            <ul class="editions__dates">
+              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>Ottobre 2027</li>
+              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>Dicembre 2027</li>
+              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>Gennaio 2028</li>
+              <li class="editions__date"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>Febbraio 2028</li>
+            </ul>
+            <p class="editions__note">Date esatte e struttura vengono comunicate 4 mesi prima dell'avvio del corso.</p>
+            <a class="btn btn--primary btn--block editions__cta" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Iscriviti <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+          </article>
         </div>
       </div>
     </section>
@@ -367,7 +399,7 @@
     <section class="section cta-banner cta-banner--glow" id="aggiornamenti" aria-labelledby="cta-title">
       <div class="cta-banner__inner container">
         <h2 class="cta-banner__title" id="cta-title">Non vuoi perdere <em>la prossima edizione?</em></h2>
-        <p class="cta-banner__text">Lascia il tuo contatto: ti avvisiamo appena vengono confermate date e sede della quinta edizione.</p>
+        <p class="cta-banner__text">Lascia il tuo contatto: ti avvisiamo appena vengono confermate date e struttura della quinta edizione a Bergamo.</p>
         <div class="cta-banner__actions">
           <a class="btn btn--primary btn--lg" href="https://145504523.hs-sites-eu1.com/interesse_scuola_anfi5" target="_blank" rel="noopener">Rimani aggiornato <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
           <a class="btn btn--secondary btn--lg" href="mailto:info@associazioneanfi.it"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>Scrivi alla segreteria</a>

@@ -2,7 +2,12 @@
    Markup: <span class="stats__number" data-count="28">0</span> — il valore finale è in data-count,
    così senza JS (o con reduced-motion) resta comunque leggibile. */
 (function () {
-  var items = document.querySelectorAll('.stats__number[data-count]');
+  // dentro una fascia a scorrimento ([data-marquee]) i numeri restano fissi: marquee.js
+  // ne clona le voci e le copie non verrebbero animate (resterebbero a 0)
+  var items = Array.prototype.filter.call(
+    document.querySelectorAll('.stats__number[data-count]'),
+    function (el) { return !el.closest('[data-marquee]'); }
+  );
   if (!items.length) return;
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

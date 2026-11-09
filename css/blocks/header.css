@@ -194,16 +194,20 @@
   padding: 10px var(--space-5);
   border-radius: var(--radius-btn);
   background: var(--header-cta-bg);
+  background-size: 300% 100%; /* gradiente nel tema chiaro: scorre all'hover, come .btn--primary */
+  background-position: 0% 0;
   color: var(--header-cta-ink);
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
-  transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
+  transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease),
+    background-position 400ms var(--ease);
 }
 
 .header__cta:hover {
-  opacity: 0.9;
+  background-position: 100% 0;
+  opacity: var(--cta-primary-hover-opacity, 0.9);
 }
 
 .header__cta:active {
@@ -282,9 +286,9 @@
 }
 
 /* ==========================================================================
-   MOBILE (< 900px): nav diventa pannello sotto la pillola
+   MOBILE (< 1024px): nav diventa pannello sotto la pillola (con 6 voci sotto i 1024px non ci stanno)
    ========================================================================== */
-@media (max-width: 899px) {
+@media (max-width: 1023px) {
   .header {
     --header-h: 56px;
     --header-top: 10px;

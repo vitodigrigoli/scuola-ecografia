@@ -72,7 +72,7 @@ const body = meetings.map(mt => `      <article class="program__meeting" id="inc
         <div class="program__meeting-head">
           <p class="program__meeting-number" aria-hidden="true">0${mt.n}</p>
           <h2 class="program__meeting-title">${esc(mt.title)}</h2>
-          <p class="program__meeting-meta"><span>${ic('calendar')}${esc(mt.dates)}</span><span>${ic('map-pin')}Il Principe Hotel, Catania</span></p>
+          <p class="program__meeting-meta"><span>${ic('calendar')}${esc(mt.dates)}</span><span>${ic('map-pin')}J|Hotel, Torino</span></p>
         </div>
 ${mt.days.map(d => `        <div class="program__day">
           <h3 class="program__day-title">${d.name} ${esc(d.date)}</h3>
@@ -91,7 +91,7 @@ const page = `    <!-- ============================== PAGE HERO (hero --compact 
           <p class="hero__subtitle">Ogni argomento segue lo stesso schema: lezione, live ecografica proiettata a schermo e prove pratiche alle postazioni con il tutor. Il terzo e il quarto incontro aggiungono casi clinici e refertazione.</p>
           <ul class="hero__meta">
             <li class="hero__meta-item">${ic('calendar')}4 weekend · sabato e domenica</li>
-            <li class="hero__meta-item">${ic('map-pin')}Il Principe Hotel, Catania</li>
+            <li class="hero__meta-item">${ic('map-pin')}J|Hotel, Torino</li>
             <li class="hero__meta-item">${ic('users')}1 tutor ogni 5 discenti</li>
           </ul>
           <div class="hero__actions">
@@ -119,7 +119,7 @@ ${body}
           <h2 class="text-block__title" id="intro-title">Formazione avanzata in ecografia muscoloscheletrica</h2>
           <div class="text-block__body">
             <p class="text-block__text">La Scuola di Ecografia è rivolta <strong>esclusivamente a medici</strong> e si prefigge l'obiettivo di migliorare la competenza diagnostica e terapeutica promuovendo standard elevati nella gestione delle patologie muscoloscheletriche.</p>
-            <p class="text-block__text">Il numero massimo di partecipanti è limitato a <strong>50</strong> per poter garantire un rapporto di <strong>1:5 tra docenti e discenti</strong>, assicurando un ambiente di apprendimento ottimale e focalizzato.</p>
+            <p class="text-block__text">Il numero massimo di partecipanti è limitato a <strong>60</strong> per poter garantire un rapporto di <strong>1:5 tra docenti e discenti</strong>, assicurando un ambiente di apprendimento ottimale e focalizzato.</p>
             <div class="text-block__actions">
               <a class="btn btn--primary" href="prenota.html">Prenota il corso ${ic('arrow-right')}</a>
               <a class="btn btn--secondary" href="relatori.html">I relatori ${ic('arrow-right')}</a>

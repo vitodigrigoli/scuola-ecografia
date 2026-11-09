@@ -2,21 +2,21 @@
    BLOCCO: features
    Griglia di tile informative (riferimento: tile "Learnn è il tuo partner…" e
    "Cosa cambia dopo qualche mese" di Learnn — card con bordo, segno in alto, titolo, testo).
-   Usato per: Obiettivi della Scuola (--numbered), Didattica (--icons).
+   Usato per: Obiettivi della Scuola (--icons), Didattica (--icons --inline), Il metodo.
 
    Struttura:
      .features (section)
        .features__grid
          .features__item …
-           .features__sign  (numero "01" | icona SVG)
+           .features__sign  (numero "01" | icona SVG)  |  .features__figure (cifra, in --figures)
            .features__title
            .features__text | .features__list (elenco semplice, link opzionali)
 
    Variazioni:
-     .features--numbered   segno = numero progressivo (counter CSS, viola)
+     .features--numbered   segno = numero progressivo (counter CSS, blu)
      .features--icons      segno = icona SVG in un riquadro
      .features--inline     segno a sinistra del titolo, 2 colonne, testo body (testi lunghi)
-     .features--plain      senza card: solo testo con linea sopra
+     .features--figures    segno = cifra grande blu (+ .features__unit): dato + spiegazione nella stessa card
      .features--cols-2 / --cols-3 (default 4 → 2 → 1)
    ========================================================================== */
 
@@ -155,17 +155,24 @@
   grid-column: 2;
 }
 
-/* Senza card */
-.features--plain {
-  --features-item-bg: transparent;
-  --features-item-border: transparent;
-  --features-item-pad: var(--space-6) 0 0;
-  --features-item-radius: 0;
-  --features-gap: var(--space-8);
+/* Cifre: un dato in evidenza al posto del segno, spiegato da titolo e testo */
+.features__figure {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font: var(--text-h1);
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--features-sign-ink);
 }
 
-.features--plain .features__item {
-  border-top: 1px solid var(--border);
+.features__unit {
+  font: var(--text-h3);
+  letter-spacing: 0;
+  color: var(--features-text-ink);
 }
 
 .features--cols-2 {
@@ -183,6 +190,15 @@
   .features,
   .features--cols-3 {
     --features-cols: 2;
+  }
+
+  /* tre cifre: meglio una colonna sola che una card orfana sulla seconda riga */
+  .features--figures {
+    --features-cols: 1;
+  }
+
+  .features__figure {
+    font-size: 44px;
   }
 }
 

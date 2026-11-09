@@ -15,18 +15,17 @@ function section(marker) {
 }
 
 // Costi: identica alla home (con id diverso per non duplicare l'ancora "costi" usata nei link)
-const FISIAFORMA = 'https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/';
+// La home usa la variazione --selector; qui resta quella a righe, dove le quote si confrontano prima di iscriversi
 const pricing = section('PRICING')
   .replace('id="costi"', 'id="quote"')
-  // qui siamo già su Prenota: le CTA vanno dritte al provider
-  .split(`href="prenota.html">Prenota il corso ${ic('arrow-right')}`).join(`href="${FISIAFORMA}" target="_blank" rel="noopener">Pre-iscriviti ${ic('external')}`);
+  .replace('pricing pricing--selector', 'pricing')
+  .replace('text-block text-block--flush', 'text-block text-block--center')
+  .replace(/\s*<div class="pricing__selector"[\s\S]*?(?=\s*<div class="pricing__plans")/, '\n');
 
-// Edizioni: solo Quinta (aperta) e Quarta (sold out), su due colonne
-let editions = section('EDITIONS').replace('class="section editions"', 'class="section editions editions--two"');
-editions = editions.replace(/\s*<article class="editions__card editions__card--soldout">\s*<div class="editions__head">\s*<p class="editions__eyebrow">Terza edizione<\/p>[\s\S]*?<\/article>/, '');
-editions = editions.replace('<h2 class="text-block__title" id="editions-title">Le prossime edizioni</h2>', '<h2 class="text-block__title" id="editions-title">Edizioni in corso</h2>')
-  .replace('<p class="text-block__text">Ogni edizione si sviluppa in quattro weekend. Le edizioni precedenti sono andate sold out: la pre-iscrizione alla quinta è già aperta sul sito del provider.</p>',
-    '<p class="text-block__text">La quarta edizione (Catania 2027) è sold out. La pre-iscrizione alla quinta, in una sede del nord Italia, è già disponibile sul sito del provider.</p>');
+// Edizioni: le stesse card della home, con una riga di contesto per chi sta per iscriversi
+const editions = section('EDITIONS').replace('id="editions-title">Le prossime edizioni</h2>',
+  `id="editions-title">Le prossime edizioni</h2>
+          <p class="text-block__text">La quarta edizione (Catania 2027) è sold out. La pre-iscrizione alla quinta, a Bergamo, è già disponibile sul sito del provider.</p>`);
 
 const page = `    <!-- ============================== PAGE HERO ============================== -->
     <section class="hero hero--compact hero--centered" aria-labelledby="page-title">
@@ -34,9 +33,9 @@ const page = `    <!-- ============================== PAGE HERO ================
         <div class="hero__content">
           <p class="hero__badge"><span class="hero__badge-dot" aria-hidden="true"></span>Quinta edizione · Pre-iscrizioni aperte</p>
           <h1 class="hero__title" id="page-title">Prenota il tuo posto</h1>
-          <p class="hero__subtitle">Cinquanta posti per edizione, riservati ai medici. L'iscrizione si completa sul sito del provider Fisiaforma, con pagamento in due rate.</p>
+          <p class="hero__subtitle">Sessanta posti per edizione, riservati ai medici. L'iscrizione si completa sul sito del provider Fisiaforma, con pagamento in due rate.</p>
           <ul class="hero__meta">
-            <li class="hero__meta-item">${ic('users')}Massimo 50 partecipanti</li>
+            <li class="hero__meta-item">${ic('users')}Massimo 60 partecipanti</li>
             <li class="hero__meta-item">${ic('calendar')}4 weekend</li>
             <li class="hero__meta-item">${ic('check')}Due rate 50% + 50%</li>
           </ul>
@@ -61,7 +60,7 @@ ${pricing}
 
         <div class="percorso__steps">
           <div class="percorso__step">
-            <p class="percorso__number" aria-hidden="true">01</p>
+            <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-user"/></svg></span>
             <h3 class="percorso__title">Scegli la tua quota</h3>
             <ul class="percorso__list">
               <li class="percorso__item">${ic('check')}Non socio ANFI, Socio ANFI o Specializzando socio</li>
@@ -69,7 +68,7 @@ ${pricing}
             </ul>
           </div>
           <div class="percorso__step">
-            <p class="percorso__number" aria-hidden="true">02</p>
+            <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-document"/></svg></span>
             <h3 class="percorso__title">Pre-iscriviti su Fisiaforma</h3>
             <ul class="percorso__list">
               <li class="percorso__item">${ic('check')}Il provider gestisce iscrizioni e pagamenti</li>
@@ -77,7 +76,7 @@ ${pricing}
             </ul>
           </div>
           <div class="percorso__step">
-            <p class="percorso__number" aria-hidden="true">03</p>
+            <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-card"/></svg></span>
             <h3 class="percorso__title">Paga in due rate</h3>
             <ul class="percorso__list">
               <li class="percorso__item">${ic('check')}Prima rata (50%) all'iscrizione</li>
@@ -87,7 +86,7 @@ ${pricing}
         </div>
 
         <div class="percorso__actions">
-          <div class="notice notice--muted">
+          <div class="notice notice--accent">
             <span class="notice__icon">${ic('info')}</span>
             <div class="notice__body">
               <p class="notice__title">Politica di recesso</p>
@@ -104,7 +103,7 @@ ${editions}
     <section class="section cta-banner cta-banner--glow" id="aggiornamenti" aria-labelledby="cta-title">
       <div class="cta-banner__inner container">
         <h2 class="cta-banner__title" id="cta-title">Non vuoi perdere <em>la prossima edizione?</em></h2>
-        <p class="cta-banner__text">Lascia il tuo contatto: ti avvisiamo appena vengono confermate date e sede della quinta edizione.</p>
+        <p class="cta-banner__text">Lascia il tuo contatto: ti avvisiamo appena vengono confermate date e struttura della quinta edizione a Bergamo.</p>
         <div class="cta-banner__actions">
           <a class="btn btn--primary btn--lg" href="https://145504523.hs-sites-eu1.com/interesse_scuola_anfi5" target="_blank" rel="noopener">Rimani aggiornato ${ic('external')}</a>
           <a class="btn btn--secondary btn--lg" href="mailto:info@associazioneanfi.it">${ic('mail')}Scrivi alla segreteria</a>

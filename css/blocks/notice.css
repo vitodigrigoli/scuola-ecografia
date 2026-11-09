@@ -10,7 +10,7 @@
          .notice__text …
 
    Variazioni:
-     .notice--accent   viola (default): informazione importante
+     .notice--accent   blu (default): informazione importante
      .notice--muted    grigio: nota secondaria
      .notice--warning  oro: avviso / da verificare
    ========================================================================== */
@@ -59,7 +59,7 @@
 /* --- Variazioni --- */
 .notice--muted {
   --notice-ink: var(--ink-muted);
-  --notice-bg: var(--surface-wash);
+  --notice-bg: var(--surface-soft);
 }
 
 .notice--warning {

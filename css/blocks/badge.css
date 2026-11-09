@@ -5,15 +5,15 @@
 
    Variazioni:
      .badge--outline   bordo, fondo neutro (default: categoria)
-     .badge--accent    viola pieno, testo bianco (enfasi: "Iscrizioni aperte", "In evidenza")
-     .badge--soft      viola tenue (accent-wash) con testo viola
+     .badge--accent    blu pieno, testo bianco (enfasi: "Iscrizioni aperte", "In evidenza")
+     .badge--soft      solo testo blu, senza fondo né bordo
      .badge--muted     grigio smorzato (stati inattivi: "Sold out", "Concluso")
      .badge--success   verde di fiducia (certificazioni esterne)
      .badge--sm        più piccolo
    ========================================================================== */
 
 .badge {
-  --badge-bg: var(--surface-wash);
+  --badge-bg: var(--surface-soft);
   --badge-ink: var(--ink);
   --badge-border: var(--border-strong);
   --badge-pad: 5px var(--space-3);
@@ -54,9 +54,11 @@
 }
 
 .badge--soft {
-  --badge-bg: var(--accent-wash);
+  --badge-bg: transparent;
   --badge-ink: var(--accent);
   --badge-border: transparent;
+
+  padding-inline: 0; /* senza fondo il testo si allinea al bordo, come il resto della card */
 }
 
 .badge--muted {

@@ -2,7 +2,7 @@
    BLOCCO: scroller
    Striscia orizzontale a scorrimento continuo, larga quanto il viewport
    (riferimento: le fasce di esperti e loghi di Learnn).
-   Usato da: people--scroller (Organizzatori), sponsors (mobile), casi clinici.
+   Usato da: people--scroller (Docenti e tutor), stats--scroller (numeri), casi clinici.
 
    Struttura:
      .scroller                          wrapper: confina il full-bleed (overflow-x: clip)

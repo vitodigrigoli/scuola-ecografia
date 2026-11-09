@@ -6,7 +6,7 @@ const path = require('path');
 const CATS = [
   ['spalla', 'Spalla', '#7f77dd'],
   ['gomito', 'Gomito', '#5dcaa5'],
-  ['polso-mano', 'Polso e mano', '#a855f7'],
+  ['polso-mano', 'Polso e mano', '#3b82f6'],
   ['anca', 'Anca', '#7fb2dd'],
   ['ginocchio', 'Ginocchio', '#dd9f77'],
   ['caviglia-piede', 'Caviglia e piede', '#77ddc8'],
