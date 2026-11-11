@@ -25,7 +25,7 @@
   --consent-bg: var(--surface-card);
   --consent-border: var(--border-strong);
   --consent-radius: var(--radius-lg);
-  --consent-max: 640px;
+  --consent-max: 880px; /* su desktop il testo sta su due-tre righe accanto ai pulsanti */
   --consent-offset: var(--space-5);
   --consent-z: 60; /* sopra l'header (--header-z: 50 in blocks/header.css) */
   --consent-backdrop: transparent;
