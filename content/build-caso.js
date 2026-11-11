@@ -49,33 +49,33 @@ function traGiorni(iso) {
 const COMMENTI = {
   'spalla-calcificazione-sovraspinato-riassorbimento': [
     {
-      nome: 'Dott. Riccardo Prezioso', foto: 'riccardo-prezioso.png', data: '12 luglio 2026',
+      nome: 'Dott. Riccardo Prezioso', foto: 'riccardo-prezioso.webp', data: '12 luglio 2026',
       testo: 'Formazione iperecogena del sovraspinoso con cono d’ombra sfumato e falda in borsa: nel mio referto l’ho descritta come calcificazione in riassorbimento. Il confronto con la controlaterale aiuta molto a pesare la borsite.',
     },
     {
-      nome: 'Dott.ssa Francesca Serpi', foto: 'francesca-serpi.png', data: '12 luglio 2026',
+      nome: 'Dott.ssa Francesca Serpi', foto: 'francesca-serpi.webp', data: '12 luglio 2026',
       testo: 'Concordo. Segnalo solo che il cono d’ombra incompleto va cercato in almeno due piani prima di definirla “molle”: su un solo piano si rischia di sovrastimare il riassorbimento.',
     },
     {
-      nome: 'Dott. Nicolò Vitale', foto: 'nicolo-vitale.png', data: '13 luglio 2026', autore: true,
+      nome: 'Dott. Nicolò Vitale', foto: 'nicolo-vitale.webp', data: '13 luglio 2026', autore: true,
       testo: 'Esatto, e infatti le prime due scansioni pubblicate sono lo stesso deposito in asse corto e in asse lungo. È la coppia che uso sempre per decidere se proporre il needling.',
     },
   ],
   'spalla-rigidita-progressiva-58-anni': [
     {
-      nome: 'Dott.ssa Francesca Lacelli', foto: 'francesca-lacelli.jpg', data: '14 settembre 2026',
+      nome: 'Dott.ssa Francesca Lacelli', foto: 'francesca-lacelli.webp', data: '14 settembre 2026',
       testo: 'La coppia di scansioni sulla capsula inferiore è il punto di partenza: sul lato sintomatico il profilo mi sembra nettamente più spesso della controlaterale. Nel mio referto ho misurato entrambi i lati e riportato la differenza, perché il valore assoluto da solo dice poco.',
     },
     {
-      nome: 'Dott. Alberto Monello', foto: 'alberto-monello.png', data: '15 settembre 2026',
+      nome: 'Dott. Alberto Monello', foto: 'alberto-monello.webp', data: '15 settembre 2026',
       testo: 'Quello che mi colpisce è in negativo: sovraspinato, sottospinato e sottoscapolare appaiono continui e il CLB è in sede senza versamento significativo. Una cuffia così non giustifica un ROM ridotto in tutti i piani, tanto meno la limitazione passiva descritta nell’esame obiettivo.',
     },
     {
-      nome: 'Dott.ssa Ilaria Petrucci', foto: 'ilaria-petrucci.png', data: '17 settembre 2026',
+      nome: 'Dott.ssa Ilaria Petrucci', foto: 'ilaria-petrucci.webp', data: '17 settembre 2026',
       testo: 'Prima di chiudere il referto chiederei l’intervallo dei rotatori con power Doppler e, sul piano clinico, glicemia e funzione tiroidea: sono le comorbidità che più spesso accompagnano questi quadri e cambiano la prognosi più dell’immagine.',
     },
     {
-      nome: 'Dott. Nicolò Vitale', foto: 'nicolo-vitale.png', data: '18 settembre 2026', autore: true,
+      nome: 'Dott. Nicolò Vitale', foto: 'nicolo-vitale.webp', data: '18 settembre 2026', autore: true,
       testo: 'Non confermo né smentisco fino alla pubblicazione, ma le domande sono quelle giuste: studio comparativo obbligatorio e lettura del quadro clinico insieme alle immagini. Continuate a inviare i vostri referti, la soluzione esce l’11 ottobre.',
     },
   ],
@@ -180,7 +180,7 @@ ${fonti}
 
           <p class="hero__byline">
             <span class="hero__byline-label">Caso di</span>
-            <a class="chip chip--sm" href="${attr(autore.scheda)}"><img class="chip__avatar" src="assets/img/people/relatori/nicolo-vitale.png" alt="" width="48" height="48">${esc(autore.nome)}</a>
+            <a class="chip chip--sm" href="${attr(autore.scheda)}"><img class="chip__avatar" src="assets/img/people/relatori/nicolo-vitale.webp" alt="" width="48" height="48">${esc(autore.nome)}</a>
             <span class="hero__byline-role">${esc(autore.ruolo)} · ${esc(autore.affiliazione)}</span>
           </p>
 

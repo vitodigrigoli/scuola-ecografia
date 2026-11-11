@@ -857,7 +857,8 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - [ ] Titolo pagina Relatori ("SECONDA EDIZIONE" vs contenuti 3ª edizione) ed elenco definitivo docenti/tutor (discrepanze Home ↔ Relatori)
 - [ ] Comitato Scientifico definitivo (con o senza Lacelli e Tognini)
 - [ ] Mesi della Quarta edizione in Prenota (Febbraio vs Marzo)
-- [ ] Foto relatori: le 500×500 di ANFI sono in `assets/img/people/relatori/` (8 MB in tutto, emanuele-lazzara.jpg da solo 1,3 MB) — da ottimizzare in WebP prima della messa online
+- [x] Foto relatori ottimizzate in WebP (8,5 MB → 0,5 MB, lato massimo 800px)
+- [ ] **Foto relatori a bassa risoluzione** da sostituire: in Relatori (mostrate a 402px) Claudio Secci 350px, Marco Di Gesù 320px, Valerio Amico 350px; in home (card 278×371) tutte e 9 le foto sono 200×300 (Vitale, Di Gesù, Latini, Romeo, Amico, Secci, Monello, Reggiani, Cosentino). Ideale: almeno 800×800 per Relatori, 560×750 per la home
 - [ ] Loghi sponsor in vettoriale / PNG su trasparente (su sfondo nero i PNG bianchi 300×100 attuali potrebbero non funzionare)
 - [x] Video hero: `04_Header_Desktop_HB.webm` e `04_Header_Mobile_HB.webm` scaricati dal sito ANFI in `assets/video/` (confermare che si possano riusare)
 - [ ] Copertina Atlante in alta risoluzione
