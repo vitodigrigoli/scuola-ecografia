@@ -858,7 +858,7 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - [ ] Comitato Scientifico definitivo (con o senza Lacelli e Tognini)
 - [ ] Mesi della Quarta edizione in Prenota (Febbraio vs Marzo)
 - [x] Foto relatori ottimizzate in WebP (8,5 MB → 0,5 MB, lato massimo 800px)
-- [ ] **Foto relatori a bassa risoluzione** da sostituire: in Relatori (mostrate a 402px) Claudio Secci 350px, Marco Di Gesù 320px, Valerio Amico 350px; in home (card 278×371) tutte e 9 le foto sono 200×300 (Vitale, Di Gesù, Latini, Romeo, Amico, Secci, Monello, Reggiani, Cosentino). Ideale: almeno 800×800 per Relatori, 560×750 per la home
+- [ ] **Foto relatori ancora da sostituire** (aggiornate l'11/11: Di Gesù, Amico, Latini in alta risoluzione; card della home di Vitale, Romeo, Monello, Reggiani, Secci ricavate dalle foto più grandi disponibili). Mancano: **Claudio Secci** per la pagina Relatori (oggi 350px, mostrata a 402) e **Vincenzo Cosentino** per la home (oggi 200×300, mostrata a 278×371). Facoltativo, per gli schermi ad alta densità: originali più grandi di 500px per Vitale, Romeo, Monello, Reggiani
 - [ ] Loghi sponsor in vettoriale / PNG su trasparente (su sfondo nero i PNG bianchi 300×100 attuali potrebbero non funzionare)
 - [x] Video hero: `04_Header_Desktop_HB.webm` e `04_Header_Mobile_HB.webm` scaricati dal sito ANFI in `assets/video/` (confermare che si possano riusare)
 - [ ] Copertina Atlante in alta risoluzione
