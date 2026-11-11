@@ -1,0 +1,20 @@
+{
+  "name": "Scuola di Ecografia",
+  "short_name": "Scuola di Ecografia",
+  "icons": [
+    {
+      "src": "assets/favicon/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "browser",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}

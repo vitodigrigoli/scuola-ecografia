@@ -20,6 +20,7 @@
    Variazioni:
      .hero--centered   senza media, testo centrato (pagine interne / landing)
      .hero--compact    padding ridotto
+     .hero--plain      senza bagliore (pagine-documento)
    ========================================================================== */
 
 .hero {
@@ -277,6 +278,12 @@
 .hero--compact {
   --hero-pad-top: clamp(64px, 8vw, 96px);
   --hero-pad-bottom: clamp(32px, 5vw, 56px);
+}
+
+/* senza bagliore: per le pagine-documento (privacy, cookie), dove la hero è bassa e il testo
+   inizia subito sotto: l'alone verrebbe tagliato di netto sopra le prime righe */
+.hero--plain {
+  --hero-glow: transparent;
 }
 
 /* ==========================================================================

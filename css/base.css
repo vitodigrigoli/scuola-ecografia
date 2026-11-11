@@ -122,6 +122,11 @@ p {
   padding-block: clamp(var(--section-pad-min), 10vw, var(--section-pad-max));
 }
 
+/* subito dopo una hero compatta: la hero ha già il suo margine inferiore, senza questo lo spazio raddoppia */
+.section--flush-top {
+  padding-top: 0;
+}
+
 /* --- Icone SVG (sprite in assets/icons/sprite.svg) --- */
 .icon {
   width: 1em;

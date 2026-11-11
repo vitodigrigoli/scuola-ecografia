@@ -21,6 +21,10 @@
    ========================================================================== */
 
 .header {
+  /* nome proprio per la transizione di pagina: l'header resta fermo mentre cambia la pagina
+     (css/page-transitions.css) */
+  view-transition-name: site-header;
+
   /* --- Variabili locali: le variazioni ridefiniscono solo queste --- */
   --header-h: 64px;
   --header-top: 16px;

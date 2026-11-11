@@ -343,7 +343,7 @@ ${correlati}
         <h2 class="cta-banner__title" id="cta-caso-title">Hai un caso che <em>vale la pena raccontare?</em></h2>
         <p class="cta-banner__text">Anamnesi, esame obiettivo e le tue immagini ecografiche: la redazione della Scuola ti aiuta a trasformarlo in un caso pubblicato.</p>
         <div class="cta-banner__actions">
-          <a class="btn btn--primary btn--lg" href="mailto:info@associazioneanfi.it?subject=Proposta%20di%20caso%20clinico">Proponi un caso clinico ${ic('mail')}</a>
+          <a class="btn btn--primary btn--lg" href="mailto:segreteria@scuoladiecografia.com?subject=Proposta%20di%20caso%20clinico">Proponi un caso clinico ${ic('mail')}</a>
           <a class="btn btn--secondary btn--lg" href="casi-clinici.html">Tutti i casi ${ic('arrow-right')}</a>
         </div>
       </div>

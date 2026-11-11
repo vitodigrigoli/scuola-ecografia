@@ -3,6 +3,7 @@
    Uso: node content/build-metodo.js && node content/build-pages.js */
 const fs = require('fs');
 const path = require('path');
+const config = require('./config');
 
 const home = fs.readFileSync(path.join(__dirname, 'pages', 'home.html'), 'utf8');
 const ic = (n) => `<svg class="icon" aria-hidden="true"><use href="#icon-${n}"/></svg>`;
@@ -59,16 +60,6 @@ const page = `    <!-- ============================== PAGE HERO ================
       </div>
     </section>
 
-    <!-- ============================== BOZZA (da togliere dopo la revisione) ============================== -->
-    <div class="container">
-      <div class="notice notice--warning">
-        <span class="notice__icon">${ic('info')}</span>
-        <div class="notice__body">
-          <p class="notice__text">Testi proposti a partire dagli appunti della Scuola: da rivedere e confermare con la direzione didattica prima della pubblicazione.</p>
-        </div>
-      </div>
-    </div>
-
     <!-- ============================== SCHEMA (percorso --connected) ============================== -->
     <section class="section percorso percorso--connected" id="schema" aria-labelledby="schema-title">
       <div class="container">
@@ -114,7 +105,7 @@ ${scelta('eye', 'Perché il libro e perché le live', "Il libro è il riferiment
         </div>
 
         <figure class="photo">
-          <img src="assets/img/scuola/postazione-1600.webp" srcset="assets/img/scuola/postazione-900.webp 900w, assets/img/scuola/postazione-1600.webp 1600w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Un tutor mostra l'immagine ecografica sull'ecografo a un gruppo di discenti" width="1600" height="700" loading="lazy">
+          <img src="assets/img/scuola/postazione-1600.webp" srcset="assets/img/scuola/postazione-900.webp 900w, assets/img/scuola/postazione-1600.webp 1600w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Una discente esegue la scansione della gamba guardando l'ecografo, con il tutor in piedi accanto" width="1600" height="700" loading="lazy">
         </figure>
 
         <div class="features__grid">
@@ -178,7 +169,7 @@ ${cifra('12', '', 'Postazioni ecografiche', "Ogni postazione ha il suo tutor e c
     </section>
 
     <!-- ============================== DOPO LA SCUOLA (features --cols-3) ============================== -->
-    <section class="section features features--icons features--cols-3" id="community" aria-labelledby="community-title">
+    <section class="section features features--icons features--cols-${config.casiOnline ? 3 : 2}" id="community" aria-labelledby="community-title">
       <div class="container">
         <div class="text-block text-block--split">
           <p class="text-block__eyebrow">Dopo la Scuola</p>
@@ -186,13 +177,13 @@ ${cifra('12', '', 'Postazioni ecografiche', "Ogni postazione ha il suo tutor e c
           <p class="text-block__text">La formazione non finisce con l'ultimo incontro: chi ha frequentato la Scuola resta in contatto con docenti, tutor e colleghi.</p>
         </div>
         <div class="features__grid">
-          <div class="features__item">
+${config.casiOnline ? `          <div class="features__item">
             <span class="features__sign" aria-hidden="true"><svg class="icon"><use href="#icon-image"/></svg></span>
             <h3 class="features__title">Casi clinici</h3>
             <p class="features__text">Un caso nuovo ogni mese: anamnesi, esame obiettivo e immagini. Prova a refertare, poi confronta il tuo ragionamento con quello dell'autore.</p>
             <ul class="features__list"><li><a href="casi-clinici.html">Vai ai casi clinici</a></li></ul>
           </div>
-          <div class="features__item">
+` : ''}          <div class="features__item">
             <span class="features__sign" aria-hidden="true"><svg class="icon"><use href="#icon-mail"/></svg></span>
             <h3 class="features__title">Newsletter</h3>
             <p class="features__text">Casi, aggiornamenti e novità della Scuola arrivano direttamente via email, per tenere vivo quello che si è imparato.</p>

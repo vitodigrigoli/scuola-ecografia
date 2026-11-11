@@ -3,10 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Programma — Scuola di Ecografia Muscoloscheletrica ANFI</title>
-  <meta name="description" content="La Scuola di Ecografia Muscoloscheletrica fatta da medici per medici. Formazione avanzata ANFI: 4 weekend, rapporto tutor-discente 1:5, esame finale.">
+  <title>Programma del corso · Scuola di Ecografia</title>
+  <meta name="description" content="Quattro incontri: arto superiore, arto inferiore, rachide e parete addominale, quadri patologici e refertazione. Orari e docenti di ogni giornata.">
+  <link rel="canonical" href="https://scuoladiecografia.com/programma.html">
+
+  <!-- Anteprima dei link condivisi (Open Graph: WhatsApp, LinkedIn, Facebook; Twitter/X) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Scuola di Ecografia">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Programma del corso · Scuola di Ecografia">
+  <meta property="og:description" content="Quattro incontri: arto superiore, arto inferiore, rachide e parete addominale, quadri patologici e refertazione. Orari e docenti di ogni giornata.">
+  <meta property="og:url" content="https://scuoladiecografia.com/programma.html">
+  <meta property="og:image" content="https://scuoladiecografia.com/assets/img/og/scuola-ecografia.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Foto di gruppo dei discenti del corso di ecografia muscoloscheletrica con i diplomi">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Dati strutturati (schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://scuoladiecografia.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Programma",
+            "item": "https://scuoladiecografia.com/programma.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <meta name="robots" content="noindex">
-  <link rel="icon" href="data:,">
+
+  <!-- Favicon (assets/favicon/, favicon.ico e site.webmanifest in radice) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 
   <!-- Tema: applicato prima del paint per evitare il flash (default dark) -->
   <script>
@@ -17,9 +65,37 @@
     })();
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet">
+  <!-- Animazioni di comparsa (css/motion.css, js/motion.js): attive solo se il browser le regge e
+       non c'è "riduci movimento". Se js/motion.js non parte entro 3 s, i contenuti tornano visibili. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      d.classList.add('motion');
+      setTimeout(function () { if (!window.__motion) d.classList.remove('motion'); }, 3000);
+    })();
+  </script>
+
+  <!-- Transizione di pagina nativa: l'iscrizione sta qui e non nel CSS esterno, così il browser la
+       legge prima del primo disegno anche se i fogli di stile (in @import) arrivano dopo o dalla cache.
+       Le animazioni sono in css/page-transitions.css. -->
+  <style>@view-transition { navigation: auto; }</style>
+  <script>
+    // una transizione annullata (es. pagina dalla cache, stato non valido) non è un errore:
+    // la navigazione avviene comunque, si evita solo il messaggio in console
+    (function () {
+      function quiet(e) {
+        var vt = e.viewTransition;
+        if (!vt) return;
+        [vt.ready, vt.finished, vt.updateCallbackDone].forEach(function (p) { if (p) p.catch(function () {}); });
+      }
+      addEventListener('pageswap', quiet);
+      addEventListener('pagereveal', quiet);
+    })();
+  </script>
+
+  <!-- Font locale (css/fonts.css): precaricato, così parte insieme all'HTML e non dopo il CSS -->
+  <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="page" data-page="programma">
@@ -184,7 +260,6 @@
           <li><a class="header__link" href="metodo.html">Il metodo</a></li>
           <li><a class="header__link header__link--active" href="programma.html" aria-current="page">Programma</a></li>
           <li><a class="header__link" href="relatori.html">Relatori</a></li>
-          <li><a class="header__link" href="casi-clinici.html">Casi clinici</a></li>
           <li><a class="header__link" href="prenota.html">Prenota</a></li>
           <li><a class="header__link" href="index.html#faq">FAQ</a></li>
         </ul>
@@ -1116,7 +1191,7 @@
     <!-- ============================== INTRO (text-block) ============================== -->
     <section class="section" id="formazione" aria-labelledby="intro-title">
       <div class="container">
-        <div class="text-block text-block--split text-block--top text-block--flush">
+        <div class="text-block text-block--split text-block--top text-block--flush" data-animate>
           <h2 class="text-block__title" id="intro-title">Formazione avanzata in ecografia muscoloscheletrica</h2>
           <div class="text-block__body">
             <p class="text-block__text">La Scuola di Ecografia è rivolta <strong>esclusivamente a medici</strong> e si prefigge l'obiettivo di migliorare la competenza diagnostica e terapeutica promuovendo standard elevati nella gestione delle patologie muscoloscheletriche.</p>
@@ -1136,19 +1211,33 @@
       <div class="footer__bar">
         <a class="footer__brand" href="index.html" aria-label="Scuola di Ecografia Muscoloscheletrica — Home"><img class="footer__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260"></a>
         <p class="footer__meta">
-          <span>© 2026 Scuola di Ecografia&nbsp;SRL</span>
-          <span>P.IVA 00000000000</span>
-          <a href="mailto:info@associazioneanfi.it">info@associazioneanfi.it</a>
+          <span>© 2026 Fisiaforma&nbsp;S.R.L.</span>
+          <span>P.IVA 02546630035</span>
+          <a href="mailto:segreteria@scuoladiecografia.com">segreteria@scuoladiecografia.com</a>
         </p>
         <ul class="footer__legal">
-            <li><a class="footer__link" href="https://www.iubenda.com/privacy-policy/18516161" target="_blank" rel="noopener">Privacy Policy <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-            <li><a class="footer__link" href="https://www.iubenda.com/privacy-policy/18516161/cookie-policy" target="_blank" rel="noopener">Cookie Policy <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
+            <li><a class="footer__link" href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a class="footer__link" href="cookie-policy.html">Cookie Policy</a></li>
+
+            <li><button class="footer__link" type="button" data-consent="open">Preferenze cookie</button></li>
         </ul>
       </div>
     </div>
   </footer>
 
+  <div class="consent consent--choice" id="consent" role="dialog" aria-modal="true" aria-label="Preferenze cookie" data-ga4="GTM-NHTPWQXG" hidden>
+    <div class="consent__panel" tabindex="-1">
+    <p class="consent__text">Usiamo strumenti tecnici per far funzionare il sito e, solo se accetti, Google Analytics per capire in forma aggregata come viene usato. Puoi cambiare idea in qualsiasi momento da «Preferenze cookie» in fondo alla pagina. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    <div class="consent__actions">
+      <button class="btn btn--secondary btn--sm" type="button" data-consent="reject">Rifiuta</button>
+      <button class="btn btn--secondary btn--sm" type="button" data-consent="accept">Accetta</button>
+    </div>
+    </div>
+  </div>
+
   <script src="js/theme.js"></script>
+  <script src="js/consent.js"></script>
+  <script src="js/motion.js"></script>
   <script src="js/header.js"></script>
   <script src="js/stats.js"></script>
   <script src="js/marquee.js"></script>

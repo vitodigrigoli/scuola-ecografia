@@ -847,6 +847,9 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - [ ] **Bergamo 2027:** struttura e indicazioni per arrivare (card Sedi e FAQ "Come raggiungere la sede"); sulla scheda Fisiaforma la sede risulta ancora "da confermare"
 - [ ] **Pagamento:** Fisiaforma indica acconto di €200+IVA non rimborsabile, poi 50% del saldo entro 45 giorni e 50% entro 90 (o saldo unico entro 45); FAQ e Prenota dicono "prima rata all'iscrizione, seconda dopo 2 mesi". Anche i rimborsi sono diversi. Quale versione vale?
 - [ ] **Il metodo:** validazione di tutti i testi (scritti a partire dagli appunti), in particolare: come si ripetono i 3 passaggi, percorso di affiancamento dei tutor, newsletter, community; testo nuovo sulle 12 postazioni (un tutor e 5 discenti ciascuna, quindi 60 posti, gruppi in parallelo): confermare che le postazioni funzionano così
+- [ ] **Privacy e Cookie Policy:** confermare che il titolare del sito sia FISIAFORMA S.R.L. (dati presi dalla sua policy Iubenda: Via Don Gaudenzio Cabalà 11, 28845 Domodossola, info@fisiaforma.it) e far validare i testi da chi segue la parte legale; in particolare la conservazione dei messaggi alla segreteria (proposta: massimo 24 mesi) e il titolare del modulo «Rimani aggiornato» (HubSpot)
+- [ ] **Messa online (SiteGround):** scegliere un data center nell'UE; dopo il primo caricamento verificare dal browser che SiteGround non imposti cookie propri (se sì, vanno aggiunti alla Cookie Policy); mettere `indicizzabile: true` in content/config.js; casi clinici per ora nascosti (`casiOnline: false`)
+- [ ] **GA4:** ID inserito (`GTM-NHTPWQXG`, misurazione `G-N50D4XPGHL`) in content/config.js; in GA impostare la conservazione dei dati a 14 mesi (come scritto in privacy) e lasciare spenti Google Signals e la personalizzazione degli annunci
 - [ ] **Foto delle edizioni:** confermare che la liberatoria fotografica firmata dai partecipanti copre anche l'uso sul sito (in home e nel Metodo ci sono volti riconoscibili della seconda edizione, Torino, febbraio 2026). Per ora esclusi gli scatti con modello a torso nudo e il primo piano dei diplomi con il nome leggibile
 - [ ] **Nota legale** ("non rilascia titoli con valore legale"): spostata nella sezione Formazione quando è stata tolta "La storia della Scuola". Confermare se resta lì
 - [ ] Date esatte della **Quinta edizione**; link corretto della CTA "Prenota ora" (oggi punta alla 4ª)
@@ -856,9 +859,9 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - [ ] Mesi della Quarta edizione in Prenota (Febbraio vs Marzo)
 - [ ] Foto relatori: le 500×500 di ANFI sono in `assets/img/people/relatori/` (8 MB in tutto, emanuele-lazzara.jpg da solo 1,3 MB) — da ottimizzare in WebP prima della messa online
 - [ ] Loghi sponsor in vettoriale / PNG su trasparente (su sfondo nero i PNG bianchi 300×100 attuali potrebbero non funzionare)
-- [ ] Video hero (`04_Header_Desktop_HB.webm` / mobile) o immagini sostitutive
+- [x] Video hero: `04_Header_Desktop_HB.webm` e `04_Header_Mobile_HB.webm` scaricati dal sito ANFI in `assets/video/` (confermare che si possano riusare)
 - [ ] Copertina Atlante in alta risoluzione
 - [ ] PDF programma aggiornato
 - [ ] Conferma dei refusi da correggere (`[sic]` nel documento)
 - [ ] Conferma link Login → Area membri ANFI e destinazione CTA "Prenota il corso"
-- [ ] Footer: ragione sociale "Scuola di Ecografia SRL" e **P.IVA (oggi segnaposto 00000000000)**; email di contatto da confermare (oggi info@associazioneanfi.it)
+- [x] Footer: dati di Fisiaforma S.R.L. (P.IVA 02546630035) e segreteria@scuoladiecografia.com

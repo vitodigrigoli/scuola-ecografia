@@ -72,6 +72,7 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `breadcrumb` | ✔ fatto | pagina caso |
 | `photo` | ✔ fatto — foto larga 16:7 con didascalia (srcset 900/1600) | home (gruppo), metodo (postazione) |
 | `photos` | ✔ fatto — striscia di foto delle edizioni nello scroller | home |
+| `consent` | ✔ fatto — informativa cookie in basso (solo strumenti tecnici: informa, non chiede consenso); `js/consent.js`, chiusura ricordata in localStorage | tutte |
 | `gallery` + `lightbox` | ✔ fatto (griglia 3-2-1, oltre 6 immagini solo nel lightbox; `<dialog>` + `js/lightbox.js`: frecce, tastiera, swipe, miniature, focus di ritorno) | pagina caso |
 | `prose` | ✔ fatto (`--narrow`, `--lead`) — corpo articolo | pagina caso |
 | `reveal` | ✔ fatto — referto dietro spoiler | pagina caso |
@@ -87,7 +88,7 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | `text-block` | ✔ fatto — intestazione di sezione o testo a 2 colonne (`--split`, `--top`, `--center`, `--flush`, `--tight`; pill `__facts`) | tutte |
 | `header` | ✔ fatto (`--floating`, `--static`, menu mobile, toggle tema) | tutte |
 | `footer` | ✔ fatto — barra minimal (logo, © ANFI, C.F., email, legali); `--full` aggiunge le colonne di link | tutte |
-| `hero` | ✔ fatto (`--centered`, `--compact`; video ANFI in hotlink per la preview) | home |
+| `hero` | ✔ fatto (`--centered`, `--compact`; video locale in assets/video/, versione mobile sotto 768px) | home |
 | `stats` | ✔ fatto (`--bordered`, `--cards`, `--compact`, `--three`, `--five`, `--scroller` = fascia continua in home; contatore animato in `js/stats.js`) | home |
 | `features` | ✔ fatto (`--icons` = Obiettivi, `--icons --inline` = Didattica, `--numbered`, `--figures` = pratica del Metodo, `--cols-2/3`) | home, metodo |
 | `percorso` | ✔ fatto (`--cards`, `--connected`; `__media` = immagine opzionale: ecografia in home, foto dell'aula nel Metodo) | home, prenota, metodo |
@@ -106,3 +107,17 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 | Prenota | ✔ fatto con blocchi esistenti: hero, pricing (riuso home), percorso --cards + notice, editions (riuso home), cta-banner; generata da `content/build-prenota.js` | prenota |
 | Il metodo | ✔ fatto con blocchi esistenti: hero, percorso --connected, features (--figures per la pratica), media-text, testimonials (riuso home), cta-banner; generata da `content/build-metodo.js` | metodo |
 | Relatori | ✔ fatto con `people --cols-3 --square` (docenti in `--masonry`: tag, affiliazione, relazioni; id = slug del nome), `people --compact --square` (tutor, senza affiliazione), `roster` (comitati: righe con chip-avatar); generato da `content/build-relatori.js` | relatori |
+
+
+## Messa online
+
+Interruttori in [content/config.js](content/config.js), poi `node content/build-metodo.js && node content/build-pages.js`:
+
+- **casiOnline** (oggi `false`): casi clinici nascosti, niente pagine, voce di menu né card nel Metodo; i sorgenti restano in `content/`.
+- **ga4Id** (oggi vuoto): con l'ID `G-…` l'avviso cookie diventa una richiesta di consenso (Accetta e Rifiuta identici), GA4 parte **solo** dopo Accetta, nel footer compare «Preferenze cookie» e le policy mostrano le sezioni su GA4 (blocchi `<!-- se:ga4 -->`). Non incollare lo snippet di Google nelle pagine.
+- **indicizzabile** (oggi `false`): toglie il meta `noindex` e apre `robots.txt`; da mettere `true` al lancio su scuoladiecografia.com, poi inviare `sitemap.xml` in Google Search Console.
+- **siteUrl**: `https://scuoladiecografia.com`, usato per URL canonici, Open Graph e sitemap. Titoli, descrizioni e dati strutturati sono in [content/seo.js](content/seo.js).
+
+**Hosting SiteGround**: nella cartella del sito vanno caricati solo i file pubblici (gli `*.html` in radice, `favicon.ico`, `site.webmanifest`, `robots.txt`, `sitemap.xml`, `assets/`, `css/`, `js/`), non `content/`, `design-reference/`, `_preview.html`, `README.md`. Data center nell'UE.
+
+**Privacy e Cookie Policy** ([content/pages/privacy-policy.html](content/pages/privacy-policy.html), [cookie-policy.html](content/pages/cookie-policy.html)): titolare Fisiaforma S.R.L., da far validare a chi segue la parte legale.

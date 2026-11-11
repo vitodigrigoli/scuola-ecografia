@@ -3,10 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Prenota — Scuola di Ecografia Muscoloscheletrica ANFI</title>
-  <meta name="description" content="La Scuola di Ecografia Muscoloscheletrica fatta da medici per medici. Formazione avanzata ANFI: 4 weekend, rapporto tutor-discente 1:5, esame finale.">
+  <title>Iscrizione e costi · Scuola di Ecografia</title>
+  <meta name="description" content="Quote per soci ANFI, non soci e specializzandi, pagamento in due rate e date delle prossime edizioni. Iscrizione su Fisiaforma.">
+  <link rel="canonical" href="https://scuoladiecografia.com/prenota.html">
+
+  <!-- Anteprima dei link condivisi (Open Graph: WhatsApp, LinkedIn, Facebook; Twitter/X) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Scuola di Ecografia">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Iscrizione e costi · Scuola di Ecografia">
+  <meta property="og:description" content="Quote per soci ANFI, non soci e specializzandi, pagamento in due rate e date delle prossime edizioni. Iscrizione su Fisiaforma.">
+  <meta property="og:url" content="https://scuoladiecografia.com/prenota.html">
+  <meta property="og:image" content="https://scuoladiecografia.com/assets/img/og/scuola-ecografia.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Foto di gruppo dei discenti del corso di ecografia muscoloscheletrica con i diplomi">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Dati strutturati (schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://scuoladiecografia.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Prenota",
+            "item": "https://scuoladiecografia.com/prenota.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <meta name="robots" content="noindex">
-  <link rel="icon" href="data:,">
+
+  <!-- Favicon (assets/favicon/, favicon.ico e site.webmanifest in radice) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 
   <!-- Tema: applicato prima del paint per evitare il flash (default dark) -->
   <script>
@@ -17,9 +65,37 @@
     })();
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet">
+  <!-- Animazioni di comparsa (css/motion.css, js/motion.js): attive solo se il browser le regge e
+       non c'è "riduci movimento". Se js/motion.js non parte entro 3 s, i contenuti tornano visibili. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      d.classList.add('motion');
+      setTimeout(function () { if (!window.__motion) d.classList.remove('motion'); }, 3000);
+    })();
+  </script>
+
+  <!-- Transizione di pagina nativa: l'iscrizione sta qui e non nel CSS esterno, così il browser la
+       legge prima del primo disegno anche se i fogli di stile (in @import) arrivano dopo o dalla cache.
+       Le animazioni sono in css/page-transitions.css. -->
+  <style>@view-transition { navigation: auto; }</style>
+  <script>
+    // una transizione annullata (es. pagina dalla cache, stato non valido) non è un errore:
+    // la navigazione avviene comunque, si evita solo il messaggio in console
+    (function () {
+      function quiet(e) {
+        var vt = e.viewTransition;
+        if (!vt) return;
+        [vt.ready, vt.finished, vt.updateCallbackDone].forEach(function (p) { if (p) p.catch(function () {}); });
+      }
+      addEventListener('pageswap', quiet);
+      addEventListener('pagereveal', quiet);
+    })();
+  </script>
+
+  <!-- Font locale (css/fonts.css): precaricato, così parte insieme all'HTML e non dopo il CSS -->
+  <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="page" data-page="prenota">
@@ -184,7 +260,6 @@
           <li><a class="header__link" href="metodo.html">Il metodo</a></li>
           <li><a class="header__link" href="programma.html">Programma</a></li>
           <li><a class="header__link" href="relatori.html">Relatori</a></li>
-          <li><a class="header__link" href="casi-clinici.html">Casi clinici</a></li>
           <li><a class="header__link header__link--active" href="prenota.html" aria-current="page">Prenota</a></li>
           <li><a class="header__link" href="index.html#faq">FAQ</a></li>
         </ul>
@@ -232,7 +307,7 @@
     <!-- ============================== PRICING ============================== -->
     <section class="section pricing" id="quote" aria-labelledby="pricing-title">
       <div class="pricing__inner container">
-        <div class="text-block text-block--center">
+        <div class="text-block text-block--center" data-animate>
           <p class="text-block__eyebrow">Costi</p>
           <h2 class="text-block__title" id="pricing-title">Dettaglio dei costi</h2>
           <p class="text-block__text">La quota comprende l'intero percorso: quattro weekend, tutoraggio, materiale didattico e diploma finale. Il pagamento è in due rate.</p>
@@ -289,13 +364,13 @@
     <!-- ============================== COME FUNZIONA (percorso --cards) ============================== -->
     <section class="section percorso percorso--cards" id="come-funziona" aria-labelledby="come-title">
       <div class="container">
-        <div class="text-block text-block--split">
+        <div class="text-block text-block--split" data-animate>
           <p class="text-block__eyebrow">Iscrizione</p>
           <h2 class="text-block__title" id="come-title">Come funziona l'iscrizione</h2>
           <p class="text-block__text">Tre passaggi: scegli la quota, completa la pre-iscrizione sul provider, versa le due rate secondo le scadenze della scheda d'iscrizione.</p>
         </div>
 
-        <div class="percorso__steps">
+        <div class="percorso__steps" data-animate-group>
           <div class="percorso__step">
             <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-user"/></svg></span>
             <h3 class="percorso__title">Scegli la tua quota</h3>
@@ -337,13 +412,13 @@
     <!-- ============================== EDITIONS ============================== -->
     <section class="section editions" id="edizioni" aria-labelledby="editions-title">
       <div class="container">
-        <div class="text-block text-block--split">
+        <div class="text-block text-block--split" data-animate>
           <p class="text-block__eyebrow">Edizioni</p>
           <h2 class="text-block__title" id="editions-title">Le prossime edizioni</h2>
           <p class="text-block__text">La quarta edizione (Catania 2027) è sold out. La pre-iscrizione alla quinta, a Bergamo, è già disponibile sul sito del provider.</p>
         </div>
 
-        <div class="editions__grid">
+        <div class="editions__grid" data-animate-group>
           <article class="editions__card">
             <div class="editions__head">
               <p class="editions__eyebrow">Terza edizione</p>
@@ -402,7 +477,7 @@
         <p class="cta-banner__text">Lascia il tuo contatto: ti avvisiamo appena vengono confermate date e struttura della quinta edizione a Bergamo.</p>
         <div class="cta-banner__actions">
           <a class="btn btn--primary btn--lg" href="https://145504523.hs-sites-eu1.com/interesse_scuola_anfi5" target="_blank" rel="noopener">Rimani aggiornato <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
-          <a class="btn btn--secondary btn--lg" href="mailto:info@associazioneanfi.it"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>Scrivi alla segreteria</a>
+          <a class="btn btn--secondary btn--lg" href="mailto:segreteria@scuoladiecografia.com"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>Scrivi alla segreteria</a>
         </div>
       </div>
     </section>
@@ -413,19 +488,33 @@
       <div class="footer__bar">
         <a class="footer__brand" href="index.html" aria-label="Scuola di Ecografia Muscoloscheletrica — Home"><img class="footer__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260"></a>
         <p class="footer__meta">
-          <span>© 2026 Scuola di Ecografia&nbsp;SRL</span>
-          <span>P.IVA 00000000000</span>
-          <a href="mailto:info@associazioneanfi.it">info@associazioneanfi.it</a>
+          <span>© 2026 Fisiaforma&nbsp;S.R.L.</span>
+          <span>P.IVA 02546630035</span>
+          <a href="mailto:segreteria@scuoladiecografia.com">segreteria@scuoladiecografia.com</a>
         </p>
         <ul class="footer__legal">
-            <li><a class="footer__link" href="https://www.iubenda.com/privacy-policy/18516161" target="_blank" rel="noopener">Privacy Policy <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-            <li><a class="footer__link" href="https://www.iubenda.com/privacy-policy/18516161/cookie-policy" target="_blank" rel="noopener">Cookie Policy <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
+            <li><a class="footer__link" href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a class="footer__link" href="cookie-policy.html">Cookie Policy</a></li>
+
+            <li><button class="footer__link" type="button" data-consent="open">Preferenze cookie</button></li>
         </ul>
       </div>
     </div>
   </footer>
 
+  <div class="consent consent--choice" id="consent" role="dialog" aria-modal="true" aria-label="Preferenze cookie" data-ga4="GTM-NHTPWQXG" hidden>
+    <div class="consent__panel" tabindex="-1">
+    <p class="consent__text">Usiamo strumenti tecnici per far funzionare il sito e, solo se accetti, Google Analytics per capire in forma aggregata come viene usato. Puoi cambiare idea in qualsiasi momento da «Preferenze cookie» in fondo alla pagina. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    <div class="consent__actions">
+      <button class="btn btn--secondary btn--sm" type="button" data-consent="reject">Rifiuta</button>
+      <button class="btn btn--secondary btn--sm" type="button" data-consent="accept">Accetta</button>
+    </div>
+    </div>
+  </div>
+
   <script src="js/theme.js"></script>
+  <script src="js/consent.js"></script>
+  <script src="js/motion.js"></script>
   <script src="js/header.js"></script>
   <script src="js/stats.js"></script>
   <script src="js/marquee.js"></script>

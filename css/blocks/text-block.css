@@ -180,6 +180,11 @@
     align-self: end;
   }
 
+  /* dentro __head (flex in colonna) l'align-self: end dell'eyebrow la spingerebbe a destra */
+  .text-block--split .text-block__head > .text-block__eyebrow {
+    align-self: auto;
+  }
+
   .text-block--split .text-block__head + .text-block__text,
   .text-block--split .text-block__head + .text-block__body {
     grid-row: 1 / span 2;

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Privacy Policy · Scuola di Ecografia</title>
+  <meta name="description" content="Come la Scuola di Ecografia tratta i dati di chi visita il sito: titolare, finalità, conservazione e diritti.">
+  <link rel="canonical" href="https://scuoladiecografia.com/privacy-policy.html">
+
+  <!-- Anteprima dei link condivisi (Open Graph: WhatsApp, LinkedIn, Facebook; Twitter/X) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Scuola di Ecografia">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Privacy Policy · Scuola di Ecografia">
+  <meta property="og:description" content="Come la Scuola di Ecografia tratta i dati di chi visita il sito: titolare, finalità, conservazione e diritti.">
+  <meta property="og:url" content="https://scuoladiecografia.com/privacy-policy.html">
+  <meta property="og:image" content="https://scuoladiecografia.com/assets/img/og/scuola-ecografia.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Foto di gruppo dei discenti del corso di ecografia muscoloscheletrica con i diplomi">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Dati strutturati (schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://scuoladiecografia.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Privacy Policy",
+            "item": "https://scuoladiecografia.com/privacy-policy.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon (assets/favicon/, favicon.ico e site.webmanifest in radice) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+
+  <!-- Tema: applicato prima del paint per evitare il flash (default dark) -->
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Animazioni di comparsa (css/motion.css, js/motion.js): attive solo se il browser le regge e
+       non c'è "riduci movimento". Se js/motion.js non parte entro 3 s, i contenuti tornano visibili. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      d.classList.add('motion');
+      setTimeout(function () { if (!window.__motion) d.classList.remove('motion'); }, 3000);
+    })();
+  </script>
+
+  <!-- Transizione di pagina nativa: l'iscrizione sta qui e non nel CSS esterno, così il browser la
+       legge prima del primo disegno anche se i fogli di stile (in @import) arrivano dopo o dalla cache.
+       Le animazioni sono in css/page-transitions.css. -->
+  <style>@view-transition { navigation: auto; }</style>
+  <script>
+    // una transizione annullata (es. pagina dalla cache, stato non valido) non è un errore:
+    // la navigazione avviene comunque, si evita solo il messaggio in console
+    (function () {
+      function quiet(e) {
+        var vt = e.viewTransition;
+        if (!vt) return;
+        [vt.ready, vt.finished, vt.updateCallbackDone].forEach(function (p) { if (p) p.catch(function () {}); });
+      }
+      addEventListener('pageswap', quiet);
+      addEventListener('pagereveal', quiet);
+    })();
+  </script>
+
+  <!-- Font locale (css/fonts.css): precaricato, così parte insieme all'HTML e non dopo il CSS -->
+  <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="page" data-page="privacy-policy">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- Set icone 24x24, stroke currentColor. Uso: <svg class="icon"><use href="#icon-sun"/></svg> -->
+  <symbol id="icon-sun" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+  </symbol>
+  <symbol id="icon-moon" viewBox="0 0 24 24">
+    <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/>
+  </symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24">
+    <path d="M4 7h16M4 12h16M4 17h16"/>
+  </symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24">
+    <path d="M6 6l12 12M18 6L6 18"/>
+  </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+    <path d="M15 6l-6 6 6 6"/>
+  </symbol>
+  <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+    <path d="M9 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="icon-expand" viewBox="0 0 24 24">
+    <path d="M9 4H4v5M15 20h5v-5M4 15v5h5M20 9V4h-5"/>
+  </symbol>
+  <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+    <path d="M6 9l6 6 6-6"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24">
+    <path d="M5 12l5 5L20 7"/>
+  </symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24">
+    <path d="M12 2.5l2.95 6.3 6.9.85-5.1 4.75 1.35 6.85L12 17.9l-6.1 3.35 1.35-6.85-5.1-4.75 6.9-.85z"/>
+  </symbol>
+  <symbol id="icon-book" viewBox="0 0 24 24">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+  </symbol>
+  <symbol id="icon-probe" viewBox="0 0 24 24">
+    <path d="M9 3h6l1 6H8z"/>
+    <path d="M10 9v5a2 2 0 0 0 2 2 2 2 0 0 1 2 2v3"/>
+    <path d="M4 12a8 8 0 0 0 16 0"/>
+  </symbol>
+  <symbol id="icon-document" viewBox="0 0 24 24">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+    <path d="M14 2v6h6M8 13h8M8 17h8"/>
+  </symbol>
+  <symbol id="icon-award" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="6"/>
+    <path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/>
+  </symbol>
+  <symbol id="icon-map-pin" viewBox="0 0 24 24">
+    <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/>
+    <circle cx="12" cy="10" r="2.5"/>
+  </symbol>
+  <symbol id="icon-calendar" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="16" rx="2"/>
+    <path d="M16 3v4M8 3v4M3 10h18"/>
+  </symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 7v5l3 2"/>
+  </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="14" rx="2"/>
+    <path d="M3 7l9 6 9-6"/>
+  </symbol>
+  <symbol id="icon-external" viewBox="0 0 24 24">
+    <path d="M14 4h6v6M20 4l-9 9"/>
+    <path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+  </symbol>
+  <symbol id="icon-users" viewBox="0 0 24 24">
+    <circle cx="9" cy="8" r="3.5"/>
+    <path d="M2.5 20a6.5 6.5 0 0 1 13 0"/>
+    <path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4.5-6.2"/>
+  </symbol>
+  <symbol id="icon-stethoscope" viewBox="0 0 24 24">
+    <path d="M5 3v6a5 5 0 0 0 10 0V3"/>
+    <path d="M10 14v2a4 4 0 0 0 8 0v-3"/>
+    <circle cx="18" cy="10" r="2.5"/>
+  </symbol>
+  <symbol id="icon-info" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 11v5M12 8h.01"/>
+  </symbol>
+  <symbol id="icon-plane" viewBox="0 0 24 24">
+    <path d="M10.5 13.5L3 11l1.5-1.5L11 11l5.5-5.5a1.5 1.5 0 0 1 2 2L13 13l1.5 6.5L13 21l-2.5-7.5z"/>
+  </symbol>
+  <symbol id="icon-car" viewBox="0 0 24 24">
+    <path d="M5 16l1.5-5.5A2 2 0 0 1 8.4 9h7.2a2 2 0 0 1 1.9 1.5L19 16"/>
+    <rect x="3" y="16" width="18" height="4" rx="1"/>
+    <path d="M6 20v1M18 20v1M7 18h.01M17 18h.01"/>
+  </symbol>
+  <symbol id="icon-train" viewBox="0 0 24 24">
+    <rect x="5" y="3" width="14" height="14" rx="3"/>
+    <path d="M5 10h14M9 21l1.5-3M15 21l-1.5-3M8.5 14h.01M15.5 14h.01"/>
+  </symbol>
+  <symbol id="icon-image" viewBox="0 0 24 24">
+    <rect x="3" y="4" width="18" height="16" rx="2"/>
+    <circle cx="8.5" cy="9.5" r="1.5"/>
+    <path d="M21 15l-5-4-5 4-3-2-5 4"/>
+  </symbol>
+  <symbol id="icon-quote" viewBox="0 0 24 24">
+    <path d="M9 7H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v1a3 3 0 0 1-3 3M19 7h-4a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v1a3 3 0 0 1-3 3"/>
+  </symbol>
+  <symbol id="icon-eye" viewBox="0 0 24 24">
+    <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24">
+    <path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.5-4.5A8 8 0 1 1 21 12z"/>
+  </symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24">
+    <rect x="4" y="11" width="16" height="10" rx="2"/>
+    <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+  </symbol>
+  <symbol id="icon-layers" viewBox="0 0 24 24">
+    <path d="M12 3 2.5 8 12 13l9.5-5L12 3Z"/>
+    <path d="m2.5 12 9.5 5 9.5-5"/>
+    <path d="m2.5 16 9.5 5 9.5-5"/>
+  </symbol>
+  <symbol id="icon-joint" viewBox="0 0 24 24">
+    <path d="M8.5 2v6.5a3.5 3.5 0 0 0 7 0V2"/>
+    <path d="M8 22v-5.2c0-.8.7-1.3 1.4-1 .9.4 1.7.6 2.6.6s1.700-.2 2.600-.6c.7-.3 1.400.2 1.400 1V22"/>
+  </symbol>
+  <symbol id="icon-muscle" viewBox="0 0 24 24">
+    <path d="M6.5 21c-1.500-3.500-2-7-1-10 .7-2.200 2-4 3-6.300.4-.9 1.400-1.300 2.300-.9l2.400 1c.9.4 1.100 1.500.5 2.200L11.500 9l.6 2.800c1.800-1.700 4.400-2.100 6.300-.8 2 1.400 2.600 4.300 1.300 6.600-1.200 2.100-3.300 3.400-6.200 3.400H6.500Z"/>
+    <path d="M12.100 11.800c-.8.9-1.300 2-1.500 3.200"/>
+  </symbol>
+  <symbol id="icon-nerve" viewBox="0 0 24 24">
+    <circle cx="12" cy="13" r="2.500"/>
+    <path d="M12 15.500V22M10.200 11.200 6 7M13.800 11.200 18 7M6 7V3M6 7 2.500 5.500M18 7V3M18 7l3.500-1.500"/>
+  </symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="4"/>
+    <path d="M4.5 21a7.5 7.5 0 0 1 15 0"/>
+  </symbol>
+  <symbol id="icon-graduation" viewBox="0 0 24 24">
+    <path d="M12 5 2 10l10 5 10-5-10-5Z"/>
+    <path d="M6 12.5V17c0 1.2 2.7 3 6 3s6-1.8 6-3v-4.5"/>
+    <path d="M22 10v6"/>
+  </symbol>
+  <symbol id="icon-card" viewBox="0 0 24 24">
+    <rect x="2.5" y="5" width="19" height="14" rx="2"/>
+    <path d="M2.5 10h19M6.5 15h4"/>
+  </symbol>
+</svg>
+
+  <header class="header header--floating" data-header>
+    <div class="header__inner">
+      <a class="header__brand" href="index.html" aria-label="Scuola di Ecografia Muscoloscheletrica — Home">
+        <img class="header__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260">
+      </a>
+
+      <nav class="header__nav" id="header-nav" aria-label="Navigazione principale">
+        <ul class="header__links">
+          <li><a class="header__link" href="metodo.html">Il metodo</a></li>
+          <li><a class="header__link" href="programma.html">Programma</a></li>
+          <li><a class="header__link" href="relatori.html">Relatori</a></li>
+          <li><a class="header__link" href="prenota.html">Prenota</a></li>
+          <li><a class="header__link" href="index.html#faq">FAQ</a></li>
+        </ul>
+        <div class="header__extras">
+          <button class="header__toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Attiva tema chiaro">
+            <span class="header__toggle-knob">
+              <svg class="icon header__toggle-icon header__toggle-icon--moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+              <svg class="icon header__toggle-icon header__toggle-icon--sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+            </span>
+          </button>
+          <a class="header__login" href="https://associazioneanfi.it/account-iscrizione/" rel="noopener">Login</a>
+        </div>
+      </nav>
+
+      <a class="header__cta" href="prenota.html">Prenota il corso <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+
+      <button class="header__burger" type="button" data-header-burger aria-expanded="false" aria-controls="header-nav" aria-label="Apri il menu">
+        <svg class="icon header__burger-icon header__burger-icon--open" aria-hidden="true"><use href="#icon-menu"/></svg>
+        <svg class="icon header__burger-icon header__burger-icon--close" aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== PAGE HERO ============================== -->
+    <section class="hero hero--compact hero--centered hero--plain" aria-labelledby="page-title">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <h1 class="hero__title" id="page-title">Privacy Policy</h1>
+          <p class="hero__subtitle">Come trattiamo i dati di chi visita scuoladiecografia.com. Ultimo aggiornamento: 11 novembre 2026.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TESTO (prose) ============================== -->
+    <section class="section section--flush-top" aria-label="Informativa privacy">
+      <div class="container">
+        <article class="prose prose--narrow prose--document">
+          <p class="prose__p">Questa informativa è resa ai sensi degli articoli 13 e 14 del Regolamento (UE) 2016/679 (GDPR) a chi visita il sito della Scuola di Ecografia.</p>
+
+          <h2 class="prose__h2">Titolare del trattamento</h2>
+          <p class="prose__p"><strong>FISIAFORMA S.R.L.</strong>, Via Don Gaudenzio Cabalà 11, 28845 Domodossola (VB), P.IVA 02546630035. Email: <a href="mailto:info@fisiaforma.it">info@fisiaforma.it</a>.</p>
+          <p class="prose__p">Per informazioni sulla Scuola puoi scrivere a <a href="mailto:segreteria@scuoladiecografia.com">segreteria@scuoladiecografia.com</a>.</p>
+
+          <h2 class="prose__h2">Quali dati trattiamo</h2>
+          <h3 class="prose__h3">Dati di navigazione</h3>
+          <p class="prose__p">Come ogni sito web, i sistemi che lo fanno funzionare registrano alcuni dati tecnici a ogni visita: indirizzo IP, data e ora della richiesta, pagina richiesta, tipo di browser e di sistema operativo. Servono solo a mostrare le pagine e a proteggere il sito da abusi: non li usiamo per identificarti né per profilarti.</p>
+          <h3 class="prose__h3">Dati che ci invii tu</h3>
+          <p class="prose__p">Se scrivi alla segreteria, trattiamo i dati contenuti nel messaggio (nome, indirizzo email ed eventuali altre informazioni che decidi di inserire) solo per risponderti.</p>
+          <h3 class="prose__h3">Preferenze salvate nel browser</h3>
+          <p class="prose__p">Il sito ricorda nel tuo browser la scelta tra tema chiaro e scuro e la chiusura dell'avviso sui cookie. Queste informazioni restano sul tuo dispositivo e non ci vengono inviate. I dettagli sono nella <a href="cookie-policy.html">Cookie Policy</a>.</p>
+          <h3 class="prose__h3">Statistiche di utilizzo (solo con il tuo consenso)</h3>
+          <p class="prose__p">Solo se lo accetti nell'avviso sui cookie, il sito usa Google Analytics 4, un servizio di Google Ireland Limited, per capire in forma aggregata come viene usato: pagine visitate, tempo di permanenza, tipo di dispositivo e browser, provenienza geografica approssimativa. Google Analytics 4 non registra né conserva l'indirizzo IP completo. I dati non vengono usati per pubblicità né incrociati con altri servizi di Google. Se non accetti, Google Analytics non viene caricato.</p>
+          <p class="prose__p">Il sito non usa pixel pubblicitari né contenuti incorporati da altri siti: caratteri, immagini e video sono caricati dal sito stesso.</p>
+
+          <h2 class="prose__h2">Perché li trattiamo e su quale base</h2>
+          <ul class="prose__list">
+            <li><strong>Far funzionare il sito e proteggerlo</strong> (dati di navigazione): legittimo interesse del titolare, art. 6, par. 1, lett. f del GDPR.</li>
+            <li><strong>Rispondere alle tue richieste</strong> (dati che ci invii): esecuzione di misure precontrattuali adottate su tua richiesta, art. 6, par. 1, lett. b del GDPR.</li>
+            <li><strong>Statistiche di utilizzo</strong> (Google Analytics 4): il tuo consenso, art. 6, par. 1, lett. a del GDPR, che puoi revocare in qualsiasi momento da «Preferenze cookie» in fondo alla pagina.</li>
+          </ul>
+
+          <h2 class="prose__h2">Iscrizioni e altri siti</h2>
+          <p class="prose__p">L'iscrizione alla Scuola e il pagamento avvengono sul sito <a href="https://fisiaforma.it" target="_blank" rel="noopener">fisiaforma.it</a>: i dati inseriti lì sono trattati secondo la <a href="https://www.iubenda.com/privacy-policy/40797415" target="_blank" rel="noopener">privacy policy di quel sito</a>.</p>
+          <p class="prose__p">Il modulo «Rimani aggiornato» si apre su una pagina esterna: i dati che inserisci lì sono trattati secondo l'informativa riportata in quella pagina.</p>
+
+          <h2 class="prose__h2">A chi comunichiamo i dati</h2>
+          <p class="prose__p">I dati non vengono venduti né ceduti a terzi per fini commerciali. Possono trattarli, solo per conto del titolare e per le finalità descritte, i fornitori che rendono possibile il servizio:</p>
+          <ul class="prose__list">
+            <li><strong>Hosting del sito</strong>: SiteGround, che ospita il sito su server nell'Unione europea e tratta i dati di navigazione.</li>
+            <li><strong>Posta elettronica</strong>: il fornitore della casella della segreteria.</li>
+            <li><strong>Statistiche</strong>: Google Ireland Limited (Google Analytics 4), solo se hai dato il consenso.</li>
+          </ul>
+          <p class="prose__p">Google può trattare i dati anche negli Stati Uniti: il trasferimento avviene con le garanzie previste dal Capo V del GDPR, in particolare l'adesione di Google LLC al Data Privacy Framework UE-USA.</p>
+
+          <h2 class="prose__h2">Per quanto tempo li conserviamo</h2>
+          <ul class="prose__list">
+            <li><strong>Dati di navigazione</strong>: per il tempo strettamente necessario alla sicurezza del servizio, secondo le politiche del fornitore di hosting.</li>
+            <li><strong>Messaggi alla segreteria</strong>: per il tempo necessario a gestire la richiesta e gli eventuali contatti successivi, e comunque non oltre 24 mesi, salvo obblighi di legge.</li>
+            <li><strong>Statistiche di utilizzo</strong>: 14 mesi in Google Analytics; i cookie di Analytics nel tuo browser durano al massimo 2 anni, o finché non revochi il consenso.</li>
+          </ul>
+
+          <h2 class="prose__h2">I tuoi diritti</h2>
+          <p class="prose__p">In qualsiasi momento puoi chiedere l'accesso ai tuoi dati, la loro rettifica o cancellazione, la limitazione del trattamento e la portabilità, e puoi opporti al trattamento basato sul legittimo interesse (articoli 15–22 del GDPR). Per farlo scrivi a <a href="mailto:info@fisiaforma.it">info@fisiaforma.it</a>.</p>
+          <p class="prose__p">Il consenso alle statistiche si revoca da «Preferenze cookie» in fondo a ogni pagina: la revoca non pregiudica il trattamento svolto prima.</p>
+          <p class="prose__p">Se ritieni che il trattamento violi il GDPR puoi presentare reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+
+          <h2 class="prose__h2">Modifiche a questa informativa</h2>
+          <p class="prose__p">L'informativa può essere aggiornata, per esempio se cambiano i servizi usati dal sito. La data dell'ultimo aggiornamento è indicata in cima alla pagina.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bar">
+        <a class="footer__brand" href="index.html" aria-label="Scuola di Ecografia Muscoloscheletrica — Home"><img class="footer__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260"></a>
+        <p class="footer__meta">
+          <span>© 2026 Fisiaforma&nbsp;S.R.L.</span>
+          <span>P.IVA 02546630035</span>
+          <a href="mailto:segreteria@scuoladiecografia.com">segreteria@scuoladiecografia.com</a>
+        </p>
+        <ul class="footer__legal">
+            <li><a class="footer__link" href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a class="footer__link" href="cookie-policy.html">Cookie Policy</a></li>
+
+            <li><button class="footer__link" type="button" data-consent="open">Preferenze cookie</button></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <div class="consent consent--choice" id="consent" role="dialog" aria-modal="true" aria-label="Preferenze cookie" data-ga4="GTM-NHTPWQXG" hidden>
+    <div class="consent__panel" tabindex="-1">
+    <p class="consent__text">Usiamo strumenti tecnici per far funzionare il sito e, solo se accetti, Google Analytics per capire in forma aggregata come viene usato. Puoi cambiare idea in qualsiasi momento da «Preferenze cookie» in fondo alla pagina. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    <div class="consent__actions">
+      <button class="btn btn--secondary btn--sm" type="button" data-consent="reject">Rifiuta</button>
+      <button class="btn btn--secondary btn--sm" type="button" data-consent="accept">Accetta</button>
+    </div>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/consent.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/marquee.js"></script>
+  <script src="js/program.js"></script>
+  <script src="js/cases.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/discussion.js"></script>
+</body>
+</html>

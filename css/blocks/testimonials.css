@@ -17,6 +17,7 @@
      .testimonials--masonry   colonne a incastro, altezze libere (default)
      .testimonials--grid      griglia regolare a righe
      .testimonials--compact   citazioni più piccole
+     .testimonials--rated     stile piattaforma di recensioni: punteggio medio, stelle in tessere, titolo (vedi in fondo)
    ========================================================================== */
 
 .testimonials {
@@ -165,4 +166,241 @@
     --testimonials-cols: 1;
     --testimonials-card-pad: var(--space-7);
   }
+}
+
+/* ==========================================================================
+   VARIAZIONE: --rated
+   In stile piattaforma di recensioni: riepilogo col punteggio medio in testa,
+   stelle bianche in tessere quadrate verdi, titolo breve, autore in cima alla card.
+   Elementi in più:
+     .testimonials__summary > .testimonials__label (opzionale) + .testimonials__score + .testimonials__summary-body
+                              (> .testimonials__verdict, .testimonials__rating, .testimonials__count)
+                              + .testimonials__brand > .testimonials__brand-logo (logo della Scuola, a destra)
+     Varianti del riepilogo:
+     .testimonials__summary--brand-first  badge compatto e centrato, logo prima della valutazione
+                                          (usata in home; default: card larga col logo in fondo a destra)
+                                          (su mobile: colonna centrata, logo in fondo)
+     .testimonials__title   (nella card, dopo le stelle)
+   ========================================================================== */
+.testimonials--rated {
+  --testimonials-tile-bg: var(--trust-green); /* il verde delle piattaforme di recensioni */
+  --testimonials-tile-ink: var(--trust-green-ink);
+  --testimonials-tile-size: 22px;
+}
+
+.testimonials--rated .testimonials__rating {
+  gap: 3px;
+}
+
+.testimonials--rated .testimonials__rating .icon {
+  width: var(--testimonials-tile-size);
+  height: var(--testimonials-tile-size);
+  padding: 4px;
+  border-radius: 4px;
+  background: var(--testimonials-tile-bg);
+  color: var(--testimonials-tile-ink);
+}
+
+/* autore in cima, separato dal resto da una linea sotto */
+.testimonials--rated .testimonials__author {
+  order: -1;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: var(--space-4);
+  border-top: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.testimonials__title {
+  margin: 0;
+  font: var(--text-card-title);
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* --- Riepilogo --- */
+.testimonials__summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-8);
+  margin-bottom: var(--space-8);
+  padding: var(--space-6) var(--space-8);
+  border: 1px solid var(--testimonials-card-border);
+  border-radius: var(--testimonials-card-radius);
+  background: var(--testimonials-card-bg);
+}
+
+.testimonials__score {
+  font: var(--text-h1);
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.testimonials__score-max {
+  font: var(--text-h3);
+  letter-spacing: 0;
+  color: var(--ink-muted);
+}
+
+.testimonials__summary-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.testimonials__summary .testimonials__rating {
+  --testimonials-tile-size: 30px;
+}
+
+/* logo della Scuola a destra del riepilogo, staccato da una lineetta verticale.
+   La lineetta sta sul contenitore e il filtro solo sull'immagine: il filtro che inverte il
+   wordmark bianco nel tema chiaro invertirebbe anche il bordo, rendendolo invisibile */
+.testimonials__brand {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding-left: var(--space-8);
+  border-left: 1px solid var(--border-strong);
+}
+
+.testimonials__brand-logo {
+  display: block;
+  flex: none; /* altezza fissa: se si restringesse in larghezza si deformerebbe */
+  height: var(--testimonials-brand-h, 40px);
+  width: auto;
+  max-width: none;
+  filter: var(--logo-filter);
+}
+
+.testimonials__verdict {
+  font: var(--text-card-title);
+  color: var(--ink);
+}
+
+/* dice che cos'è il punteggio (come "TrustScore" sulle piattaforme di recensioni) */
+.testimonials__label {
+  font: var(--text-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.testimonials__count {
+  font: var(--text-caption);
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+/* Logo prima della valutazione: badge compatto e centrato, largo quanto il contenuto.
+   Il logo piccolo fa da firma, il protagonista è il punteggio; la lineetta passa a destra del logo.
+   Griglia:  [logo] | etichetta
+                    | punteggio  stelle + "Eccellente" */
+.testimonials__summary--brand-first {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  gap: var(--space-3) var(--space-6); /* 12px sotto l'etichetta, come su mobile */
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: var(--space-5) var(--space-8);
+}
+
+.testimonials__summary--brand-first .testimonials__label {
+  grid-column: 2 / span 2;
+  grid-row: 1;
+}
+
+.testimonials__summary--brand-first .testimonials__score {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.testimonials__summary--brand-first .testimonials__summary-body {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.testimonials__summary--brand-first .testimonials__brand {
+  --testimonials-brand-h: 26px;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: var(--space-6);
+  border-left: 0;
+  border-right: 1px solid var(--border-strong);
+}
+
+.testimonials__summary--brand-first .testimonials__score {
+  font-size: 48px;
+}
+
+.testimonials__summary--brand-first .testimonials__rating {
+  --testimonials-tile-size: 26px;
+}
+
+.testimonials__summary--brand-first .testimonials__count strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+@media (max-width: 639px) {
+  .testimonials__summary {
+    padding: var(--space-6);
+  }
+
+  .testimonials__score {
+    font-size: 48px;
+  }
+
+  /* a capo sotto il punteggio, allineato a sinistra: la lineetta non serve più */
+  .testimonials__brand {
+    --testimonials-brand-h: 28px;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  /* badge su mobile: a tutta larghezza (si allinea alle card e fa da intestazione), tutto in
+     colonna e centrato; il logo chiude il badge come una firma, dopo una lineetta orizzontale */
+  .testimonials__summary--brand-first {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    width: auto;
+    padding: var(--space-6);
+  }
+
+  .testimonials__summary--brand-first .testimonials__score {
+    font-size: 40px;
+  }
+
+  .testimonials__summary--brand-first .testimonials__summary-body {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* "Eccellente" da solo: testo normale, non didascalia */
+  .testimonials__summary--brand-first .testimonials__count {
+    font: var(--text-body);
+    font-weight: 700;
+  }
+
+  .testimonials__summary--brand-first .testimonials__brand {
+    order: 1;
+    align-self: stretch;
+    justify-content: center;
+    margin-top: var(--space-2);
+    padding: var(--space-4) 0 0;
+    border-right: 0;
+    border-top: 1px solid var(--border-strong);
+  }
+
 }

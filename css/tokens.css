@@ -61,6 +61,7 @@
   --avatar-gradient-end: #5dcaa5;
   --rating-gold: #fac775;
   --trust-green: #00b67a;
+  --trust-green-ink: #ffffff; /* stella bianca nelle tessere verdi delle recensioni a punteggio */
 
   /* --- Superficie "carta": bianco fisso in entrambi i temi, per loghi e stampe a colori --- */
   --surface-paper: #ffffff;
@@ -117,9 +118,16 @@
 
   /* --- Ombre (solo bagliore accent: "bordi, non ombre") --- */
   --shadow-accent-glow: 0 24px 60px -30px var(--accent-glow-shadow);
+  --shadow-overlay: 0 16px 40px -12px rgba(0, 0, 0, 0.35); /* card sopra la pagina (avviso cookie) */
+  --backdrop: rgba(0, 0, 0, 0.6); /* sfondo scurito dietro una finestra che chiede una scelta */
 
   /* --- Motion --- */
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* comparse allo scroll (css/motion.css): più lente e morbide delle transizioni d'interfaccia */
+  --motion-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --motion-duration: 600ms;
+  --motion-distance: 14px;
+  --motion-stagger: 70ms;
   --duration: 180ms;
 
   color-scheme: dark;

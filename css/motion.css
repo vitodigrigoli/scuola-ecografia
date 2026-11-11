@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Animazioni di comparsa (testi, card, foto) e ingresso della hero
+   Sobrie e una volta sola: dissolvenza + piccola salita quando l'elemento entra nello
+   schermo, solo opacity e transform (fluide anche su telefoni economici, layout fermo).
+
+   Chi decide cosa si anima:
+     content/build-pages.js aggiunge gli attributi in automatico al markup:
+       [data-animate]          intestazioni di sezione (.text-block)
+       [data-animate="photo"]  foto grandi (.photo, .media-text__figure)
+       [data-animate-group]    griglie di card: i figli entrano uno dopo l'altro
+     js/motion.js aggiunge .is-in quando entrano nello schermo (e .is-instant se sono già stati
+     superati senza essere visti: compaiono subito, senza animazione).
+
+   Sicurezza:
+     - tutto è sotto html.motion, classe messa nell'<head> SOLO se non c'è
+       prefers-reduced-motion. Senza JS, o con "riduci
+       movimento", i contenuti sono visibili subito e nulla si muove;
+     - se js/motion.js non partisse, l'<head> toglie .motion dopo 3 secondi;
+     - le animazioni usano fill-mode backwards: finita l'entrata, ogni elemento torna ai suoi
+       stili (hover, trasformazioni proprie) senza che l'animazione li sovrascriva.
+   ========================================================================== */
+
+@keyframes motion-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance));
+  }
+}
+
+@keyframes motion-photo {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+/* --- Comparsa allo scroll --- */
+.motion [data-animate]:not(.is-in),
+.motion [data-animate-group]:not(.is-in) > * {
+  opacity: 0;
+}
+
+.motion [data-animate].is-in {
+  animation: motion-up var(--motion-duration) var(--motion-ease) backwards;
+}
+
+.motion [data-animate="photo"].is-in {
+  animation-name: motion-photo;
+  animation-duration: 900ms;
+}
+
+/* card una dopo l'altra: --i è l'indice del figlio (js/motion.js, massimo 8) */
+.motion [data-animate-group].is-in > * {
+  animation: motion-up var(--motion-duration) var(--motion-ease) backwards;
+  animation-delay: calc(var(--i, 0) * var(--motion-stagger));
+}
+
+/* --- Ingresso della hero all'apertura (una volta, senza aspettare lo scroll) --- */
+.motion .hero__content > * {
+  animation: motion-up 700ms var(--motion-ease) backwards;
+  animation-delay: 80ms;
+}
+
+.motion .hero__content > :nth-child(2) { animation-delay: 160ms; }
+.motion .hero__content > :nth-child(3) { animation-delay: 240ms; }
+.motion .hero__content > :nth-child(4) { animation-delay: 320ms; }
+.motion .hero__content > :nth-child(5) { animation-delay: 400ms; }
+.motion .hero__content > :nth-child(n + 6) { animation-delay: 480ms; }
+
+.motion .hero__media {
+  animation: motion-photo 900ms var(--motion-ease) 200ms backwards;
+}
+
+/* già superati con uno scroll veloce o un salto a un'ancora: compaiono senza animazione */
+.motion .is-instant,
+.motion .is-instant > * {
+  animation: none !important;
+}
+
+@media print {
+  .motion [data-animate],
+  .motion [data-animate-group] > * {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}

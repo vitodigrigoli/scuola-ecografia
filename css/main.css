@@ -1,6 +1,9 @@
 /* Entry point: ordine = token → base → blocchi. Un file per blocco. */
+@import url('fonts.css');
 @import url('tokens.css');
 @import url('base.css');
+@import url('page-transitions.css');
+@import url('motion.css');
 
 /* Blocchi condivisi */
 @import url('blocks/button.css');
@@ -19,6 +22,7 @@
 @import url('blocks/gallery.css');
 @import url('blocks/photo.css');
 @import url('blocks/photos.css');
+@import url('blocks/consent.css');
 @import url('blocks/lightbox.css');
 @import url('blocks/prose.css');
 @import url('blocks/reveal.css');

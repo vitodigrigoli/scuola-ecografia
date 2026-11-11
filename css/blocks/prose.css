@@ -8,6 +8,7 @@
 
    Variazioni:
      .prose--narrow   misura di riga più corta (60ch)
+     .prose--document colonna di testo centrata nella pagina (privacy, cookie policy)
 
    La scala arriva dai token --text-prose / --text-prose-lead: nessun font-size
    scritto qui dentro.
@@ -100,6 +101,12 @@
    ========================================================================== */
 .prose--narrow {
   --prose-measure: 60ch;
+}
+
+/* documento: la colonna intera è larga quanto la riga e sta al centro, sotto il titolo centrato */
+.prose--document {
+  max-width: var(--prose-measure);
+  margin-inline: auto;
 }
 
 .prose--lead .prose__p:first-child {

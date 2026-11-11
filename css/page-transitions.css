@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Transizione di pagina nativa (View Transitions tra documenti)
+   Il browser fotografa la pagina che si lascia e quella che arriva e le dissolve
+   l'una nell'altra: nessun JavaScript, nessun cambio al modo in cui si naviga.
+   Supporto: Chrome/Edge 126+, Safari 18.2+. Firefox ignora la regola e cambia pagina
+   normalmente (miglioramento progressivo: non si rompe niente).
+
+   - root: la pagina esce in dissolvenza veloce, quella nuova entra salendo di poco;
+   - site-header: l'header ha un nome proprio (blocks/header.css), quindi resta fermo al suo
+     posto invece di dissolvere insieme al resto: tra una pagina e l'altra cambia solo
+     la voce attiva del menu;
+   - con prefers-reduced-motion niente animazioni: il cambio di pagina è istantaneo.
+   ========================================================================== */
+
+/* L'iscrizione (@view-transition { navigation: auto; }) è nell'<head> di ogni pagina
+   (content/build-pages.js): qui dentro, caricata via @import, poteva arrivare troppo tardi
+   e il browser annullava la transizione. */
+
+::view-transition-old(root) {
+  animation: page-out 160ms var(--ease) both;
+}
+
+::view-transition-new(root) {
+  animation: page-in 320ms var(--ease) both;
+}
+
+/* header: nessuna dissolvenza, passa direttamente al nuovo stato */
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+::view-transition-group(site-header) {
+  animation-duration: 0s;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

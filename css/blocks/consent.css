@@ -1,0 +1,123 @@
+/* ==========================================================================
+   BLOCCO: consent
+   Avviso cookie in basso nella pagina, in due modalità (content/config.js → ga4Id):
+   - informativa (senza GA4): solo strumenti tecnici, l'avviso informa e si chiude,
+     la pagina resta usabile;
+   - --choice (con GA4): richiesta di consenso. Lo sfondo si scurisce e la pagina non è
+     cliccabile finché non si sceglie: "Rifiuta" e "Accetta" sono identici (stesso stile,
+     stessa larghezza su mobile), nessuna scelta è suggerita, come chiedono le Linee guida
+     del Garante. GA4 parte solo dopo "Accetta" (js/consent.js).
+
+   Struttura:
+     .consent (strato a tutto schermo, [hidden] finché js/consent.js non lo mostra)
+       .consent__panel (card)
+         .consent__text > .consent__link
+         .consent__actions > .btn [data-consent="ok" | "reject" | "accept"]
+   Variazioni:
+     .consent--choice   richiesta di consenso: sfondo scurito, pagina bloccata fino alla scelta
+   Stati:
+     .is-visible        entrata (dissolvenza dello sfondo + card che sale)
+   ========================================================================== */
+
+.consent {
+  --consent-bg: var(--surface-card);
+  --consent-border: var(--border-strong);
+  --consent-radius: var(--radius-lg);
+  --consent-max: 640px;
+  --consent-offset: var(--space-5);
+  --consent-z: 60; /* sopra l'header (--header-z: 50 in blocks/header.css) */
+  --consent-backdrop: transparent;
+
+  position: fixed;
+  z-index: var(--consent-z);
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 var(--gutter) calc(var(--consent-offset) + env(safe-area-inset-bottom, 0px));
+  background: var(--consent-backdrop);
+  pointer-events: none; /* modalità informativa: si clicca la pagina attraverso lo strato */
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.consent[hidden] {
+  display: none;
+}
+
+.consent.is-visible {
+  opacity: 1;
+}
+
+.consent__panel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  width: min(var(--consent-max), 100%);
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-6);
+  border: 1px solid var(--consent-border);
+  border-radius: var(--consent-radius);
+  background: var(--consent-bg);
+  box-shadow: var(--shadow-overlay);
+  pointer-events: auto;
+  transform: translateY(12px);
+  transition: transform var(--duration) var(--ease);
+}
+
+.consent__panel:focus {
+  outline: none; /* riceve il focus solo per portarci la tastiera, non è un controllo */
+}
+
+.consent.is-visible .consent__panel {
+  transform: none;
+}
+
+.consent__text {
+  flex: 1;
+  font: var(--text-body);
+  color: var(--ink-soft);
+}
+
+.consent__link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.consent__actions {
+  display: flex;
+  flex: none;
+  gap: var(--space-2);
+}
+
+/* --- Variazioni --- */
+.consent--choice {
+  --consent-backdrop: var(--backdrop);
+
+  pointer-events: auto; /* la pagina sotto non è cliccabile finché non si sceglie */
+}
+
+@media (max-width: 599px) {
+  .consent {
+    --consent-offset: var(--space-3);
+  }
+
+  .consent__panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+    padding: var(--space-5);
+  }
+
+  .consent__actions .btn {
+    flex: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consent,
+  .consent__panel {
+    transition: none;
+  }
+}

@@ -86,7 +86,10 @@
 
         <div class="hero__media">
           <!-- Video dal sito ANFI (hotlink solo per la preview: da sostituire con asset locale) -->
-          <video class="hero__video" src="https://associazioneanfi.it/wp-content/uploads/2025/06/04_Header_Desktop_HB.webm" autoplay muted loop playsinline preload="metadata" aria-label="Sessione pratica di ecografia durante la Scuola"></video>
+          <video class="hero__video" autoplay muted loop playsinline preload="metadata" aria-label="Sessione pratica di ecografia durante la Scuola">
+            <source src="assets/video/scuola-hero-mobile.webm" type="video/webm" media="(max-width: 767px)">
+            <source src="assets/video/scuola-hero.webm" type="video/webm">
+          </video>
         </div>
       </div>
     </section>
@@ -595,7 +598,7 @@
     </section>
 
     <!-- ============================== TESTIMONIALS ============================== -->
-    <section class="section testimonials testimonials--masonry" id="recensioni" aria-labelledby="testimonials-title">
+    <section class="section testimonials testimonials--masonry testimonials--rated" id="recensioni" aria-labelledby="testimonials-title">
       <div class="container">
         <div class="text-block text-block--split">
           <p class="text-block__eyebrow">Recensioni</p>
@@ -603,9 +606,20 @@
           <p class="text-block__text">Le voci di chi ha frequentato le prime edizioni: clima, tutor, pratica sugli strumenti.</p>
         </div>
 
+        <div class="testimonials__summary testimonials__summary--brand-first">
+          <span class="testimonials__brand"><img class="testimonials__brand-logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260" loading="lazy"></span>
+          <p class="testimonials__label">Valutazione dei partecipanti</p>
+          <p class="testimonials__score">5,0<span class="testimonials__score-max"> / 5</span></p>
+          <div class="testimonials__summary-body">
+            <div class="testimonials__rating" role="img" aria-label="Valutazione 5 su 5"><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg></div>
+            <p class="testimonials__count"><strong>Eccellente</strong></p>
+          </div>
+        </div>
+
         <div class="testimonials__grid">
           <figure class="testimonials__card">
             <div class="testimonials__rating" role="img" aria-label="Valutazione 5 su 5"><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg></div>
+            <p class="testimonials__title">ANFI per me è il top</p>
             <blockquote class="testimonials__quote">
               <p>L'anno scorso avevo già avuto modo di prendere parte ad un mini corso di ecografia muscolo scheletrica tenuto dal dottor Reggiani durante un Master universitario ed è stata un'esperienza decisamente positiva. La Scuola non poteva essere altrimenti, le mie aspettative sono state attese.</p>
               <p>Tra i punti di forza, il clima amichevole, la totale disponibilità (e soprattutto la pazienza!) dei docenti e dei tutor di seguire passo per passo ciascun discente nell'ecografia di tutte le articolazioni trattate durante la parte teorica, le sessioni live perfette.</p>
@@ -621,6 +635,7 @@
           </figure>
           <figure class="testimonials__card">
             <div class="testimonials__rating" role="img" aria-label="Valutazione 5 su 5"><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg></div>
+            <p class="testimonials__title">Puntuale ed efficace</p>
             <blockquote class="testimonials__quote">
               <p>Incontro puntuale ed efficace, che risponde perfettamente alle necessità che incontriamo quotidianamente nella nostra attività clinica ambulatoriale; le lezioni frontali sono precise, di durata adeguata ad affrontare i punti cardine di ogni distretto anatomico, seguite da prove pratiche esaustive con tutor estremamente preparati.</p>
             </blockquote>
@@ -634,6 +649,7 @@
           </figure>
           <figure class="testimonials__card">
             <div class="testimonials__rating" role="img" aria-label="Valutazione 5 su 5"><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg></div>
+            <p class="testimonials__title">Teoria e pratica intrecciate</p>
             <blockquote class="testimonials__quote">
               <p>Il primo incontro della scuola di Ecografia è stato un'esperienza estremamente positiva. I docenti non si limitano a insegnare, ma riescono davvero a ispirare e a motivare, trasmettendo con passione il loro sapere.</p>
               <p>Un aspetto che ho trovato particolarmente utile è stato il modo in cui teoria e pratica sono stati intrecciati: dopo ogni lezione teorica, le live di ecografia proiettate a schermo hanno reso tutto immediatamente chiaro e applicabile. Vedere non solo l'immagine ecografica, ma anche il docente ed il paziente in posizione, è stato un valore aggiunto che ha permesso di cogliere anche i dettagli più pratici. Un'esperienza che non solo forma, ma stimola davvero a dare il massimo. Non vedo l'ora di continuare questo percorso!</p>
@@ -648,6 +664,7 @@
           </figure>
           <figure class="testimonials__card">
             <div class="testimonials__rating" role="img" aria-label="Valutazione 5 su 5"><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg></div>
+            <p class="testimonials__title">Tanta pratica, organizzazione eccellente</p>
             <blockquote class="testimonials__quote">
               <p>Esposizioni chiare e concise. Tanta pratica, attenzione e disponibilità nei confronti del corsista. Organizzazione eccellente.</p>
             </blockquote>
@@ -661,6 +678,7 @@
           </figure>
           <figure class="testimonials__card">
             <div class="testimonials__rating" role="img" aria-label="Valutazione 5 su 5"><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg><svg class="icon icon--fill" aria-hidden="true"><use href="#icon-star"/></svg></div>
+            <p class="testimonials__title">Tempi svizzeri e tutor attenti</p>
             <blockquote class="testimonials__quote">
               <p>Un corso già ottimo alla sua prima edizione, fatto da colleghi fisiatri per colleghi fisiatri, con ben chiare le esigenze di chi si approccia alla materia con l'esigenza di portare l'ultrasonografia nella pratica clinica e riabilitativa di tutti i giorni.</p>
               <p>Docenti preparati e appassionati, che trasmettono concetti chiari e portano la loro esperienza quotidiana per dare quel qualcosa in più che fa la differenza. Tempi "svizzeri" ben scanditi, con un rapporto teoria-pratica giustamente a favore dell'approccio pratico sugli strumenti, con tutor attenti e disponibili. Strumentazione di prim'ordine, con anche una attenzione a chi, essendo al primo approccio, non avrà da subito a disposizione il top di gamma e quindi deve imparare a gestire anche macchine "meno performanti".</p>
@@ -686,14 +704,14 @@
           <h2 class="text-block__title" id="faq-title">Tutto quello che vuoi sapere prima di iniziare</h2>
           <p class="text-block__text">Iscrizione, sedi, rimborsi, attestati. Se non trovi la risposta, scrivi alla segreteria.</p>
           <div class="text-block__actions">
-            <a class="btn btn--secondary" href="mailto:info@associazioneanfi.it"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>info@associazioneanfi.it</a>
+            <a class="btn btn--secondary" href="mailto:segreteria@scuoladiecografia.com"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>segreteria@scuoladiecografia.com</a>
           </div>
         </div>
 
         <div class="faq__list">
           <details class="faq__item" name="faq" open>
             <summary class="faq__question"><span class="faq__question-text">Come posso iscrivermi alla Scuola di Ecografia?</span><span class="faq__chevron" aria-hidden="true"><svg class="icon"><use href="#icon-chevron-down"/></svg></span></summary>
-            <div class="faq__answer"><p>L'iscrizione avviene sul sito del provider <a href="https://fisiaforma.it/categoria-prodotto/eventi/" target="_blank" rel="noopener">Fisiaforma</a>: scegli la tua categoria (Socio ANFI, Non socio, Specializzando) e completa la pre-iscrizione. La quota è suddivisa in due rate, la prima all'iscrizione.</p><div class="notice notice--warning"><span class="notice__icon"><svg class="icon" aria-hidden="true"><use href="#icon-info"/></svg></span><div class="notice__body"><p class="notice__text">Testo proposto: sul sito ANFI questa risposta è vuota, da confermare con la segreteria.</p></div></div></div>
+            <div class="faq__answer"><p>L'iscrizione avviene sul sito del provider <a href="https://fisiaforma.it/categoria-prodotto/eventi/" target="_blank" rel="noopener">Fisiaforma</a>: scegli la tua categoria (Socio ANFI, Non socio, Specializzando) e completa la pre-iscrizione. La quota è suddivisa in due rate, la prima all'iscrizione.</p></div>
           </details>
           <details class="faq__item" name="faq">
             <summary class="faq__question"><span class="faq__question-text">Come posso raggiungere la sede dell'evento?</span><span class="faq__chevron" aria-hidden="true"><svg class="icon"><use href="#icon-chevron-down"/></svg></span></summary>
@@ -729,7 +747,7 @@
           </details>
           <details class="faq__item" name="faq">
             <summary class="faq__question"><span class="faq__question-text">Ci sono hotel convenzionati o suggeriti per i partecipanti?</span><span class="faq__chevron" aria-hidden="true"><svg class="icon"><use href="#icon-chevron-down"/></svg></span></summary>
-            <div class="faq__answer"><p>Abbiamo stretto convenzioni con Il Principe Hotel e con il J|hotel; nelle vicinanze delle sedi del corso si possono facilmente trovare diverse strutture per il pernottamento.</p><p>Se desideri maggiori informazioni puoi contattarci alla nostra mail <a href="mailto:info@associazioneanfi.it">info@associazioneanfi.it</a>.</p></div>
+            <div class="faq__answer"><p>Abbiamo stretto convenzioni con Il Principe Hotel e con il J|hotel; nelle vicinanze delle sedi del corso si possono facilmente trovare diverse strutture per il pernottamento.</p><p>Se desideri maggiori informazioni puoi contattarci alla nostra mail <a href="mailto:segreteria@scuoladiecografia.com">segreteria@scuoladiecografia.com</a>.</p></div>
           </details>
         </div>
       </div>

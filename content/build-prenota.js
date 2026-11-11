@@ -106,7 +106,7 @@ ${editions}
         <p class="cta-banner__text">Lascia il tuo contatto: ti avvisiamo appena vengono confermate date e struttura della quinta edizione a Bergamo.</p>
         <div class="cta-banner__actions">
           <a class="btn btn--primary btn--lg" href="https://145504523.hs-sites-eu1.com/interesse_scuola_anfi5" target="_blank" rel="noopener">Rimani aggiornato ${ic('external')}</a>
-          <a class="btn btn--secondary btn--lg" href="mailto:info@associazioneanfi.it">${ic('mail')}Scrivi alla segreteria</a>
+          <a class="btn btn--secondary btn--lg" href="mailto:segreteria@scuoladiecografia.com">${ic('mail')}Scrivi alla segreteria</a>
         </div>
       </div>
     </section>
