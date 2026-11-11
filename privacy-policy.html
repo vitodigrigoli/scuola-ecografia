@@ -373,9 +373,15 @@
     </div>
   </footer>
 
-  <div class="consent consent--choice" id="consent" role="dialog" aria-modal="true" aria-label="Preferenze cookie" data-ga4="GTM-NHTPWQXG" hidden>
+  <div class="consent consent--choice" id="consent" role="dialog" aria-modal="true" aria-labelledby="consent-title" data-ga4="GTM-NHTPWQXG" hidden>
     <div class="consent__panel" tabindex="-1">
-    <p class="consent__text">Usiamo strumenti tecnici per far funzionare il sito e, solo se accetti, Google Analytics per capire in forma aggregata come viene usato. Puoi cambiare idea in qualsiasi momento da «Preferenze cookie» in fondo alla pagina. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    <div class="consent__body">
+      <div class="consent__head">
+        <img class="consent__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260">
+        <p class="consent__title" id="consent-title">Preferenze cookie</p>
+      </div>
+      <p class="consent__text">Usiamo strumenti tecnici per far funzionare il sito e, solo se accetti, Google Analytics per capire in forma aggregata come viene usato. Puoi cambiare idea in qualsiasi momento da «Preferenze cookie» in fondo alla pagina. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    </div>
     <div class="consent__actions">
       <button class="btn btn--secondary btn--sm" type="button" data-consent="reject">Rifiuta</button>
       <button class="btn btn--secondary btn--sm" type="button" data-consent="accept">Accetta</button>

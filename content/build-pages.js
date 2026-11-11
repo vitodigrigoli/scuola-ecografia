@@ -107,18 +107,30 @@ ${config.ga4Id ? `
    Resta nascosto finché il JS non verifica che la scelta non sia già stata fatta. */
 function consent() {
   if (!config.ga4Id) {
-    return `  <aside class="consent" id="consent" aria-label="Informativa sui cookie" hidden>
+    return `  <aside class="consent" id="consent" aria-labelledby="consent-title" hidden>
     <div class="consent__panel">
-    <p class="consent__text">Questo sito usa solo strumenti tecnici necessari al suo funzionamento, come la memoria del tema chiaro o scuro. Nessun cookie di profilazione o di statistica. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    <div class="consent__body">
+      <div class="consent__head">
+        <img class="consent__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260">
+        <p class="consent__title" id="consent-title">Informativa sui cookie</p>
+      </div>
+      <p class="consent__text">Questo sito usa solo strumenti tecnici necessari al suo funzionamento, come la memoria del tema chiaro o scuro. Nessun cookie di profilazione o di statistica. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    </div>
     <div class="consent__actions">
       <button class="btn btn--primary btn--sm" type="button" data-consent="ok">Ho capito</button>
     </div>
     </div>
   </aside>`;
   }
-  return `  <div class="consent consent--choice" id="consent" role="dialog" aria-modal="true" aria-label="Preferenze cookie" data-ga4="${config.ga4Id}" hidden>
+  return `  <div class="consent consent--choice" id="consent" role="dialog" aria-modal="true" aria-labelledby="consent-title" data-ga4="${config.ga4Id}" hidden>
     <div class="consent__panel" tabindex="-1">
-    <p class="consent__text">Usiamo strumenti tecnici per far funzionare il sito e, solo se accetti, Google Analytics per capire in forma aggregata come viene usato. Puoi cambiare idea in qualsiasi momento da «Preferenze cookie» in fondo alla pagina. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    <div class="consent__body">
+      <div class="consent__head">
+        <img class="consent__logo" src="assets/logo/scuola-ecografia-wordmark.png" alt="Scuola di Ecografia Muscoloscheletrica" width="1640" height="260">
+        <p class="consent__title" id="consent-title">Preferenze cookie</p>
+      </div>
+      <p class="consent__text">Usiamo strumenti tecnici per far funzionare il sito e, solo se accetti, Google Analytics per capire in forma aggregata come viene usato. Puoi cambiare idea in qualsiasi momento da «Preferenze cookie» in fondo alla pagina. <a class="consent__link" href="cookie-policy.html">Cookie Policy</a></p>
+    </div>
     <div class="consent__actions">
       <button class="btn btn--secondary btn--sm" type="button" data-consent="reject">Rifiuta</button>
       <button class="btn btn--secondary btn--sm" type="button" data-consent="accept">Accetta</button>

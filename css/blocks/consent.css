@@ -11,7 +11,9 @@
    Struttura:
      .consent (strato a tutto schermo, [hidden] finché js/consent.js non lo mostra)
        .consent__panel (card)
-         .consent__text > .consent__link
+         .consent__body
+           .consent__head > .consent__logo + .consent__title   (logo piccolo | titolo)
+           .consent__text > .consent__link
          .consent__actions > .btn [data-consent="ok" | "reject" | "accept"]
    Variazioni:
      .consent--choice   richiesta di consenso: sfondo scurito, pagina bloccata fino alla scelta
@@ -72,8 +74,39 @@
   transform: none;
 }
 
-.consent__text {
+.consent__body {
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+/* logo piccolo e titolo separati da una lineetta, come nel riepilogo delle recensioni.
+   La lineetta sta sul titolo e il filtro solo sul logo: invertire il bordo lo renderebbe invisibile */
+.consent__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.consent__logo {
+  flex: none;
+  height: 18px;
+  width: auto;
+  filter: var(--logo-filter);
+}
+
+.consent__title {
+  padding-left: var(--space-3);
+  border-left: 1px solid var(--border-strong);
+  font: var(--text-card-title);
+  font-size: 15px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.consent__text {
   font: var(--text-body);
   color: var(--ink-soft);
 }
