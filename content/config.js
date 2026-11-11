@@ -10,6 +10,9 @@ module.exports = {
      dopo aver lanciato anche build-casi.js e build-caso.js. */
   casiOnline: false,
 
+  /* Pulsante «Login» nell'header (area soci ANFI): false = nascosto, per ora. */
+  loginOnline: false,
+
   /* Google Analytics 4: ID del tag Google, vuoto = GA4 spento. Vale sia il contenitore
      ("GTM-XXXXXXX", con GA4 configurato dentro: è quello in uso) sia l'ID di misurazione GA4
      ("G-XXXXXXXXXX"). Attenzione: con un contenitore GTM tutto ciò che vi si aggiunge (altri tag,

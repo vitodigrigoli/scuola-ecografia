@@ -63,7 +63,7 @@ ${nav}
               ${icon('sun', 'header__toggle-icon header__toggle-icon--sun')}
             </span>
           </button>
-          <a class="header__login" href="https://associazioneanfi.it/account-iscrizione/" rel="noopener">Login</a>
+${config.loginOnline ? `          <a class="header__login" href="https://associazioneanfi.it/account-iscrizione/" rel="noopener">Login</a>` : ''}
         </div>
       </nav>
 
