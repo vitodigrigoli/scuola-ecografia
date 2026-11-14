@@ -722,7 +722,7 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 
 ### Riccardo Prezioso
 - **Tag:** Fisiatra · Docente · Organizzatore · Tutor
-- **Affiliazione:** Centro Dynamic, Catania; Centro Nova Salus, San Giovanni Gemini (AG).
+- **Affiliazione:** G2 Medica, Catania; Centro Nova Salus, San Giovanni Gemini (AG).
 - **Relazioni:**
   - Introduzione all'ecografia e semeiotica ecografica
   - Accessi infiltrativi dell'arto inferiore

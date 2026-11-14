@@ -42,16 +42,9 @@ const direttore = grab('Direttore della Scuola');
 const organizzativo = grab('Comitato Organizzativo');
 const scientifico = grab('Comitato Scientifico');
 
-// ordine alfabetico per cognome (il cognome è tutto ciò che segue il nome: «Di Gesù» sta sotto la D);
-// (i docenti dentro ogni gruppo restano per cognome)
-const cognome = (n) => { const p = n.trim().split(' '); return p.slice(1).join(' ') + ' ' + p[0]; };
-const perCognome = (a, b) => cognome(a).localeCompare(cognome(b), 'it', { sensitivity: 'base' });
-// docenti per importanza: direttore, comitato organizzativo, comitato scientifico, poi gli altri;
-// dentro ogni gruppo in ordine alfabetico per cognome
-const gruppo = (n) => direttore.includes(n) ? 0 : organizzativo.includes(n) ? 1 : scientifico.includes(n) ? 2 : 3;
-docenti.sort((a, b) => gruppo(a.name) - gruppo(b.name) || perCognome(a.name, b.name));
-// tutor e comitati in ordine alfabetico per nome, così come compare su card e chip (scelta del cliente)
+// docenti, tutor e comitati in ordine alfabetico per nome, così come compare su card e chip (scelta del cliente)
 const perNome = (a, b) => a.localeCompare(b, 'it', { sensitivity: 'base' });
+docenti.sort((a, b) => perNome(a.name, b.name));
 tutor.sort((a, b) => perNome(a.name, b.name));
 organizzativo.sort(perNome);
 scientifico.sort(perNome);
