@@ -29,7 +29,7 @@ const pagine = {
   },
   relatori: {
     title: 'Docenti e tutor · Scuola di Ecografia',
-    description: 'Fisiatri, radiologi, reumatologi e medici dello sport: i 18 docenti e i 9 tutor della Scuola, con affiliazioni e relazioni.',
+    description: 'Fisiatri, radiologi, reumatologi e medici dello sport: docenti e tutor della Scuola, con affiliazioni e relazioni.',
     breadcrumb: 'Relatori',
   },
   prenota: {
