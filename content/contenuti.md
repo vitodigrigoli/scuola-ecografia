@@ -760,9 +760,6 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - **Relazioni:**
   - Cenni di ecografia vascolare dell'arto inferiore
 
-### Danilo Donati
-- **Tag:** Fisiatra · Docente · Tutor
-- **Affiliazione:** Responsabile Riabilitazione della Mano e dell'Arto Superiore, Policlinico Universitario di Modena – UNIMORE
 
 ---
 
@@ -865,7 +862,7 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - [ ] Mesi della Quarta edizione in Prenota (Febbraio vs Marzo)
 - [x] Foto relatori ottimizzate in WebP (8,5 MB → 0,5 MB, lato massimo 800px)
 - [ ] **Foto relatori ancora da sostituire** (aggiornate l'11/11: Di Gesù, Amico, Latini in alta risoluzione; card della home di Vitale, Romeo, Monello, Reggiani, Secci ricavate dalle foto più grandi disponibili). Mancano: **Claudio Secci** per la pagina Relatori (oggi 350px, mostrata a 402) e **Vincenzo Cosentino** per la home (oggi 200×300, mostrata a 278×371). Facoltativo, per gli schermi ad alta densità: originali più grandi di 500px per Vitale, Romeo, Monello, Reggiani
-- [ ] **Nuovi tutor** (14/11/2026): Danilo Donati, Davide Milone, Roberto Bianchito, dati dai link del cliente. Danilo Donati aggiunto ai docenti (14/11/2026): mancano le relazioni che tiene alla Scuola.
+- [x] **Nuovi tutor** (14/11/2026): Davide Milone e Roberto Bianchito, dati e foto dai link del cliente. Danilo Donati tolto dal sito su indicazione del cliente
 - [ ] **Faculty in home:** mostra tutti i 18 docenti + Vincenzo Cosentino (sul sito ANFI è tra gli «Organizzatori», non docente né tutor): confermare se resta. Tolto «Dott.» dai nomi per uniformità con la pagina Relatori
 - [ ] Loghi sponsor in vettoriale / PNG su trasparente (su sfondo nero i PNG bianchi 300×100 attuali potrebbero non funzionare)
 - [x] Video hero: `04_Header_Desktop_HB.webm` e `04_Header_Mobile_HB.webm` scaricati dal sito ANFI in `assets/video/` (confermare che si possano riusare)
