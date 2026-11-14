@@ -1,20 +1,25 @@
 /* ==========================================================================
    BLOCCO: sponsors
-   Tutti gli sponsor della Scuola insieme: stessa tessera per ogni logo, due righe
-   da 8 su desktop. I loghi ANFI sono PNG a colori su fondo bianco: ognuno sta su
-   una tessera bianca, uguale in entrambi i temi.
+   Gli sponsor della Scuola in due gruppi: quelli dell'edizione in corso in risalto
+   (tessere più grandi, titolo blu) e, sotto, quelli delle edizioni precedenti (tessere
+   più piccole, titolo smorzato). I loghi ANFI sono PNG a colori su fondo bianco: ognuno
+   sta su una tessera bianca, uguale in entrambi i temi.
 
    Struttura:
      .sponsors (section)
-       .sponsors__label
-       .sponsors__logos
-         .sponsors__logo > img …
+       .sponsors__label                       (etichetta della sezione)
+       .sponsors__group [--current] …
+         .sponsors__title
+         .sponsors__logos > .sponsors__logo > img …
 
-   Per un altro numero di loghi basta cambiare --sponsors-cols (16 loghi = 2 righe da 8).
+   Variazioni:
+     .sponsors__group--current   edizione in corso: tessere grandi, titolo in accent
+
+   Le righe sono flex centrate: con un numero di loghi che non riempie l'ultima riga,
+   i loghi rimasti stanno al centro invece che a sinistra.
    ========================================================================== */
 
 .sponsors {
-  --sponsors-cols: 8;
   --sponsors-gap: var(--space-3);
   --sponsors-tile-pad: var(--space-2) var(--space-3);
   --sponsors-tile-ratio: 2 / 1;
@@ -30,15 +35,36 @@
   color: var(--ink-muted);
 }
 
+.sponsors__group {
+  --sponsors-cols: 10;
+  --sponsors-title-ink: var(--ink-muted);
+}
+
+.sponsors__group + .sponsors__group {
+  margin-top: var(--space-10);
+}
+
+.sponsors__title {
+  margin-bottom: var(--space-4);
+  font: var(--text-label);
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--sponsors-title-ink);
+}
+
 .sponsors__logos {
-  display: grid;
-  grid-template-columns: repeat(var(--sponsors-cols), minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--sponsors-gap);
 }
 
 .sponsors__logo {
   display: grid;
+  flex: none;
   place-items: center;
+  width: calc((100% - (var(--sponsors-cols) - 1) * var(--sponsors-gap)) / var(--sponsors-cols));
   aspect-ratio: var(--sponsors-tile-ratio);
   min-width: 0;
   padding: var(--sponsors-tile-pad);
@@ -54,12 +80,27 @@
   object-fit: contain;
 }
 
+/* --- Edizione in corso: in risalto --- */
+.sponsors__group--current {
+  --sponsors-cols: 6;
+  --sponsors-title-ink: var(--accent);
+  --sponsors-tile-pad: var(--space-3) var(--space-5);
+}
+
+.sponsors__group--current .sponsors__title {
+  font-size: 12px;
+}
+
 /* ==========================================================================
-   RESPONSIVE: sempre griglia piena, 16 loghi = 4 righe da 4
+   RESPONSIVE
    ========================================================================== */
 @media (max-width: 1023px) {
-  .sponsors {
-    --sponsors-cols: 4;
+  .sponsors__group {
+    --sponsors-cols: 5;
+  }
+
+  .sponsors__group--current {
+    --sponsors-cols: 3;
   }
 }
 
@@ -67,5 +108,14 @@
   .sponsors {
     --sponsors-gap: var(--space-2);
     --sponsors-tile-pad: var(--space-1) 6px;
+  }
+
+  .sponsors__group {
+    --sponsors-cols: 3;
+  }
+
+  .sponsors__group--current {
+    --sponsors-cols: 2;
+    --sponsors-tile-pad: var(--space-2) var(--space-3);
   }
 }

@@ -37,7 +37,7 @@ const page = `    <!-- ============================== PAGE HERO ================
           <ul class="hero__meta">
             <li class="hero__meta-item">${ic('users')}Massimo 60 partecipanti</li>
             <li class="hero__meta-item">${ic('calendar')}4 weekend</li>
-            <li class="hero__meta-item">${ic('check')}Due rate 50% + 50%</li>
+            <li class="hero__meta-item">${ic('check')}Pagamento in due rate</li>
           </ul>
           <div class="hero__actions">
             <a class="btn btn--primary btn--lg" href="https://fisiaforma.it/prodotto/quinta-edizione-scuola-di-ecografia-muscoloscheletrica-anfi/" target="_blank" rel="noopener">Pre-iscriviti alla quinta edizione ${ic('external')}</a>
@@ -63,7 +63,7 @@ ${pricing}
             <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-user"/></svg></span>
             <h3 class="percorso__title">Scegli la tua quota</h3>
             <ul class="percorso__list">
-              <li class="percorso__item">${ic('check')}Non socio ANFI, Socio ANFI o Specializzando socio</li>
+              <li class="percorso__item">${ic('check')}Non socio ANFI, Socio ANFI o Specializzando</li>
               <li class="percorso__item">${ic('check')}Se vuoi diventare socio, fallo prima dell'iscrizione sul sito ANFI</li>
             </ul>
           </div>
@@ -79,8 +79,8 @@ ${pricing}
             <span class="percorso__sign" aria-hidden="true"><svg class="icon"><use href="#icon-card"/></svg></span>
             <h3 class="percorso__title">Paga in due rate</h3>
             <ul class="percorso__list">
-              <li class="percorso__item">${ic('check')}Prima rata (50%) all'iscrizione</li>
-              <li class="percorso__item">${ic('check')}Seconda rata (50%) a distanza di 2 mesi dalla prima</li>
+              <li class="percorso__item">${ic('check')}Prima rata entro 45 giorni dall'iscrizione</li>
+              <li class="percorso__item">${ic('check')}Seconda rata entro 90 giorni dall'iscrizione</li>
             </ul>
           </div>
         </div>
@@ -90,7 +90,7 @@ ${pricing}
             <span class="notice__icon">${ic('info')}</span>
             <div class="notice__body">
               <p class="notice__title">Politica di recesso</p>
-              <p class="notice__text">Rinuncia comunicata per email alla Segreteria entro 3 mesi dall'inizio del corso: rimborso integrale. Entro 2 mesi: rimborso del 50%. Oltre: nessun rimborso. La rinuncia fa decadere la priorità in lista d'attesa. <a href="index.html#faq">Tutte le risposte nelle FAQ</a>.</p>
+              <p class="notice__text">Rinuncia comunicata per email alla Segreteria entro 3 mesi (90 giorni) dall'inizio del corso: rimborso della quota versata, esclusa la quota di iscrizione di €200 + IVA, non rimborsabile. Entro 2 mesi (60 giorni): rimborso del 50% della quota eccedente i €200 + IVA. Oltre: nessun rimborso. La rinuncia fa decadere la priorità in lista d'attesa. <a href="index.html#faq">Tutte le risposte nelle FAQ</a>.</p>
             </div>
           </div>
         </div>

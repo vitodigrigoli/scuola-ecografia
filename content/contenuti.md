@@ -609,7 +609,7 @@ Codice fiscale: 97896820152
 | 12:15–13:15 | **Prove pratiche** | pratica |  | Sessione di esercitazione individuale in cui i discenti, suddivisi in gruppi, si alternano alle postazioni ecografiche per riprodurre le strutture anatomiche appena studiate. Ogni partecipante ha a disposizione 15 minuti per eseguire la scansione, con il supporto diretto del tutor. L’attività favorisce l’apprendimento attraverso la pratica e lo scambio interattivo di osservazioni e indicazioni personalizzate. |
 | 13:15–14:30 | **Lunch** | pausa |  |  |
 | 14:30–15:15 | **Focus: appropriatezza diagnostica e metodiche di II livello** | lezione | Giuseppe Tognini (Radiologo) | La relazione si concentra sul tema dell’appropriatezza diagnostica in ecografia, analizzando i criteri per un corretto utilizzo dell’esame ecografico e l’integrazione con le metodiche di secondo livello, come risonanza magnetica, TC e studi elettrofisiologici. Viene sottolineata l’importanza di una scelta ragionata degli strumenti diagnostici in base al quesito clinico, al fine di ottimizzare il percorso del paziente e ridurre esami inutili o ridondanti. |
-| 15:15–15:45 | **Up to date: evidenze scientifiche sull'uitilizzo dell'ecografia in ambito di diagnostica muscoloscheletrica** | lezione | Alberto Monello (Fisiatra) | La relazione propone un aggiornamento sulle più recenti evidenze scientifiche riguardanti l’utilizzo dell’ecografia nella diagnostica muscoloscheletrica. Vengono analizzati studi e linee guida internazionali che ne confermano l’affidabilità, l’accuratezza e il ruolo crescente nell’inquadramento clinico, nel monitoraggio terapeutico e nell’interventistica. L’obiettivo è fornire una visione aggiornata e basata su evidenze dell’efficacia dell’ecografia nei vari ambiti della medicina muscoloscheletrica. |
+| 15:15–15:45 | **Up to date: evidenze scientifiche sull'utilizzo dell'ecografia in ambito di diagnostica muscoloscheletrica** | lezione | Alberto Monello (Fisiatra) | La relazione propone un aggiornamento sulle più recenti evidenze scientifiche riguardanti l’utilizzo dell’ecografia nella diagnostica muscoloscheletrica. Vengono analizzati studi e linee guida internazionali che ne confermano l’affidabilità, l’accuratezza e il ruolo crescente nell’inquadramento clinico, nel monitoraggio terapeutico e nell’interventistica. L’obiettivo è fornire una visione aggiornata e basata su evidenze dell’efficacia dell’ecografia nei vari ambiti della medicina muscoloscheletrica. |
 | 15:45–17:45 | **Verifica finale** | organizzativo |  |  |
 | 17:45–18:00 | **Consegna dei diplomi** | organizzativo |  |  |
 | 18:00 | **Chiusura del corso e ringraziamenti** | organizzativo |  |  |
@@ -778,6 +778,9 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 | Mario Pace | Radiologo · Tutor | Dottorando in medicina molecolare clinica – UNIPA |
 | Riccardo De Rosa | Fisiatra · Tutor | Direttore tecnico centro "Raggi X", Sant'Antonio Abate (Na) |
 | Stefano Lusi | Radiologo · Tutor | Centro D-Medical – Milano |
+| Danilo Donati | Fisiatra · Tutor | Responsabile Riabilitazione della Mano e dell'Arto Superiore, Policlinico Universitario di Modena – UNIMORE |
+| Davide Milone | Fisiatra · Tutor | Poliambulatorio Sinergo, Messina |
+| Roberto Bianchito | Fisiatra · Tutor | Biolife, Cosenza |
 
 ---
 
@@ -859,6 +862,8 @@ Tag ruolo disponibili: `Fisiatra` · `Radiologo` · `Reumatologo` · `Nefrologa`
 - [ ] Mesi della Quarta edizione in Prenota (Febbraio vs Marzo)
 - [x] Foto relatori ottimizzate in WebP (8,5 MB → 0,5 MB, lato massimo 800px)
 - [ ] **Foto relatori ancora da sostituire** (aggiornate l'11/11: Di Gesù, Amico, Latini in alta risoluzione; card della home di Vitale, Romeo, Monello, Reggiani, Secci ricavate dalle foto più grandi disponibili). Mancano: **Claudio Secci** per la pagina Relatori (oggi 350px, mostrata a 402) e **Vincenzo Cosentino** per la home (oggi 200×300, mostrata a 278×371). Facoltativo, per gli schermi ad alta densità: originali più grandi di 500px per Vitale, Romeo, Monello, Reggiani
+- [ ] **Nuovi tutor** (14/11/2026): Danilo Donati, Davide Milone, Roberto Bianchito, dati dai link del cliente. Danilo Donati sul sito ANFI è anche tra i docenti: va aggiunto ai docenti, con le relazioni?
+- [ ] **Faculty in home:** mostra tutti i 18 docenti + Vincenzo Cosentino (sul sito ANFI è tra gli «Organizzatori», non docente né tutor): confermare se resta. Tolto «Dott.» dai nomi per uniformità con la pagina Relatori
 - [ ] Loghi sponsor in vettoriale / PNG su trasparente (su sfondo nero i PNG bianchi 300×100 attuali potrebbero non funzionare)
 - [x] Video hero: `04_Header_Desktop_HB.webm` e `04_Header_Mobile_HB.webm` scaricati dal sito ANFI in `assets/video/` (confermare che si possano riusare)
 - [ ] Copertina Atlante in alta risoluzione

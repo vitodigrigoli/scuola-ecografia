@@ -92,7 +92,7 @@ const page = `    <!-- ============================== PAGE HERO (hero --compact 
           <ul class="hero__meta">
             <li class="hero__meta-item">${ic('calendar')}4 weekend · sabato e domenica</li>
             <li class="hero__meta-item">${ic('map-pin')}J|Hotel, Torino</li>
-            <li class="hero__meta-item">${ic('users')}1 tutor ogni 5 discenti</li>
+            <li class="hero__meta-item">${ic('users')}1 tutor per 5 discenti</li>
           </ul>
           <div class="hero__actions">
             <a class="btn btn--secondary" href="https://associazioneanfi.it/programma-scuola-3ed_c/" target="_blank" rel="noopener">${ic('document')}Scarica il programma in PDF</a>

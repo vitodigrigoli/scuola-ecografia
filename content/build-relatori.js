@@ -85,11 +85,11 @@ const page = `    <!-- ============================== PAGE HERO ================
         <div class="hero__content">
           <p class="hero__badge"><span class="hero__badge-dot" aria-hidden="true"></span>Terza edizione · 2026</p>
           <h1 class="hero__title" id="page-title">Chi insegna alla Scuola</h1>
-          <p class="hero__subtitle">Fisiatri, radiologi, reumatologi e medici dello sport che usano l'ecografia nella pratica clinica quotidiana. Ogni docente è anche tutor alle postazioni.</p>
+          <p class="hero__subtitle">Fisiatri, radiologi, reumatologi e medici dello sport che usano l'ecografia nella pratica clinica quotidiana.</p>
           <ul class="hero__meta">
             <li class="hero__meta-item">${ic('users')}${docenti.length} docenti</li>
             <li class="hero__meta-item">${ic('probe')}${tutor.length} tutor</li>
-            <li class="hero__meta-item">${ic('award')}1 tutor ogni 5 discenti</li>
+            <li class="hero__meta-item">${ic('award')}1 tutor per 5 discenti</li>
           </ul>
           <div class="hero__actions">
             <a class="btn btn--secondary" href="#docenti">Docenti</a>
@@ -120,7 +120,7 @@ ${docenti.map(p => card(p, { skipTag: 'Docente' })).join('\n')}
         <div class="text-block text-block--split">
           <p class="text-block__eyebrow">Tutor</p>
           <h2 class="text-block__title" id="tutor-title">Alle postazioni con te</h2>
-          <p class="text-block__text">I tutor seguono i gruppi durante le prove pratiche: un tutor ogni cinque partecipanti, per tutta la durata della Scuola.</p>
+          <p class="text-block__text">I tutor seguono i gruppi durante le prove pratiche: 1 tutor per 5 discenti, per tutta la durata della Scuola.</p>
         </div>
         <div class="people__grid">
 ${tutor.map(p => card({ ...p, rel: [], aff: '' }, { compact: true, skipTag: 'Tutor' })).join('\n')}

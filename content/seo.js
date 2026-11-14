@@ -15,7 +15,7 @@ const CORSO = 'Corso di Ecografia Muscoloscheletrica';
 const pagine = {
   home: {
     title: 'Scuola di Ecografia · Corso di ecografia muscoloscheletrica',
-    description: 'Corso di ecografia muscoloscheletrica per medici: 4 weekend tra lezioni, live ecografiche e prove pratiche, con un tutor ogni 5 discenti.',
+    description: 'Corso di ecografia muscoloscheletrica per medici: 4 weekend tra lezioni, live ecografiche e prove pratiche, con 1 tutor per 5 discenti.',
   },
   metodo: {
     title: 'Il metodo didattico · Scuola di Ecografia',
@@ -79,7 +79,7 @@ function home(siteUrl) {
     '@type': 'Course',
     '@id': siteUrl + '/#corso',
     name: CORSO,
-    description: 'Percorso di formazione in ecografia muscoloscheletrica riservato ai medici: quattro weekend di lezioni teoriche, live ecografiche e prove pratiche alle postazioni, con un tutor ogni cinque discenti.',
+    description: 'Percorso di formazione in ecografia muscoloscheletrica riservato ai medici: quattro weekend di lezioni teoriche, live ecografiche e prove pratiche alle postazioni, con 1 tutor per 5 discenti.',
     inLanguage: 'it',
     provider: { '@id': siteUrl + '/#scuola' },
     educationalLevel: 'Formazione post-laurea per medici',
