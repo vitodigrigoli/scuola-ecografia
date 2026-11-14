@@ -113,9 +113,10 @@ Per vedere una sola sezione a più larghezze/temi (file locale, non versionato �
 
 Interruttori in [content/config.js](content/config.js), poi `node content/build-metodo.js && node content/build-pages.js`:
 
+- **metodoOnline** (oggi `false`): pagina «Il metodo» nascosta, niente `metodo.html`, voce di menu né sitemap; il sorgente resta in `content/`.
 - **casiOnline** (oggi `false`): casi clinici nascosti, niente pagine, voce di menu né card nel Metodo; i sorgenti restano in `content/`.
-- **ga4Id** (oggi vuoto): con l'ID `G-…` l'avviso cookie diventa una richiesta di consenso (Accetta e Rifiuta identici), GA4 parte **solo** dopo Accetta, nel footer compare «Preferenze cookie» e le policy mostrano le sezioni su GA4 (blocchi `<!-- se:ga4 -->`). Non incollare lo snippet di Google nelle pagine.
-- **indicizzabile** (oggi `false`): toglie il meta `noindex` e apre `robots.txt`; da mettere `true` al lancio su scuoladiecografia.com, poi inviare `sitemap.xml` in Google Search Console.
+- **ga4Id** (oggi `GTM-NHTPWQXG`): con l'ID l'avviso cookie diventa una richiesta di consenso (Accetta e Rifiuta identici), GA4 parte **solo** dopo Accetta, nel footer compare «Preferenze cookie» e le policy mostrano le sezioni su GA4 (blocchi `<!-- se:ga4 -->`). Non incollare lo snippet di Google nelle pagine.
+- **indicizzabile** (oggi `true`): senza meta `noindex` e con `robots.txt` aperto; dopo il lancio su scuoladiecografia.com inviare `sitemap.xml` in Google Search Console.
 - **siteUrl**: `https://scuoladiecografia.com`, usato per URL canonici, Open Graph e sitemap. Titoli, descrizioni e dati strutturati sono in [content/seo.js](content/seo.js).
 
 **Hosting SiteGround**: nella cartella del sito vanno caricati solo i file pubblici (gli `*.html` in radice, `favicon.ico`, `site.webmanifest`, `robots.txt`, `sitemap.xml`, `assets/`, `css/`, `js/`), non `content/`, `design-reference/`, `_preview.html`, `README.md`. Data center nell'UE.

@@ -10,6 +10,11 @@ module.exports = {
      dopo aver lanciato anche build-casi.js e build-caso.js. */
   casiOnline: false,
 
+  /* Pagina «Il metodo»: false = nascosta (niente metodo.html, niente voce nel menu né in sitemap).
+     Il sorgente resta in content/ (build-metodo.js, pages/metodo.html): per riattivarla basta
+     rimettere true e rigenerare. */
+  metodoOnline: false,
+
   /* Pulsante «Login» nell'header (area soci ANFI): false = nascosto, per ora. */
   loginOnline: false,
 
@@ -31,5 +36,5 @@ module.exports = {
 
   /* Indicizzazione nei motori di ricerca: false = <meta name="robots" content="noindex">
      (anteprima). Mettere true quando il sito è online su scuoladiecografia.com. */
-  indicizzabile: false,
+  indicizzabile: true,
 };

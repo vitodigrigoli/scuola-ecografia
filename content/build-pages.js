@@ -13,7 +13,8 @@ const casiPagine = fs.existsSync(path.join(__dirname, 'casi-pagine.json'))
 
 const pages = [
   { file: 'index.html',     id: 'home',      title: 'Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Home' },
-  { file: 'metodo.html',    id: 'metodo',    title: 'Il metodo — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Il metodo' },
+  // pagina Il metodo solo se online (content/config.js)
+  ...(config.metodoOnline ? [{ file: 'metodo.html', id: 'metodo', title: 'Il metodo — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Il metodo' }] : []),
   { file: 'programma.html', id: 'programma', title: 'Programma — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Programma' },
   { file: 'relatori.html',  id: 'relatori',  title: 'Relatori — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Relatori' },
   { file: 'prenota.html',   id: 'prenota',   title: 'Prenota — Scuola di Ecografia Muscoloscheletrica ANFI', h1: 'Prenota' },
@@ -27,7 +28,7 @@ const pages = [
 ];
 
 const links = [
-  { id: 'metodo',    href: 'metodo.html',    label: 'Il metodo' },
+  ...(config.metodoOnline ? [{ id: 'metodo', href: 'metodo.html', label: 'Il metodo' }] : []),
   { id: 'programma', href: 'programma.html', label: 'Programma' },
   { id: 'relatori',  href: 'relatori.html',  label: 'Relatori' },
   ...(config.casiOnline ? [{ id: 'casi-clinici', href: 'casi-clinici.html', label: 'Casi clinici' }] : []),
@@ -314,6 +315,10 @@ for (const p of pages) {
   fs.writeFileSync(path.join(__dirname, '..', p.file), page(p));
   console.log('scritto', p.file);
 }
+
+/* Pagine nascoste: si toglie la copia generata in radice, così non resta raggiungibile online */
+const nascoste = [...(config.metodoOnline ? [] : ['metodo.html']), ...(config.casiOnline ? [] : ['casi-clinici.html', ...casiPagine.map((p) => p.file)])];
+for (const f of nascoste) { const fp = path.join(__dirname, '..', f); if (fs.existsSync(fp)) { fs.unlinkSync(fp); console.log('rimosso', f, '(pagina nascosta)'); } }
 
 /* sitemap.xml e robots.txt: seguono config.indicizzabile. Finché è false il sito chiede di non
    essere indicizzato (anteprima); al lancio, con true, si aprono da soli. */

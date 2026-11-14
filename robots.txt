@@ -1,3 +1,4 @@
-# Anteprima: indicizzazione disattivata (content/config.js → indicizzabile: false)
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://scuoladiecografia.com/sitemap.xml
