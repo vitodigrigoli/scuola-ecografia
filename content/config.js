@@ -1,19 +1,28 @@
 /* Interruttori del sito, letti dai generatori (build-pages.js, build-metodo.js).
-   Dopo una modifica: node content/build-metodo.js && node content/build-pages.js */
+
+   Due profili:
+     - ANTEPRIMA (default, GitHub Pages): tutte le pagine visibili per la revisione, niente
+       indicizzazione. Si genera con i soliti comandi, es.
+       node content/build-metodo.js && node content/build-pages.js
+     - PRODUZIONE (scuoladiecografia.com su SiteGround): pagine non ancora pronte nascoste
+       (Il metodo, casi clinici), indicizzazione attiva. Si genera SOLO con  node content/pubblica.js , che crea lo
+       zip da caricare e poi rimette il repository in anteprima. */
+const produzione = process.env.SITO === 'produzione';
+
 module.exports = {
+  produzione,
+
   /* Indirizzo pubblico del sito, senza barra finale: URL canonici, Open Graph, sitemap.xml */
   siteUrl: 'https://scuoladiecografia.com',
 
-  /* Casi clinici: false = sezione nascosta (niente pagine generate, niente voce nel menu,
+  /* Casi clinici: visibili in anteprima, nascosti in produzione. false = sezione nascosta (niente pagine generate, niente voce nel menu,
      niente rimandi dalle altre pagine). I sorgenti restano in content/ (build-casi.js,
-     build-caso.js, content/casi/): per riattivarla basta rimettere true e rigenerare,
-     dopo aver lanciato anche build-casi.js e build-caso.js. */
-  casiOnline: false,
+     build-caso.js, content/casi/): per pubblicarla mettere true. */
+  casiOnline: !produzione,
 
-  /* Pagina «Il metodo»: false = nascosta (niente metodo.html, niente voce nel menu né in sitemap).
-     Il sorgente resta in content/ (build-metodo.js, pages/metodo.html): per riattivarla basta
-     rimettere true e rigenerare. */
-  metodoOnline: false,
+  /* Pagina «Il metodo»: visibile in anteprima, nascosta in produzione. false = nascosta (niente metodo.html, niente voce nel menu né in sitemap).
+     Il sorgente resta in content/ (build-metodo.js, pages/metodo.html): per pubblicarla mettere true. */
+  metodoOnline: !produzione,
 
   /* Pulsante «Login» nell'header (area soci ANFI): false = nascosto, per ora. */
   loginOnline: false,
@@ -35,6 +44,6 @@ module.exports = {
   ga4MeasurementId: 'G-N50D4XPGHL',
 
   /* Indicizzazione nei motori di ricerca: false = <meta name="robots" content="noindex">
-     (anteprima). Mettere true quando il sito è online su scuoladiecografia.com. */
-  indicizzabile: true,
+     (anteprima su GitHub Pages); in produzione indicizzabile. */
+  indicizzabile: produzione,
 };
